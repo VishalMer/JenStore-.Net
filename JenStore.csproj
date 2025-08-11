@@ -1,0 +1,380 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{028502D3-2D99-4752-AF31-A61214D8AD2C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JenStore</RootNamespace>
+    <AssemblyName>JenStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\JenStoreDB.mdf" />
+    <Content Include="App_Data\JenStoreDB_log.ldf">
+      <DependentUpon>JenStoreDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="css\bootstrap\mixin-active-bg-menu.css" />
+    <Content Include="css\bootstrap\mixin-back-top.css" />
+    <Content Include="css\bootstrap\mixin-BG-text.css" />
+    <Content Include="css\bootstrap\mixin-grid-list.css" />
+    <Content Include="css\bootstrap\mixin-header-v3.css" />
+    <Content Include="css\bootstrap\mixin-input-number.css" />
+    <Content Include="css\bootstrap\mixin-modal-quickview.css" />
+    <Content Include="css\bootstrap\mixin-mysidebar.css" />
+    <Content Include="css\bootstrap\mixin-select-custom.css" />
+    <Content Include="css\bootstrap\mixin-show-sidebar.css" />
+    <Content Include="css\bootstrap\mixin-style-search.css" />
+    <Content Include="css\bootstrap\mixin.css" />
+    <Content Include="css\img\BG-acc.png" />
+    <Content Include="css\img\BG-footer.png" />
+    <Content Include="css\img\BG-home1.jpg" />
+    <Content Include="css\img\BG-slide1-v2.png" />
+    <Content Include="css\img\BG-slide2-v2.png" />
+    <Content Include="css\img\BG-slide3-v2.png" />
+    <Content Include="css\img\BG-title-v3.jpg" />
+    <Content Include="css\img\BG-title.jpg" />
+    <Content Include="css\img\BG-v2.jpg" />
+    <Content Include="css\img\brand.png" />
+    <Content Include="css\img\like-fb.png" />
+    <Content Include="css\img\logo.png" />
+    <Content Include="css\img\new-letter.jpg" />
+    <Content Include="css\img\Next.png" />
+    <Content Include="css\img\social-v3.png" />
+    <Content Include="css\img\social.png" />
+    <Content Include="css\style-404.css" />
+    <Content Include="css\style-about.css" />
+    <Content Include="css\style-checkout.css" />
+    <Content Include="css\style-contact.css" />
+    <Content Include="css\style-faq.css" />
+    <Content Include="css\style-fix-nav.css" />
+    <Content Include="css\style-flower.css" />
+    <Content Include="css\style-form-search-mobile.css" />
+    <Content Include="css\style-full-screen.css" />
+    <Content Include="css\style-homev1.css" />
+    <Content Include="css\style-homev2.css" />
+    <Content Include="css\style-homev3.css" />
+    <Content Include="css\style-left-blog.css" />
+    <Content Include="css\style-login.css" />
+    <Content Include="css\style-order.css" />
+    <Content Include="css\style-post.css" />
+    <Content Include="css\style-product-detail.css" />
+    <Content Include="css\style-res-about.css" />
+    <Content Include="css\style-res-contact.css" />
+    <Content Include="css\style-res-flower.css" />
+    <Content Include="css\style-res-post.css" />
+    <Content Include="css\style-res-product-detail.css" />
+    <Content Include="css\style-res-shop.css" />
+    <Content Include="css\style-res-v1.css" />
+    <Content Include="css\style-res-v3.css" />
+    <Content Include="css\style-shop.css" />
+    <Content Include="css\style-shopping.css" />
+    <Content Include="css\style-tracking.css" />
+    <Content Include="css\style-wishlist.css" />
+    <Content Include="img\1050x850.png" />
+    <Content Include="img\115x115.jpg" />
+    <Content Include="img\115x115.png" />
+    <Content Include="img\1350x500 x.png" />
+    <Content Include="img\1350x500.png" />
+    <Content Include="img\150x110.png" />
+    <Content Include="img\1820x1090.png" />
+    <Content Include="img\1920x1080%282%29.png" />
+    <Content Include="img\1920x1080.png" />
+    <Content Include="img\1920x1170.png" />
+    <Content Include="img\1920x830.png" />
+    <Content Include="img\1920x880.png" />
+    <Content Include="img\220x220.png" />
+    <Content Include="img\310x26.png" />
+    <Content Include="img\315x400.png" />
+    <Content Include="img\340x240.png" />
+    <Content Include="img\340x420%28bloom nation%29.jpg" />
+    <Content Include="img\340x420%28buqet lavender%29.jpg" />
+    <Content Include="img\340x420%28buqet rose%29.jpg" />
+    <Content Include="img\340x420%28cottage%29.jpg" />
+    <Content Include="img\340x420%28fun flirty%29.jpg" />
+    <Content Include="img\340x420%28Pink roses%29.jpg" />
+    <Content Include="img\340x420%28queen rose pink%29.jpg" />
+    <Content Include="img\340x420%28queen rose%29.jpg" />
+    <Content Include="img\340x420%28rose red%29.jpg" />
+    <Content Include="img\340x420%28tulip floride red%29.jpg" />
+    <Content Include="img\340x420%28tulip yellow%29.jpg" />
+    <Content Include="img\340x420%28west palm bitch%29.jpg" />
+    <Content Include="img\340x420%28winter white buqet%29.jpg" />
+    <Content Include="img\340x420.png" />
+    <Content Include="img\430x490.png" />
+    <Content Include="img\440x360 2.jpg" />
+    <Content Include="img\440x360 3.jpg" />
+    <Content Include="img\440x360 4 blog.jpg" />
+    <Content Include="img\440x360.jpg" />
+    <Content Include="img\440x360.png" />
+    <Content Include="img\50x70.png" />
+    <Content Include="img\550x450.jpg" />
+    <Content Include="img\550x450.png" />
+    <Content Include="img\60x60.png" />
+    <Content Include="img\62x61.png" />
+    <Content Include="img\62x62.png" />
+    <Content Include="img\660x360.png" />
+    <Content Include="img\70x71.png" />
+    <Content Include="img\720x1050.png" />
+    <Content Include="img\77x60.png" />
+    <Content Include="img\800x1132.png" />
+    <Content Include="img\82x62.png" />
+    <Content Include="img\890x490.png" />
+    <Content Include="img\960x830.png" />
+    <Content Include="img\970x540.png" />
+    <Content Include="img\cart.png" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\icon-delete-cart.png" />
+    <Content Include="img\icon-order-complete.png" />
+    <Content Include="img\icon-page404.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\Next.png" />
+    <Content Include="img\Search.png" />
+    <Content Include="img\Send.png" />
+    <Content Include="js\bootstrap.min_0028.js" />
+    <Content Include="js\function-back-top.js" />
+    <Content Include="js\function-flower.js" />
+    <Content Include="js\function-homev1.js" />
+    <Content Include="js\function-homev2.js" />
+    <Content Include="js\function-input-number.js" />
+    <Content Include="js\function-map.js" />
+    <Content Include="js\function-menu-v2.js" />
+    <Content Include="js\function-range.js" />
+    <Content Include="js\function-scroll.js" />
+    <Content Include="js\function-search-v2.js" />
+    <Content Include="js\function-select-custom.js" />
+    <Content Include="js\function-shop.js" />
+    <Content Include="js\function-shopping-cart.js" />
+    <Content Include="js\function-show-sidebar.js" />
+    <Content Include="js\function-sidebar.js" />
+    <Content Include="js\function-slick.js" />
+    <Content Include="js\function-store.js" />
+    <Content Include="js\function-time-counter.js" />
+    <Content Include="js\funtion-header-v3.js" />
+    <Content Include="js\jquery-1.10.2.710.js" />
+    <Content Include="js\jquery-ui_c2.js" />
+    <Content Include="js\jquery.min_af.js" />
+    <Content Include="login_register.aspx" />
+    <Content Include="scrolling\jquery.superscrollorama.js" />
+    <Content Include="scrolling\TweenMax.min.js" />
+    <Content Include="slick\ajax-loader.gif" />
+    <Content Include="slick\fonts\slick.svg" />
+    <Content Include="slick\slick-theme.css" />
+    <Content Include="slick\slick.css" />
+    <Content Include="slick\slick.js" />
+    <Content Include="slick\slick.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="login_register.aspx.cs">
+      <DependentUpon>login_register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login_register.aspx.designer.cs">
+      <DependentUpon>login_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="login_register.Master.cs">
+      <DependentUpon>login_register.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login_register.Master.designer.cs">
+      <DependentUpon>login_register.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap\mixin-active-bg-menu.css.map" />
+    <Content Include="css\bootstrap\mixin-back-top.css.map" />
+    <Content Include="css\bootstrap\mixin-BG-text.css.map" />
+    <Content Include="css\bootstrap\mixin-grid-list.css.map" />
+    <Content Include="css\bootstrap\mixin-header-v3.css.map" />
+    <Content Include="css\bootstrap\mixin-input-number.css.map" />
+    <Content Include="css\bootstrap\mixin-modal-quickview.css.map" />
+    <Content Include="css\bootstrap\mixin-mysidebar.css.map" />
+    <Content Include="css\bootstrap\mixin-select-custom.css.map" />
+    <Content Include="css\bootstrap\mixin-show-sidebar.css.map" />
+    <Content Include="css\bootstrap\mixin-style-search.css.map" />
+    <Content Include="css\bootstrap\mixin.css.map" />
+    <Content Include="css\style-404.css.map" />
+    <Content Include="css\style-about.css.map" />
+    <Content Include="css\style-checkout.css.map" />
+    <Content Include="css\style-contact.css.map" />
+    <Content Include="css\style-faq.css.map" />
+    <Content Include="css\style-fix-nav.css.map" />
+    <Content Include="css\style-flower.css.map" />
+    <Content Include="css\style-form-search-mobile.css.map" />
+    <Content Include="css\style-full-screen.css.map" />
+    <Content Include="css\style-homev1.css.map" />
+    <Content Include="css\style-homev2.css.map" />
+    <Content Include="css\style-homev3.css.map" />
+    <Content Include="css\style-left-blog.css.map" />
+    <Content Include="css\style-login.css.map" />
+    <Content Include="css\style-order.css.map" />
+    <Content Include="css\style-post.css.map" />
+    <Content Include="css\style-product-detail.css.map" />
+    <Content Include="css\style-res-about.css.map" />
+    <Content Include="css\style-res-contact.css.map" />
+    <Content Include="css\style-res-flower.css.map" />
+    <Content Include="css\style-res-post.css.map" />
+    <Content Include="css\style-res-product-detail.css.map" />
+    <Content Include="css\style-res-shop.css.map" />
+    <Content Include="css\style-res-v1.css.map" />
+    <Content Include="css\style-res-v3.css.map" />
+    <Content Include="css\style-shop.css.map" />
+    <Content Include="css\style-shopping.css.map" />
+    <Content Include="css\style-tracking.css.map" />
+    <Content Include="css\style-wishlist.css.map" />
+    <None Include="packages.config" />
+    <Content Include="login_register.Master" />
+    <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
+    <Content Include="sass\bootstrap\mixin-back-top.scss" />
+    <Content Include="sass\bootstrap\mixin-BG-text.scss" />
+    <Content Include="sass\bootstrap\mixin-grid-list.scss" />
+    <Content Include="sass\bootstrap\mixin-header-v3.scss" />
+    <Content Include="sass\bootstrap\mixin-input-number.scss" />
+    <Content Include="sass\bootstrap\mixin-modal-quickview.scss" />
+    <Content Include="sass\bootstrap\mixin-mysidebar.scss" />
+    <Content Include="sass\bootstrap\mixin-select-custom.scss" />
+    <Content Include="sass\bootstrap\mixin-show-sidebar.scss" />
+    <Content Include="sass\bootstrap\mixin-style-search.scss" />
+    <Content Include="sass\bootstrap\mixin.scss" />
+    <Content Include="sass\style-404.scss" />
+    <Content Include="sass\style-about.scss" />
+    <Content Include="sass\style-checkout.scss" />
+    <Content Include="sass\style-contact.scss" />
+    <Content Include="sass\style-faq.scss" />
+    <Content Include="sass\style-fix-nav.scss" />
+    <Content Include="sass\style-flower.scss" />
+    <Content Include="sass\style-form-search-mobile.scss" />
+    <Content Include="sass\style-full-screen.scss" />
+    <Content Include="sass\style-homev1.scss" />
+    <Content Include="sass\style-homev2.scss" />
+    <Content Include="sass\style-homev3.scss" />
+    <Content Include="sass\style-left-blog.scss" />
+    <Content Include="sass\style-login.scss" />
+    <Content Include="sass\style-order.scss" />
+    <Content Include="sass\style-post.scss" />
+    <Content Include="sass\style-product-detail.scss" />
+    <Content Include="sass\style-res-about.scss" />
+    <Content Include="sass\style-res-contact.scss" />
+    <Content Include="sass\style-res-flower.scss" />
+    <Content Include="sass\style-res-post.scss" />
+    <Content Include="sass\style-res-product-detail.scss" />
+    <Content Include="sass\style-res-shop.scss" />
+    <Content Include="sass\style-res-v1.scss" />
+    <Content Include="sass\style-res-v3.scss" />
+    <Content Include="sass\style-shop.scss" />
+    <Content Include="sass\style-shopping.scss" />
+    <Content Include="sass\style-tracking.scss" />
+    <Content Include="sass\style-wishlist.scss" />
+    <Content Include="slick\config.rb" />
+    <Content Include="slick\fonts\slick.eot" />
+    <Content Include="slick\fonts\slick.ttf" />
+    <Content Include="slick\fonts\slick.woff" />
+    <Content Include="slick\slick-theme.less" />
+    <Content Include="slick\slick-theme.scss" />
+    <Content Include="slick\slick.less" />
+    <Content Include="slick\slick.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50318</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44300/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

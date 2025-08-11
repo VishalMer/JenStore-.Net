@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace JenStore
+{
+    public partial class login_register : System.Web.UI.Page
+    {
+        string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        SqlConnection con;
+        SqlDataAdapter da;
+        DataSet ds;
+        SqlCommand cmd;
+        
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            getcon();
+        }
+        void getcon()
+        {
+            con = new SqlConnection(connect);
+            con.Open();
+        }
+
+        void clear()
+        {
+            inputusernameres.Text = "";
+            inputemailres.Text = "";
+            inputpassres.Text = "";
+        }
+
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            getcon();
+            cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue  + "')", con);
+
+            cmd.ExecuteNonQuery();
+            clear();
+            con.Close();
+        }
+
+    }
+}
