@@ -52,7 +52,7 @@ namespace JenStore
         {
             getcon(); 
 
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = '" + inputemail.Text + "' AND password = '" + inputpass.Text + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
 
             try
             {
@@ -65,7 +65,7 @@ namespace JenStore
                 else
                 {
 
-                    Response.Write("Invalid email or password.");
+                    Response.Write("Invalid email/username or password.");
                 }
             }
             catch (Exception ex)
