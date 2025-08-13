@@ -60,31 +60,50 @@ namespace JenStore
 
         protected void loginBTN_Click(object sender, EventArgs e)
         {
-            getcon(); 
-
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
-
-            try
+            if (inputemail.Text == "" && inputpass.Text == "")
             {
-                int count = (int)cmd.ExecuteScalar();
-
-                if (count > 0)
-                {
-                    Response.Write("Login successful!");
-                }
-                else
-                {
-
-                    Response.Write("Invalid email/username or password.");
-                }
+                emailErr.Text = "Username/Email is required!";
+                passErr.Text = "password is required!! ";
             }
-            catch (Exception ex)
+            else if(inputpass.Text == "")
             {
-                Response.Write("An error occurred: " + ex.Message);
+                passErr.Text = "password is required!! ";
+                emailErr.Text = "";
             }
-            finally
+            else if(inputemail.Text == "")
             {
-                con.Close();
+                emailErr.Text = "Username/Email is required!";
+                passErr.Text = "";
+            }
+            else
+            {
+                getcon();
+
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
+
+                try
+                {
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        Response.Write("Login successful!");
+                    }
+                    else
+                    {
+
+                        passErr.Text = "Invalid email/username or password.";
+                        emailErr.Text = "";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
     }

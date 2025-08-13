@@ -49,6 +49,12 @@
                     color: black;
                     text-decoration: none;
                 }
+
+            .ErrMsg{
+                color:orangered;
+                font-weight:900;
+                font: 300 14px / 20px "Poppins";
+            }
         </style>
     </head>
     <body>
@@ -219,26 +225,28 @@
                             </div>
                             <!-- End social -->
                             <%--<form class="form-horizontal" method="POST">--%>
-                                <div class="group box space-20">
-                                    <label class="control-label" for="inputemail">
-                                        EMAIL ADDRESS OR USERNAME *</label>
-                                    <asp:TextBox class="form-control" type="text" placeholder="Your email or username" ID="inputemail" runat="server"></asp:TextBox>
-                                    <%--<input class="form-control" type="text" placeholder="Your email or username" id="inputemail">--%>
-                                </div>
-                                <div class="group box">
-                                    <label class="control-label" for="inputpass">
-                                        PASSWORD *</label>
-                                    <asp:TextBox class="form-control" type="password" placeholder="Password" ID="inputpass" runat="server"></asp:TextBox>
-                                    <%--<input class="form-control" type="password" placeholder="Password" id="inputpass">--%>
-                                </div>
-                                <div class="remember">
-                                    <input id="remeber" type="checkbox" name="check" value="remeber">
-                                    <label for="remeber" class="label-check">
-                                        remember me!</label>
-                                    <a class="help" href="#" title="help ?">Fogot your password?</a>
-                                </div>
-                                <asp:Button ID="loginBTN" runat="server" Text="LOGIN NOW" OnClick="loginBTN_Click" />
-                                <%--<button type="submit" class="link-v1 rt">
+                            <div class="group box space-20">
+                                <label class="control-label" for="inputemail">
+                                    EMAIL ADDRESS OR USERNAME *</label>
+                                <asp:TextBox class="form-control" type="text" placeholder="Your email or username" ID="inputemail" runat="server"></asp:TextBox>
+                                <asp:Label ID="emailErr" class="ErrMsg" runat="server" Text=""></asp:Label>
+                                <%--<input class="form-control" type="text" placeholder="Your email or username" id="inputemail">--%>
+                            </div>
+                            <div class="group box">
+                                <label class="control-label" for="inputpass">
+                                    PASSWORD *</label>
+                                <asp:TextBox class="form-control" type="password" placeholder="Password" ID="inputpass" runat="server"></asp:TextBox>
+                                <asp:Label ID="passErr" class="ErrMsg" runat="server" Text=""></asp:Label>
+                                <%--<input class="form-control" type="password" placeholder="Password" id="inputpass">--%>
+                            </div>
+                            <div class="remember">
+                                <input id="remeber" type="checkbox" name="check" value="remeber">
+                                <label for="remeber" class="label-check">
+                                    remember me!</label>
+                                <a class="help" href="#" title="help ?">Fogot your password?</a>
+                            </div>
+                            <asp:Button class="link-v1 rt" ID="loginBTN" runat="server" Text="LOGIN NOW" OnClick="loginBTN_Click" />
+                            <%--<button type="submit" class="link-v1 rt">
                                     LOGIN NOW
                                 </button>--%>
                             <%--</form>--%>

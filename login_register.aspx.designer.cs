@@ -24,6 +24,15 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.TextBox inputemail;
 
         /// <summary>
+        /// emailErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label emailErr;
+
+        /// <summary>
         /// inputpass control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace JenStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputpass;
+
+        /// <summary>
+        /// passErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label passErr;
 
         /// <summary>
         /// loginBTN control.
