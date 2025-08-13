@@ -41,11 +41,21 @@ namespace JenStore
         protected void submit_Click(object sender, EventArgs e)
         {
             getcon();
-            cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue  + "')", con);
+            SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE uname = '" + inputusernameres.Text + "' OR email = '" + inputemailres.Text + "'", con);
+            int count = (int)checkCmd.ExecuteScalar();
 
-            cmd.ExecuteNonQuery();
-            clear();
-            con.Close();
+            if (count > 0)
+            {
+                Response.Write("Username or email already exists!");
+            }
+            else
+            {
+                cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue + "')", con);
+
+                cmd.ExecuteNonQuery();
+                clear();
+                con.Close();
+            }
         }
 
         protected void loginBTN_Click(object sender, EventArgs e)
