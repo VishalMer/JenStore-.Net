@@ -218,16 +218,18 @@
                                 <a class="float-left" href="#" title="facebook"><i class="fab fa-facebook-f"></i>SIGN IN WITH FACEBOOK </a><a class="float-right" href="#" title="TWITTER"><i class="fab fa-twitter"></i>SIGN IN WITH TWITTER </a>
                             </div>
                             <!-- End social -->
-                            <form class="form-horizontal" method="POST">
+                            <%--<form class="form-horizontal" method="POST">--%>
                                 <div class="group box space-20">
                                     <label class="control-label" for="inputemail">
                                         EMAIL ADDRESS OR USERNAME *</label>
-                                    <input class="form-control" type="text" placeholder="Your email or username" id="inputemail">
+                                    <asp:TextBox class="form-control" type="text" placeholder="Your email or username" ID="inputemail" runat="server"></asp:TextBox>
+                                    <%--<input class="form-control" type="text" placeholder="Your email or username" id="inputemail">--%>
                                 </div>
                                 <div class="group box">
                                     <label class="control-label" for="inputpass">
                                         PASSWORD *</label>
-                                    <input class="form-control" type="password" placeholder="Password" id="inputpass">
+                                    <asp:TextBox class="form-control" type="password" placeholder="Password" ID="inputpass" runat="server"></asp:TextBox>
+                                    <%--<input class="form-control" type="password" placeholder="Password" id="inputpass">--%>
                                 </div>
                                 <div class="remember">
                                     <input id="remeber" type="checkbox" name="check" value="remeber">
@@ -235,10 +237,11 @@
                                         remember me!</label>
                                     <a class="help" href="#" title="help ?">Fogot your password?</a>
                                 </div>
-                                <button type="submit" class="link-v1 rt">
+                                <asp:Button ID="loginBTN" runat="server" Text="LOGIN NOW" OnClick="loginBTN_Click" />
+                                <%--<button type="submit" class="link-v1 rt">
                                     LOGIN NOW
-                                </button>
-                            </form>
+                                </button>--%>
+                            <%--</form>--%>
                             <!-- End form -->
                         </div>
                         <!-- End col-md-6 -->

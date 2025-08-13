@@ -48,5 +48,34 @@ namespace JenStore
             con.Close();
         }
 
+        protected void loginBTN_Click(object sender, EventArgs e)
+        {
+            getcon(); 
+
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = '" + inputemail.Text + "' AND password = '" + inputpass.Text + "'", con);
+
+            try
+            {
+                int count = (int)cmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    Response.Write("Login successful!");
+                }
+                else
+                {
+
+                    Response.Write("Invalid email or password.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
