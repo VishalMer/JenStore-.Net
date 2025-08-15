@@ -36,25 +36,63 @@ namespace JenStore
             inputusernameres.Text = "";
             inputemailres.Text = "";
             inputpassres.Text = "";
+            emailErr.Text = "";
+            passErr.Text = "";
+            userError.Text = "";
+            emailError.Text = "";
+            passError.Text = "";
         }
 
+        //Register button
         protected void submit_Click(object sender, EventArgs e)
         {
-            getcon();
-            SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE uname = '" + inputusernameres.Text + "' OR email = '" + inputemailres.Text + "'", con);
-            int count = (int)checkCmd.ExecuteScalar();
-
-            if (count > 0)
+            if (string.IsNullOrWhiteSpace(inputusernameres.Text))
             {
-                Response.Write("Username or email already exists!");
+                userError.Text = "Username is required!";
+                emailError.Text = "";
+                passError.Text = "";
+            }
+            else if (string.IsNullOrWhiteSpace(inputemailres.Text))
+            {
+                userError.Text = "";
+                emailError.Text = "Email is required!";
+                passError.Text = "";
+            }
+            else if (string.IsNullOrEmpty(inputpassres.Text))
+            {
+                userError.Text = "";
+                emailError.Text = "";
+                passError.Text = "Password is required!";
             }
             else
             {
-                cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue + "')", con);
+                getcon();
+                SqlCommand checkUser = new SqlCommand("SELECT COUNT(*) FROM users WHERE uname = '" + inputusernameres.Text + "' ", con);
+                int uCount = (int)checkUser.ExecuteScalar();
 
-                cmd.ExecuteNonQuery();
-                clear();
-                con.Close();
+                SqlCommand checkEm = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = '" + inputemailres.Text + "'", con);
+                int eCount = (int)checkEm.ExecuteScalar();
+
+                if (uCount > 0)
+                {
+                    userError.Text = "Username already exists!";
+                    emailError.Text = "";
+                    passError.Text = "";
+                }
+                else if (eCount > 0)
+                {
+                    emailError.Text = "Email already exists!";
+                    userError.Text = "";
+                    passError.Text = "";
+                }
+                else
+                {
+                    cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue + "')", con);
+
+                    cmd.ExecuteNonQuery();
+                    clear();
+                    con.Close();
+                }
             }
         }
 
@@ -75,13 +113,13 @@ namespace JenStore
             {
                 getcon();
 
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
+                SqlCommand checkUserLog = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
 
                 try
                 {
-                    int count = (int)cmd.ExecuteScalar();
+                    int usercount = (int)checkUserLog.ExecuteScalar();
 
-                    if (count > 0)
+                    if (usercount > 0)
                     {
                         Response.Write("Login successful!");
                     }

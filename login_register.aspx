@@ -264,18 +264,21 @@
                                     <label class="control-label" for="inputusernameres">
                                         USERNAME *</label>
                                     <asp:TextBox class="form-control" type="text" placeholder="Your username" ID="inputusernameres" runat="server"></asp:TextBox>
+                                    <asp:Label ID="userError" class="ErrMsg" runat="server" Text=""></asp:Label>
                                     <%--<input class="form-control" type="text" placeholder="Your username" id="inputusernameres">--%>
                                 </div>
                                 <div class="group box space-20">
                                     <label class="control-label" for="inputemailres">
                                         EMAIL ADDRESS *</label>
                                     <asp:TextBox class="form-control" type="email" placeholder="Your email" ID="inputemailres" runat="server"></asp:TextBox>
+                                    <asp:Label ID="emailError" class="ErrMsg" runat="server" Text=""></asp:Label>
                                     <%--<input class="form-control" type="email" placeholder="Your email" id="inputemailres">--%>
                                 </div>
                                 <div class="group box space-20">
                                     <label class="control-label" for="inputpassres">
                                         PASSWORD *</label>
                                     <asp:TextBox class="form-control" type="password" placeholder="Password" ID="inputpassres" runat="server"></asp:TextBox>
+                                    <asp:Label ID="passError" class="ErrMsg" runat="server" Text=""></asp:Label>
                                     <%--<input class="form-control" type="password" placeholder="Password" id="inputpassres">--%>
                                 </div>
                                 <div class="group box space-20">

@@ -69,6 +69,15 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.TextBox inputusernameres;
 
         /// <summary>
+        /// userError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userError;
+
+        /// <summary>
         /// inputemailres control.
         /// </summary>
         /// <remarks>
@@ -78,6 +87,15 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.TextBox inputemailres;
 
         /// <summary>
+        /// emailError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label emailError;
+
+        /// <summary>
         /// inputpassres control.
         /// </summary>
         /// <remarks>
@@ -85,6 +103,15 @@ namespace JenStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputpassres;
+
+        /// <summary>
+        /// passError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label passError;
 
         /// <summary>
         /// rdGen control.
