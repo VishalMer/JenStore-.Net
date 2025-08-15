@@ -19,7 +19,7 @@ namespace JenStore
         SqlDataAdapter da;
         DataSet ds;
         SqlCommand cmd;
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,20 +60,16 @@ namespace JenStore
 
         protected void loginBTN_Click(object sender, EventArgs e)
         {
-            if (inputemail.Text == "" && inputpass.Text == "")
-            {
-                emailErr.Text = "Username/Email is required!";
-                passErr.Text = "password is required!! ";
-            }
-            else if(inputpass.Text == "")
-            {
-                passErr.Text = "password is required!! ";
-                emailErr.Text = "";
-            }
-            else if(inputemail.Text == "")
+            if (string.IsNullOrWhiteSpace(inputemail.Text))
             {
                 emailErr.Text = "Username/Email is required!";
                 passErr.Text = "";
+
+            }
+            else if (string.IsNullOrEmpty(inputpass.Text))
+            {
+                passErr.Text = "password is required!! ";
+                emailErr.Text = "";
             }
             else
             {
@@ -92,7 +88,7 @@ namespace JenStore
                     else
                     {
 
-                        passErr.Text = "Invalid email/username or password.";
+                        passErr.Text = "Invalid credentials.";
                         emailErr.Text = "";
                     }
                 }
