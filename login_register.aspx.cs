@@ -36,11 +36,17 @@ namespace JenStore
             inputusernameres.Text = "";
             inputemailres.Text = "";
             inputpassres.Text = "";
+            rdGen.SelectedValue = null;
+
+            inputemail.Text = "";
+            inputpass.Text = "";
+
             emailErr.Text = "";
             passErr.Text = "";
             userError.Text = "";
             emailError.Text = "";
             passError.Text = "";
+            genError.Text = "";
         }
 
         //Register button
@@ -51,18 +57,28 @@ namespace JenStore
                 userError.Text = "Username is required!";
                 emailError.Text = "";
                 passError.Text = "";
+                genError.Text = "";
             }
             else if (string.IsNullOrWhiteSpace(inputemailres.Text))
             {
                 userError.Text = "";
                 emailError.Text = "Email is required!";
                 passError.Text = "";
+                genError.Text = "";
             }
             else if (string.IsNullOrEmpty(inputpassres.Text))
             {
                 userError.Text = "";
                 emailError.Text = "";
                 passError.Text = "Password is required!";
+                genError.Text = "";
+            }
+            else if (string.IsNullOrEmpty(rdGen.Text))
+            {
+                userError.Text = "";
+                emailError.Text = "";
+                passError.Text = "";
+                genError.Text = "Gender is required!";
             }
             else
             {
@@ -78,12 +94,14 @@ namespace JenStore
                     userError.Text = "Username already exists!";
                     emailError.Text = "";
                     passError.Text = "";
+                    genError.Text = "";
                 }
                 else if (eCount > 0)
                 {
                     emailError.Text = "Email already exists!";
                     userError.Text = "";
                     passError.Text = "";
+                    genError.Text = "";
                 }
                 else
                 {
@@ -96,6 +114,7 @@ namespace JenStore
             }
         }
 
+        //login button
         protected void loginBTN_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(inputemail.Text))
@@ -115,29 +134,20 @@ namespace JenStore
 
                 SqlCommand checkUserLog = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
 
-                try
-                {
-                    int usercount = (int)checkUserLog.ExecuteScalar();
+                int usercount = (int)checkUserLog.ExecuteScalar();
 
-                    if (usercount > 0)
-                    {
-                        Response.Write("Login successful!");
-                    }
-                    else
-                    {
+                if (usercount > 0)
+                {
+                    Response.Write("Login successful!");
+                }
+                else
+                {
 
-                        passErr.Text = "Invalid credentials.";
-                        emailErr.Text = "";
-                    }
+                    passErr.Text = "Invalid credentials.";
+                    emailErr.Text = "";
                 }
-                catch (Exception ex)
-                {
-                    Response.Write("An error occurred: " + ex.Message);
-                }
-                finally
-                {
-                    con.Close();
-                }
+                clear();
+                con.Close();
             }
         }
     }

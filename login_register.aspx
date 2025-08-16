@@ -288,6 +288,7 @@
                                         <asp:ListItem>Male </asp:ListItem>
                                         <asp:ListItem>Female</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <asp:Label ID="genError" class="ErrMsg" runat="server" Text=""></asp:Label>
                                     <%-- <div class="radio-group">
                                         <label class="radio-inline">
                                         <input type="radio" name="gender" value="male" id="gender-male" required> <span class="radio-label">Male</span>
