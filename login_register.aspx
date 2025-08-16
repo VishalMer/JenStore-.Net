@@ -50,11 +50,12 @@
                     text-decoration: none;
                 }
 
-            .ErrMsg{
-                color:orangered;
-                font-weight:900;
+            .ErrMsg {
+                color: orangered;
+                font-weight: 900;
                 font: 300 14px / 20px "Poppins";
             }
+
         </style>
     </head>
     <body>
