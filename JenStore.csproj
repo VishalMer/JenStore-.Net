@@ -71,6 +71,7 @@
     <Content Include="App_Data\JenStoreDB_log.ldf">
       <DependentUpon>JenStoreDB.mdf</DependentUpon>
     </Content>
+    <Content Include="contact.aspx" />
     <Content Include="css\bootstrap\mixin-active-bg-menu.css" />
     <Content Include="css\bootstrap\mixin-back-top.css" />
     <Content Include="css\bootstrap\mixin-BG-text.css" />
@@ -214,15 +215,31 @@
     <Content Include="login_register.aspx" />
     <Content Include="scrolling\jquery.superscrollorama.js" />
     <Content Include="scrolling\TweenMax.min.js" />
+    <Content Include="Shopping.aspx" />
     <Content Include="slick\ajax-loader.gif" />
     <Content Include="slick\fonts\slick.svg" />
     <Content Include="slick\slick-theme.css" />
     <Content Include="slick\slick.css" />
     <Content Include="slick\slick.js" />
     <Content Include="slick\slick.min.js" />
+    <Content Include="user-dashboard.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact.Master.cs">
+      <DependentUpon>contact.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.Master.designer.cs">
+      <DependentUpon>contact.Master</DependentUpon>
+    </Compile>
     <Compile Include="login_register.aspx.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +254,33 @@
     </Compile>
     <Compile Include="login_register.Master.designer.cs">
       <DependentUpon>login_register.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Shopping.aspx.cs">
+      <DependentUpon>Shopping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shopping.aspx.designer.cs">
+      <DependentUpon>Shopping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shopping.Master.cs">
+      <DependentUpon>Shopping.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Shopping.Master.designer.cs">
+      <DependentUpon>Shopping.Master</DependentUpon>
+    </Compile>
+    <Compile Include="user-dashboard.aspx.cs">
+      <DependentUpon>user-dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user-dashboard.aspx.designer.cs">
+      <DependentUpon>user-dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user-dashboard.Master.cs">
+      <DependentUpon>user-dashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user-dashboard.Master.designer.cs">
+      <DependentUpon>user-dashboard.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +325,7 @@
     <Content Include="css\style-shopping.css.map" />
     <Content Include="css\style-tracking.css.map" />
     <Content Include="css\style-wishlist.css.map" />
+    <Content Include="contact.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
@@ -332,6 +377,8 @@
     <Content Include="slick\slick-theme.scss" />
     <Content Include="slick\slick.less" />
     <Content Include="slick\slick.scss" />
+    <Content Include="user-dashboard.Master" />
+    <Content Include="Shopping.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

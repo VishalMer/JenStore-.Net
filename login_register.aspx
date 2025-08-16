@@ -74,7 +74,7 @@
                             </button>
                         </form>--%>
                         <ul class="nav navbar-nav menu-main">
-                            <li class="menu-home"><a href="home.html">Home</a><figure id="home-1">
+                            <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
                             </li>
                             <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
@@ -87,25 +87,25 @@
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.html">Shopping</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.html">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.html">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.html">Order</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.html">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.html">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.html">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.html">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.html">Wishlist</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -116,16 +116,16 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="login_register.html" class="active">Login/Register</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li><a href="login_register.aspx" class="active">Login/Register</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.html">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.html">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.html"><i class="far fa-user"></i>My Account</a></li>
+                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
                             <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
                                     <i class="far fa-times-circle"></i>
@@ -138,7 +138,7 @@
                     <ul class="nav navbar-nav navbar-right icon-menu">
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                         <li class="dropdown cart-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                             <div class="dropdown-menu">
