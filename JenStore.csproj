@@ -71,6 +71,7 @@
     <Content Include="App_Data\JenStoreDB_log.ldf">
       <DependentUpon>JenStoreDB.mdf</DependentUpon>
     </Content>
+    <Content Include="checkout.aspx" />
     <Content Include="contact.aspx" />
     <Content Include="css\bootstrap\mixin-active-bg-menu.css" />
     <Content Include="css\bootstrap\mixin-back-top.css" />
@@ -129,6 +130,7 @@
     <Content Include="css\style-shopping.css" />
     <Content Include="css\style-tracking.css" />
     <Content Include="css\style-wishlist.css" />
+    <Content Include="home.aspx" />
     <Content Include="img\1050x850.png" />
     <Content Include="img\115x115.jpg" />
     <Content Include="img\115x115.png" />
@@ -213,8 +215,10 @@
     <Content Include="js\jquery-ui_c2.js" />
     <Content Include="js\jquery.min_af.js" />
     <Content Include="login_register.aspx" />
+    <Content Include="order.aspx" />
     <Content Include="scrolling\jquery.superscrollorama.js" />
     <Content Include="scrolling\TweenMax.min.js" />
+    <Content Include="shopping-cart.aspx" />
     <Content Include="Shopping.aspx" />
     <Content Include="slick\ajax-loader.gif" />
     <Content Include="slick\fonts\slick.svg" />
@@ -226,6 +230,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.Master.cs">
+      <DependentUpon>checkout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.Master.designer.cs">
+      <DependentUpon>checkout.Master</DependentUpon>
+    </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,12 +257,38 @@
     <Compile Include="contact.Master.designer.cs">
       <DependentUpon>contact.Master</DependentUpon>
     </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.Master.cs">
+      <DependentUpon>home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="home.Master.designer.cs">
+      <DependentUpon>home.Master</DependentUpon>
+    </Compile>
     <Compile Include="login_register.aspx.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="login_register.aspx.designer.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="order.aspx.cs">
+      <DependentUpon>order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order.aspx.designer.cs">
+      <DependentUpon>order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="order.Master.cs">
+      <DependentUpon>order.Master</DependentUpon>
+    </Compile>
+    <Compile Include="order.Master.designer.cs">
+      <DependentUpon>order.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="login_register.Master.cs">
@@ -254,6 +297,19 @@
     </Compile>
     <Compile Include="login_register.Master.designer.cs">
       <DependentUpon>login_register.Master</DependentUpon>
+    </Compile>
+    <Compile Include="shopping-cart.aspx.cs">
+      <DependentUpon>shopping-cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shopping-cart.aspx.designer.cs">
+      <DependentUpon>shopping-cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shopping-cart.Master.cs">
+      <DependentUpon>shopping-cart.Master</DependentUpon>
+    </Compile>
+    <Compile Include="shopping-cart.Master.designer.cs">
+      <DependentUpon>shopping-cart.Master</DependentUpon>
     </Compile>
     <Compile Include="Shopping.aspx.cs">
       <DependentUpon>Shopping.aspx</DependentUpon>
@@ -281,6 +337,19 @@
     </Compile>
     <Compile Include="user-dashboard.Master.designer.cs">
       <DependentUpon>user-dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="wishlist.aspx.cs">
+      <DependentUpon>wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wishlist.aspx.designer.cs">
+      <DependentUpon>wishlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wishlist.Master.cs">
+      <DependentUpon>wishlist.Master</DependentUpon>
+    </Compile>
+    <Compile Include="wishlist.Master.designer.cs">
+      <DependentUpon>wishlist.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +395,9 @@
     <Content Include="css\style-tracking.css.map" />
     <Content Include="css\style-wishlist.css.map" />
     <Content Include="contact.Master" />
+    <Content Include="home.Master" />
+    <Content Include="checkout.Master" />
+    <Content Include="order.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
@@ -379,12 +451,15 @@
     <Content Include="slick\slick.scss" />
     <Content Include="user-dashboard.Master" />
     <Content Include="Shopping.Master" />
+    <Content Include="shopping-cart.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="wishlist.aspx" />
+    <Content Include="wishlist.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
