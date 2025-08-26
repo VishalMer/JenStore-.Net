@@ -239,6 +239,7 @@
     </Compile>
     <Compile Include="checkout.Master.cs">
       <DependentUpon>checkout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="checkout.Master.designer.cs">
       <DependentUpon>checkout.Master</DependentUpon>
@@ -266,6 +267,7 @@
     </Compile>
     <Compile Include="home.Master.cs">
       <DependentUpon>home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="home.Master.designer.cs">
       <DependentUpon>home.Master</DependentUpon>
@@ -286,6 +288,7 @@
     </Compile>
     <Compile Include="order.Master.cs">
       <DependentUpon>order.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="order.Master.designer.cs">
       <DependentUpon>order.Master</DependentUpon>
@@ -307,6 +310,7 @@
     </Compile>
     <Compile Include="shopping-cart.Master.cs">
       <DependentUpon>shopping-cart.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="shopping-cart.Master.designer.cs">
       <DependentUpon>shopping-cart.Master</DependentUpon>
@@ -320,6 +324,7 @@
     </Compile>
     <Compile Include="Shopping.Master.cs">
       <DependentUpon>Shopping.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Shopping.Master.designer.cs">
       <DependentUpon>Shopping.Master</DependentUpon>
@@ -347,6 +352,7 @@
     </Compile>
     <Compile Include="wishlist.Master.cs">
       <DependentUpon>wishlist.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="wishlist.Master.designer.cs">
       <DependentUpon>wishlist.Master</DependentUpon>

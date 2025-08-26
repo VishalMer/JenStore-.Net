@@ -110,6 +110,9 @@ namespace JenStore
                     cmd.ExecuteNonQuery();
                     clear();
                     con.Close();
+
+                    Session["Username"] = inputusernameres.Text;
+                    Response.Redirect("user-dashboard.aspx");
                 }
             }
         }
@@ -138,7 +141,8 @@ namespace JenStore
 
                 if (usercount > 0)
                 {
-                    Response.Write("Login successful!");
+                    Session["Username"] = inputemail.Text;
+                    Response.Redirect("home.aspx");
                 }
                 else
                 {
