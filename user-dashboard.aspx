@@ -325,14 +325,15 @@
                                 <h3 id="userNameHeading" runat="server"></h3>
                                 <div class="user-detail-item">
                                     <span class="detail-label">Email:</span>
-                                    <span class="detail-value" id="emailValue" runat="server"></span>
+                                    <span class="detail-value" id="emailVal" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
                                     <span class="detail-label">Gender:</span>
-                                    <span class="detail-value" id="genderValue" runat="server"></span>
+                                    <span class="detail-value" id="genderVal" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
-                                    <span class="detail-label">Member Since:</span> <span class="detail-value">January 2024</span>
+                                    <span class="detail-label">Member Since:</span> 
+                                    <span class="detail-value" id="memberSinceVal" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
                                     <span class="detail-label">Status:</span> <span class="detail-value">Active</span>

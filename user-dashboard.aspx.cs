@@ -31,7 +31,7 @@ namespace JenStore
 
                 using (SqlConnection con = new SqlConnection(connect))
                 {
-                    string query = "SELECT id, uname, email, gender FROM users WHERE uname = @identifier OR email = @identifier";
+                    string query = "SELECT id, uname, email, gender, created_at FROM users WHERE uname = @identifier OR email = @identifier";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -48,10 +48,13 @@ namespace JenStore
                                 string username = reader["uname"].ToString();
                                 string email = reader["email"].ToString();
                                 string gender = reader["gender"].ToString();
+                                DateTime creationDate = (DateTime)reader["created_at"];
+                                string dateFormat = creationDate.ToString("dd MMMM yyyy");
 
                                 userNameHeading.InnerText = username;
-                                genderValue.InnerText = gender;
-                                emailValue.InnerText = email;
+                                genderVal.InnerText = gender;
+                                emailVal.InnerText = email;
+                                memberSinceVal.InnerText = dateFormat;
                             }
                             else
                             {

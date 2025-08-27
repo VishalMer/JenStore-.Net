@@ -108,11 +108,11 @@ namespace JenStore
                     cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue + "')", con);
 
                     cmd.ExecuteNonQuery();
-                    clear();
                     con.Close();
 
-                    Session["Username"] = inputusernameres.Text;
+                    Session["identifier"] = inputusernameres.Text;
                     Response.Redirect("user-dashboard.aspx");
+                    clear();
                 }
             }
         }

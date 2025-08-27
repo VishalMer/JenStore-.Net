@@ -24,21 +24,30 @@ namespace JenStore
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl userNameHeading;
 
         /// <summary>
-        /// emailValue control.
+        /// emailVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl emailValue;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl emailVal;
 
         /// <summary>
-        /// genderValue control.
+        /// genderVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl genderValue;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl genderVal;
+
+        /// <summary>
+        /// memberSinceVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl memberSinceVal;
     }
 }
