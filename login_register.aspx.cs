@@ -138,10 +138,12 @@ namespace JenStore
                 SqlCommand checkUserLog = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
 
                 int usercount = (int)checkUserLog.ExecuteScalar();
+                con.Close();
 
                 if (usercount > 0)
                 {
                     Session["identifier"] = inputemail.Text;
+                    clear();
                     Response.Redirect("home.aspx");
                 }
                 else
@@ -150,8 +152,8 @@ namespace JenStore
                     passErr.Text = "Invalid credentials.";
                     emailErr.Text = "";
                 }
-                clear();
-                con.Close();
+                
+                
             }
         }
     }
