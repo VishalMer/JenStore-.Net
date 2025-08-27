@@ -141,7 +141,7 @@ namespace JenStore
 
                 if (usercount > 0)
                 {
-                    Session["Username"] = inputemail.Text;
+                    Session["identifier"] = inputemail.Text;
                     Response.Redirect("home.aspx");
                 }
                 else

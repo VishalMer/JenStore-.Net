@@ -324,12 +324,12 @@
                             <div class="user-details">
                                 <h3 id="userNameHeading" runat="server"></h3>
                                 <div class="user-detail-item">
-                                    <span class="detail-label">Username:</span>
-                                    <span class="detail-value" id="usernameValue" runat="server"></span>
-                                </div>
-                                <div class="user-detail-item">
                                     <span class="detail-label">Email:</span>
                                     <span class="detail-value" id="emailValue" runat="server"></span>
+                                </div>
+                                <div class="user-detail-item">
+                                    <span class="detail-label">Gender:</span>
+                                    <span class="detail-value" id="genderValue" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
                                     <span class="detail-label">Member Since:</span> <span class="detail-value">January 2024</span>
