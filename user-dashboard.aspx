@@ -338,8 +338,8 @@
                                 <div class="user-detail-item">
                                     <span class="detail-label">Status:</span> <span class="detail-value">Active</span>
                                 </div>
-                                <button class="edit-profile-btn">
-                                    Edit Profile
+                                <button class="edit-profile-btn" id="editProfile">
+                                    <a href="edit-profile.aspx" style="color: white; text-decoration: none;">Edit Profile</a>
                                 </button>
                             </div>
                         </div>

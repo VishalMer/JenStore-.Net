@@ -105,6 +105,7 @@
     <Content Include="css\style-about.css" />
     <Content Include="css\style-checkout.css" />
     <Content Include="css\style-contact.css" />
+    <Content Include="css\style-edit-profile.css" />
     <Content Include="css\style-faq.css" />
     <Content Include="css\style-fix-nav.css" />
     <Content Include="css\style-flower.css" />
@@ -192,6 +193,8 @@
     <Content Include="img\Search.png" />
     <Content Include="img\Send.png" />
     <Content Include="js\bootstrap.min_0028.js" />
+    <Content Include="edit-profile.aspx" />
+    <Content Include="js\edit-profile.js" />
     <Content Include="js\function-back-top.js" />
     <Content Include="js\function-flower.js" />
     <Content Include="js\function-homev1.js" />
@@ -272,6 +275,13 @@
     <Compile Include="home.Master.designer.cs">
       <DependentUpon>home.Master</DependentUpon>
     </Compile>
+    <Compile Include="edit-profile.aspx.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit-profile.aspx.designer.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login_register.aspx.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -328,6 +338,13 @@
     </Compile>
     <Compile Include="Shopping.Master.designer.cs">
       <DependentUpon>Shopping.Master</DependentUpon>
+    </Compile>
+    <Compile Include="edit-profile.Master.cs">
+      <DependentUpon>edit-profile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit-profile.Master.designer.cs">
+      <DependentUpon>edit-profile.Master</DependentUpon>
     </Compile>
     <Compile Include="user-dashboard.aspx.cs">
       <DependentUpon>user-dashboard.aspx</DependentUpon>
@@ -458,6 +475,7 @@
     <Content Include="user-dashboard.Master" />
     <Content Include="Shopping.Master" />
     <Content Include="shopping-cart.Master" />
+    <Content Include="edit-profile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
