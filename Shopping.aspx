@@ -1,28 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shopping.Master" AutoEventWireup="true" CodeBehind="Shopping.aspx.cs" Inherits="JenStore.Shopping1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-                
-<!DOCTYPE html>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+
+    <!DOCTYPE html>
     <html>
     <head>
         <title>Shop Right Sidebar</title>
         <meta charset="utf-8">
-	<!-- bootstrap vs fontawesome-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- bootstrap vs fontawesome-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- jquery ui -->
-	    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-         <!--  -->
-         <link rel="icon" href="img/favicon.png" type="image/x-icon"/>
+        <!-- jquery ui -->
+        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+        <!--  -->
+        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/style-flower.css">
         <link rel="stylesheet" type="text/css" href="css/style-res-flower.css">
         <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
         <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
-		<!-- slick -->
-	
-	<!-- GG FONT -->
-	    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <!-- slick -->
+
+        <!-- GG FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     </head>
@@ -31,7 +32,8 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="#">
-                    <img src="img/logo.png" alt="img-holiwood"></a></div>
+                        <img src="img/logo.png" alt="img-holiwood"></a>
+                </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
                         <%--<form class="hidden-lg hidden-md form-group form-search-mobile">
@@ -42,10 +44,10 @@
                         </form>--%>
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1" class="hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="shop-menu">Shop +</a><figure id="shop-1" class="hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                                 <div class="dropdown-menu">
                                     <div class="container container-menu">
                                         <ul class="row">
@@ -84,13 +86,13 @@
                                 </div>
                             </li>
                             <li><a href="Shopping.aspx" class="active">Shopping</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
                             <li>
@@ -111,7 +113,8 @@
                             <div class="dropdown-menu">
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Pink roses</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -119,7 +122,8 @@
                                 </div>
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Eleganr by BloomNation</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -127,7 +131,8 @@
                                 </div>
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Queen Rose - Yellow</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -151,31 +156,34 @@
             </div>
         </header>
         <main>
-        <div class="content-search">
-            <div class="container container-100">
-                <i class="far fa-times-circle" id="close-search"></i>
-                <h3 class="text-center">what are your looking for ?</h3>
-                <form method="get" action="/search" role="search" style="position: relative;">
-                    <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
-                    <button class="button_search" type="submit">
-                        search
-                    </button>
-                </form>
+            <div class="content-search">
+                <div class="container container-100">
+                    <i class="far fa-times-circle" id="close-search"></i>
+                    <h3 class="text-center">what are your looking for ?</h3>
+                    <form method="get" action="/search" role="search" style="position: relative;">
+                        <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
+                        <button class="button_search" type="submit">
+                            search
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="container banner">
-            <figure id="banner-figure">
-                <a href="#">
-                <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
-            <div class="text-banner">
-                <h1>Tulips<br>Collection</h1>
-                <p>
-                    SALE UP TO 20% OFF</p>
-                <a href="#">Shop now</a>
+            <div class="container banner">
+                <figure id="banner-figure">
+                    <a href="#">
+                        <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                </figure>
+                <div class="text-banner">
+                    <h1>Tulips<br>
+                        Collection</h1>
+                    <p>
+                        SALE UP TO 20% OFF
+                    </p>
+                    <a href="#">Shop now</a>
+                </div>
             </div>
-        </div>
-        <div class="container content">
-            <div class="row">
+            <div class="container content">
+                <%--<div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 show-side">
                         <button class="sp1 hidden-sm hidden-xs">
@@ -211,214 +219,247 @@
                             <option>Defaul sorting</option>
                         </select>
                     </div>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                </div>--%>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower content-flower-full">
+
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
-                            <figure class="sale">
-                                <a href="#">
+                            <figure class="sale"><a href="#">
                                 <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Queen Rose - Pink</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $207.2<s class="strike">$250.9</s></div>
+                            <div class="prince">$207.2<s class="strike">$250.9</s></div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
                             <a href="#">
-                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Bouquet Lavender</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $160.8</div>
+                            <div class="prince">$160.8</div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
-                            <figure class="hot">
-                                <a href="#">
+                            <figure class="hot"><a href="#">
                                 <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
-                            <h5><a href="#">Fun & Flirty By BloomNation</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <h5><a href="#">Fun Flirty By BloomNation</a></h5>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $240.98</div>
+                            <div class="prince">$240.98</div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
-                            <figure class="sale">
-                                <a href="#">
+                            <figure class="sale"><a href="#">
                                 <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Bouquet Rose</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $300.2<s class="strike">$250.9</s></div>
+                            <div class="prince">$300.2<s class="strike">$250.9</s></div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
                             <a href="#">
-                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Elegant by BloomNation</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $150.2</div>
+                            <div class="prince">$150.2</div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
-                            <figure class="hot">
-                                <a href="#">
+                            <figure class="hot"><a href="#">
                                 <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Queen Rose - Red</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $240.98</div>
+                            <div class="prince">$240.98</div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
-                            <figure class="sale">
-                                <a href="#">
+                            <figure class="sale"><a href="#">
                                 <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Queen Rose - Yellow</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $300.2<s class="strike">$250.9</s></div>
+                            <div class="prince">$300.2<s class="strike">$250.9</s></div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
                             <a href="#">
-                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Rose - Red</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $150.2</div>
+                            <div class="prince">$150.2</div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                         <div class="product-image-flower">
-                            <figure class="hot">
-                                <a href="#">
+                            <figure class="hot"><a href="#">
                                 <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
                             <div class="product-icon-flower">
-                                <a href="#"><i class="far fa-eye"></i></a><a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                <a href="#"><i class="far fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="#"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-title-flower">
                             <h5><a href="#">Winter White Bouquet</a></h5>
-                            <p class="p-title">
-                                It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">page when looking at its layout.</p>
+                            <p class="p-title">It is a long established fact that a reader will be distracted by the readable content of a<br class="hidden-sm hidden-xs">
+                                page when looking at its layout.</p>
                             <div class="star">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="rating">3 Reating(s) | Add Your Reating(s)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                             </div>
-                            <div class="prince">
-                                $240.98</div>
+                            <div class="prince">$240.98</div>
                             <div class="add-cart">
-                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn-add-cart">Add to cart</a>
+                                <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a>
+                                <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
-				<!--  -->
-				    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pagi">
+                    <!--  -->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pagi">
                         <ul class="pagination">
                             <li><a href="#">01</a></li>
                             <li><a href="#">02</a></li>
@@ -428,9 +469,10 @@
                                 <img src="img/Next.png" class="img-responsive" alt="img-holiwood"></a></li>
                         </ul>
                     </div>
+
                 </div>
-			<!-- sidebar -->
-			    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 sidebar">
+                <!-- sidebar -->
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 sidebar sidebar-hide">
                     <div class="collapse navbar-collapse" id="mysidebar">
                         <ul class="list-group list-1">
                             <li class="list-group-item">CATEGORIES</li>
@@ -474,8 +516,8 @@
                                 </ul>
                             </li>
                         </ul>
-				<!--  -->
-				        <ul class="list-group list-2">
+                        <!--  -->
+                        <ul class="list-group list-2">
                             <li class="list-group-item">COLOR OPTIONS</li>
                             <li class="list-group-item list-item-2">
                                 <div class="color-item">
@@ -483,22 +525,22 @@
                                 </div>
                             </li>
                         </ul>
-				<!--  -->
-				        <ul class="list-group list-3">
+                        <!--  -->
+                        <ul class="list-group list-3">
                             <li class="list-group-item">SIZE OPTIONS</li>
                             <li class="list-group-item list-item-3"><a href="#">L</a><span>(15)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">M</a><span>(09)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">S</a><span>(12)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">XL</a><span>(16)</span></li>
                         </ul>
-				<!--  -->
-				        <ul class="list-group list-4">
+                        <!--  -->
+                        <ul class="list-group list-4">
                             <li class="list-group-item">PRINCE </li>
                             <li class="list-group-item list-item-4">
-                                <div id = "slider-3">
+                                <div id="slider-3">
                                 </div>
                                 <p class="range-p">
-                                    <input type = "text" id = "price">
+                                    <input type="text" id="price">
                                     <button>
                                         Filter
                                     </button>
@@ -507,16 +549,16 @@
                                 </figure>
                             </li>
                         </ul>
-				<!--  -->
-				        <ul class="list-group list-3">
+                        <!--  -->
+                        <ul class="list-group list-3">
                             <li class="list-group-item">MANUFATURER</li>
                             <li class="list-group-item list-item-3"><a href="#">Consequat</a><span>(15)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">Fermentum</a><span>(09)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">Pellentestque</a><span>(12)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">Sollicitudinl</a><span>(16)</span></li>
                         </ul>
-				<!--  -->
-				        <ul class="list-group list-3">
+                        <!--  -->
+                        <ul class="list-group list-3">
                             <li class="list-group-item">SUBCATEGORY</li>
                             <li class="list-group-item list-item-3"><a href="#">Gifts</a><span>(20)</span></li>
                             <li class="list-group-item list-item-3"><a href="#">Chocolates</a><span>(07)</span></li>
@@ -526,7 +568,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         <div class="info-footer">
             <div class="container">
                 <div class="row">
@@ -572,7 +614,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social">
                         <p>
-                            CONNECT WITH US:</p>
+                            CONNECT WITH US:
+                        </p>
                         <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
                         <h1>Newsletter</h1>
                         <h2>Sign up for our mailing list to get latest updates and offers</h2>
@@ -612,24 +655,24 @@
             <div class="BG-menu">
             </div>
         </footer>
-<!-- boostrap & jquery -->
-	<script src="js/jquery.min_af.js"></script>
-	<script src="js/bootstrap.min_0028.js"></script>
-	<!-- jquery ui -->
-		<script src = "js/jquery-1.10.2.710.js"></script>
-     	<script src = "js/jquery-ui_c2.js"></script>
-	
-	<!-- js file -->
-	<script src="js/function-flower.js"></script>
-	<script src="js/function-show-sidebar.js"></script>
-	
-	<script src="js/function-shop.js"></script>
-	<script src="js/function-range.js"></script>
-	<script src="js/function-select-custom.js"></script>
-	<script src="js/function-back-top.js"></script>
-	<script src="js/function-sidebar.js"></script>
-	<script src="js/funtion-header-v3.js"></script>
-	<script src="js/function-search-v2.js"></script>
+        <!-- boostrap & jquery -->
+        <script src="js/jquery.min_af.js"></script>
+        <script src="js/bootstrap.min_0028.js"></script>
+        <!-- jquery ui -->
+        <script src="js/jquery-1.10.2.710.js"></script>
+        <script src="js/jquery-ui_c2.js"></script>
+
+        <!-- js file -->
+        <script src="js/function-flower.js"></script>
+        <script src="js/function-show-sidebar.js"></script>
+
+        <script src="js/function-shop.js"></script>
+        <script src="js/function-range.js"></script>
+        <script src="js/function-select-custom.js"></script>
+        <script src="js/function-back-top.js"></script>
+        <script src="js/function-sidebar.js"></script>
+        <script src="js/funtion-header-v3.js"></script>
+        <script src="js/function-search-v2.js"></script>
     </body>
     </html>
 </asp:Content>
