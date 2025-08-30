@@ -7,7 +7,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-// We need to bring in the namespace where UserProfile is defined
 using JenStore;
 
 namespace JenStore
