@@ -223,15 +223,14 @@
                 
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower content-flower-full">
                 
-                <!-- THIS IS THE NEW DYNAMIC LOOP -->
                 <asp:Repeater ID="rptProducts" runat="server">
                     <ItemTemplate>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
                             <div class="product-image-flower">
-                                <%-- The class 'sale' or 'hot' is now added dynamically based on the badge value --%>
+
                                 <figure class='<%# Eval("badge") != DBNull.Value && !string.IsNullOrEmpty(Eval("badge").ToString()) ? Eval("badge").ToString().ToLower() : "" %>'>
                                     <a href="#">
-                                        <%-- DYNAMIC DATA: Image URL and Alt Text --%>
+
                                         <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
                                 </figure>
                                 <div class="product-icon-flower">
@@ -241,21 +240,18 @@
                                 </div>
                             </div>
                             <div class="product-title-flower">
-                                <%-- DYNAMIC DATA: Product Name --%>
                                 <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                <%-- DYNAMIC DATA: Description --%>
                                 <p class="p-title">
                                     <%# Eval("description") %>
                                 </p>
                                 <div class="star">
-                                    <%-- Star rating can be made dynamic later --%>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     <span class="rating">3 Reating(s) | Add Your Reating(s)</span>
                                 </div>
-                                <%-- DYNAMIC DATA: Price. Note the formatting for currency. --%>
+
                                 <div class="prince">
                                     $<%# Eval("price", "{0:F2}") %>
-                                    <%-- This Literal control will only render if old_price is not NULL --%>
+
                                     <asp:Literal runat="server"
                                         Visible='<%# Eval("old_price") != DBNull.Value %>'
                                         Text='<%# string.Format(" <s class=\"strike\">${0:F2}</s>", Eval("old_price")) %>' />
@@ -269,7 +265,6 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-                <!-- ALL THE STATIC PRODUCT BOXES HAVE BEEN REMOVED FROM HERE -->
 
             </div>
 
