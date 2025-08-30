@@ -200,6 +200,7 @@
     <Content Include="img\rose_red.jpg" />
     <Content Include="img\Search.png" />
     <Content Include="img\Send.png" />
+    <Content Include="img\shopping-banner.jpg" />
     <Content Include="img\winter_white_bouquet.jpg" />
     <Content Include="js\bootstrap.min_0028.js" />
     <Content Include="edit-profile.aspx" />
