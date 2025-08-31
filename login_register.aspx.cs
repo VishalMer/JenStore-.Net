@@ -23,8 +23,9 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getcon();
+           
         }
+
         void getcon()
         {
             con = new SqlConnection(connect);
@@ -105,12 +106,14 @@ namespace JenStore
                 }
                 else
                 {
-                    cmd = new SqlCommand("insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue + "')", con);
+                    string query = "insert into users (uname,email,password,gender) values ('" + inputusernameres.Text + "','" + inputemailres.Text + "','" + inputpassres.Text + "','" + rdGen.SelectedValue + "'); SELECT SCOPE_IDENTITY();";
+                    cmd = new SqlCommand(query, con);
 
-                    cmd.ExecuteNonQuery();
+                    object newUserId = cmd.ExecuteScalar();
                     con.Close();
 
-                    Session["identifier"] = inputusernameres.Text;
+                    Session["UserID"] = Convert.ToInt32(newUserId);
+
                     Response.Redirect("user-dashboard.aspx");
                     clear();
                 }
@@ -135,25 +138,22 @@ namespace JenStore
             {
                 getcon();
 
-                SqlCommand checkUserLog = new SqlCommand("SELECT COUNT(*) FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
+                SqlCommand checkUserLog = new SqlCommand("SELECT ID FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
 
-                int usercount = (int)checkUserLog.ExecuteScalar();
+                object result = checkUserLog.ExecuteScalar();
                 con.Close();
 
-                if (usercount > 0)
+                if (result != null)
                 {
-                    Session["identifier"] = inputemail.Text;
+                    Session["UserID"] = Convert.ToInt32(result);
                     clear();
                     Response.Redirect("home.aspx");
                 }
                 else
                 {
-
                     passErr.Text = "Invalid credentials.";
                     emailErr.Text = "";
                 }
-                
-                
             }
         }
     }

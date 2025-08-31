@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using JenStore;
-
 using System.Data;
 using System.Data.SqlClient;
 
@@ -15,28 +9,24 @@ namespace JenStore
     public partial class user_dashboard1 : System.Web.UI.Page
     {
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-        SqlConnection con;
-        SqlDataAdapter da;
-        DataSet ds;
-        SqlCommand cmd;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["identifier"] == null)
+            if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
             }
             else
             {
-                string identifier = Session["identifier"].ToString();
+                int userId = Convert.ToInt32(Session["UserID"]);
 
                 using (SqlConnection con = new SqlConnection(connect))
                 {
-                    string query = "SELECT id, uname, email, gender, created_at FROM users WHERE uname = @identifier OR email = @identifier";
+                    string query = "SELECT id, uname, email, gender, created_at FROM users WHERE id = @userId";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@identifier", identifier);
-
+                        cmd.Parameters.AddWithValue("@userId", userId);
 
                         con.Open();
 
@@ -44,7 +34,6 @@ namespace JenStore
                         {
                             if (reader.Read())
                             {
-                                int userId = Convert.ToInt32(reader["id"]);
                                 string username = reader["uname"].ToString();
                                 string email = reader["email"].ToString();
                                 string gender = reader["gender"].ToString();
@@ -54,7 +43,7 @@ namespace JenStore
                                 userNameHeading.InnerText = username;
                                 genderVal.InnerText = gender;
                                 emailVal.InnerText = email;
-                                memberSinceVal.InnerText = dateFormat;
+                                memberSinceVal.InnerText = memberSinceVal.InnerText = dateFormat;
                             }
                             else
                             {
@@ -65,7 +54,5 @@ namespace JenStore
                 }
             }
         }
-
-       
     }
 }
