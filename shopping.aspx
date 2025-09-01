@@ -210,10 +210,6 @@
                     <itemtemplate>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower content-flower-full">
 
-                            <%-- 
-        FIX: This is the missing Repeater control. 
-        The ID="rptProducts" here is what creates the 'rptProducts' variable in your C# code.
-                            --%>
                             <asp:Repeater ID="rptProducts" runat="server">
                                 <ItemTemplate>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
@@ -224,11 +220,12 @@
                                                     <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
                                             </figure>
                                             <div class="product-icon-flower">
+                                                <asp:LinkButton ID="btnViewProduct" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
 
-                                                <%-- These server-side buttons are now enabled --%>
-                                                <%--<asp:LinkButton ID="btnViewProduct" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
-                        <asp:LinkButton ID="btnAddToCart" runat="server" CommandArgument='<%# Eval("product_id") %>' OnClick="btnAddToCart_Click"><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                        <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>--%>
+                                                <asp:LinkButton ID="btnAddToCart" runat="server" CommandArgument='<%# Eval("product_id") %>'
+                                                    OnClick="btnAddToCart_Click"><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+
+                                                <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
                                             </div>
                                         </div>
                                         <div class="product-title-flower">
@@ -250,7 +247,7 @@
                         </div>
                 </div>
             </div>
-            
+
             <div class="info-footer">
                 <div class="container">
                     <div class="row">
