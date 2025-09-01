@@ -84,10 +84,10 @@ namespace JenStore
             else
             {
                 getcon();
-                SqlCommand checkUser = new SqlCommand("SELECT COUNT(*) FROM users WHERE uname = '" + inputusernameres.Text + "' ", con);
+                SqlCommand checkUser = new SqlCommand("select count(*) from users where uname = '" + inputusernameres.Text + "' ", con);
                 int uCount = (int)checkUser.ExecuteScalar();
 
-                SqlCommand checkEm = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = '" + inputemailres.Text + "'", con);
+                SqlCommand checkEm = new SqlCommand("select count(*) from users where email = '" + inputemailres.Text + "'", con);
                 int eCount = (int)checkEm.ExecuteScalar();
 
                 if (uCount > 0)
@@ -138,7 +138,7 @@ namespace JenStore
             {
                 getcon();
 
-                SqlCommand checkUserLog = new SqlCommand("SELECT ID FROM users WHERE (email = '" + inputemail.Text + "' OR uname = '" + inputemail.Text + "') AND password = '" + inputpass.Text + "'", con);
+                SqlCommand checkUserLog = new SqlCommand("select id from users where (email = '" + inputemail.Text + "' or uname = '" + inputemail.Text + "') and password = '" + inputpass.Text + "'", con);
 
                 object result = checkUserLog.ExecuteScalar();
                 con.Close();

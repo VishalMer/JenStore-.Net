@@ -22,7 +22,7 @@ namespace JenStore
 
                 using (SqlConnection con = new SqlConnection(connect))
                 {
-                    string query = "SELECT id, uname, email, gender, created_at FROM users WHERE id = @userId";
+                    string query = "select id, uname, email, gender, created_at from users where id = @userId";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
