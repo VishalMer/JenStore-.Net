@@ -232,7 +232,6 @@
     <Content Include="scrolling\jquery.superscrollorama.js" />
     <Content Include="scrolling\TweenMax.min.js" />
     <Content Include="shopping-cart.aspx" />
-    <Content Include="Shopping.aspx" />
     <Content Include="slick\ajax-loader.gif" />
     <Content Include="slick\fonts\slick.svg" />
     <Content Include="slick\slick-theme.css" />
@@ -334,20 +333,6 @@
     </Compile>
     <Compile Include="shopping-cart.Master.designer.cs">
       <DependentUpon>shopping-cart.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Shopping.aspx.cs">
-      <DependentUpon>Shopping.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shopping.aspx.designer.cs">
-      <DependentUpon>Shopping.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Shopping.Master.cs">
-      <DependentUpon>Shopping.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shopping.Master.designer.cs">
-      <DependentUpon>Shopping.Master</DependentUpon>
     </Compile>
     <Compile Include="edit-profile.Master.cs">
       <DependentUpon>edit-profile.Master</DependentUpon>
@@ -483,7 +468,6 @@
     <Content Include="slick\slick.less" />
     <Content Include="slick\slick.scss" />
     <Content Include="user-dashboard.Master" />
-    <Content Include="Shopping.Master" />
     <Content Include="shopping-cart.Master" />
     <Content Include="edit-profile.Master" />
     <None Include="Web.Debug.config">
