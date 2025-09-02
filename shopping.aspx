@@ -225,7 +225,8 @@
                                                 <asp:LinkButton ID="btnAddToCart" runat="server" CommandArgument='<%# Eval("product_id") %>'
                                                     OnClick="btnAddToCart_Click"><i class="fas fa-shopping-basket"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandArgument='<%# Eval("product_id") %>'
+                                                    OnClick="btnAddToWishlist_Click"><i class="far fa-heart"></i></asp:LinkButton>
                                             </div>
                                         </div>
                                         <div class="product-title-flower">

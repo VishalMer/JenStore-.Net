@@ -54,10 +54,25 @@ namespace JenStore
             int productId = Convert.ToInt32(btn.CommandArgument);
 
             AddItemToCart(userId, productId);
-
-            
         }
 
+        protected void btnAddToWishlist_Click(object sender, EventArgs e)
+        {
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("login_register.aspx");
+                return;
+            }
+
+            int userId = Convert.ToInt32(Session["UserID"]);
+
+            LinkButton btn = (LinkButton)sender;
+            int productId = Convert.ToInt32(btn.CommandArgument);
+
+            AddItemToWishlist(userId, productId);
+        }
+
+        //cart query
         private void AddItemToCart(int userId, int productId)
         {
             using (SqlConnection con = new SqlConnection(connect))
@@ -81,6 +96,36 @@ namespace JenStore
                 else
                 {
                     SqlCommand insertCmd = new SqlCommand("insert into cart (user_id, product_id, quantity) values (@user_id, @product_id, 1)", con);
+                    insertCmd.Parameters.AddWithValue("@user_id", userId);
+                    insertCmd.Parameters.AddWithValue("@product_id", productId);
+                    insertCmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //wishlist query
+        private void AddItemToWishlist(int userId, int productId)
+        {
+            using (SqlConnection con = new SqlConnection(connect))
+            {
+                con.Open();
+                SqlCommand checkCmd = new SqlCommand("SELECT 1 FROM Wishlist WHERE user_id = @user_id AND product_id = @product_id", con);
+                checkCmd.Parameters.AddWithValue("@user_id", userId);
+                checkCmd.Parameters.AddWithValue("@product_id", productId);
+
+                object result = checkCmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    int newQuantity = Convert.ToInt32(result) + 1;
+                    SqlCommand deleteCmd = new SqlCommand("delete from wishlist where user_id = @user_id and product_id = @product_id", con);
+                    deleteCmd.Parameters.AddWithValue("@user_id", userId);
+                    deleteCmd.Parameters.AddWithValue("@product_id", productId);
+                    deleteCmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    SqlCommand insertCmd = new SqlCommand("insert into wishlist (user_id, product_id) values (@user_id, @product_id)", con);
                     insertCmd.Parameters.AddWithValue("@user_id", userId);
                     insertCmd.Parameters.AddWithValue("@product_id", productId);
                     insertCmd.ExecuteNonQuery();
