@@ -195,7 +195,7 @@
                         <h1>New Arrivals</h1>
                         <p>
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                        <img src="img/310x26.png" alt="img-holiwood"><br><a href="shopping.aspx">Shop now</a>
+                        <img src="img/home Pattern.png" alt="img-holiwood"><br><a href="shopping.aspx">Shop now</a>
                     </div>
                 </div>
                 <div class="item slide-2">
@@ -217,7 +217,7 @@
                         <h1>New Arrivals</h1>
                         <p>
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                        <img src="img/310x26.png" alt="img-holiwood"><br><a href="#">Shop now</a>
+                        <img src="img/home Pattern.png" alt="img-holiwood"><br><a href="#">Shop now</a>
                     </div>
                 </div>
                 <div class="item slide-2">
