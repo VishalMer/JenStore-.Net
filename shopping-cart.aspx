@@ -228,111 +228,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="item_cart">
-                                    <td class="product-photo">
-                                        <img src="img/340x420.png" alt="Futurelife"></td>
-                                    <td class="produc-name"><a href="#" title="">Eleganr by BloomNation</a></td>
-                                    <td class="produc-price">
-                                        <input value="$69.90" size="4" type="text"></td>
-                                    <td class="product-quantity">
-                                        <form enctype="multipart/form-data">
-                                            <div class="product-signle-options product_15 clearfix">
-                                                <div class="selector-wrapper size">
-                                                    <div class="quantity">
-                                                        <input data-step="1" value="1" title="Qty" class="qty" size="4" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="total-price"></td>
-                                    <td class="product-remove"><a class="remove" href="#" title="close">
-                                        <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                                </tr>
-                                <tr class="item_cart">
-                                    <td class="product-photo">
-                                        <img src="img/340x420.png" alt="Futurelife"></td>
-                                    <td class="produc-name"><a href="#" title="">Pink roses</a></td>
-                                    <td class="produc-price">
-                                        <input value="$51.59" size="4" type="text"></td>
-                                    <td class="product-quantity">
-                                        <form enctype="multipart/form-data">
-                                            <div class="product-signle-options product_15 clearfix">
-                                                <div class="selector-wrapper size">
-                                                    <div class="quantity">
-                                                        <input data-step="1" value="2" title="Qty" class="qty" size="4" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="total-price"></td>
-                                    <td class="product-remove"><a class="remove" href="#" title="close">
-                                        <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                                </tr>
-                                <tr class="item_cart">
-                                    <td class="product-photo">
-                                        <img src="img/340x420.png" alt="Futurelife"></td>
-                                    <td class="produc-name"><a href="#" title="">Fun & Flirty By BloomNation</a></td>
-                                    <td class="produc-price">
-                                        <input value="$51.59" size="4" type="text"></td>
-                                    <td class="product-quantity">
-                                        <form enctype="multipart/form-data">
-                                            <div class="product-signle-options product_15 clearfix">
-                                                <div class="selector-wrapper size">
-                                                    <div class="quantity">
-                                                        <input data-step="1" value="2" title="Qty" class="qty" size="4" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="total-price"></td>
-                                    <td class="product-remove"><a class="remove" href="#" title="close">
-                                        <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                                </tr>
-                                <tr class="item_cart">
-                                    <td class="product-photo">
-                                        <img src="img/340x420.png" alt="Futurelife"></td>
-                                    <td class="produc-name"><a href="#" title="">Queen Rose - Pink</a></td>
-                                    <td class="produc-price">
-                                        <input value="$51.59" size="4" type="text"></td>
-                                    <td class="product-quantity">
-                                        <form enctype="multipart/form-data">
-                                            <div class="product-signle-options product_15 clearfix">
-                                                <div class="selector-wrapper size">
-                                                    <div class="quantity">
-                                                        <input data-step="1" value="2" title="Qty" class="qty" size="4" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="total-price"></td>
-                                    <td class="product-remove"><a class="remove" href="#" title="close">
-                                        <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                                </tr>
-                                <tr class="item_cart">
-                                    <td class="product-photo">
-                                        <img src="img/340x420.png" alt="Futurelife"></td>
-                                    <td class="produc-name"><a href="#" title="">Winter White Bouquet</a></td>
-                                    <td class="produc-price">
-                                        <input value="$51.59" size="4" type="text"></td>
-                                    <td class="product-quantity">
-                                        <form enctype="multipart/form-data">
-                                            <div class="product-signle-options product_15 clearfix">
-                                                <div class="selector-wrapper size">
-                                                    <div class="quantity">
-                                                        <input data-step="1" value="2" title="Qty" class="qty" size="4" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="total-price"></td>
-                                    <td class="product-remove"><a class="remove" href="#" title="close">
-                                        <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                                </tr>
+
+                                <asp:Repeater ID="rptCartProducts" runat="server">
+                                    <ItemTemplate>
+                                        <tr class="item_cart">
+                                            <td class="product-photo">
+                                                <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
+                                            </td>
+                                            <td class="produc-name">
+                                                <a href="#" title=""><%# Eval("product_name") %></a>
+                                            </td>
+                                            <td class="produc-price">$<%# Eval("price", "{0:N2}") %>
+                                            </td>
+                                            <td class="product-quantity">
+                                                <%# Eval("quantity") %>
+                                            </td>
+                                            <td class="total-price">$<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("N2") %>
+                                            </td>
+                                            <td class="product-remove">
+                                                <asp:LinkButton ID="btnRemoveFromCart" runat="server"
+                                                    CssClass="remove"
+                                                    ToolTip="Remove item from cart"
+                                                    CommandArgument='<%# Eval("cart_item_id") %>'
+                                                    OnClick="btnRemoveFromCart_Click">
+                                                    <img src="img/icon-delete-cart.png" alt="close" />
+                                                </asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
                             </tbody>
                         </table>
                         <div class="row-total">
@@ -351,7 +276,7 @@
                             <div class="float-left">
 
                                 <asp:LinkButton ID="btnClearCart" runat="server" CssClass="link-v1 lh-50 margin-right-20 space-20" OnClick="btnClearCart_Click">CLEAR SHOPPING CART</asp:LinkButton>
-                                
+
                                 <%--<asp:LinkButton ID="btnClearCart" runat="server"
                                     CssClass="link-v1 lh-50 margin-right-20 space-20"
                                     Text="CLEAR SHOPPING CART"
