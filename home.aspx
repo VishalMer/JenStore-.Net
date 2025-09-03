@@ -247,9 +247,9 @@
                     </p>
                     <div class="media">
                         <div class="media-left">
-                            <img src="img/115x115.png" id="avatar" class="media-object" alt="img-holiwood"></div>
+                            <img src="img/rahul.JPG" id="avatar" class="media-object" alt="img-holiwood"></div>
                         <div class="media-body">
-                            <h3>Laura Ellie</h3>
+                            <h3>Rahul Zapadiya</h3>
                             <span>Founder</span></div>
                     </div>
                 </figure>
