@@ -25,6 +25,21 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            .fa-minus {
+                margin-right: -30px;
+                position: relative;
+                z-index: 20 !important;
+                color: black;
+            }
+
+            .fa-plus {
+                margin-left: -30px;
+                position: relative;
+                z-index: 20 !important;
+                color: black;
+            }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -241,7 +256,17 @@
                                             <td class="produc-price">$<%# Eval("price", "{0:N2}") %>
                                             </td>
                                             <td class="product-quantity">
-                                                <%# Eval("quantity") %>
+                                                <%-- This is the new quantity stepper --%>
+                                                <div class="quantity-stepper">
+                                                    <asp:LinkButton ID="btnDecrease" runat="server" CommandName="Decrease"
+                                                        CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-minus"></i></asp:LinkButton>
+
+                                                    <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("quantity") %>'
+                                                        CssClass="qty-input" ReadOnly="true" />
+
+                                                    <asp:LinkButton ID="btnIncrease" runat="server" CommandName="Increase"
+                                                        CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-plus"></i></asp:LinkButton>
+                                                </div>
                                             </td>
                                             <td class="total-price">$<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("N2") %>
                                             </td>
