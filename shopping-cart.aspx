@@ -256,27 +256,25 @@
                                             <td class="produc-price">$<%# Eval("price", "{0:N2}") %>
                                             </td>
                                             <td class="product-quantity">
-                                                <%-- This is the new quantity stepper --%>
                                                 <div class="quantity-stepper">
-                                                    <asp:LinkButton ID="btnDecrease" runat="server" CommandName="Decrease"
-                                                        CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-minus"></i></asp:LinkButton>
+                                                    <%-- Each button now has its own OnClick event and uses an icon --%>
+                                                    <asp:LinkButton ID="btnDecrease" runat="server" CssClass="qty-btn"
+                                                        OnClick="btnDecrease_Click" CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-minus"></i></asp:LinkButton>
 
                                                     <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("quantity") %>'
                                                         CssClass="qty-input" ReadOnly="true" />
 
-                                                    <asp:LinkButton ID="btnIncrease" runat="server" CommandName="Increase"
-                                                        CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-plus"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnIncrease" runat="server" CssClass="qty-btn"
+                                                        OnClick="btnIncrease_Click" CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-plus"></i></asp:LinkButton>
                                                 </div>
                                             </td>
                                             <td class="total-price">$<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("N2") %>
                                             </td>
                                             <td class="product-remove">
                                                 <asp:LinkButton ID="btnRemoveFromCart" runat="server"
-                                                    CssClass="remove"
-                                                    ToolTip="Remove item from cart"
-                                                    CommandArgument='<%# Eval("cart_item_id") %>'
-                                                    OnClick="btnRemoveFromCart_Click">
-                                                    <img src="img/icon-delete-cart.png" alt="close" />
+                                                    CssClass="remove" ToolTip="Remove item from cart"
+                                                    OnClick="btnRemove_Click" CommandArgument='<%# Eval("cart_item_id") %>'>
+                    <img src="img/icon-delete-cart.png" alt="close" />
                                                 </asp:LinkButton>
                                             </td>
                                         </tr>
