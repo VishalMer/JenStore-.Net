@@ -306,7 +306,7 @@
                                     ToolTip="CLEAR SHOPPING CART"
                                     OnClick="btnClearCart_Click">
                                 </asp:LinkButton>
-                                <a class="link-v1 lh-50 margin-right-20 space-20" href="#" title="CLEAR SHOPPING CART">CLEAR SHOPPING CART</a>--%> <a class="link-v1 lh-50 space-20" href="#" title="UPDATE SHOPPING CART">UPDATE SHOPPING CART</a>
+                                <a class="link-v1 lh-50 margin-right-20 space-20" href="#" title="CLEAR SHOPPING CART">CLEAR SHOPPING CART</a> <a class="link-v1 lh-50 space-20" href="#" title="UPDATE SHOPPING CART">UPDATE SHOPPING CART</a>--%>
                             </div>
                             <!-- End float left -->
                             <div class="float-right">
