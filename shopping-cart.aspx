@@ -39,6 +39,12 @@
                 z-index: 20 !important;
                 color: black;
             }
+
+            .row-total h4{
+                font-weight:200;
+                font-size:1.5rem;
+                padding-left:7em;
+            }
         </style>
     </head>
     <body>
@@ -286,11 +292,15 @@
                         <div class="row-total">
                             <div class="float-left">
                                 <h3>Sub Total</h3>
+                                <h4>Shipping</h4>
+                                <h3>Grand Total</h3>
                             </div>
                             <!--End align-left-->
                             <div class="float-right">
                                 <p>
-                                    $1,156.00
+                                    <asp:Label ID="lblSubTotal" runat="server" Text="$0.00"></asp:Label><br /><br />
+                                    <asp:Label ID="lblShipping" runat="server" Text="$0.00"></asp:Label><br /><br />
+                                    <asp:Label ID="lblGrandTotal" runat="server" Text="$0.00"></asp:Label>
                                 </p>
                             </div>
                             <!--End align-right-->
@@ -331,7 +341,7 @@
                                         <a class="link-v1 lh-50 rt" href="#" title="apply coupon">APPLY COUPON</a>
                                     </div>
                                 </div>
-                                <div class="col-md-4 space-30">
+                                <%--<div class="col-md-4 space-30">
                                     <div class="item">
                                         <h3 class="title">ESTIMEDE SHIPPING AND TAX</h3>
                                         <p>
@@ -356,7 +366,7 @@
                                         </form>
                                         <a class="link-v1 lh-50 rt" href="#" title="ESTIMADE">ESTIMADE</a>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <!-- End col-md-4 -->
                                 <div class="col-md-4 space-30">
                                     <div class="item">

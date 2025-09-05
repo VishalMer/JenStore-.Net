@@ -17,21 +17,25 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindCartRepeater();
-            }
-        }
 
-        private void BindCartRepeater()
-        {
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
                 return;
             }
 
+            if (!IsPostBack)
+            {
+                CartRepeater();
+            }
+        }
+
+        private void CartRepeater()
+        {
             int userId = Convert.ToInt32(Session["UserID"]);
+            decimal subTotal = 0;
+            decimal shippingCost = 0;
+            
 
             using (SqlConnection con = new SqlConnection(connect))
             {
@@ -57,11 +61,25 @@ namespace JenStore
                     {
                         DataTable dt = new DataTable();
                         sda.Fill(dt);
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
+                        }
                         rptCartProducts.DataSource = dt;
                         rptCartProducts.DataBind();
                     }
                 }
             }
+
+            if (subTotal > 0)
+            {
+                shippingCost = 40; 
+            }
+            decimal grandTotal = subTotal+ shippingCost;
+
+            lblSubTotal.Text = subTotal.ToString("C");
+            lblShipping.Text = shippingCost.ToString("C");
+            lblGrandTotal.Text = grandTotal.ToString("C");
         }
 
         protected void btnIncrease_Click(object sender, EventArgs e)
@@ -76,12 +94,9 @@ namespace JenStore
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
-            BindCartRepeater(); // Refresh the cart
+            CartRepeater();
         }
 
-        /// <summary>
-        /// Decreases the quantity of a cart item, or removes it if the quantity is 1.
-        /// </summary>
         protected void btnDecrease_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
@@ -107,12 +122,10 @@ namespace JenStore
                     deleteCmd.ExecuteNonQuery();
                 }
             }
-            BindCartRepeater(); // Refresh the cart
+            CartRepeater();
         }
 
-        /// <summary>
-        /// Removes an item from the cart, regardless of quantity.
-        /// </summary>
+
         protected void btnRemove_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
@@ -125,18 +138,12 @@ namespace JenStore
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
-            BindCartRepeater(); // Refresh the cart
+            CartRepeater();
         }
 
 
         protected void btnClearCart_Click(object sender, EventArgs e)
         {
-            if (Session["UserID"] == null)
-            {
-                Response.Redirect("login_register.aspx");
-                return;
-            }
-
             int userId = Convert.ToInt32(Session["UserID"]);
             using (SqlConnection con = new SqlConnection(connect))
             {
@@ -145,7 +152,7 @@ namespace JenStore
                 deleteCmd.Parameters.AddWithValue("@user_id", userId);
                 deleteCmd.ExecuteNonQuery();
             }
-            BindCartRepeater();
+            CartRepeater();
         }
     }
 }

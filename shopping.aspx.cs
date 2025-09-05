@@ -19,11 +19,11 @@ namespace JenStore
         {
             if (!IsPostBack)
             {
-                BindProductRepeater();
+                ProductRepeater();
             }
         }
 
-        private void BindProductRepeater()
+        private void ProductRepeater()
         {
             using (SqlConnection con = new SqlConnection(connect))
             {
@@ -86,9 +86,7 @@ namespace JenStore
 
                 if (result != null)
                 {
-                    int newQuantity = Convert.ToInt32(result) + 1;
-                    SqlCommand updateCmd = new SqlCommand("update cart set quantity = @quantity where user_id = @user_id and product_id = @product_id", con);
-                    updateCmd.Parameters.AddWithValue("@quantity", newQuantity);
+                    SqlCommand updateCmd = new SqlCommand("update cart set quantity = quantity + 1 where user_id = @user_id and product_id = @product_id", con);
                     updateCmd.Parameters.AddWithValue("@user_id", userId);
                     updateCmd.Parameters.AddWithValue("@product_id", productId);
                     updateCmd.ExecuteNonQuery();
@@ -117,7 +115,6 @@ namespace JenStore
 
                 if (result != null)
                 {
-                    int newQuantity = Convert.ToInt32(result) + 1;
                     SqlCommand deleteCmd = new SqlCommand("delete from wishlist where user_id = @user_id and product_id = @product_id", con);
                     deleteCmd.Parameters.AddWithValue("@user_id", userId);
                     deleteCmd.Parameters.AddWithValue("@product_id", productId);
