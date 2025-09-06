@@ -274,136 +274,129 @@
             </div>
 
             <div class="container collection" id="showcase-2">
-                <h1>Shop by collection</h1>
-                <h2>- All Category of Jenstore -</h2>
-                <div class="gallery clearfix">
-                    <figure>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-collec">
-                                <img src="img/800x1132.png" class="img-responsive" alt="img-holiwood">
-                                <h3>HELLO SUMMER</h3>
-                                <h1>Sale 10%</h1>
-                                <a href="shopping.aspx">Shop now</a>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <%-- Repeater for the "Collection" section --%>
-                                <asp:Repeater ID="rptCollection" runat="server">
-                                    <ItemTemplate>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
-                                            <div class="product-image-collec">
-                                                <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                                    <a href="#">
-                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
-                                                </figure>
-                                                <div class="product-icon-collec">
-                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
-                                                    <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                                    <a href="#"><i class="far fa-heart"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-title-collec">
-                                                <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                                <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                                <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
-                                            </div>
+        <h1>Shop by collection</h1>
+        <h2>- All Category of Jenstore -</h2>
+        <div class="gallery clearfix">
+            <figure>
+                <div class="row">
+                    <%-- Your static banner for the Collection section --%>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-collec">
+                        <img src="img/800x1132.png" class="img-responsive" alt="img-holiwood">
+                        <h3>HELLO SUMMER</h3>
+                        <h1>Sale 10%</h1>
+                        <a href="#">Shop now</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <asp:Repeater ID="rptCollection" runat="server">
+                            <ItemTemplate>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
+                                    <div class="product-image-collec">
+                                        <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
+                                            <a href="#"><img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                        </figure>
+                                        <div class="product-icon-collec">
+                                            <a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
+                                            <asp:LinkButton ID="btnAddToCart1" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="btnAddToWishlist1" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
                                         </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </div>
-                        </div>
-                    </figure>
-                </div>
-            </div>
-
-            <%-- SECTION 2: Wedding --%>
-            <div class=" wedding" id="showcase-3">
-                <h1>Wedding</h1>
-                <h2>- Lorem Ipsum is<span class="hidden-xs"> simply dummy</span> text of the printing -</h2>
-                <div class="gallery clearfix">
-                    <figure>
-                        <div class="img-wedding">
-                            <img src="img/1920x1170.png" alt="img-holiwood">
-                        </div>
-                        <div class="container wedding-content">
-                            <div class="row">
-                                <%-- Repeater for the "Wedding" section --%>
-                                <asp:Repeater ID="rptWedding" runat="server">
-                                    <ItemTemplate>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
-                                            <div class="product-image-wedding">
-                                                <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                                    <a href="#">
-                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
-                                                </figure>
-                                                <div class="product-icon-wedding">
-                                                    <a href="#"><i class="far fa-eye"></i></a>
-                                                    <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                                    <a href="#"><i class="far fa-heart"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-title-wedding">
-                                                <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                                <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                                <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </div>
-                        </div>
-                    </figure>
-                </div>
-            </div>
-
-            <%-- SECTION 3: Holiday --%>
-            <div class="holiday" id="showcase-4">
-                <div class="container">
-                    <h1>Holiday</h1>
-                    <h2>- Lorem Ipsum is<span class="hidden-xs"> simply dummy</span> text of the printing -</h2>
-                    <div class="gallery clearfix">
-                        <figure>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <%-- Repeater for the "Holiday" section --%>
-                                    <asp:Repeater ID="rptHoliday" runat="server">
-                                        <ItemTemplate>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
-                                                <div class="product-image-holiday">
-                                                    <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                                        <a href="#">
-                                                            <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
-                                                    </figure>
-                                                    <div class="product-icon-holiday">
-                                                        <a href="#"><i class="far fa-eye"></i></a>
-                                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                                        <a href="#"><i class="far fa-heart"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-title-holiday">
-                                                    <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                                    <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                                    <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
-                                                </div>
-                                            </div>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-holiday">
-                                    <div class="img-banner-holiday">
-                                        <img src="img/720x1050.png" class="img-responsive" alt="img-holiwood">
                                     </div>
-                                    <div class="title-holiday">
-                                        <h1>HAPPY MOTHER'S DAY</h1>
-                                        <p>Lorem ipsum is simply dummy text of the printing and typesetting</p>
-                                        <span id="sale30">-30</span><span id="pt">%</span><br>
-                                        <span id="off">OFF</span>
+                                    <div class="product-title-collec">
+                                        <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                                        <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
                                     </div>
                                 </div>
-                            </div>
-                        </figure>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
+            </figure>
+        </div>
+    </div>
+
+    <%-- SECTION 2: Wedding --%>
+    <div class=" wedding" id="showcase-3">
+        <h1>Wedding</h1>
+        <h2>- Lorem Ipsum is<span class="hidden-xs"> simply dummy</span> text of the printing -</h2>
+        <div class="gallery clearfix">
+            <figure>
+                <div class="img-wedding"><img src="img/1920x1170.png" alt="img-holiwood"></div>
+                <div class="container wedding-content">
+                    <div class="row">
+                        <asp:Repeater ID="rptWedding" runat="server">
+                            <ItemTemplate>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
+                                    <div class="product-image-wedding">
+                                        <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
+                                            <a href="#"><img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                        </figure>
+                                        <div class="product-icon-wedding">
+                                            <a href="#"><i class="far fa-eye"></i></a>
+                                            <asp:LinkButton ID="btnAddToCart2" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="btnAddToWishlist2" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
+                                        </div>
+                                    </div>
+                                    <div class="product-title-wedding">
+                                        <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                        <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </div>
+
+    <%-- SECTION 3: Holiday --%>
+    <div class="holiday" id="showcase-4">
+        <div class="container">
+            <h1>Holiday</h1>
+            <h2>- Lorem Ipsum is<span class="hidden-xs"> simply dummy</span> text of the printing -</h2>
+            <div class="gallery clearfix">
+                <figure>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <asp:Repeater ID="rptHoliday" runat="server">
+                                 <ItemTemplate>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
+                                        <div class="product-image-holiday">
+                                            <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
+                                                <a href="#"><img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                            </figure>
+                                            <div class="product-icon-holiday">
+                                                <a href="#"><i class="far fa-eye"></i></a>
+                                                <asp:LinkButton ID="btnAddToCart3" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnAddToWishlist3" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
+                                            </div>
+                                        </div>
+                                        <div class="product-title-holiday">
+                                            <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                            <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                                            <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <%-- Your static banner for the Holiday section --%>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-holiday">
+                            <div class="img-banner-holiday">
+                                <img src="img/720x1050.png" class="img-responsive" alt="img-holiwood">
+                            </div>
+                            <div class="title-holiday">
+                                <h1>HAPPY MOTHER'S DAY</h1>
+                                <p>Lorem ipsum is simply dummy text of the printing and typesetting</p>
+                                <span id="sale30">-30</span><span id="pt">%</span><br><span id="off">OFF</span>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
             </div>
+        </div>
+    </div>
 
             <div class="count">
                 <div class="img-count">
