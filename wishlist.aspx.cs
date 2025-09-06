@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -87,7 +90,6 @@ namespace JenStore
 
             AddItemToCart(userId, productId);
 
-            // After the action, refresh the repeater to show any changes to the wishlist
             BindWishlistRepeater();
         }
 
@@ -99,7 +101,6 @@ namespace JenStore
                 {
                     con.Open();
 
-                    // Check available stock first
                     SqlCommand stockCmd = new SqlCommand("SELECT stock_quantity FROM Products WHERE product_id = @product_id", con);
                     stockCmd.Parameters.AddWithValue("@product_id", productId);
                     int availableStock = (int)stockCmd.ExecuteScalar();
@@ -110,8 +111,6 @@ namespace JenStore
                         return;
                     }
 
-                    // --- LOGIC UPDATED HERE ---
-                    // Check if item is already in cart
                     SqlCommand checkCmd = new SqlCommand("SELECT 1 FROM Cart WHERE user_id = @user_id AND product_id = @product_id", con);
                     checkCmd.Parameters.AddWithValue("@user_id", userId);
                     checkCmd.Parameters.AddWithValue("@product_id", productId);
@@ -119,19 +118,16 @@ namespace JenStore
 
                     if (result != null)
                     {
-                        // If the item is already in the cart, show a message and stop.
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('This item is already in your cart.');", true);
                         return;
                     }
                     else
                     {
-                        // If the item is not in the cart, insert it.
                         SqlCommand insertCmd = new SqlCommand("INSERT INTO Cart (user_id, product_id, quantity) VALUES (@user_id, @product_id, 1)", con);
                         insertCmd.Parameters.AddWithValue("@user_id", userId);
                         insertCmd.Parameters.AddWithValue("@product_id", productId);
                         insertCmd.ExecuteNonQuery();
 
-                        // After successfully adding to cart, remove the item from the wishlist.
                         SqlCommand deleteWishlistItemCmd = new SqlCommand("DELETE FROM Wishlist WHERE user_id = @user_id AND product_id = @product_id", con);
                         deleteWishlistItemCmd.Parameters.AddWithValue("@user_id", userId);
                         deleteWishlistItemCmd.Parameters.AddWithValue("@product_id", productId);
@@ -144,6 +140,76 @@ namespace JenStore
             catch (Exception ex)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('An error occurred: " + ex.Message.Replace("'", "\\'") + "');", true);
+            }
+        }
+
+        // --- SIMPLIFIED "ADD ALL TO CART" METHOD ---
+        protected void btnAddAllToCart_Click(object sender, EventArgs e)
+        {
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("login_register.aspx");
+                return;
+            }
+            int userId = Convert.ToInt32(Session["UserID"]);
+            var productIdsToMove = new List<int>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connect))
+                {
+                    con.Open();
+
+                    // Step 1: Get a list of all products in the wishlist that are in stock and NOT already in the cart.
+                    const string findEligibleItemsQuery = @"
+                        SELECT P.product_id FROM Wishlist W
+                        INNER JOIN Products P ON W.product_id = P.product_id
+                        WHERE W.user_id = @user_id AND P.stock_quantity > 0
+                        AND P.product_id NOT IN (SELECT product_id FROM Cart WHERE user_id = @user_id)";
+
+                    SqlCommand getProductsCmd = new SqlCommand(findEligibleItemsQuery, con);
+                    getProductsCmd.Parameters.AddWithValue("@user_id", userId);
+
+                    using (var reader = getProductsCmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            productIdsToMove.Add(reader.GetInt32(0));
+                        }
+                    }
+
+                    if (productIdsToMove.Count == 0)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No eligible items to move to the cart.');", true);
+                        return;
+                    }
+
+                    // Step 2: Loop through the eligible products and insert them into the cart.
+                    foreach (int productId in productIdsToMove)
+                    {
+                        SqlCommand insertCmd = new SqlCommand("INSERT INTO Cart (user_id, product_id, quantity) VALUES (@user_id, @product_id, 1)", con);
+                        insertCmd.Parameters.AddWithValue("@user_id", userId);
+                        insertCmd.Parameters.AddWithValue("@product_id", productId);
+                        insertCmd.ExecuteNonQuery();
+                    }
+
+                    // Step 3: Remove all the moved items from the wishlist in a single command.
+                    string productIdsToRemove = string.Join(",", productIdsToMove);
+                    SqlCommand deleteCmd = new SqlCommand($"DELETE FROM Wishlist WHERE user_id = @user_id AND product_id IN ({productIdsToRemove})", con);
+                    deleteCmd.Parameters.AddWithValue("@user_id", userId);
+                    deleteCmd.ExecuteNonQuery();
+                }
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('{productIdsToMove.Count} items were successfully moved to your cart.');", true);
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('An error occurred: " + ex.Message.Replace("'", "\\'") + "');", true);
+            }
+            finally
+            {
+                // Refresh the wishlist to show that the items have been moved.
+                BindWishlistRepeater();
             }
         }
     }

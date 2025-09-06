@@ -196,53 +196,62 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <asp:Repeater ID="rptWishlist" runat="server">
-    <ItemTemplate>
-        <tr class="item_cart">
-            <td class="product-photo">
-                <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
-            </td>
-            <td class="produc-name">
-                <a href="#" title=""><%# Eval("product_name") %></a>
-            </td>
-            <td class="produc-price">
-                $<%# Eval("price", "{0:N2}") %>
-            </td>
-            <td class="product-in">
-                <%-- This section dynamically shows "In Stock" or "Out of Stock" --%>
-                <span class="stock-status in-stock" runat="server" Visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
-                    <i class="fas fa-check-circle"></i> In Stock
-                </span>
-                <span class="stock-status out-of-stock" runat="server" Visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
-                    <i class="fas fa-times-circle"></i> Out of Stock
-                </span>
-            </td>
-            <td class="add-to-cart">
-                <%-- This button is enabled only if the product is in stock and now has a specific OnClick event --%>
-                <asp:LinkButton ID="btnAddToCartFromWishlist" runat="server"
-                    CssClass="btn-shop"
-                    Text="SHOP NOW"
-                    OnClick="btnAddToCart_Click"
-                    CommandArgument='<%# Eval("product_id") %>'
-                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
-                </asp:LinkButton>
-            </td>
-            <td class="product-remove">
-                <%-- This button will remove the item from the wishlist and now has a specific OnClick event --%>
-                <asp:LinkButton ID="btnRemoveFromWishlist" runat="server"
-                    CssClass="remove"
-                    OnClick="btnRemove_Click"
-                    CommandArgument='<%# Eval("wishlist_item_id") %>'>
+                                <asp:Repeater ID="rptWishlist" runat="server">
+                                    <ItemTemplate>
+                                        <tr class="item_cart">
+                                            <td class="product-photo">
+                                                <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
+                                            </td>
+                                            <td class="produc-name">
+                                                <a href="#" title=""><%# Eval("product_name") %></a>
+                                            </td>
+                                            <td class="produc-price">$<%# Eval("price", "{0:N2}") %>
+                                            </td>
+                                            <td class="product-in">
+                                                <%-- This section dynamically shows "In Stock" or "Out of Stock" --%>
+                                                <span class="stock-status in-stock" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
+                                                    <i class="fas fa-check-circle"></i>In Stock
+                                                </span>
+                                                <span class="stock-status out-of-stock" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
+                                                    <i class="fas fa-times-circle"></i>Out of Stock
+                                                </span>
+                                            </td>
+                                            <td class="add-to-cart">
+                                                <%-- This button is enabled only if the product is in stock and now has a specific OnClick event --%>
+                                                <asp:LinkButton ID="btnAddToCartFromWishlist" runat="server"
+                                                    CssClass="btn-shop"
+                                                    Text="SHOP NOW"
+                                                    OnClick="btnAddToCart_Click"
+                                                    CommandArgument='<%# Eval("product_id") %>'
+                                                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
+                                                </asp:LinkButton>
+                                            </td>
+                                            <td class="product-remove">
+                                                <%-- This button will remove the item from the wishlist and now has a specific OnClick event --%>
+                                                <asp:LinkButton ID="btnRemoveFromWishlist" runat="server"
+                                                    CssClass="remove"
+                                                    OnClick="btnRemove_Click"
+                                                    CommandArgument='<%# Eval("wishlist_item_id") %>'>
                     <img src="img/icon-delete-cart.png" alt="close" />
-                </asp:LinkButton>
-            </td>
-        </tr>
-    </ItemTemplate>
-</asp:Repeater>
+                                                </asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
 
 
 
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" style="text-align: right; padding-top: 20px;">
+                                        <asp:LinkButton ID="btnAddAllToCart" runat="server"
+                                            CssClass="btn-shop"
+                                            Text="ADD ALL TO CART"
+                                            OnClick="btnAddAllToCart_Click" />
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                     <!-- End container -->
