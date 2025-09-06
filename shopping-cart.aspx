@@ -39,12 +39,6 @@
                 z-index: 20 !important;
                 color: black;
             }
-
-            .row-total h4{
-                font-weight:200;
-                font-size:1.5rem;
-                padding-left:7em;
-            }
         </style>
     </head>
     <body>
@@ -292,16 +286,11 @@
                         <div class="row-total">
                             <div class="float-left">
                                 <h3>Sub Total</h3>
-                                <h4>Shipping</h4>
-                                <h3>Grand Total</h3>
                             </div>
                             <!--End align-left-->
                             <div class="float-right">
                                 <p>
-                                    <asp:Label ID="lblSubTotal" runat="server" Text="$0.00"></asp:Label><br /><br />
-                                    <asp:Label ID="lblShipping" runat="server" Text="$0.00"></asp:Label><br /><br />
-                                    <asp:Label ID="lblGrandTotal" runat="server" Text="$0.00"></asp:Label>
-                                </p>
+                                    <asp:Label ID="lblSubTotal" runat="server" Text="$0.00"></asp:Label>
                             </div>
                             <!--End align-right-->
                         </div>
@@ -309,23 +298,17 @@
                             <div class="float-left">
 
                                 <asp:LinkButton ID="btnClearCart" runat="server" CssClass="link-v1 lh-50 margin-right-20 space-20" OnClick="btnClearCart_Click">CLEAR SHOPPING CART</asp:LinkButton>
-
-                                <%--<asp:LinkButton ID="btnClearCart" runat="server"
-                                    CssClass="link-v1 lh-50 margin-right-20 space-20"
-                                    Text="CLEAR SHOPPING CART"
-                                    ToolTip="CLEAR SHOPPING CART"
-                                    OnClick="btnClearCart_Click">
-                                </asp:LinkButton>
-                                <a class="link-v1 lh-50 margin-right-20 space-20" href="#" title="CLEAR SHOPPING CART">CLEAR SHOPPING CART</a> <a class="link-v1 lh-50 space-20" href="#" title="UPDATE SHOPPING CART">UPDATE SHOPPING CART</a>--%>
+                                <a class="link-v1 lh-50 bg-brand" href="shopping.aspx" title="CONTINUS SHOPPING">CONTINUE SHOPPING</a>
+                               
                             </div>
                             <!-- End float left -->
                             <div class="float-right">
-                                <a class="link-v1 lh-50 bg-brand" href="shopping.aspx" title="CONTINUS SHOPPING">CONTINUE SHOPPING</a>
+                                <a class="link-v1 lh-50 bg-brand" href="checkout.aspx" title="POCEEED TO CHECKOUT">POCEEED TO CHECKOUT</a>
                             </div>
                             <!-- End float-right -->
                         </div>
                         <!-- End box -->
-                        <div class="box cart-total space-30">
+                        <%--<div class="box cart-total space-30">
                             <div class="row">
                                 <div class="col-md-4 space-30">
                                     <div class="item coupon-code">
@@ -340,7 +323,7 @@
                                         </form>
                                         <a class="link-v1 lh-50 rt" href="#" title="apply coupon">APPLY COUPON</a>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <%--<div class="col-md-4 space-30">
                                     <div class="item">
                                         <h3 class="title">ESTIMEDE SHIPPING AND TAX</h3>
@@ -368,7 +351,7 @@
                                     </div>
                                 </div>--%>
                                 <!-- End col-md-4 -->
-                                <div class="col-md-4 space-30">
+                                <%--<div class="col-md-4 space-30">
                                     <div class="item">
                                         <h3 class="title">CART TOTAL</h3>
                                         <p class="box">
@@ -382,7 +365,7 @@
                                 </div>
                                 <!-- End col-md-4 -->
                             </div>
-                        </div>
+                        </div>--%>
                         <!-- End box -->
                     </div>
                     <!-- End container -->

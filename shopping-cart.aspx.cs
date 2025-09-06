@@ -34,7 +34,6 @@ namespace JenStore
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             decimal subTotal = 0;
-            decimal shippingCost = 0;
             
 
             using (SqlConnection con = new SqlConnection(connect))
@@ -71,15 +70,7 @@ namespace JenStore
                 }
             }
 
-            if (subTotal > 0)
-            {
-                shippingCost = 40; 
-            }
-            decimal grandTotal = subTotal+ shippingCost;
-
             lblSubTotal.Text = subTotal.ToString("C");
-            lblShipping.Text = shippingCost.ToString("C");
-            lblGrandTotal.Text = grandTotal.ToString("C");
         }
 
         protected void btnIncrease_Click(object sender, EventArgs e)

@@ -9,102 +9,120 @@
     7. Footer / #footer
     
 --------------------------------------*/
-.space-padding-tb-30{
-	padding-top: 30px !important;
+.space-padding-tb-30 {
+    padding-top: 30px !important;
     padding-bottom: 30px !important;
 }
-.cart-box-container{
-	.col-md-4{
-		padding-right: 0px;
-		&:last-child{padding-right:15px;}
-	}
+
+.cart-box-container {
+    .col-md-4 {
+        padding-right: 0px;
+
+        &:last-child {
+            padding-right: 15px;
+        }
+    }
 }
 
-.head-cart{
-	.item{
-		border: 1px solid #ebebeb;
-    	padding: 60px 0px;
-    	&.active{
-    		.icon{
-    			background: #222;
-    			color: #fff;
-    			border-color: #222;
-    		}
-    	}
-    	.icon{
-    			font: 400 22px/64px "Poppins";
-    			display: inline-block;
-    			width: 66px;
-    			height: 66px;
-    			border-radius: 50%;
-    			border: 1px solid #c2c2c2;
-    			background: #fff;
-    			color: #565656;
-    		}
-    		h3{
-    			font: 400 24px/30px "Poppins";
-    			color: #565656;
-    			text-transform: uppercase;
-    			margin-top: 25px;
-    			margin-bottom: 10px;
-    			padding-bottom: 20px;
-    			position: relative;
-    			&:after{
-    				position: absolute;
-    				content: '';
-    				bottom: 0px;
-    				left: 0px;
-    				right: 0px;
-    				margin: auto;
-    				height: 1px;
-    				width: 75px;
-    				background: #222;
-    			}
-    		}
-	}
+.head-cart {
+    .item {
+        border: 1px solid #ebebeb;
+        padding: 60px 0px;
+
+        &.active {
+            .icon {
+                background: #222;
+                color: #fff;
+                border-color: #222;
+            }
+        }
+
+        .icon {
+            font: 400 22px/64px "Poppins";
+            display: inline-block;
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            border: 1px solid #c2c2c2;
+            background: #fff;
+            color: #565656;
+        }
+
+        h3 {
+            font: 400 24px/30px "Poppins";
+            color: #565656;
+            text-transform: uppercase;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            position: relative;
+
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: auto;
+                height: 1px;
+                width: 75px;
+                background: #222;
+            }
+        }
+    }
 }
-.center{
-	text-align: center;
+
+.center {
+    text-align: center;
 }
-.title-brand{
+
+.title-brand {
     color: #222;
     font: 700 30px "Poppins";
     margin-bottom: 15px;
 }
-.form-horizontal{
-    .col-md-6{
-            &:nth-child(2n+1){
-                padding-left: 0px;
-                padding-right: 10px;
-            }
-            &:nth-child(2n){
-                    padding-right: 0px !important;
-                    padding-left: 10px;
-            }
+
+.form-horizontal {
+    .col-md-6 {
+        &:nth-child(2n+1) {
+            padding-left: 0px;
+            padding-right: 10px;
         }
-    .form-group{
+
+        &:nth-child(2n) {
+            padding-right: 0px !important;
+            padding-left: 10px;
+        }
+    }
+
+    .form-group {
         margin-left: 0px;
         margin-right: 0px;
         padding: 0px;
-        &.col-md-6{
+
+        &.col-md-6 {
             padding-right: 10px;
         }
     }
 }
-.check-out{
+
+.check-out {
     margin-bottom: 50px;
-    .form-horizontal{
-        label{
-            &.control-label{
-                    font: 700 16px/20px "Poppins";
-                    color: #2b2b2b;
-                    text-transform: uppercase;
-                .color{
+
+    .form-horizontal {
+        label {
+            &.control-label {
+                font: 700 16px/20px "Poppins";
+                color: #2b2b2b;
+                text-transform: uppercase;
+
+                .color {
                     color: #fd0000;
-                    }
+                }
             }
         }
-        .form-control{
+
+        .form-control {
             border-color: #e5e5e5;
             box-shadow: none;
             font-size: 16px;
@@ -122,8 +140,8 @@
             transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
         }
     }
-    .form-check{
 
+    .form-check {
         display: inline-block;
         font: 400 14px/20px "Poppins";
         color: #000000;
@@ -131,7 +149,8 @@
         cursor: pointer;
         margin-right: 25px;
         position: relative;
-        .checkmark{
+
+        .checkmark {
             content: "";
             display: inline-block;
             width: 20px;
@@ -143,69 +162,85 @@
             border: 1px solid #b5b5b5;
             background-color: #fff;
         }
-        input[type="checkbox"]{
-            opacity: 0;position: absolute;
-            &:checked + .checkmark{
-                &:before{
-                padding-left: 3px;
-                content: "\2713" !important;
-                font-size: 15px;
-                color: #333;
-                text-align: center;
-                display: inline-block;
+
+        input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+
+            &:checked + .checkmark {
+                &:before {
+                    padding-left: 3px;
+                    content: "\2713" !important;
+                    font-size: 15px;
+                    color: #333;
+                    text-align: center;
+                    display: inline-block;
                 }
-                
-                
             }
         }
     }
 }
-.space-20{
-        margin-bottom: 20px !important;
+
+.space-20 {
+    margin-bottom: 20px !important;
 }
-.space-50{
+
+.space-50 {
     margin-bottom: 50px !important;
 }
-.info-order{
-    .product-name{
+
+.info-order {
+    .product-name {
         text-align: left;
-            .name{
-                    font: 400 16px/50px "Poppins";
-                    color: #a7a7a7;
-                   
-                    float: left;width: 300px;
-                }
-                .qty{
-                    font: 400 16px/50px "Poppins";color: #a7a7a7;
-                }
-                .total{
-                    font: 400 16px/50px "Poppins";
-                    float: right;
-                    color: #a7a7a7;
-                    text-align: right;
-                }
-        ul{
+
+        .name {
+            font: 400 16px/50px "Poppins";
+            color: #a7a7a7;
+            float: left;
+            width: 300px;
+        }
+
+        .qty {
+            font: 400 16px/50px "Poppins";
+            color: #a7a7a7;
+        }
+
+        .total {
+            font: 400 16px/50px "Poppins";
+            float: right;
+            color: #a7a7a7;
+            text-align: right;
+        }
+
+        ul {
             margin: 0;
             padding: 0;
-            .head{
+
+            .head {
                 border-bottom: 1px solid #e6e6e6;
-                .name{
+
+                .name {
                     font: 700 16px/50px "Poppins";
                     color: #565656;
                     text-transform: uppercase;
-                    float: left;width: 300px;
+                    float: left;
+                    width: 300px;
                 }
-                .qty{
-                    font: 400 16px/50px "Poppins";color: #565656;
+
+                .qty {
+                    font: 400 16px/50px "Poppins";
+                    color: #565656;
                 }
-                .total{
+
+                .total {
                     font: 400 16px/50px "Poppins";
                     float: right;
                     color: #565656;
                     text-align: right;
                 }
             }
-            li{
+
+            li {
                 display: block;
                 float: left;
                 width: 100%;
@@ -213,47 +248,54 @@
                 list-style-type: none;
             }
         }
-        
     }
-    .product-order{
+
+    .product-order {
         margin-bottom: 30px;
         padding-bottom: 30px;
         width: 100%;
         float: left;
         padding-left: 0;
-        li{
+
+        li {
             border-top: 1px solid #e6e6e6;
             display: block;
             float: left;
             width: 100%;
             line-height: 50px;
         }
-        .left{
+
+        .left {
             font: 700 16px "Poppins";
             color: #565656;
             text-transform: uppercase;
             float: left;
             line-height: 50px;
         }
-        .right{
+
+        .right {
             float: right;
             font: 400 16px/50px "Poppins";
             text-transform: uppercase;
         }
     }
 }
-.payment-order{
-    ul{
-        &.tabs{
-            li{
+
+.payment-order {
+    ul {
+        &.tabs {
+            li {
                 padding: 20px 0px 20px 20px;
-                list-style: none;position: relative;
-                &.active{
-                    i{
+                list-style: none;
+                position: relative;
+
+                &.active {
+                    i {
                         background: #222;
                     }
                 }
-                i{
+
+                i {
                     width: 12px;
                     height: 12px;
                     content: "";
@@ -265,16 +307,19 @@
                     display: inline-block;
                     border: 1px solid #ddd;
                 }
-                h4{
+
+                h4 {
                     font: 600 18px/20px "Poppins";
                     color: #000;
                 }
-                p{
+
+                p {
                     color: #9d9d9d;
                     font: 400 12px/20px "Poppins";
                     margin-top: 10px;
                 }
-                a{
+
+                a {
                     font: 400 12px/20px "Poppins";
                     color: #e95252;
                     margin-top: 20px !important;
@@ -285,8 +330,9 @@
         }
     }
 }
-.link-v1{
-    &.rt{
+
+.link-v1 {
+    &.rt {
         background: #222;
         color: #fff;
         border-color: #222;
@@ -298,8 +344,9 @@
         display: inline-block;
         transition: all .3s ease;
         border: 1px solid #222;
-        &:hover{
-            text-decoration:none;
+
+        &:hover {
+            text-decoration: none;
             background: #fff;
             color: #222;
         }
