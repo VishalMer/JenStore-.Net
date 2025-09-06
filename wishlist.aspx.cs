@@ -76,6 +76,22 @@ namespace JenStore
             BindWishlistRepeater();
         }
 
+        protected void btnRemoveAllFromWishlist_Click(object sender, EventArgs e)
+        {
+            //LinkButton btn = (LinkButton)sender;
+            //int wishlistItemId = Convert.ToInt32(btn.CommandArgument);
+            int userId = Convert.ToInt32(Session["UserID"]);
+
+            using (SqlConnection con = new SqlConnection(connect))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Wishlist WHERE user_id = @user_id", con);
+                cmd.Parameters.AddWithValue("@user_id", userId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            BindWishlistRepeater();
+        }
+
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)

@@ -25,6 +25,32 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            .add-allBtn {
+                font-family: Abril Fatface;
+                font-weight: 400;
+                font-size: 18px;
+                color: white; /* This color is used initially */
+                padding: 10px 30px;
+                background-color: black;
+                border: 1px solid black;
+                background-image: -webkit-linear-gradient(90deg, black 50%, transparent 50%);
+                background-image: linear-gradient(90deg, black 50%, transparent 50%);
+                background-size: 600px;
+                background-repeat: no-repeat;
+                background-position: 0%;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                margin-right: 1em;
+            }
+
+                .add-allBtn:hover {
+                    background-position: 100%;
+                    background-color: #fff;
+                    color: black;
+                    text-decoration: none;
+                }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -238,17 +264,26 @@
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
-
-
-
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="6" style="text-align: right; padding-top: 20px;">
-                                        <asp:LinkButton ID="btnAddAllToCart" runat="server"
-                                            CssClass="btn-shop"
-                                            Text="ADD ALL TO CART"
-                                            OnClick="btnAddAllToCart_Click" />
+                                    <td colspan="6">
+                                        <div style="display:flex;">
+                                            <div style="text-align: left; padding: 20px 0; width: 50%;">
+                                                <a class="add-allBtn" href="shopping.aspx" title="CONTINUS SHOPPING">CONTINUE SHOPPING</a>
+                                            </div>
+                                            <div style="text-align: right; padding: 20px 0; width: 50%;">
+                                                <asp:LinkButton ID="btnAddAllToCart" runat="server"
+                                                    CssClass="add-allBtn"
+                                                    Text="ADD ALL TO CART"
+                                                    OnClick="btnAddAllToCart_Click" />
+                                                <asp:LinkButton ID="removeAll" runat="server"
+                                                    CssClass="add-allBtn"
+                                                    Text="REMOVE ALL"
+                                                    OnClick="btnRemoveAllFromWishlist_Click" />
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
                             </tfoot>
