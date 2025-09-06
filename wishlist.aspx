@@ -1,27 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/wishlist.Master" AutoEventWireup="true" CodeBehind="wishlist.aspx.cs" Inherits="JenStore.wishlist1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-                
-<!DOCTYPE html>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+
+    <!DOCTYPE html>
     <html>
     <head>
         <title>Wishlist</title>
         <meta charset="utf-8">
-	<!-- bootstrap vs fontawesome-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- bootstrap vs fontawesome-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="img/favicon.png" type="image/x-icon"/>
+        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/style-about.css">
         <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
         <link rel="stylesheet" type="text/css" href="css/style-faq.css">
         <link rel="stylesheet" type="text/css" href="css/style-shopping.css">
         <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
         <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
-		<!-- slick -->
-	
-	<!-- GG FONT -->
-	    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <!-- slick -->
+
+        <!-- GG FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     </head>
@@ -30,10 +31,11 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="#">
-                    <img src="img/logo.png" alt="img-holiwood"></a></div>
+                        <img src="img/logo.png" alt="img-holiwood"></a>
+                </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                       <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
+                        <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
                             <input type="text" name="search" placeholder="Search here..." class="form-control">
                             <button type="submit">
                                 <img src="img/Search.png" alt="search" class="img-responsive">
@@ -41,10 +43,10 @@
                         </form>--%>
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                                 <div class="dropdown-menu">
                                     <div class="container container-menu">
                                         <ul class="row">
@@ -83,13 +85,13 @@
                                 </div>
                             </li>
                             <li><a href="wishlist.aspx" class="active">Wishlist</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                             </li>
                             <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
                             <li>
@@ -110,7 +112,8 @@
                             <div class="dropdown-menu">
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Pink roses</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -118,7 +121,8 @@
                                 </div>
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Eleganr by BloomNation</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -126,7 +130,8 @@
                                 </div>
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Queen Rose - Yellow</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -150,166 +155,160 @@
             </div>
         </header>
         <main>
-        <div class="content-search">
-            <div class="container container-100">
-                <i class="far fa-times-circle" id="close-search"></i>
-                <h3 class="text-center">what are your looking for ?</h3>
-                <form method="get" action="/search" role="search" style="position: relative;">
-                    <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
-                    <button class="button_search" type="submit">
-                        search
-                    </button>
-                </form>
-            </div>
-        </div>
-        <div class="banner">
-            <div class="container">
-                <figure id="banner-about">
-                    <a href="#">
-                    <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
-                <div class="title-banner">
-                    <h1>Wishlist</h1>
-                    <p>
-                        <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Wishlist</p>
+            <div class="content-search">
+                <div class="container container-100">
+                    <i class="far fa-times-circle" id="close-search"></i>
+                    <h3 class="text-center">what are your looking for ?</h3>
+                    <form method="get" action="/search" role="search" style="position: relative;">
+                        <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
+                        <button class="button_search" type="submit">
+                            search
+                        </button>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="cart-box-container">
-            <div class="container container-ver2">
-                <div class="box cart-container">
-                    <table class="table cart-table space-30">
-                        <thead>
-                            <tr>
-                                <th class="product-photo">PRODUCT NAME</th>
-                                <th class="produc-name"></th>
-                                <th class="produc-price">PRINCE</th>
-                                <th class="product-quantity">STOCK STATUS</th>
-                                <th class="total-price">ADD TO CART</th>
-                                <th class="product-remove"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="item_cart">
-                                <td class="product-photo">
-                                    <img src="img/340x420.png" alt="Futurelife"></td>
-                                <td class="produc-name"><a href="#" title="">Eleganr by BloomNation</a></td>
-                                <td class="produc-price">
-                                    <input value="$69.90" size="4" type="text"></td>
-                                <td class="product-in"><i class="fas fa-check-circle"></i>In Stock</td>
-                                <td class="add-to-cart"><a href="#" class="btn-shop">SHOP NOW</a></td>
-                                <td class="product-remove"><a class="remove" href="#" title="close">
-                                    <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                            </tr>
-                            <tr class="item_cart">
-                                <td class="product-photo">
-                                    <img src="img/340x420.png" alt="Futurelife"></td>
-                                <td class="produc-name"><a href="#" title="">Pink roses</a></td>
-                                <td class="produc-price">
-                                    <input value="$51.59" size="4" type="text"></td>
-                                <td class="product-in"><i class="fas fa-check-circle"></i>In Stock</td>
-                                <td class="add-to-cart"><a href="#" class="btn-shop">SHOP NOW</a></td>
-                                <td class="product-remove"><a class="remove" href="#" title="close">
-                                    <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                            </tr>
-                            <tr class="item_cart">
-                                <td class="product-photo">
-                                    <img src="img/340x420.png" alt="Futurelife"></td>
-                                <td class="produc-name"><a href="#" title="">Fun & Flirty By BloomNation</a></td>
-                                <td class="produc-price">
-                                    <input value="$51.59" size="4" type="text"></td>
-                                <td class="product-out"><i class="fas fa-check-circle"></i>Out Stock</td>
-                                <td class="add-to-cart"><a href="#" class="btn-shop">SHOP NOW</a></td>
-                                <td class="product-remove"><a class="remove" href="#" title="close">
-                                    <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                            </tr>
-                            <tr class="item_cart">
-                                <td class="product-photo">
-                                    <img src="img/340x420.png" alt="Futurelife"></td>
-                                <td class="produc-name"><a href="#" title="">Queen Rose - Pink</a></td>
-                                <td class="produc-price">
-                                    <input value="$51.59" size="4" type="text"></td>
-                                <td class="product-out"><i class="fas fa-check-circle"></i>Out Stock</td>
-                                <td class="add-to-cart"><a href="#" class="btn-shop">SHOP NOW</a></td>
-                                <td class="product-remove"><a class="remove" href="#" title="close">
-                                    <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                            </tr>
-                            <tr class="item_cart">
-                                <td class="product-photo">
-                                    <img src="img/340x420.png" alt="Futurelife"></td>
-                                <td class="produc-name"><a href="#" title="">Winter White Bouquet</a></td>
-                                <td class="produc-price">
-                                    <input value="$51.59" size="4" type="text"></td>
-                                <td class="product-in"><i class="fas fa-check-circle"></i>In Stock</td>
-                                <td class="add-to-cart"><a href="#" class="btn-shop">SHOP NOW</a></td>
-                                <td class="product-remove"><a class="remove" href="#" title="close">
-                                    <img src="img/icon-delete-cart.png" alt="close"></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- End container -->
-            </div>
-            <!-- End cat-box-container -->
-        </div>
-        <div class="info-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>About</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">News & Stories</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">History</a> </li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Our Studio</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Stockists</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Customer sevices</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Contact Us</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Trade Services</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Login/Register</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Delivery & Returns</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">FAQs</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Store</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Wedding</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Birthday</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Women's day</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Shop collection</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">New Arrivals</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Hot</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Sale</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Deal of the day</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social">
+            <div class="banner">
+                <div class="container">
+                    <figure id="banner-about">
+                        <a href="#">
+                            <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                    </figure>
+                    <div class="title-banner">
+                        <h1>Wishlist</h1>
                         <p>
-                            CONNECT WITH US:</p>
-                        <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
-                        <h1>Newsletter</h1>
-                        <h2>Sign up for our mailing list to get latest updates and offers</h2>
-                        <form class="form-group" action="mail" method="post">
-                            <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
-                            <button type="submit">
-                                <img src="img/Send.png" alt="img-holiwood">
-                            </button>
-                        </form>
+                            <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Wishlist
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="cart-box-container">
+                <div class="container container-ver2">
+                    <div class="box cart-container">
+                        <table class="table cart-table space-30">
+                            <thead>
+                                <tr>
+                                    <th class="product-photo">PRODUCT NAME</th>
+                                    <th class="produc-name"></th>
+                                    <th class="produc-price">PRINCE</th>
+                                    <th class="product-quantity">STOCK STATUS</th>
+                                    <th class="total-price">ADD TO CART</th>
+                                    <th class="product-remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <asp:Repeater ID="rptWishlist" runat="server">
+    <ItemTemplate>
+        <tr class="item_cart">
+            <td class="product-photo">
+                <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
+            </td>
+            <td class="produc-name">
+                <a href="#" title=""><%# Eval("product_name") %></a>
+            </td>
+            <td class="produc-price">
+                $<%# Eval("price", "{0:N2}") %>
+            </td>
+            <td class="product-in">
+                <%-- This section dynamically shows "In Stock" or "Out of Stock" --%>
+                <span class="stock-status in-stock" runat="server" Visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
+                    <i class="fas fa-check-circle"></i> In Stock
+                </span>
+                <span class="stock-status out-of-stock" runat="server" Visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
+                    <i class="fas fa-times-circle"></i> Out of Stock
+                </span>
+            </td>
+            <td class="add-to-cart">
+                <%-- This button is enabled only if the product is in stock and now has a specific OnClick event --%>
+                <asp:LinkButton ID="btnAddToCartFromWishlist" runat="server"
+                    CssClass="btn-shop"
+                    Text="SHOP NOW"
+                    OnClick="btnAddToCart_Click"
+                    CommandArgument='<%# Eval("product_id") %>'
+                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
+                </asp:LinkButton>
+            </td>
+            <td class="product-remove">
+                <%-- This button will remove the item from the wishlist and now has a specific OnClick event --%>
+                <asp:LinkButton ID="btnRemoveFromWishlist" runat="server"
+                    CssClass="remove"
+                    OnClick="btnRemove_Click"
+                    CommandArgument='<%# Eval("wishlist_item_id") %>'>
+                    <img src="img/icon-delete-cart.png" alt="close" />
+                </asp:LinkButton>
+            </td>
+        </tr>
+    </ItemTemplate>
+</asp:Repeater>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End container -->
+                </div>
+                <!-- End cat-box-container -->
+            </div>
+            <div class="info-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>About</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">News & Stories</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">History</a> </li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Our Studio</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Stockists</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>Customer sevices</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Contact Us</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Trade Services</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Login/Register</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Delivery & Returns</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">FAQs</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>Store</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Wedding</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Birthday</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Women's day</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>Shop collection</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">New Arrivals</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Hot</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Sale</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Deal of the day</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social">
+                            <p>
+                                CONNECT WITH US:
+                            </p>
+                            <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
+                            <h1>Newsletter</h1>
+                            <h2>Sign up for our mailing list to get latest updates and offers</h2>
+                            <form class="form-group" action="mail" method="post">
+                                <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
+                                <button type="submit">
+                                    <img src="img/Send.png" alt="img-holiwood">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="container">
@@ -332,16 +331,16 @@
             </div>
         </footer>
 
-<!-- boostrap & jquery -->
-	<script src="js/jquery.min_af.js"></script>
-	<script src="js/bootstrap.min_0028.js"></script>
-	
-	<!-- js file -->
-	<script src="js/function-back-top.js"></script>
-	<script src="js/function-sidebar.js"></script>
-	<script src="js/funtion-header-v3.js"></script>
-	<script src="js/function-search-v2.js"></script>
-	<script src="js/function-shopping-cart.js"></script>
+        <!-- boostrap & jquery -->
+        <script src="js/jquery.min_af.js"></script>
+        <script src="js/bootstrap.min_0028.js"></script>
+
+        <!-- js file -->
+        <script src="js/function-back-top.js"></script>
+        <script src="js/function-sidebar.js"></script>
+        <script src="js/funtion-header-v3.js"></script>
+        <script src="js/function-search-v2.js"></script>
+        <script src="js/function-shopping-cart.js"></script>
     </body>
     </html>
 </asp:Content>

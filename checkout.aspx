@@ -35,12 +35,6 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                        <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
-                            <input type="text" name="search" placeholder="Search here..." class="form-control">
-                            <button type="submit">
-                                <img src="img/Search.png" alt="search" class="img-responsive">
-                            </button>
-                        </form>--%>
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
