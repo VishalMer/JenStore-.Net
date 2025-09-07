@@ -245,7 +245,7 @@
                             </form>
 
                             <div class="payment-order box ">
-                                <h3 class="title-brand" style="display: inline-table;">PAYMENT MENTHOD</h3>
+                                <h3 class="title-brand" style="display: inline-table; margin-left:-10em">PAYMENT MENTHOD</h3>
                                 <ul class="tabs">
                                     <li>
                                         <i class="icon"></i>

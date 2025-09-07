@@ -50,6 +50,13 @@
                     color: black;
                     text-decoration: none;
                 }
+            /* Targets the "SHOP NOW" button when it is disabled */
+            /* Style for the button when it has the 'out-of-stock' class */
+            .btn-shop.out-of-stock {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none; /* This is the key to disabling all mouse interactions, including hover */
+            }
         </style>
     </head>
     <body>
@@ -235,30 +242,30 @@
                                             </td>
                                             <td class="product-in">
                                                 <%-- This section dynamically shows "In Stock" or "Out of Stock" --%>
-                                                <span class="stock-status in-stock" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
-                                                    <i class="fas fa-check-circle"></i>In Stock
+                                                <span class="stock-status in-stock" style="color: green" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
+                                                    <i class="fas fa-check-circle" style="color: green"></i>In Stock
                                                 </span>
-                                                <span class="stock-status out-of-stock" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
-                                                    <i class="fas fa-times-circle"></i>Out of Stock
+                                                <span class="stock-status out-of-stock" style="color: red" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
+                                                    <i class="fas fa-times-circle" style="color: red"></i>Out of Stock
                                                 </span>
                                             </td>
                                             <td class="add-to-cart">
-                                                <%-- This button is enabled only if the product is in stock and now has a specific OnClick event --%>
+                                                <%-- This button is correctly disabled based on stock. The CSS above will now style it. --%>
                                                 <asp:LinkButton ID="btnAddToCartFromWishlist" runat="server"
-                                                    CssClass="btn-shop"
                                                     Text="SHOP NOW"
                                                     OnClick="btnAddToCart_Click"
                                                     CommandArgument='<%# Eval("product_id") %>'
-                                                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
+                                                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'
+                                                    CssClass='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? "btn-shop" : "btn-shop out-of-stock" %>'>
                                                 </asp:LinkButton>
                                             </td>
                                             <td class="product-remove">
-                                                <%-- This button will remove the item from the wishlist and now has a specific OnClick event --%>
+                                                <%-- This button will remove the item from the wishlist --%>
                                                 <asp:LinkButton ID="btnRemoveFromWishlist" runat="server"
                                                     CssClass="remove"
                                                     OnClick="btnRemove_Click"
                                                     CommandArgument='<%# Eval("wishlist_item_id") %>'>
-                    <img src="img/icon-delete-cart.png" alt="close" />
+                <img src="img/icon-delete-cart.png" alt="close" />
                                                 </asp:LinkButton>
                                             </td>
                                         </tr>
@@ -268,7 +275,7 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="6">
-                                        <div style="display:flex;">
+                                        <div style="display: flex;">
                                             <div style="text-align: left; padding: 20px 0; width: 50%;">
                                                 <a class="add-allBtn" href="shopping.aspx" title="CONTINUS SHOPPING">CONTINUE SHOPPING</a>
                                             </div>
