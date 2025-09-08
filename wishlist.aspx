@@ -44,17 +44,28 @@
                 margin-right: 1em;
             }
 
-            .add-allBtn:hover {
-                 background-position: 100%;
-                 background-color: #fff;
-                 color: black;
-                 text-decoration: none;
-             }
-           
+                .add-allBtn:hover {
+                    background-position: 100%;
+                    background-color: #fff;
+                    color: black;
+                    text-decoration: none;
+                }
+
             .btn-shop.out-of-stock {
                 opacity: 0.5;
                 cursor: not-allowed;
                 pointer-events: none; /* This is the key to disabling all mouse interactions, including hover */
+            }
+
+            .out-of-stock-row td {
+                filter: grayscale(100%);
+                opacity: 0.8;
+            }
+
+            /* ...but then RESET the filter for the specific stock status cell. */
+            .out-of-stock-row .product-in {
+                filter: none;
+                opacity: 0.8;
             }
         </style>
     </head>
@@ -230,7 +241,8 @@
                             <tbody>
                                 <asp:Repeater ID="rptWishlist" runat="server">
                                     <ItemTemplate>
-                                        <tr class="item_cart">
+                                        <%-- THIS IS THE LINE THAT WAS CHANGED --%>
+                                        <tr class='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "item_cart out-of-stock-row" : "item_cart" %>'>
                                             <td class="product-photo">
                                                 <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
                                             </td>
@@ -244,7 +256,7 @@
                                                 <span class="stock-status in-stock" style="color: green" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
                                                     <i class="fas fa-check-circle" style="color: green"></i>In Stock
                                                 </span>
-                                                <span class="stock-status out-of-stock" style="color: red" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
+                                                <span class="stock-status out-of-stock" style="color: red !important" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
                                                     <i class="fas fa-times-circle" style="color: red"></i>Out of Stock
                                                 </span>
                                             </td>
@@ -264,7 +276,7 @@
                                                     CssClass="remove"
                                                     OnClick="btnRemove_Click"
                                                     CommandArgument='<%# Eval("wishlist_item_id") %>'>
-                <img src="img/icon-delete-cart.png" alt="close" />
+<img src="img/icon-delete-cart.png" alt="close" />
                                                 </asp:LinkButton>
                                             </td>
                                         </tr>
