@@ -290,37 +290,9 @@
                                         <asp:ListItem>Female</asp:ListItem>
                                     </asp:RadioButtonList>
                                     <asp:Label ID="genError" class="ErrMsg" runat="server" Text=""></asp:Label>
-                                    <%-- <div class="radio-group">
-                                        <label class="radio-inline">
-                                        <input type="radio" name="gender" value="male" id="gender-male" required> <span class="radio-label">Male</span>
-                                        </label>
-                                        &nbsp;<label class="radio-inline"><input type="radio" name="gender" value="female" id="gender-female" required> <span class="radio-label">Female</span>
-                                        </label>
-                                        &nbsp;</div>--%>
                                 </div>
                                 <asp:Button class="link-v1 rt" ID="submit" runat="server" Text="Sign Up" OnClick="submit_Click" />
-                                <%--<button type="submit" class="link-v1 rt">
-                                    Sign Up
-                                </button>--%>
-                                <%--</form>--%>
                             </div>
-                            <!-- End register -->
-                            <%--<div class="sigg-to-day box">
-                                <h3>SIGN UP TODAY</h3>
-                                <form class="form-horizontal" method="POST">
-                                    <div class="checkbox">
-                                        <input id="check1" type="checkbox" name="check" value="check1">
-                                        <label class="label-check" for="check1">
-                                            Speed your way through the checkout.</label>
-                                        <input id="check2" type="checkbox" name="check" value="check2">
-                                        <label class="label-check" for="check2">
-                                            Track your orders easily.</label>
-                                        <input id="check3" type="checkbox" name="check" value="check3">
-                                        <label class="label-check" for="check3">
-                                            Keep a record of all purchases.</label>
-                                    </div>
-                                </form>
-                            </div>--%>
                         </div>
                         <!-- End col-md-6 -->
                     </div>

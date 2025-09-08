@@ -215,18 +215,14 @@
                             <form class="form-horizontal">
                                 <div class="form-group ">
                                     <label for="inputfname" class=" control-label">Full Name <span class="color">*</span></label>
-                                    <input type="text" placeholder="Enter your first name..." id="inputfname" class="form-control">
+                                    <input type="text" placeholder="Enter your full name..." id="inputfname" class="form-control">
                                 </div>
-                                <div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputemail" class=" control-label">Email<span class="color">*</span></label>
-                                        <input type="text" placeholder="Enter your email..." id="inputemail" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputphone" class=" control-label">Phone<span class="color">*</span></label>
-                                        <input type="text" placeholder="Enter your phone..." id="inputphone" class="form-control">
-                                    </div>
+
+                                <div class="form-group">
+                                    <label for="inputphone" class=" control-label">Phone<span class="color">*</span></label>
+                                    <input type="text" placeholder="Enter your phone..." id="inputphone" class="form-control">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="inputstreet" class=" control-label">Adress<span class="color">*</span></label>
                                     <input type="text" placeholder="Enter your street address..." id="inputstreet" class="form-control space-20">
@@ -245,7 +241,7 @@
                             </form>
 
                             <div class="payment-order box ">
-                                <h3 class="title-brand" style="display: inline-table; margin-left:-10em">PAYMENT MENTHOD</h3>
+                                <h3 class="title-brand" style="display: inline-table; margin-left: -10em">PAYMENT MENTHOD</h3>
                                 <ul class="tabs">
                                     <li>
                                         <i class="icon"></i>
@@ -283,41 +279,42 @@
                                                 <span class="qty"><b>QTY</b></span>
                                                 <span class="total"><b>SUB TOTAL</b></span>
                                             </li>
-                                            <li>
-                                                <span class="name">Modern Chair</span>
-                                                <span class="qty">01</span>
-                                                <span class="total">$520.00</span>
-                                            </li>
-                                            <li>
-                                                <span class="name">Toldbod Lamp</span>
-                                                <span class="qty">02</span>
-                                                <span class="total">$190.00</span>
-                                            </li>
-                                            <li>
-                                                <span class="name">Getama Sofa</span>
-                                                <span class="qty">03</span>
-                                                <span class="total">$270.00</span>
-                                            </li>
+
+                                            <%-- This Repeater will dynamically display the list of products from your cart --%>
+                                            <asp:Repeater ID="rptOrderSummary" runat="server">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <span class="name"><%# Eval("product_name") %></span>
+                                                        <span class="qty"><%# Eval("quantity") %></span>
+                                                        <span class="total">$<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("N2") %></span>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
                                         </ul>
                                     </div>
                                     <!-- End product-name -->
                                     <ul class="product-order">
                                         <li>
                                             <span class="left">CART SUBTOTAL</span>
-                                            <span class="right">$980.00</span>
+                                            <span class="right">
+                                                <asp:Label ID="lblSubTotal" runat="server" Text="$0.00" />
+                                            </span>
                                         </li>
                                         <li>
                                             <span class="left">SHIPPING & HANDLING</span>
-                                            <span class="right">Free Shipping</span>
+                                            <span class="right">
+                                                <asp:Label ID="lblShipping" runat="server" Text="$0.00" />
+                                            </span>
                                         </li>
                                         <li>
                                             <span class="left">ORDER TOTAL</span>
-                                            <span class="right brand">$980.00</span>
+                                            <span class="right brand">
+                                                <asp:Label ID="lblOrderTotal" runat="server" Text="$0.00" />
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- End info-order -->
-
                             </div>
                         </div>
                     </div>

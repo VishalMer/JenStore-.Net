@@ -26,13 +26,12 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-         <style>
-        .product-out-of-stock {
-           
-            cursor: not-allowed;
-            filter: grayscale(100%);
-        }
-    </style>
+        <style>
+            .product-out-of-stock {
+                cursor: not-allowed;
+                filter: grayscale(100%);
+            }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -212,45 +211,45 @@
                     <itemtemplate>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower content-flower-full">
 
-                           <asp:Repeater ID="rptProducts" runat="server">
-                    <ItemTemplate>
-                        <%-- The main div for the product now gets a special class if the item is out of stock --%>
-                        <div class='col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3 <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
-                            <div class="product-image-flower">
-                                <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                    <a href="#">
-                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
-                                </figure>
-                                <div class="product-icon-flower">
-                                    <asp:LinkButton ID="btnViewProduct" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
-                                    
-                                    <%-- The "Add to Cart" button is now DISABLED if the stock is 0 or less --%>
-                                    <asp:LinkButton ID="btnAddToCart" runat="server" CommandArgument='<%# Eval("product_id") %>'
-                                        OnClick="btnAddToCart_Click" 
-                                        Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                            <asp:Repeater ID="rptProducts" runat="server">
+                                <ItemTemplate>
+                                    <%-- The main div for the product now gets a special class if the item is out of stock --%>
+                                    <div class='col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3 <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
+                                        <div class="product-image-flower">
+                                            <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
+                                                <a href="#">
+                                                    <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                            </figure>
+                                            <div class="product-icon-flower">
+                                                <asp:LinkButton ID="btnViewProduct" runat="server" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
 
-                                    <%-- The "Add to Wishlist" button is ALWAYS enabled --%>
-                                    <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandArgument='<%# Eval("product_id") %>'
-                                        OnClick="btnAddToWishlist_Click"><i class="far fa-heart"></i></asp:LinkButton>
-                                </div>
-                            </div>
-                            <div class="product-title-flower">
-                                <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                <p class="p-title"><%# Eval("description") %></p>
-                                <div class="star">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="rating"><%# Eval("rating_count") %> Rating(s) | Add Your Rating(s)</span>
-                                </div>
-                                <div class="prince">
-                                    $<%# Eval("price", "{0:N2}") %>
-                                    <span runat="server" Visible='<%# Eval("old_price") != DBNull.Value %>'>
-                                        <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
+                                                <%-- The "Add to Cart" button is now DISABLED if the stock is 0 or less --%>
+                                                <asp:LinkButton ID="btnAddToCart" runat="server" CommandArgument='<%# Eval("product_id") %>'
+                                                    OnClick="btnAddToCart_Click"
+                                                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+
+                                                <%-- The "Add to Wishlist" button is ALWAYS enabled --%>
+                                                <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandArgument='<%# Eval("product_id") %>'
+                                                    OnClick="btnAddToWishlist_Click"><i class="far fa-heart"></i></asp:LinkButton>
+                                            </div>
+                                        </div>
+                                        <div class="product-title-flower">
+                                            <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                            <p class="p-title"><%# Eval("description") %></p>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                <span class="rating"><%# Eval("rating_count") %> Rating(s) | Add Your Rating(s)</span>
+                                            </div>
+                                            <div class="prince">
+                                                $<%# Eval("price", "{0:N2}") %>
+                                                <span runat="server" visible='<%# Eval("old_price") != DBNull.Value %>'>
+                                                    <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
 
                         </div>
                 </div>
