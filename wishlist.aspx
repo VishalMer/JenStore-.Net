@@ -44,14 +44,13 @@
                 margin-right: 1em;
             }
 
-                .add-allBtn:hover {
-                    background-position: 100%;
-                    background-color: #fff;
-                    color: black;
-                    text-decoration: none;
-                }
-            /* Targets the "SHOP NOW" button when it is disabled */
-            /* Style for the button when it has the 'out-of-stock' class */
+            .add-allBtn:hover {
+                 background-position: 100%;
+                 background-color: #fff;
+                 color: black;
+                 text-decoration: none;
+             }
+           
             .btn-shop.out-of-stock {
                 opacity: 0.5;
                 cursor: not-allowed;

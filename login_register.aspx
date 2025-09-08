@@ -305,7 +305,7 @@
                                 <%--</form>--%>
                             </div>
                             <!-- End register -->
-                            <div class="sigg-to-day box">
+                            <%--<div class="sigg-to-day box">
                                 <h3>SIGN UP TODAY</h3>
                                 <form class="form-horizontal" method="POST">
                                     <div class="checkbox">
@@ -320,7 +320,7 @@
                                             Keep a record of all purchases.</label>
                                     </div>
                                 </form>
-                            </div>
+                            </div>--%>
                         </div>
                         <!-- End col-md-6 -->
                     </div>
