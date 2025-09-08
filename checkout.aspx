@@ -25,6 +25,71 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            /* Overall container for the payment options */
+            .payment-tabs {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                /* Style for each individual payment option */
+                .payment-tabs li {
+                    margin-bottom: 25px;
+                    padding-left: 23px; /* CHANGED - Adjusted for smaller button */
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                /* Hide the actual browser radio input */
+                .payment-tabs input[type="radio"] {
+                    display: none;
+                }
+
+                /* Style for the custom radio button's outer circle */
+                .payment-tabs li label::before {
+                    content: '';
+                    display: inline-block;
+                    width: 12px; /* CHANGED - Reduced size */
+                    height: 12px; /* CHANGED - Reduced size */
+                    border: 2px solid #ccc;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0;
+                    top: 4px; /* CHANGED - Adjusted vertical alignment */
+                    transition: all 0.3s ease-in-out;
+                }
+
+                /* When the input is checked, fill the circle with black */
+                .payment-tabs input[type="radio"]:checked + label::before {
+                    border-color: black;
+                    background-color: black;
+                }
+
+                /* Styling for the payment method title (H4) */
+                .payment-tabs h4 {
+                    font: 600 18px / 20px "Poppins";
+                    color: #000;
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                    line-height: 1.2;
+                }
+
+                /* Styling for the payment method description (P) */
+                .payment-tabs p {
+                    font: 400 12px / 20px "Poppins";
+                    color: #9d9d9d;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    line-height: 1.5;
+                }
+
+                /* Ensure the label itself is clickable */
+                .payment-tabs li label {
+                    display: block;
+                    cursor: pointer;
+                }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -212,60 +277,58 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h3 class="title-brand">BILLING ADDRESS</h3>
-                            <form class="form-horizontal">
-                                <div class="form-group ">
-                                    <label for="inputfname" class=" control-label">Full Name <span class="color">*</span></label>
-                                    <input type="text" placeholder="Enter your full name..." id="inputfname" class="form-control">
+
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label">Full Name <span class="color">*</span></label>
+                                    <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" placeholder="Enter your full name..."></asp:TextBox>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputphone" class=" control-label">Phone<span class="color">*</span></label>
-                                    <input type="text" placeholder="Enter your phone..." id="inputphone" class="form-control">
+                                    <label class="control-label">Phone<span class="color">*</span></label>
+                                    <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" placeholder="Enter your phone..."></asp:TextBox>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputstreet" class=" control-label">Adress<span class="color">*</span></label>
-                                    <input type="text" placeholder="Enter your street address..." id="inputstreet" class="form-control space-20">
-                                    <!-- <input type="text" placeholder="Enter the apartment, floor, suite, etc..." id="inputapartment" class="form-control">  -->
+                                    <label class="control-label">Address<span class="color">*</span></label>
+                                    <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter your address..."></asp:TextBox>
                                 </div>
+
                                 <div>
-                                    <div class="form-group  col-md-6">
-                                        <label for="inputcountry" class=" control-label">Town/City<span class="color">*</span></label>
-                                        <input type="text" placeholder="Enter your Town..." id="inputcountry" class="form-control space-20">
+                                    <div class="form-group col-md-6" style="padding-left: 0;">
+                                        <label class="control-label">Town/City<span class="color">*</span></label>
+                                        <asp:TextBox ID="txtTownCity" runat="server" CssClass="form-control" placeholder="Enter your Town..."></asp:TextBox>
                                     </div>
-                                    <div class="form-group  col-md-6">
-                                        <label for="inputpostcode" class=" control-label">POSTCODE <span class="color">*</span></label>
-                                        <input type="text" placeholder="Enter your postcode..." id="inputpostcode" class="form-control">
+                                    <div class="form-group col-md-6" style="padding-right: 0;">
+                                        <label class="control-label">POSTCODE <span class="color">*</span></label>
+                                        <asp:TextBox ID="txtPostcode" runat="server" CssClass="form-control" placeholder="Enter your postcode..."></asp:TextBox>
                                     </div>
                                 </div>
-                            </form>
-
-                            <div class="payment-order box ">
-                                <h3 class="title-brand" style="display: inline-table; margin-left: -10em">PAYMENT MENTHOD</h3>
-                                <ul class="tabs">
-                                    <li>
-                                        <i class="icon"></i>
-                                        <h4>Direct Bank Transfer</h4>
-                                        <p>
-                                            Make your payment directly info our bank account. Please use your order ID as the
-                                        payment reference. You product won't be shipped untill payment confiimation.
-                                        </p>
-                                    </li>
-                                    <!-- <li>
-                                        <i class="icon"></i>
-                                        <h4>Cheque Payment</h4>                                        
-                                    </li> -->
-                                    <li>
-                                        <i class="icon"></i>
-                                        <h4>Cash on Delivery</h4>
-                                    </li>
-                                    <!-- <li>
-                                        <i class="icon"></i>
-                                        <h4>I've raed and accept the </h4><a href="#" title="Temr & conditions">Temr & conditions</a>
-                                    </li> -->
-                                </ul>
                             </div>
-                            <a class="link-v1 box lh-50 rt full" href="order.aspx" title="PLACE ORDER">PLACE ORDER</a>
+
+                            <div class="payment-order box">
+                                <h3 class="title-brand">PAYMENT METHOD</h3>
+
+                                <asp:RadioButtonList ID="rblPaymentMethod" runat="server"
+                                    CssClass="payment-tabs"
+                                    RepeatLayout="UnorderedList">
+                                    <asp:ListItem Value="Direct Bank Transfer" Selected="True">
+        <h4>Direct Bank Transfer</h4>
+        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. You product won't be shipped until payment confirmation.</p>
+                                    </asp:ListItem>
+                                    <asp:ListItem Value="Cash on Delivery">
+        <h4>Cash on Delivery</h4>
+        <p>Pay with cash directly to our delivery agent when your order arrives.</p>
+                                    </asp:ListItem>
+                                </asp:RadioButtonList>
+
+                            </div>
+
+                            <%-- The "PLACE ORDER" link is now an ASP.NET LinkButton to trigger C# code --%>
+                            <asp:LinkButton ID="btnPlaceOrder" runat="server"
+                                CssClass="link-v1 box lh-50 rt full"
+                                Text="PLACE ORDER"
+                                OnClick="btnPlaceOrder_Click" />
                         </div>
                         <!-- End col-md-8 -->
                         <div class="col-md-6 space-30">
