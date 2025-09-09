@@ -36,7 +36,7 @@ namespace JenStore
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(connect))
             {
-                string query = "SELECT TOP (@count) * FROM Products ORDER BY NEWID()";
+                string query = "select top (@count) * from Products order by newid()";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@count", count);
@@ -49,11 +49,6 @@ namespace JenStore
             return dt;
         }
 
-        // --- NEW METHODS ADDED BELOW ---
-
-        /// <summary>
-        /// Handles the click for the 'Add to Cart' icon.
-        /// </summary>
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
@@ -67,9 +62,6 @@ namespace JenStore
             AddItemToCart(userId, productId);
         }
 
-        /// <summary>
-        /// Handles the click for the 'Add to Wishlist' icon (toggle functionality).
-        /// </summary>
         protected void btnAddToWishlist_Click(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
@@ -83,9 +75,6 @@ namespace JenStore
             ToggleWishlistItem(userId, productId);
         }
 
-        /// <summary>
-        /// Adds an item to the cart, checking for stock and existing quantity.
-        /// </summary>
         private void AddItemToCart(int userId, int productId)
         {
             try
@@ -93,16 +82,14 @@ namespace JenStore
                 using (SqlConnection con = new SqlConnection(connect))
                 {
                     con.Open();
-                    // Check stock
-                    SqlCommand stockCmd = new SqlCommand("SELECT stock_quantity FROM Products WHERE product_id = @product_id", con);
+                    SqlCommand stockCmd = new SqlCommand("select stock_quantity from Products where product_id = @product_id", con);
                     stockCmd.Parameters.AddWithValue("@product_id", productId);
                     if ((int)stockCmd.ExecuteScalar() <= 0)
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Sorry, this item is out of stock!');", true);
                         return;
                     }
-                    // Check if already in cart
-                    SqlCommand checkCmd = new SqlCommand("SELECT 1 FROM Cart WHERE user_id = @user_id AND product_id = @product_id", con);
+                    SqlCommand checkCmd = new SqlCommand("select 1 from Cart where user_id = @user_id and product_id = @product_id", con);
                     checkCmd.Parameters.AddWithValue("@user_id", userId);
                     checkCmd.Parameters.AddWithValue("@product_id", productId);
                     if (checkCmd.ExecuteScalar() != null)
@@ -111,7 +98,7 @@ namespace JenStore
                     }
                     else
                     {
-                        SqlCommand insertCmd = new SqlCommand("INSERT INTO Cart (user_id, product_id, quantity) VALUES (@user_id, @product_id, 1)", con);
+                        SqlCommand insertCmd = new SqlCommand("insert into Cart (user_id, product_id, quantity) values (@user_id, @product_id, 1)", con);
                         insertCmd.Parameters.AddWithValue("@user_id", userId);
                         insertCmd.Parameters.AddWithValue("@product_id", productId);
                         insertCmd.ExecuteNonQuery();
@@ -125,9 +112,6 @@ namespace JenStore
             }
         }
 
-        /// <summary>
-        /// Adds or removes an item from the wishlist.
-        /// </summary>
         private void ToggleWishlistItem(int userId, int productId)
         {
             try
@@ -135,14 +119,13 @@ namespace JenStore
                 using (SqlConnection con = new SqlConnection(connect))
                 {
                     con.Open();
-                    SqlCommand checkCmd = new SqlCommand("SELECT 1 FROM Wishlist WHERE user_id = @user_id AND product_id = @product_id", con);
+                    SqlCommand checkCmd = new SqlCommand("select 1 from Wishlist where user_id = @user_id and product_id = @product_id", con);
                     checkCmd.Parameters.AddWithValue("@user_id", userId);
                     checkCmd.Parameters.AddWithValue("@product_id", productId);
 
                     if (checkCmd.ExecuteScalar() != null)
                     {
-                        // Item exists, so remove it
-                        SqlCommand deleteCmd = new SqlCommand("DELETE FROM Wishlist WHERE user_id = @user_id AND product_id = @product_id", con);
+                        SqlCommand deleteCmd = new SqlCommand("delete from Wishlist where user_id = @user_id and product_id = @product_id", con);
                         deleteCmd.Parameters.AddWithValue("@user_id", userId);
                         deleteCmd.Parameters.AddWithValue("@product_id", productId);
                         deleteCmd.ExecuteNonQuery();
@@ -150,8 +133,7 @@ namespace JenStore
                     }
                     else
                     {
-                        // Item does not exist, so add it
-                        SqlCommand insertCmd = new SqlCommand("INSERT INTO Wishlist (user_id, product_id) VALUES (@user_id, @product_id)", con);
+                        SqlCommand insertCmd = new SqlCommand("insert into Wishlist (user_id, product_id) values (@user_id, @product_id)", con);
                         insertCmd.Parameters.AddWithValue("@user_id", userId);
                         insertCmd.Parameters.AddWithValue("@product_id", productId);
                         insertCmd.ExecuteNonQuery();

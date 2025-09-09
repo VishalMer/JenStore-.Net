@@ -30,7 +30,7 @@
                 font-family: Abril Fatface;
                 font-weight: 400;
                 font-size: 18px;
-                color: white; /* This color is used initially */
+                color: white;
                 padding: 10px 40px;
                 background-color: black;
                 border: 1px solid black;

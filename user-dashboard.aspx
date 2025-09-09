@@ -309,7 +309,7 @@
                     <div class="title-banner">
                         <h1>User Dashboard</h1>
                         <p>
-                            <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>User Dashboard
+                            <a href="home.aspx" title="Home">Home</a><i class="fa fa-caret-right"></i>User Dashboard
                         </p>
                     </div>
                 </div>

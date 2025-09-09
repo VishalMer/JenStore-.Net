@@ -38,20 +38,8 @@ namespace JenStore
 
             using (SqlConnection con = new SqlConnection(connect))
             {
-                const string query = @"
-                    SELECT 
-                        C.cart_item_id, 
-                        C.product_id, 
-                        C.quantity, 
-                        P.product_name, 
-                        P.price, 
-                        P.image_url 
-                    FROM 
-                        Cart C
-                    INNER JOIN 
-                        Products P ON C.product_id = P.product_id
-                    WHERE 
-                        C.user_id = @user_id";
+                const string query = @" select C.cart_item_id, C.product_id, C.quantity, P.product_name, P.price, P.image_url from cart C
+                                        inner join Products P on C.product_id = P.product_id where C.user_id = @user_id";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -80,7 +68,7 @@ namespace JenStore
 
             using (SqlConnection con = new SqlConnection(connect))
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Cart SET quantity = quantity + 1 WHERE cart_item_id = @cart_item_id", con);
+                SqlCommand cmd = new SqlCommand("update Cart set quantity = quantity + 1 where cart_item_id = @cart_item_id", con);
                 cmd.Parameters.AddWithValue("@cart_item_id", cartItemId);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -96,19 +84,19 @@ namespace JenStore
             using (SqlConnection con = new SqlConnection(connect))
             {
                 con.Open();
-                SqlCommand checkCmd = new SqlCommand("SELECT quantity FROM Cart WHERE cart_item_id = @cart_item_id", con);
+                SqlCommand checkCmd = new SqlCommand("select quantity from Cart where cart_item_id = @cart_item_id", con);
                 checkCmd.Parameters.AddWithValue("@cart_item_id", cartItemId);
                 int currentQuantity = (int)checkCmd.ExecuteScalar();
 
                 if (currentQuantity > 1)
                 {
-                    SqlCommand updateCmd = new SqlCommand("UPDATE Cart SET quantity = quantity - 1 WHERE cart_item_id = @cart_item_id", con);
+                    SqlCommand updateCmd = new SqlCommand("update Cart set quantity = quantity - 1 where cart_item_id = @cart_item_id", con);
                     updateCmd.Parameters.AddWithValue("@cart_item_id", cartItemId);
                     updateCmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    SqlCommand deleteCmd = new SqlCommand("DELETE FROM Cart WHERE cart_item_id = @cart_item_id", con);
+                    SqlCommand deleteCmd = new SqlCommand("delete from Cart where cart_item_id = @cart_item_id", con);
                     deleteCmd.Parameters.AddWithValue("@cart_item_id", cartItemId);
                     deleteCmd.ExecuteNonQuery();
                 }
@@ -124,7 +112,7 @@ namespace JenStore
 
             using (SqlConnection con = new SqlConnection(connect))
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Cart WHERE cart_item_id = @cart_item_id", con);
+                SqlCommand cmd = new SqlCommand("delete from Cart where cart_item_id = @cart_item_id", con);
                 cmd.Parameters.AddWithValue("@cart_item_id", cartItemId);
                 con.Open();
                 cmd.ExecuteNonQuery();

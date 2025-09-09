@@ -257,7 +257,6 @@
                                             </td>
                                             <td class="product-quantity">
                                                 <div class="quantity-stepper">
-                                                    <%-- Each button now has its own OnClick event and uses an icon --%>
                                                     <asp:LinkButton ID="btnDecrease" runat="server" CssClass="qty-btn"
                                                         OnClick="btnDecrease_Click" CommandArgument='<%# Eval("cart_item_id") %>'><i class="fa fa-minus"></i></asp:LinkButton>
 

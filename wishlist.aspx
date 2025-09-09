@@ -30,7 +30,7 @@
                 font-family: Abril Fatface;
                 font-weight: 400;
                 font-size: 18px;
-                color: white; /* This color is used initially */
+                color: white; 
                 padding: 10px 30px;
                 background-color: black;
                 border: 1px solid black;
@@ -234,7 +234,6 @@
                             <tbody>
                                 <asp:Repeater ID="rptWishlist" runat="server">
                                     <ItemTemplate>
-                                        <%-- THIS IS THE LINE THAT WAS CHANGED --%>
                                         <tr class='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "item_cart out-of-stock-row" : "item_cart" %>'>
                                             <td class="product-photo">
                                                 <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
@@ -245,7 +244,6 @@
                                             <td class="produc-price">$<%# Eval("price", "{0:N2}") %>
                                             </td>
                                             <td class="product-in">
-                                                <%-- This section dynamically shows "In Stock" or "Out of Stock" --%>
                                                 <span class="stock-status in-stock" style="color: green" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
                                                     <i class="fas fa-check-circle" style="color: green"></i>In Stock
                                                 </span>
@@ -254,7 +252,6 @@
                                                 </span>
                                             </td>
                                             <td class="add-to-cart">
-                                                <%-- This button is correctly disabled based on stock. The CSS above will now style it. --%>
                                                 <asp:LinkButton ID="btnAddToCartFromWishlist" runat="server"
                                                     Text="SHOP NOW"
                                                     OnClick="btnAddToCart_Click"
@@ -264,7 +261,6 @@
                                                 </asp:LinkButton>
                                             </td>
                                             <td class="product-remove">
-                                                <%-- This button will remove the item from the wishlist --%>
                                                 <asp:LinkButton ID="btnRemoveFromWishlist" runat="server"
                                                     CssClass="remove"
                                                     OnClick="btnRemove_Click"

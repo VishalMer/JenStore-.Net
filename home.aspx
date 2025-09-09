@@ -279,7 +279,6 @@
                 <div class="gallery clearfix">
                     <figure>
                         <div class="row">
-                            <%-- Your static banner for the Collection section --%>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-collec">
                                 <img src="img/800x1132.png" class="img-responsive" alt="img-holiwood">
                                 <h3>HELLO SUMMER</h3>
@@ -385,7 +384,6 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </div>
-                                <%-- Your static banner for the Holiday section --%>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-holiday">
                                     <div class="img-banner-holiday">
                                         <img src="img/720x1050.png" class="img-responsive" alt="img-holiwood">

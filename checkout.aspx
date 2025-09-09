@@ -26,47 +26,41 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <style>
-            /* Overall container for the payment options */
             .payment-tabs {
                 list-style: none;
                 padding: 0;
                 margin: 0;
             }
 
-                /* Style for each individual payment option */
                 .payment-tabs li {
                     margin-bottom: 25px;
-                    padding-left: 23px; /* CHANGED - Adjusted for smaller button */
+                    padding-left: 23px; 
                     position: relative;
                     cursor: pointer;
                 }
 
-                /* Hide the actual browser radio input */
                 .payment-tabs input[type="radio"] {
                     display: none;
                 }
 
-                /* Style for the custom radio button's outer circle */
                 .payment-tabs li label::before {
                     content: '';
                     display: inline-block;
-                    width: 12px; /* CHANGED - Reduced size */
-                    height: 12px; /* CHANGED - Reduced size */
+                    width: 12px; 
+                    height: 12px;
                     border: 2px solid #ccc;
                     border-radius: 50%;
                     position: absolute;
                     left: 0;
-                    top: 4px; /* CHANGED - Adjusted vertical alignment */
+                    top: 4px;
                     transition: all 0.3s ease-in-out;
                 }
 
-                /* When the input is checked, fill the circle with black */
                 .payment-tabs input[type="radio"]:checked + label::before {
                     border-color: black;
                     background-color: black;
                 }
 
-                /* Styling for the payment method title (H4) */
                 .payment-tabs h4 {
                     font: 600 18px / 20px "Poppins";
                     color: #000;
@@ -75,7 +69,6 @@
                     line-height: 1.2;
                 }
 
-                /* Styling for the payment method description (P) */
                 .payment-tabs p {
                     font: 400 12px / 20px "Poppins";
                     color: #9d9d9d;
@@ -84,10 +77,13 @@
                     line-height: 1.5;
                 }
 
-                /* Ensure the label itself is clickable */
                 .payment-tabs li label {
                     display: block;
                     cursor: pointer;
+                }
+                .btnPlaceOrder{
+                    font: 700 16px / 38px "Abril Fatface" !important;
+                    letter-spacing:1px;
                 }
         </style>
     </head>
@@ -324,9 +320,8 @@
 
                             </div>
 
-                            <%-- The "PLACE ORDER" link is now an ASP.NET LinkButton to trigger C# code --%>
                             <asp:LinkButton ID="btnPlaceOrder" runat="server"
-                                CssClass="link-v1 box lh-50 rt full"
+                                CssClass="link-v1 box lh-50 rt full btnPlaceOrder" 
                                 Text="PLACE ORDER"
                                 OnClick="btnPlaceOrder_Click" />
                         </div>
@@ -343,7 +338,6 @@
                                                 <span class="total"><b>SUB TOTAL</b></span>
                                             </li>
 
-                                            <%-- This Repeater will dynamically display the list of products from your cart --%>
                                             <asp:Repeater ID="rptOrderSummary" runat="server">
                                                 <ItemTemplate>
                                                     <li>
