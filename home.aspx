@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" xintegrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="icon" href="img/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/style-homev1.css">
         <link rel="stylesheet" type="text/css" href="css/style-res-v1.css">
@@ -23,7 +23,7 @@
         <!-- GG FONT -->
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" xintegrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     </head>
     <body>
         <header class="navbar-fixed-top pos-header" id="header-v1">
@@ -297,7 +297,10 @@
                                                 <div class="product-icon-collec">
                                                     <a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
                                                     <asp:LinkButton ID="btnAddToCart1" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                                    <asp:LinkButton ID="btnAddToWishlist1" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnAddToWishlist1" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
+                                                           style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
+                                                    </asp:LinkButton>
                                                 </div>
                                             </div>
                                             <div class="product-title-collec">
@@ -335,7 +338,10 @@
                                                 <div class="product-icon-wedding">
                                                     <a href="#"><i class="far fa-eye"></i></a>
                                                     <asp:LinkButton ID="btnAddToCart2" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                                    <asp:LinkButton ID="btnAddToWishlist2" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnAddToWishlist2" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'>
+                                                         <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
+                                                           style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
+                                                    </asp:LinkButton>
                                                 </div>
                                             </div>
                                             <div class="product-title-wedding">
@@ -372,7 +378,10 @@
                                                     <div class="product-icon-holiday">
                                                         <a href="#"><i class="far fa-eye"></i></a>
                                                         <asp:LinkButton ID="btnAddToCart3" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                                        <asp:LinkButton ID="btnAddToWishlist3" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-heart"></i></asp:LinkButton>
+                                                        <asp:LinkButton ID="btnAddToWishlist3" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'>
+                                                             <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
+                                                               style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
+                                                        </asp:LinkButton>
                                                     </div>
                                                 </div>
                                                 <div class="product-title-holiday">
@@ -539,7 +548,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
                                         <h1>Queen Rose - Pink</h1>
                                         <p class="p1">
-                                            It is a long established fact that a reader will be distracted  by the readable content of a page when looking at its layout.
+                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                         </p>
                                         <div class="star">
                                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
@@ -599,7 +608,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
                                         <h1>Queen Rose</h1>
                                         <p class="p1">
-                                            It is a long established fact that a reader will be distracted  by the readable content of a page when looking at its layout.
+                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                         </p>
                                         <div class="star">
                                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
@@ -659,7 +668,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
                                         <h1>Lavender</h1>
                                         <p class="p1">
-                                            It is a long established fact that a reader will be distracted  by the readable content of a page when looking at its layout.
+                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                         </p>
                                         <div class="star">
                                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
@@ -719,7 +728,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
                                         <h1>Queen Rose - Yellow</h1>
                                         <p class="p1">
-                                            It is a long established fact that a reader will be distracted  by the readable content of a page when looking at its layout.
+                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                         </p>
                                         <div class="star">
                                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
