@@ -54,7 +54,7 @@ namespace JenStore
             int productId = Convert.ToInt32(btn.CommandArgument);
 
             AddItemToCart(userId, productId);
-        }
+        }
 
         protected void btnAddToWishlist_Click(object sender, EventArgs e)
         {
@@ -78,28 +78,31 @@ namespace JenStore
             using (SqlConnection con = new SqlConnection(connect))
             {
                 con.Open();
-                SqlCommand checkCmd = new SqlCommand("select quantity from cart where user_id = @user_id and product_id = @product_id", con);
+                SqlCommand stockCmd = new SqlCommand("select stock_quantity from Products where product_id = @product_id", con);
+                stockCmd.Parameters.AddWithValue("@product_id", productId);
+                if ((int)stockCmd.ExecuteScalar() <= 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Sorry, this product is out of stock!');", true);
+                    return;
+                }
+                SqlCommand checkCmd = new SqlCommand("select 1 from Cart where user_id = @user_id and product_id = @product_id", con);
                 checkCmd.Parameters.AddWithValue("@user_id", userId);
                 checkCmd.Parameters.AddWithValue("@product_id", productId);
-
-                object result = checkCmd.ExecuteScalar();
-
-                if (result != null)
+                if (checkCmd.ExecuteScalar() != null)
                 {
-                    SqlCommand updateCmd = new SqlCommand("update cart set quantity = quantity + 1 where user_id = @user_id and product_id = @product_id", con);
-                    updateCmd.Parameters.AddWithValue("@user_id", userId);
-                    updateCmd.Parameters.AddWithValue("@product_id", productId);
-                    updateCmd.ExecuteNonQuery();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product is already in your cart.');", true);
                 }
                 else
                 {
-                    SqlCommand insertCmd = new SqlCommand("insert into cart (user_id, product_id, quantity) values (@user_id, @product_id, 1)", con);
+                    SqlCommand insertCmd = new SqlCommand("insert into Cart (user_id, product_id, quantity) values (@user_id, @product_id, 1)", con);
                     insertCmd.Parameters.AddWithValue("@user_id", userId);
                     insertCmd.Parameters.AddWithValue("@product_id", productId);
                     insertCmd.ExecuteNonQuery();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to cart!');", true);
                 }
             }
         }
+
 
         //wishlist query
         private void AddItemToWishlist(int userId, int productId)
@@ -119,6 +122,7 @@ namespace JenStore
                     deleteCmd.Parameters.AddWithValue("@user_id", userId);
                     deleteCmd.Parameters.AddWithValue("@product_id", productId);
                     deleteCmd.ExecuteNonQuery();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product removed from wishlist!');", true);
                 }
                 else
                 {
@@ -126,6 +130,7 @@ namespace JenStore
                     insertCmd.Parameters.AddWithValue("@user_id", userId);
                     insertCmd.Parameters.AddWithValue("@product_id", productId);
                     insertCmd.ExecuteNonQuery();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to wishlist!');", true);
                 }
             }
         }

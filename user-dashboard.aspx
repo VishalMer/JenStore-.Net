@@ -332,7 +332,7 @@
                                     <span class="detail-value" id="genderVal" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
-                                    <span class="detail-label">Member Since:</span> 
+                                    <span class="detail-label">Member Since:</span>
                                     <span class="detail-value" id="memberSinceVal" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
@@ -348,7 +348,7 @@
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    12
+                                    <asp:Literal ID="litTotalOrders" runat="server" Text="0"></asp:Literal>
                                 </div>
                                 <div class="stat-label">
                                     Total Orders
@@ -356,7 +356,7 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    5
+                                    <asp:Literal ID="litWishlistItems" runat="server" Text="0"></asp:Literal>
                                 </div>
                                 <div class="stat-label">
                                     Wishlist Items
@@ -364,7 +364,7 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    $1,250
+                                    <asp:Literal ID="litTotalSpent" runat="server" Text="$0.00"></asp:Literal>
                                 </div>
                                 <div class="stat-label">
                                     Total Spent
@@ -372,13 +372,14 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    3
+                                    <asp:Literal ID="litPendingOrders" runat="server" Text="0"></asp:Literal>
                                 </div>
                                 <div class="stat-label">
                                     Pending Orders
                                 </div>
                             </div>
                         </div>
+
                         <div class="shortcuts-grid">
                             <div class="shortcut-card" onclick="window.location.href='shopping-cart.aspx'">
                                 <div class="shortcut-icon">

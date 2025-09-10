@@ -86,7 +86,7 @@ namespace JenStore
                     stockCmd.Parameters.AddWithValue("@product_id", productId);
                     if ((int)stockCmd.ExecuteScalar() <= 0)
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Sorry, this item is out of stock!');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Sorry, this product is out of stock!');", true);
                         return;
                     }
                     SqlCommand checkCmd = new SqlCommand("select 1 from Cart where user_id = @user_id and product_id = @product_id", con);
@@ -94,7 +94,7 @@ namespace JenStore
                     checkCmd.Parameters.AddWithValue("@product_id", productId);
                     if (checkCmd.ExecuteScalar() != null)
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('This item is already in your cart.');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('This product is already in your cart.');", true);
                     }
                     else
                     {
@@ -129,7 +129,7 @@ namespace JenStore
                         deleteCmd.Parameters.AddWithValue("@user_id", userId);
                         deleteCmd.Parameters.AddWithValue("@product_id", productId);
                         deleteCmd.ExecuteNonQuery();
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Removed from wishlist.');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product removed from wishlist.');", true);
                     }
                     else
                     {
@@ -137,7 +137,7 @@ namespace JenStore
                         insertCmd.Parameters.AddWithValue("@user_id", userId);
                         insertCmd.Parameters.AddWithValue("@product_id", productId);
                         insertCmd.ExecuteNonQuery();
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Added to wishlist!');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to wishlist!');", true);
                     }
                 }
             }
