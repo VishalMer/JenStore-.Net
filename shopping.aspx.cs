@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using System.Data;
 using System.Data.SqlClient;
 
@@ -15,20 +14,43 @@ namespace JenStore
     {
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            // Disabling ViewState on the repeater ensures it always displays the freshest data
+            // from the database after a postback, solving the UI update delay.
+            rptProducts.EnableViewState = false;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                ProductRepeater();
-            }
+            // By binding on every load (not just !IsPostBack), we ensure the repeater's
+            // control structure is always available, preventing it from disappearing on postback.
+            ProductRepeater();
         }
 
         private void ProductRepeater()
         {
+            // Assuming the user will always be logged in, directly get the UserID.
+            int userId = Convert.ToInt32(Session["UserID"]);
+
             using (SqlConnection con = new SqlConnection(connect))
             {
-                using (SqlCommand cmd = new SqlCommand("select * from Products", con))
+                // This query joins the Products table with the Wishlist table.
+                // It creates a new temporary column "IsInWishlist" which will be 1 if the item is
+                // in the current user's wishlist, and 0 otherwise.
+                const string query = @"
+                    SELECT
+                        p.product_id, p.product_name, p.description, p.price, p.old_price,
+                        p.stock_quantity, p.image_url, p.badge, p.rating_count,
+                        CASE WHEN w.user_id IS NOT NULL THEN 1 ELSE 0 END AS IsInWishlist
+                    FROM
+                        Products p
+                    LEFT JOIN
+                        Wishlist w ON p.product_id = w.product_id AND w.user_id = @userId";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
+                    cmd.Parameters.AddWithValue("@userId", userId);
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -70,6 +92,9 @@ namespace JenStore
             int productId = Convert.ToInt32(btn.CommandArgument);
 
             AddItemToWishlist(userId, productId);
+
+            // Re-bind the data to show the updated heart icon
+            ProductRepeater();
         }
 
         //cart query
@@ -135,5 +160,5 @@ namespace JenStore
             }
         }
     }
-
 }
+
