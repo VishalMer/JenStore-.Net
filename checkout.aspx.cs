@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JenStore
 {
     public partial class checkout1 : System.Web.UI.Page
     {
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,183 +22,126 @@ namespace JenStore
 
             if (!IsPostBack)
             {
-                BindOrderSummary();
+                rptOrderDetails();
             }
         }
 
-        private void BindOrderSummary()
+        private void rptOrderDetails()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             decimal subTotal = 0;
-            decimal shippingCost = 0; 
+            decimal shippingFee = 0;
 
-            using (SqlConnection con = new SqlConnection(connect))
+            getcon();
+
+            string query = @"
+                SELECT C.quantity, P.product_name, P.price 
+                FROM Cart C
+                INNER JOIN Products P ON C.product_id = P.product_id
+                WHERE C.user_id = " + userId + " AND P.stock_quantity > 0";
+
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            if (dt.Rows.Count == 0)
             {
-                const string query = @"
-                    SELECT C.quantity, P.product_name, P.price 
-                    FROM Cart C
-                    INNER JOIN Products P ON C.product_id = P.product_id
-                    WHERE C.user_id = @user_id AND P.stock_quantity > 0";
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@user_id", userId);
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-
-                        if (dt.Rows.Count == 0)
-                        {
-                            Response.Write("<script>alert('Your cart has no items eligible for checkout.'); window.location='shopping-cart.aspx';</script>");
-                            return;
-                        }
-
-                        rptOrderSummary.DataSource = dt;
-                        rptOrderSummary.DataBind();
-
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
-                        }
-                    }
-                }
+                con.Close();
+                Response.Write("<script>alert('Your cart has no items eligible for checkout.'); window.location='shopping-cart.aspx';</script>");
+                return;
             }
+
+            rptOrderSummary.DataSource = dt;
+            rptOrderSummary.DataBind();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
+            }
+
+            con.Close();
 
             if (subTotal > 0 && subTotal < 1000)
             {
-                shippingCost = 40;
+                shippingFee = 40;
             }
-
-            decimal grandTotal = subTotal + shippingCost;
+            decimal grandTotal = subTotal + shippingFee;
 
             lblSubTotal.Text = subTotal.ToString("C");
-            lblShipping.Text = shippingCost.ToString("C");
+            lblShipping.Text = shippingFee.ToString("C");
             lblOrderTotal.Text = grandTotal.ToString("C");
         }
 
-
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-
             int userId = Convert.ToInt32(Session["UserID"]);
 
-            var addressBuilder = new StringBuilder();
-            addressBuilder.AppendLine(txtFullName.Text);
-            addressBuilder.AppendLine(txtAddress.Text);
-            addressBuilder.AppendLine($"{txtTownCity.Text}, {txtPostcode.Text}");
-            addressBuilder.AppendLine($"Phone: {txtPhone.Text}");
-            string shippingAddress = addressBuilder.ToString();
-            string paymentMethod = rblPaymentMethod.SelectedValue;
+            // get cart products
+            getcon();
+            string cartQuery = "SELECT C.product_id, C.quantity, P.price, P.stock_quantity FROM Cart C INNER JOIN Products P ON C.product_id = P.product_id WHERE C.user_id = " + userId;
+            SqlDataAdapter sda = new SqlDataAdapter(cartQuery, con);
+            DataTable pOrder = new DataTable();
+            sda.Fill(pOrder);
+            con.Close();
 
-            using (SqlConnection con = new SqlConnection(connect))
+            if (pOrder.Rows.Count == 0)
             {
-                con.Open();
-                SqlTransaction transaction = con.BeginTransaction();
-                try
-                {
-                    var (itemsToOrder, orderTotal) = GetOrderItemsAndTotal(userId, con, transaction);
-
-                    int newOrderId = CreateOrderRecord(userId, orderTotal, shippingAddress, paymentMethod, con, transaction);
-
-                    CreateOrderDetailRecordsAndUpdateStock(newOrderId, itemsToOrder, con, transaction);
-
-                    ClearUserCart(userId, con, transaction);
-
-                    transaction.Commit(); 
-                    Response.Redirect("order.aspx"); 
-                }
-                catch (Exception ex)
-                {
-                    //transaction.Rollback(); 
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Error placing order: " + ex.Message.Replace("'", "\\'") + "');", true);
-                }
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Your cart is empty!');", true);
+                return;
             }
-        }
 
-
-        private (List<Tuple<int, int, decimal>> items, decimal total) GetOrderItemsAndTotal(int userId, SqlConnection con, SqlTransaction transaction)
-        {
-            var itemsToOrder = new List<Tuple<int, int, decimal>>(); 
             decimal subTotal = 0;
-            const string cartQuery = @"SELECT C.product_id, C.quantity, P.price, P.stock_quantity FROM Cart C INNER JOIN Products P ON C.product_id = P.product_id WHERE C.user_id = @user_id AND P.stock_quantity > 0";
-
-            using (SqlCommand cartCmd = new SqlCommand(cartQuery, con, transaction))
+            foreach (DataRow row in pOrder.Rows)
             {
-                cartCmd.Parameters.AddWithValue("@user_id", userId);
-                using (SqlDataReader reader = cartCmd.ExecuteReader())
+                if (Convert.ToInt32(row["quantity"]) > Convert.ToInt32(row["stock_quantity"]))
                 {
-                    while (reader.Read())
-                    {
-                        int productId = reader.GetInt32(0);
-                        int quantity = reader.GetInt32(1);
-                        decimal price = reader.GetDecimal(2);
-                        int stock = reader.GetInt32(3);
-
-                        if (quantity > stock) throw new Exception("Not enough stock for one of your items. Please review your cart.");
-
-                        itemsToOrder.Add(new Tuple<int, int, decimal>(productId, quantity, price));
-                        subTotal += price * quantity;
-                    }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Not enough stock for one of your product. Please re-check your cart.');", true);
+                    return;
                 }
+                subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
             }
-
-            if (itemsToOrder.Count == 0) throw new Exception("Your cart has no items in stock.");
 
             decimal shippingCost = (subTotal > 0 && subTotal < 1000) ? 40 : 0;
-            return (itemsToOrder, subTotal + shippingCost);
-        }
+            decimal orderTotal = subTotal + shippingCost;
 
-        private int CreateOrderRecord(int userId, decimal totalAmount, string address, string payment, SqlConnection con, SqlTransaction transaction)
-        {
-            const string query = "INSERT INTO Orders (user_id, total_amount, shipping_address, payment_method) VALUES (@user_id, @total, @address, @payment); SELECT SCOPE_IDENTITY();";
-            using (SqlCommand cmd = new SqlCommand(query, con, transaction))
+            // save address and payment method in var
+            string shippingAddress = txtFullName.Text + ", " + txtAddress.Text + ", " + txtTownCity.Text + ", " + txtPostcode.Text + ", Phone: " + txtPhone.Text;
+            string paymentMethod = rblPaymentMethod.SelectedValue;
+
+            getcon();
+            string orderQuery = "INSERT INTO Orders (user_id, total_amount, shipping_address, payment_method) VALUES (" + userId + ", " + orderTotal + ", '" + shippingAddress.Replace("'", "''") + "', '" + paymentMethod + "'); SELECT SCOPE_IDENTITY();";
+            cmd = new SqlCommand(orderQuery, con);
+            int newOrderId = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+
+            // insert order and updaet stock and delete products from cart
+            getcon();
+            foreach (DataRow item in pOrder.Rows)
             {
-                cmd.Parameters.AddWithValue("@user_id", userId);
-                cmd.Parameters.AddWithValue("@total", totalAmount);
-                cmd.Parameters.AddWithValue("@address", address);
-                cmd.Parameters.AddWithValue("@payment", payment);
-                return Convert.ToInt32(cmd.ExecuteScalar());
-            }
-        }
+                int productId = Convert.ToInt32(item["product_id"]);
+                int quantity = Convert.ToInt32(item["quantity"]);
+                decimal price = Convert.ToDecimal(item["price"]);
 
-        private void CreateOrderDetailRecordsAndUpdateStock(int orderId, List<Tuple<int, int, decimal>> items, SqlConnection con, SqlTransaction transaction)
-        {
-            foreach (var item in items)
-            {
-                int productId = item.Item1;
-                int quantity = item.Item2;
-                decimal price = item.Item3;
+                cmd = new SqlCommand("INSERT INTO OrderDetails (order_id, product_id, quantity, price_at_purchase) VALUES (" + newOrderId + ", " + productId + ", " + quantity + ", " + price + ")", con);
+                cmd.ExecuteNonQuery();
 
-                const string detailsQuery = "INSERT INTO OrderDetails (order_id, product_id, quantity, price_at_purchase) VALUES (@order_id, @p_id, @qty, @price)";
-                using (SqlCommand cmd = new SqlCommand(detailsQuery, con, transaction))
-                {
-                    cmd.Parameters.AddWithValue("@order_id", orderId);
-                    cmd.Parameters.AddWithValue("@p_id", productId);
-                    cmd.Parameters.AddWithValue("@qty", quantity);
-                    cmd.Parameters.AddWithValue("@price", price);
-                    cmd.ExecuteNonQuery();
-                }
-
-                const string stockQuery = "UPDATE Products SET stock_quantity = stock_quantity - @qty WHERE product_id = @p_id";
-                using (SqlCommand cmd = new SqlCommand(stockQuery, con, transaction))
-                {
-                    cmd.Parameters.AddWithValue("@qty", quantity);
-                    cmd.Parameters.AddWithValue("@p_id", productId);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        private void ClearUserCart(int userId, SqlConnection con, SqlTransaction transaction)
-        {
-            const string query = "DELETE FROM Cart WHERE user_id = @user_id";
-            using (SqlCommand cmd = new SqlCommand(query, con, transaction))
-            {
-                cmd.Parameters.AddWithValue("@user_id", userId);
+                cmd = new SqlCommand("UPDATE Products SET stock_quantity = stock_quantity - " + quantity + " WHERE product_id = " + productId, con);
                 cmd.ExecuteNonQuery();
             }
+            con.Close();
+
+            getcon();
+            cmd = new SqlCommand("DELETE FROM Cart WHERE user_id = " + userId, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            Response.Redirect("order.aspx");
+        }
+
+        void getcon()
+        {
+            con = new SqlConnection(connect);
+            con.Open();
         }
     }
 }
-
