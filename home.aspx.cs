@@ -15,7 +15,6 @@ namespace JenStore
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            // Disable ViewState on all repeaters to ensure they refresh correctly after a postback.
             rptCollection.EnableViewState = false;
             rptWedding.EnableViewState = false;
             rptHoliday.EnableViewState = false;
@@ -23,20 +22,14 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // On the initial page visit, fetch new random products and cache them in the Session.
             if (!IsPostBack)
             {
                 BindAndCacheNewProducts();
             }
-            // On every load (initial and postback), build the repeater controls from the cached data.
-            // This is necessary to rebuild the controls since their ViewState is disabled.
+
             BindRepeatersFromCache();
         }
 
-        /// <summary>
-        /// Fetches new random products from the database and stores them in Session state.
-        /// This is only called on the initial page load.
-        /// </summary>
         private void BindAndCacheNewProducts()
         {
             int userId = (Session["UserID"] != null) ? Convert.ToInt32(Session["UserID"]) : -1;
@@ -45,10 +38,6 @@ namespace JenStore
             Session["HolidayData"] = GetRandomProducts(4, userId);
         }
 
-        /// <summary>
-        /// Binds all repeaters using the data stored in the Session. This ensures the same
-        /// products are displayed during postbacks.
-        /// </summary>
         private void BindRepeatersFromCache()
         {
             if (Session["CollectionData"] != null)
@@ -68,10 +57,6 @@ namespace JenStore
             }
         }
 
-        /// <summary>
-        /// Refreshes the product data in the Session cache to reflect updated wishlist statuses
-        /// without changing which products are displayed.
-        /// </summary>
         private void RefreshCachedProducts(int userId)
         {
             if (Session["CollectionData"] != null)
@@ -120,9 +105,6 @@ namespace JenStore
             return dt;
         }
 
-        /// <summary>
-        /// Fetches product details for a specific list of product IDs, preserving their order.
-        /// </summary>
         private DataTable GetProductsByIds(List<int> productIds, int userId)
         {
             var dt = new DataTable();
@@ -148,7 +130,6 @@ namespace JenStore
                 }
             }
 
-            // Re-order the results to match the original display order.
             return dt.AsEnumerable()
                      .OrderBy(row => productIds.IndexOf(row.Field<int>("product_id")))
                      .CopyToDataTable();
@@ -178,13 +159,10 @@ namespace JenStore
             LinkButton btn = (LinkButton)sender;
             int productId = Convert.ToInt32(btn.CommandArgument);
 
-            // First, update the item's status in the database.
             ToggleWishlistItem(userId, productId);
 
-            // Next, refresh the data in the Session cache to get the updated wishlist status.
             RefreshCachedProducts(userId);
 
-            // Finally, re-bind the repeaters from the cache to update the UI instantly.
             BindRepeatersFromCache();
         }
 

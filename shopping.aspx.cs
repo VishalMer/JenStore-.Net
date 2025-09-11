@@ -16,28 +16,22 @@ namespace JenStore
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            // Disabling ViewState on the repeater ensures it always displays the freshest data
-            // from the database after a postback, solving the UI update delay.
+
             rptProducts.EnableViewState = false;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // By binding on every load (not just !IsPostBack), we ensure the repeater's
-            // control structure is always available, preventing it from disappearing on postback.
             ProductRepeater();
         }
 
         private void ProductRepeater()
         {
-            // Assuming the user will always be logged in, directly get the UserID.
             int userId = Convert.ToInt32(Session["UserID"]);
 
             using (SqlConnection con = new SqlConnection(connect))
             {
-                // This query joins the Products table with the Wishlist table.
-                // It creates a new temporary column "IsInWishlist" which will be 1 if the item is
-                // in the current user's wishlist, and 0 otherwise.
+
                 const string query = @"
                     SELECT
                         p.product_id, p.product_name, p.description, p.price, p.old_price,
