@@ -64,7 +64,7 @@
                                     <i class="far fa-times-circle"></i>
                                 </figure>
                             </li>
-                            <li class="menu-home active"><a href="home.html">Home</a> </li>
+                            <li class="menu-home active"><a href="home.aspx">Home</a> </li>
                             <li class="shop-menu dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class="hidden-sm hidden-xs">
                             </figure>
                                 <div class="dropdown-menu">

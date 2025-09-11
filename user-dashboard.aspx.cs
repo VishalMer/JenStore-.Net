@@ -9,50 +9,76 @@ namespace JenStore
     public partial class user_dashboard1 : System.Web.UI.Page
     {
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        SqlConnection con;
+        SqlDataAdapter da;
+        DataSet ds;
+        SqlCommand cmd;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
+                return;
+            }
+
+            int userId = Convert.ToInt32(Session["UserID"]);
+
+            getcon();
+            LoadUserDetails(userId);
+            LoadDashboardStats(userId);
+            con.Close();
+        }
+
+        private void LoadUserDetails(int userId)
+        {
+            SqlCommand userCmd = new SqlCommand("select id, uname, email, gender, created_at from users where id = " + userId, con);
+            SqlDataReader reader = userCmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                userNameHeading.InnerText = reader["uname"].ToString();
+                genderVal.InnerText = reader["gender"].ToString();
+                emailVal.InnerText = reader["email"].ToString();
+                memberSinceVal.InnerText = ((DateTime)reader["created_at"]).ToString("dd MMMM yyyy");
             }
             else
             {
-                int userId = Convert.ToInt32(Session["UserID"]);
-
-                using (SqlConnection con = new SqlConnection(connect))
-                {
-                    string query = "select id, uname, email, gender, created_at from users where id = @userId";
-
-                    using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@userId", userId);
-
-                        con.Open();
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                string username = reader["uname"].ToString();
-                                string email = reader["email"].ToString();
-                                string gender = reader["gender"].ToString();
-                                DateTime creationDate = (DateTime)reader["created_at"];
-                                string dateFormat = creationDate.ToString("dd MMMM yyyy");
-
-                                userNameHeading.InnerText = username;
-                                genderVal.InnerText = gender;
-                                emailVal.InnerText = email;
-                                memberSinceVal.InnerText = memberSinceVal.InnerText = dateFormat;
-                            }
-                            else
-                            {
-                                Response.Redirect("login_register.aspx");
-                            }
-                        }
-                    }
-                }
+                reader.Close();
+                con.Close();
+                Response.Redirect("login_register.aspx");
             }
+
+            reader.Close();
+        }
+
+        private void LoadDashboardStats(int userId)
+        {
+            SqlCommand totalOrders = new SqlCommand("SELECT COUNT(*) FROM Orders WHERE user_id = " + userId, con);
+            litTotalOrders.Text = totalOrders.ExecuteScalar().ToString();
+
+            SqlCommand wishlist = new SqlCommand("SELECT COUNT(*) FROM Wishlist WHERE user_id = " + userId, con);
+            litWishlistItems.Text = wishlist.ExecuteScalar().ToString();
+
+            SqlCommand totalSpent = new SqlCommand("SELECT SUM(total_amount) FROM Orders WHERE user_id = " + userId + " AND order_status = 'Completed'", con);
+            object totalSpentResult = totalSpent.ExecuteScalar();
+            if (totalSpentResult != DBNull.Value && totalSpentResult != null)
+            {
+                litTotalSpent.Text = Convert.ToDecimal(totalSpentResult).ToString("C");
+            }
+            else
+            {
+                litTotalSpent.Text = "$0.00";
+            }
+
+            SqlCommand pendingOrders = new SqlCommand("SELECT COUNT(*) FROM Orders WHERE user_id = " + userId + " AND order_status = 'Pending'", con);
+            litPendingOrders.Text = pendingOrders.ExecuteScalar().ToString();
+        }
+
+        void getcon()
+        {
+            con = new SqlConnection(connect);
+            con.Open();
         }
     }
 }
