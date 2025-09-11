@@ -15,33 +15,30 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindRepeaters();
+            productRepeaters();
         }
 
-        private void BindRepeaters()
+        private void productRepeaters()
         {
             getcon();
             int userId = (Session["UserID"] != null) ? Convert.ToInt32(Session["UserID"]) : -1;
 
-            // Call the updated method to get static products
-            rptCollection.DataSource = GetNewestProducts(4, userId);
+            rptCollection.DataSource = newestProducts(4, userId);
             rptCollection.DataBind();
 
-            rptWedding.DataSource = GetNewestProducts(4, userId);
+            rptWedding.DataSource = newestProducts(4, userId);
             rptWedding.DataBind();
 
-            rptHoliday.DataSource = GetNewestProducts(4, userId);
+            rptHoliday.DataSource = newestProducts(4, userId);
             rptHoliday.DataBind();
 
             con.Close();
         }
 
-        // Method was renamed and the query was changed
-        private DataTable GetNewestProducts(int count, int userId)
+        private DataTable newestProducts(int count, int userId)
         {
             DataTable dt = new DataTable();
 
-            // The query now orders by product_id DESC instead of NEWID()
             string query = @"
                 SELECT TOP " + count + @"
                     p.product_id, p.product_name, p.description, p.price, p.old_price,
@@ -68,7 +65,7 @@ namespace JenStore
             int userId = Convert.ToInt32(Session["UserID"]);
             LinkButton btn = (LinkButton)sender;
             int productId = Convert.ToInt32(btn.CommandArgument);
-            AddItemToCart(userId, productId);
+            addToCart(userId, productId);
         }
 
         protected void btnAddToWishlist_Click(object sender, EventArgs e)
@@ -82,13 +79,12 @@ namespace JenStore
             LinkButton btn = (LinkButton)sender;
             int productId = Convert.ToInt32(btn.CommandArgument);
 
-            ToggleWishlistItem(userId, productId);
+            toggleWishlist(userId, productId);
 
-            // This now re-binds the SAME static list of products
-            BindRepeaters();
+            productRepeaters();
         }
 
-        private void AddItemToCart(int userId, int productId)
+        private void addToCart(int userId, int productId)
         {
             getcon();
 
@@ -116,7 +112,7 @@ namespace JenStore
             con.Close();
         }
 
-        private void ToggleWishlistItem(int userId, int productId)
+        private void toggleWishlist(int userId, int productId)
         {
             getcon();
 
