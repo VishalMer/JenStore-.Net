@@ -27,9 +27,9 @@ namespace JenStore
 
             getcon();
 
-            string query = "SELECT p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
-                " p.badge, p.rating_count, CASE WHEN w.user_id IS NOT NULL THEN 1 ELSE 0 END AS IsInWishlist " +
-                "FROM Products p LEFT JOIN Wishlist w ON p.product_id = w.product_id AND w.user_id = " + userId;
+            string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
+               " p.badge, p.rating_count, case when w.user_id is not null then 1 else 0 end as isInWishlist " +
+               "from Products p left join Wishlist w on p.product_id = w.product_id and w.user_id = " + userId;
 
 
             SqlDataAdapter sda = new SqlDataAdapter(query, con);

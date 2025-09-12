@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Collections.Generic; // Used for btnAddAllToCart
+using System.Collections.Generic; 
 
 namespace JenStore
 {
@@ -111,8 +111,8 @@ namespace JenStore
 
             //select all which is not in cart and is in stock
             cmd = new SqlCommand("select P.product_id from Wishlist W inner join Products P ON W.product_id = P.product_id " +
-                                 "where W.user_id = " + userId + " AND P.stock_quantity > 0 " +
-                                 "AND P.product_id NOT IN (select product_id from Cart where user_id = " + userId + ")", con);
+                                 "where W.user_id = " + userId + " and P.stock_quantity > 0 " +
+                                 "and P.product_id NOT IN (select product_id from Cart where user_id = " + userId + ")", con);
 
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -125,6 +125,7 @@ namespace JenStore
                 return;
             }
 
+            //insert wishlist to cart
             foreach (DataRow row in dt.Rows)
             {
                 int productId = Convert.ToInt32(row["product_id"]);
@@ -140,7 +141,7 @@ namespace JenStore
             }
             string idList = string.Join(",", PIdRemove);
 
-            cmd = new SqlCommand("delete from Wishlist where user_id = " + userId + " AND product_id IN (" + idList + ")", con);
+            cmd = new SqlCommand("delete from Wishlist where user_id = " + userId + " and product_id in (" + idList + ")", con);
             cmd.ExecuteNonQuery();
 
             con.Close();
