@@ -24,6 +24,15 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
 
         /// <summary>
+        /// nameErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label nameErr;
+
+        /// <summary>
         /// txtPhone control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace JenStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+        /// <summary>
+        /// phoneErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label phoneErr;
 
         /// <summary>
         /// txtAddress control.
@@ -42,6 +60,15 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
+        /// addErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label addErr;
+
+        /// <summary>
         /// txtTownCity control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace JenStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTownCity;
+
+        /// <summary>
+        /// cityErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label cityErr;
 
         /// <summary>
         /// txtPostcode control.
@@ -60,6 +96,15 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.TextBox txtPostcode;
 
         /// <summary>
+        /// postErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label postErr;
+
+        /// <summary>
         /// rblPaymentMethod control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace JenStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblPaymentMethod;
+
+        /// <summary>
+        /// payErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label payErr;
 
         /// <summary>
         /// btnPlaceOrder control.

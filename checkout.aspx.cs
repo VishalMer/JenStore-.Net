@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Web.UI;
 
 namespace JenStore
@@ -68,6 +69,12 @@ namespace JenStore
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
+            if (!validation())
+            {
+                return;
+            }
+
+            // 2. If validation passes, proceed with placing the order.
             int userId = Convert.ToInt32(Session["UserID"]);
 
             getcon();
@@ -115,7 +122,7 @@ namespace JenStore
                 cmd = new SqlCommand("update Products set stock_quantity = stock_quantity - " + quantity + " where product_id = " + productId, con);
                 cmd.ExecuteNonQuery();
             }
-            
+
             cmd = new SqlCommand("delete from Cart where user_id = " + userId, con);
             cmd.ExecuteNonQuery();
 
@@ -128,6 +135,64 @@ namespace JenStore
         {
             con = new SqlConnection(connect);
             con.Open();
+        }
+
+        private void ClearErrorLabels()
+        {
+            nameErr.Text = "";
+            addErr.Text = "";
+            cityErr.Text = "";
+            postErr.Text = "";
+            phoneErr.Text = "";
+            payErr.Text = "";
+        }
+
+        private bool validation()
+        {
+            ClearErrorLabels();
+
+            if (string.IsNullOrWhiteSpace(txtFullName.Text))
+            {
+                nameErr.Text = "Full Name is required!";
+                return false;
+            }
+            if (!Regex.IsMatch(txtFullName.Text, @"^[a-zA-Z\s]+$"))
+            {
+                nameErr.Text = "Full Name must contain only letters and spaces!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                phoneErr.Text = "Phone Number is required!";
+                return false;
+            }
+            if (!Regex.IsMatch(txtPhone.Text, @"^\d{10}$"))
+            {
+                phoneErr.Text = "Phone Number must be 10 digits long!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                addErr.Text = "Address is required!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtTownCity.Text))
+            {
+                cityErr.Text = "Town/City is required!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtPostcode.Text))
+            {
+                postErr.Text = "Postcode is required!";
+                return false;
+            }
+            if (rblPaymentMethod.SelectedValue == "")
+            {
+                payErr.Text = "Please select a payment method!";
+                return false;
+            }
+
+            return true;
         }
     }
 }

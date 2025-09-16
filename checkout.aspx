@@ -34,7 +34,7 @@
 
                 .payment-tabs li {
                     margin-bottom: 25px;
-                    padding-left: 23px; 
+                    padding-left: 23px;
                     position: relative;
                     cursor: pointer;
                 }
@@ -46,7 +46,7 @@
                 .payment-tabs li label::before {
                     content: '';
                     display: inline-block;
-                    width: 12px; 
+                    width: 12px;
                     height: 12px;
                     border: 2px solid #ccc;
                     border-radius: 50%;
@@ -81,10 +81,17 @@
                     display: block;
                     cursor: pointer;
                 }
-                .btnPlaceOrder{
-                    font: 700 16px / 38px "Abril Fatface" !important;
-                    letter-spacing:1px;
-                }
+
+            .btnPlaceOrder {
+                font: 700 16px / 38px "Abril Fatface" !important;
+                letter-spacing: 1px;
+            }
+
+            .ErrMsg {
+                color: orangered;
+                font-weight: 900;
+                font: 300 14px / 20px "Poppins";
+            }
         </style>
     </head>
     <body>
@@ -278,26 +285,31 @@
                                 <div class="form-group">
                                     <label class="control-label">Full Name <span class="color">*</span></label>
                                     <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" placeholder="Enter your full name..."></asp:TextBox>
+                                    <asp:Label ID="nameErr" class="ErrMsg" runat="server" Text=""></asp:Label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label">Phone<span class="color">*</span></label>
                                     <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" placeholder="Enter your phone..."></asp:TextBox>
+                                    <asp:Label ID="phoneErr" class="ErrMsg" runat="server" Text=""></asp:Label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label">Address<span class="color">*</span></label>
                                     <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter your address..."></asp:TextBox>
+                                    <asp:Label ID="addErr" class="ErrMsg" runat="server" Text=""></asp:Label>
                                 </div>
 
                                 <div>
                                     <div class="form-group col-md-6" style="padding-left: 0;">
                                         <label class="control-label">Town/City<span class="color">*</span></label>
                                         <asp:TextBox ID="txtTownCity" runat="server" CssClass="form-control" placeholder="Enter your Town..."></asp:TextBox>
+                                        <asp:Label ID="cityErr" class="ErrMsg" runat="server" Text=""></asp:Label>
                                     </div>
                                     <div class="form-group col-md-6" style="padding-right: 0;">
                                         <label class="control-label">POSTCODE <span class="color">*</span></label>
                                         <asp:TextBox ID="txtPostcode" runat="server" CssClass="form-control" placeholder="Enter your postcode..."></asp:TextBox>
+                                        <asp:Label ID="postErr" class="ErrMsg" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>
                             </div>
@@ -317,11 +329,12 @@
         <p>Pay with cash directly to our delivery agent when your order arrives.</p>
                                     </asp:ListItem>
                                 </asp:RadioButtonList>
+                                <asp:Label ID="payErr" class="ErrMsg" runat="server" Text=""></asp:Label>
 
                             </div>
 
                             <asp:LinkButton ID="btnPlaceOrder" runat="server"
-                                CssClass="link-v1 box lh-50 rt full btnPlaceOrder" 
+                                CssClass="link-v1 box lh-50 rt full btnPlaceOrder"
                                 Text="PLACE ORDER"
                                 OnClick="btnPlaceOrder_Click" />
                         </div>

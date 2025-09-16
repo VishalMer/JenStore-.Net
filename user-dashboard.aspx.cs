@@ -54,13 +54,13 @@ namespace JenStore
 
         private void LoadDashboardStats(int userId)
         {
-            SqlCommand totalOrders = new SqlCommand("SELECT COUNT(*) FROM Orders WHERE user_id = " + userId, con);
+            SqlCommand totalOrders = new SqlCommand("select count(*) from Orders where user_id = " + userId, con);
             litTotalOrders.Text = totalOrders.ExecuteScalar().ToString();
 
-            SqlCommand wishlist = new SqlCommand("SELECT COUNT(*) FROM Wishlist WHERE user_id = " + userId, con);
+            SqlCommand wishlist = new SqlCommand("select count(*) from Wishlist where user_id = " + userId, con);
             litWishlistItems.Text = wishlist.ExecuteScalar().ToString();
 
-            SqlCommand totalSpent = new SqlCommand("SELECT SUM(total_amount) FROM Orders WHERE user_id = " + userId + " AND order_status = 'Completed'", con);
+            SqlCommand totalSpent = new SqlCommand("select SUM(total_amount) from Orders where user_id = " + userId + " and order_status = 'Completed'", con);
             object totalSpentResult = totalSpent.ExecuteScalar();
             if (totalSpentResult != DBNull.Value && totalSpentResult != null)
             {
@@ -71,7 +71,7 @@ namespace JenStore
                 litTotalSpent.Text = "$0.00";
             }
 
-            SqlCommand pendingOrders = new SqlCommand("SELECT COUNT(*) FROM Orders WHERE user_id = " + userId + " AND order_status = 'Pending'", con);
+            SqlCommand pendingOrders = new SqlCommand("select count(*) from Orders where user_id = " + userId + " and order_status = 'Pending'", con);
             litPendingOrders.Text = pendingOrders.ExecuteScalar().ToString();
         }
 
