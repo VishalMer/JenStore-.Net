@@ -139,9 +139,9 @@
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
-                        <li class="dropdown cart-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
-                            <div class="dropdown-menu">
+                        <li class="dropdown cart-menu">
+                            <a href="shopping.aspx"><img src="img/cart.png" id="img-cart" alt="img-cart"></a>
+                           <%-- <div class="dropdown-menu">
                                 <div class="cart-1">
                                     <div class="img-cart">
                                         <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
@@ -175,7 +175,7 @@
                                 <div id="div-cart-menu">
                                     <a href="#">ADD TO CART</a> <a href="#" class="check">CHECK VIEW</a>
                                 </div>
-                            </div>
+                            </div>--%>
                         </li>
                     </ul>
                 </div>
