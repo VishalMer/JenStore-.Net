@@ -237,6 +237,7 @@
     <Content Include="scrolling\TweenMax.min.js" />
     <Content Include="shopping-cart.aspx" />
     <Content Include="shopping.aspx" />
+    <Content Include="single-detail.aspx" />
     <Content Include="slick\ajax-loader.gif" />
     <Content Include="slick\fonts\slick.svg" />
     <Content Include="slick\slick-theme.css" />
@@ -374,6 +375,20 @@
     <Compile Include="shopping.Master.designer.cs">
       <DependentUpon>shopping.Master</DependentUpon>
     </Compile>
+    <Compile Include="single-detail.aspx.cs">
+      <DependentUpon>single-detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="single-detail.aspx.designer.cs">
+      <DependentUpon>single-detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="single-detail.Master.cs">
+      <DependentUpon>single-detail.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="single-detail.Master.designer.cs">
+      <DependentUpon>single-detail.Master</DependentUpon>
+    </Compile>
     <Compile Include="user-dashboard.aspx.cs">
       <DependentUpon>user-dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,18 +419,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap\mixin-active-bg-menu.css.map" />
-    <Content Include="css\bootstrap\mixin-back-top.css.map" />
-    <Content Include="css\bootstrap\mixin-BG-text.css.map" />
-    <Content Include="css\bootstrap\mixin-grid-list.css.map" />
-    <Content Include="css\bootstrap\mixin-header-v3.css.map" />
-    <Content Include="css\bootstrap\mixin-input-number.css.map" />
-    <Content Include="css\bootstrap\mixin-modal-quickview.css.map" />
-    <Content Include="css\bootstrap\mixin-mysidebar.css.map" />
-    <Content Include="css\bootstrap\mixin-select-custom.css.map" />
-    <Content Include="css\bootstrap\mixin-show-sidebar.css.map" />
-    <Content Include="css\bootstrap\mixin-style-search.css.map" />
-    <Content Include="css\bootstrap\mixin.css.map" />
     <Content Include="css\style-404.css.map" />
     <Content Include="css\style-about.css.map" />
     <Content Include="css\style-checkout.css.map" />
@@ -448,8 +451,20 @@
     <Content Include="contact.Master" />
     <Content Include="home.Master" />
     <Content Include="checkout.Master" />
-    <Content Include="order.Master" />
     <Content Include="admin-panel\index.Master" />
+    <Content Include="css\bootstrap\mixin-active-bg-menu.css.map" />
+    <Content Include="css\bootstrap\mixin-back-top.css.map" />
+    <Content Include="css\bootstrap\mixin-BG-text.css.map" />
+    <Content Include="css\bootstrap\mixin-grid-list.css.map" />
+    <Content Include="css\bootstrap\mixin-header-v3.css.map" />
+    <Content Include="css\bootstrap\mixin-input-number.css.map" />
+    <Content Include="css\bootstrap\mixin-modal-quickview.css.map" />
+    <Content Include="css\bootstrap\mixin-mysidebar.css.map" />
+    <Content Include="css\bootstrap\mixin-select-custom.css.map" />
+    <Content Include="css\bootstrap\mixin-show-sidebar.css.map" />
+    <Content Include="css\bootstrap\mixin-style-search.css.map" />
+    <Content Include="css\bootstrap\mixin.css.map" />
+    <Content Include="order.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
@@ -505,6 +520,7 @@
     <Content Include="shopping-cart.Master" />
     <Content Include="edit-profile.Master" />
     <Content Include="shopping.Master" />
+    <Content Include="single-detail.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

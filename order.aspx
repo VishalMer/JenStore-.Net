@@ -1,27 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/order.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="JenStore.order1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-                
-<!DOCTYPE html>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+
+    <!DOCTYPE html>
     <html>
     <head>
         <title>Order Completed</title>
         <meta charset="utf-8">
-	<!-- bootstrap vs fontawesome-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- bootstrap vs fontawesome-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="img/favicon.png" type="image/x-icon"/>
+        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/style-about.css">
         <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
         <link rel="stylesheet" type="text/css" href="css/style-faq.css">
         <link rel="stylesheet" type="text/css" href="css/style-order.css">
         <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
         <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
-		<!-- slick -->
-	
-	<!-- GG FONT -->
-	    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <!-- slick -->
+
+        <!-- GG FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     </head>
@@ -30,7 +31,8 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="#">
-                    <img src="img/logo.png" alt="img-holiwood"></a></div>
+                        <img src="img/logo.png" alt="img-holiwood"></a>
+                </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
                         <%--<form class="hidden-lg hidden-md form-group form-search-mobile">
@@ -40,11 +42,11 @@
                             </button>
                         </form>--%>
                         <ul class="nav navbar-nav menu-main">
-                            <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
-                                </figure>
+                            <li class="menu-home"><a href="home.html">Home</a><figure id="home-1">
+                            </figure>
                             </li>
                             <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            </figure>
                                 <div class="dropdown-menu">
                                     <div class="container container-menu">
                                         <ul class="row">
@@ -53,25 +55,25 @@
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.html">Shopping</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.html">Shopping Cart</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.html">Checkout</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.html">Order</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.html">FAQ</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.html">Login/Register</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.html">Page404</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.html">Tracking</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.html">Wishlist</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -82,16 +84,16 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="order.aspx" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            <li><a href="order.html" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            <li class="blog-menu"><a href="blog.html">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
-                                </figure>
+                            <li class="contact-menu"><a href="contact.html">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
+                            <li class="hidden-lg hidden-md"><a href="user-dashboard.html"><i class="far fa-user"></i>My Account</a></li>
                             <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
                                     <i class="far fa-times-circle"></i>
@@ -104,13 +106,14 @@
                     <ul class="nav navbar-nav navbar-right icon-menu">
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
                         <li class="dropdown cart-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                             <div class="dropdown-menu">
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Pink roses</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -118,7 +121,8 @@
                                 </div>
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Eleganr by BloomNation</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -126,7 +130,8 @@
                                 </div>
                                 <div class="cart-1">
                                     <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
+                                    </div>
                                     <div class="info-cart">
                                         <h1>Queen Rose - Yellow</h1>
                                         <span class="number">x1</span> <span class="prince-cart">$207.2</span>
@@ -150,58 +155,63 @@
             </div>
         </header>
         <main>
-        <div class="content-search">
-            <div class="container container-100">
-                <i class="far fa-times-circle" id="close-search"></i>
-                <h3 class="text-center">what are your looking for ?</h3>
-                <form method="get" action="/search" role="search" style="position: relative;">
-                    <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
-                    <button class="button_search" type="submit">
-                        search
-                    </button>
-                </form>
-            </div>
-        </div>
-        <div class="banner">
-            <div class="container">
-                <figure id="banner-about">
-                    <a href="#">
-                    <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
-                <div class="title-banner">
-                    <h1>Order Completed</h1>
-                    <p>
-                        <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Order Completed</p>
+            <div class="content-search">
+                <div class="container container-100">
+                    <i class="far fa-times-circle" id="close-search"></i>
+                    <h3 class="text-center">what are your looking for ?</h3>
+                    <form method="get" action="/search" role="search" style="position: relative;">
+                        <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
+                        <button class="button_search" type="submit">
+                            search
+                        </button>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="container container-ver2 space-padding-tb-30">
-            <div class="row head-cart">
-                <div class="col-md-4 space-30">
-                    <div class="item active center">
-                        <p class="icon">
-                            01</p>
-                        <h3>Shopping cart</h3>
+            <div class="banner">
+                <div class="container">
+                    <figure id="banner-about">
+                        <a href="#">
+                            <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                    </figure>
+                    <div class="title-banner">
+                        <h1>Order Completed</h1>
+                        <p>
+                            <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Order Completed
+                        </p>
                     </div>
                 </div>
+            </div>
+            <div class="container container-ver2 space-padding-tb-30">
+                <div class="row head-cart">
+                    <div class="col-md-4 space-30">
+                        <div class="item active center">
+                            <p class="icon">
+                                01
+                            </p>
+                            <h3>Shopping cart</h3>
+                        </div>
+                    </div>
                     <!-- End col-md-4 -->
                     <div class="col-md-4 space-30">
                         <div class="item active center">
                             <p class="icon">
-                                02</p>
+                                02
+                            </p>
                             <h3>Check out</h3>
                         </div>
-                </div>
+                    </div>
                     <!-- End col-md-4 -->
                     <div class="col-md-4 space-30">
                         <div class="item center active">
                             <p class="icon">
-                                03</p>
+                                03
+                            </p>
                             <h3>Order completed</h3>
                         </div>
-                </div>
+                    </div>
                     <!-- End col-md-4 -->
                 </div>
-        </div>
+            </div>
             <!-- End container -->
             <div class="container container-ver2">
                 <div class="box float-left order-complete center space-50">
@@ -209,72 +219,275 @@
                         <img src="img/icon-order-complete.png" alt="icon">
                     </div>
                     <p class="box center space-50">
-                        Thank you for shopping with us, your order is complete!</p>
+                        Thank you for shopping with us, your order is complete!
+                    </p>
                     <div class="box">
-                        <a class="link-v1 lh-50 margin-right-20 space-20 color-brand" href="home.aspx" title="HOME PAGE">HOME PAGE</a> <a class="link-v1 lh-50 rt space-20" href="shopping.aspx" title="CONTINUS SHOPPING">CONTINUS SHOPPING</a>
-                    </div>
-                </div>
-        </div>
-            <!-- End container -->
-        <div class="info-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>About</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">News & Stories</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">History</a> </li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Our Studio</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Stockists</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Customer sevices</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Contact Us</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Trade Services</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Login/Register</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Delivery & Returns</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">FAQs</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Store</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Wedding</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Birthday</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Women's day</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Shop collection</h3>
-                            <ul>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">New Arrivals</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Hot</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Sale</a></li>
-                                <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Deal of the day</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social">
-                        <p>
-                            CONNECT WITH US:</p>
-                        <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
-                        <h1>Newsletter</h1>
-                        <h2>Sign up for our mailing list to get latest updates and offers</h2>
-                        <form class="form-group" action="mail" method="post">
-                            <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
-                            <button type="submit">
-                                <img src="img/Send.png" alt="img-holiwood">
-                            </button>
-                        </form>
+                        <a class="link-v1 lh-50 margin-right-20 space-20 color-brand" href="#" title="HOME PAGE">HOME PAGE</a> <a class="link-v1 lh-50 rt space-20" href="#" title="CONTINUS SHOPPING">CONTINUS SHOPPING</a>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Order Details Section -->
+            <div class="container container-ver2">
+                <div class="order-details-section">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="order-details-title">Order Details</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="order-info-box">
+                                <h3>Order Information</h3>
+                                <div class="order-info-item">
+                                    <span class="info-label">Order ID:</span> <span class="info-value">#ORD-2024-001234</span>
+                                </div>
+                                <div class="order-info-item">
+                                    <span class="info-label">Order Date:</span> <span class="info-value">December 15, 2024</span>
+                                </div>
+                                <div class="order-info-item">
+                                    <span class="info-label">Order Status:</span> <span class="info-value status-completed">Completed</span>
+                                </div>
+                                <div class="order-info-item">
+                                    <span class="info-label">Payment Method:</span> <span class="info-value">Credit Card (****1234)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="order-info-box">
+                                <h3>Billing Information</h3>
+                                <div class="order-info-item">
+                                    <span class="info-label">Customer Name:</span> <span class="info-value">John Smith</span>
+                                </div>
+                                <div class="order-info-item">
+                                    <span class="info-label">Email:</span> <span class="info-value">john.smith@email.com</span>
+                                </div>
+                                <div class="order-info-item">
+                                    <span class="info-label">Phone:</span> <span class="info-value">+1 (555) 123-4567</span>
+                                </div>
+                                <div class="order-info-item">
+                                    <span class="info-label">Address:</span> <span class="info-value">123 Main St, City, State 12345</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="order-summary-box">
+                                <h3>Order Summary</h3>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <div class="item-image">
+                                            <img src="img/340x420.png" alt="Pink roses" class="img-responsive">
+                                        </div>
+                                        <div class="item-details">
+                                            <h4>Pink Roses Bouquet</h4>
+                                            <p>
+                                                Quantity: 1
+                                            </p>
+                                            <span class="item-price">$207.20</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item">
+                                        <div class="item-image">
+                                            <img src="img/340x420.png" alt="Elegant by BloomNation" class="img-responsive">
+                                        </div>
+                                        <div class="item-details">
+                                            <h4>Elegant by BloomNation</h4>
+                                            <p>
+                                                Quantity: 1
+                                            </p>
+                                            <span class="item-price">$207.20</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item">
+                                        <div class="item-image">
+                                            <img src="img/340x420.png" alt="Queen Rose Yellow" class="img-responsive">
+                                        </div>
+                                        <div class="item-details">
+                                            <h4>Queen Rose - Yellow</h4>
+                                            <p>
+                                                Quantity: 1
+                                            </p>
+                                            <span class="item-price">$207.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-totals">
+                                    <div class="total-line">
+                                        <span class="total-label">Subtotal:</span> <span class="total-value">$621.60</span>
+                                    </div>
+                                    <div class="total-line">
+                                        <span class="total-label">Shipping:</span> <span class="total-value">$15.00</span>
+                                    </div>
+                                    <div class="total-line">
+                                        <span class="total-label">Tax:</span> <span class="total-value">$49.73</span>
+                                    </div>
+                                    <div class="total-line total-final">
+                                        <span class="total-label">Total Amount:</span> <span class="total-value">$686.33</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="order-actions">
+                                <a href="#" class="btn btn-primary">Download Invoice</a> <a href="#" class="btn btn-secondary">Track Order</a> <a href="#" class="btn btn-outline">Reorder Items</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Order Details Section -->
+
+            <!-- Order History Section -->
+            <div class="container container-ver2">
+                <div class="order-history-section">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="order-history-title">Order History</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="order-history-table-container">
+                                <table class="order-history-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Order Date</th>
+                                            <th>Status</th>
+                                            <th>Total Amount</th>
+                                            <th>Payment Method</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="order-id">#ORD-2024-001234</td>
+                                            <td class="order-date">Dec 15, 2024</td>
+                                            <td class="order-status"><span class="status-badge status-completed">Completed</span> </td>
+                                            <td class="order-total">$686.33</td>
+                                            <td class="payment-method">Credit Card</td>
+                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="order-id">#ORD-2024-001189</td>
+                                            <td class="order-date">Dec 10, 2024</td>
+                                            <td class="order-status"><span class="status-badge status-delivered">Delivered</span> </td>
+                                            <td class="order-total">$245.50</td>
+                                            <td class="payment-method">PayPal</td>
+                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="order-id">#ORD-2024-001156</td>
+                                            <td class="order-date">Dec 5, 2024</td>
+                                            <td class="order-status"><span class="status-badge status-shipped">Shipped</span> </td>
+                                            <td class="order-total">$189.75</td>
+                                            <td class="payment-method">Credit Card</td>
+                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="order-id">#ORD-2024-001123</td>
+                                            <td class="order-date">Nov 28, 2024</td>
+                                            <td class="order-status"><span class="status-badge status-processing">Processing</span> </td>
+                                            <td class="order-total">$156.20</td>
+                                            <td class="payment-method">Bank Transfer</td>
+                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="order-id">#ORD-2024-001098</td>
+                                            <td class="order-date">Nov 20, 2024</td>
+                                            <td class="order-status"><span class="status-badge status-cancelled">Cancelled</span> </td>
+                                            <td class="order-total">$98.40</td>
+                                            <td class="payment-method">Credit Card</td>
+                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pagination-container">
+                                <nav aria-label="Order history pagination">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a> </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a> </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a> </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a> </li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a> </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Order History Section -->
+            <!-- End container -->
+            <div class="info-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>About</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">News & Stories</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">History</a> </li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Our Studio</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Stockists</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>Customer sevices</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Contact Us</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Trade Services</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Login/Register</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Delivery & Returns</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">FAQs</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>Store</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Shop</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Wedding</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Birthday</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Women's day</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <h3>Shop collection</h3>
+                                <ul>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">New Arrivals</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Hot</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Sale</a></li>
+                                    <li><i class="fas fa-long-arrow-alt-right"></i><a href="#">Deal of the day</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social">
+                            <p>
+                                CONNECT WITH US:
+                            </p>
+                            <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
+                            <h1>Newsletter</h1>
+                            <h2>Sign up for our mailing list to get latest updates and offers</h2>
+                            <form class="form-group" action="mail" method="post">
+                                <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
+                                <button type="submit">
+                                    <img src="img/Send.png" alt="img-holiwood">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="container">
@@ -297,16 +510,16 @@
             </div>
         </footer>
 
-<!-- boostrap & jquery -->
-	<script src="js/jquery.min_af.js"></script>
-	<script src="js/bootstrap.min_0028.js"></script>
-	
-	<!-- js file -->
-	<script src="js/function-back-top.js"></script>
-	<script src="js/function-sidebar.js"></script>
-	<script src="js/funtion-header-v3.js"></script>
-	<script src="js/function-search-v2.js"></script>
-	<script src="js/function-shopping-cart.js"></script>
+        <!-- boostrap & jquery -->
+        <script src="js/jquery.min_af.js"></script>
+        <script src="js/bootstrap.min_0028.js"></script>
+
+        <!-- js file -->
+        <script src="js/function-back-top.js"></script>
+        <script src="js/function-sidebar.js"></script>
+        <script src="js/funtion-header-v3.js"></script>
+        <script src="js/function-search-v2.js"></script>
+        <script src="js/function-shopping-cart.js"></script>
     </body>
     </html>
 </asp:Content>

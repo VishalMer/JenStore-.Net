@@ -64,7 +64,7 @@ namespace JenStore
             object totalSpentResult = totalSpent.ExecuteScalar();
             if (totalSpentResult != DBNull.Value && totalSpentResult != null)
             {
-                lblTotalSpent.Text = Convert.ToDecimal(totalSpentResult).ToString();
+                lblTotalSpent.Text = "$"+(Convert.ToDecimal(totalSpentResult).ToString());
             }
             else
             {
