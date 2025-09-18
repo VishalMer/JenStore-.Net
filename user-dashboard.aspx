@@ -348,7 +348,7 @@
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    <asp:Literal ID="litTotalOrders" runat="server" Text="0"></asp:Literal>
+                                    <asp:Label ID="lblTotalOrders" runat="server" ></asp:Label>
                                 </div>
                                 <div class="stat-label">
                                     Total Orders
@@ -356,7 +356,7 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    <asp:Literal ID="litWishlistItems" runat="server" Text="0"></asp:Literal>
+                                    <asp:Label ID="lblWishlistItems" runat="server" ></asp:Label>
                                 </div>
                                 <div class="stat-label">
                                     Wishlist Items
@@ -364,7 +364,7 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    <asp:Literal ID="litTotalSpent" runat="server" Text="$0.00"></asp:Literal>
+                                    <asp:Label ID="lblTotalSpent" runat="server" Text="$0.00"></asp:Label>
                                 </div>
                                 <div class="stat-label">
                                     Total Spent
@@ -372,7 +372,7 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    <asp:Literal ID="litPendingOrders" runat="server" Text="0"></asp:Literal>
+                                    <asp:Label ID="lblPendingOrders" runat="server" Text="Label"></asp:Label>
                                 </div>
                                 <div class="stat-label">
                                     Pending Orders

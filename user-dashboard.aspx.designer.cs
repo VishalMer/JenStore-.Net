@@ -51,39 +51,39 @@ namespace JenStore
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl memberSinceVal;
 
         /// <summary>
-        /// litTotalOrders control.
+        /// lblTotalOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTotalOrders;
+        protected global::System.Web.UI.WebControls.Label lblTotalOrders;
 
         /// <summary>
-        /// litWishlistItems control.
+        /// lblWishlistItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litWishlistItems;
+        protected global::System.Web.UI.WebControls.Label lblWishlistItems;
 
         /// <summary>
-        /// litTotalSpent control.
+        /// lblTotalSpent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTotalSpent;
+        protected global::System.Web.UI.WebControls.Label lblTotalSpent;
 
         /// <summary>
-        /// litPendingOrders control.
+        /// lblPendingOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPendingOrders;
+        protected global::System.Web.UI.WebControls.Label lblPendingOrders;
     }
 }

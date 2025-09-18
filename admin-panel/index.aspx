@@ -306,7 +306,7 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="metric-number">
-                                <asp:Label ID="lblMonthlyRevenue" runat="server"></asp:Label>
+                                <asp:Label ID="lblMonthlyToatal" runat="server"></asp:Label>
                             </div>
                             <div class="metric-label">
                                 This Month

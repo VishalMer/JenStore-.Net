@@ -62,9 +62,9 @@ namespace JenStore
             }
             decimal grandTotal = subTotal + shippingFee;
 
-            lblSubTotal.Text = subTotal.ToString("C");
-            lblShipping.Text = shippingFee.ToString("C");
-            lblOrderTotal.Text = grandTotal.ToString("C");
+            lblSubTotal.Text = subTotal.ToString();
+            lblShipping.Text = shippingFee.ToString();
+            lblOrderTotal.Text = grandTotal.ToString();
         }
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
@@ -74,7 +74,6 @@ namespace JenStore
                 return;
             }
 
-            // 2. If validation passes, proceed with placing the order.
             int userId = Convert.ToInt32(Session["UserID"]);
 
             getcon();
@@ -137,7 +136,7 @@ namespace JenStore
             con.Open();
         }
 
-        private void ClearErrorLabels()
+         void Clear()
         {
             nameErr.Text = "";
             addErr.Text = "";
@@ -147,28 +146,18 @@ namespace JenStore
             payErr.Text = "";
         }
 
-        private bool validation()
+         bool validation()
         {
-            ClearErrorLabels();
+            Clear();
 
             if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
                 nameErr.Text = "Full Name is required!";
                 return false;
             }
-            if (!Regex.IsMatch(txtFullName.Text, @"^[a-zA-Z\s]+$"))
-            {
-                nameErr.Text = "Full Name must contain only letters and spaces!";
-                return false;
-            }
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
                 phoneErr.Text = "Phone Number is required!";
-                return false;
-            }
-            if (!Regex.IsMatch(txtPhone.Text, @"^\d{10}$"))
-            {
-                phoneErr.Text = "Phone Number must be 10 digits long!";
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtAddress.Text))

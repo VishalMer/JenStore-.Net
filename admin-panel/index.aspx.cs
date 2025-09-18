@@ -29,34 +29,20 @@ namespace JenStore.admin_panel
             if (totalSales != DBNull.Value)
             {
                 lblTotalSales.Text = Convert.ToDecimal(totalSales).ToString("C0");
+                lblMonthlyToatal.Text = Convert.ToDecimal(totalSales).ToString("C0");
             }
             else
             {
                 lblTotalSales.Text = "$0";
+                lblMonthlyToatal.Text = "$0";
             }
 
-            // Get Total Orders
             cmd = new SqlCommand("select count(*) from Orders", con);
             lblTotalOrders.Text = cmd.ExecuteScalar().ToString();
 
-            // Get Total Customers
             cmd = new SqlCommand("select count(*) from users", con);
             lblTotalCustomers.Text = cmd.ExecuteScalar().ToString();
 
-            // Get This Month's Revenue
-            DateTime firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            DateTime firstDayOfNextMonth = firstDayOfMonth.AddMonths(1);
-
-            cmd = new SqlCommand("select sum(total_amount) from Orders where order_status = 'Completed' and order_date >= '" + firstDayOfMonth.ToString("yyyy-MM-dd") + "' and order_date < '" + firstDayOfNextMonth.ToString("yyyy-MM-dd") + "'", con);
-            object monthlyRevenueResult = cmd.ExecuteScalar();
-            if (monthlyRevenueResult != DBNull.Value)
-            {
-                lblMonthlyRevenue.Text = Convert.ToDecimal(monthlyRevenueResult).ToString("C0");
-            }
-            else
-            {
-                lblMonthlyRevenue.Text = "$0";
-            }
 
             con.Close();
         }
