@@ -15,13 +15,13 @@ namespace JenStore
     {
 
         /// <summary>
-        /// divOrderDetails control.
+        /// orDetailsDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOrderDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl orDetailsDiv;
 
         /// <summary>
         /// lblOrderID control.
@@ -112,32 +112,5 @@ namespace JenStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvOrderHistory;
-
-        /// <summary>
-        /// lnkPrevious control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPrevious;
-
-        /// <summary>
-        /// rptPager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptPager;
-
-        /// <summary>
-        /// lnkNext control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkNext;
     }
 }

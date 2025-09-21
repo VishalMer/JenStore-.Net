@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq; // Add this using directive
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -24,12 +23,12 @@ namespace JenStore
 
             if (!IsPostBack)
             {
-                divOrderDetails.Visible = false;
-                BindOrderHistoryGrid();
+                orDetailsDiv.Visible = false;
+                showOrHist();
             }
         }
 
-        private void BindOrderHistoryGrid()
+        private void showOrHist()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             getcon();
@@ -44,7 +43,7 @@ namespace JenStore
             con.Close();
         }
 
-        private void BindOrderDetails(int orderId)
+        private void showOrdDetails(int orderId)
         {
             getcon();
             cmd = new SqlCommand("select order_date, order_status, payment_method, shipping_address, total_amount from Orders where order_id = " + orderId, con);
@@ -83,54 +82,19 @@ namespace JenStore
             con.Close();
         }
 
-        // New event that fires after the GridView is bound
-        protected void gvOrderHistory_DataBound(object sender, EventArgs e)
-        {
-            if (gvOrderHistory.PageCount > 1)
-            {
-                rptPager.DataSource = Enumerable.Range(0, gvOrderHistory.PageCount);
-                rptPager.DataBind();
-            }
-        }
-
-        // New event for clicks on the page numbers
-        protected void rptPager_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            divOrderDetails.Visible = false;
-            gvOrderHistory.PageIndex = Convert.ToInt32(e.CommandArgument);
-            BindOrderHistoryGrid();
-        }
-
-        // New event for clicks on 'Previous' and 'Next'
-        protected void lnkPage_Click(object sender, EventArgs e)
-        {
-            divOrderDetails.Visible = false;
-            LinkButton lnk = (LinkButton)sender;
-            string command = lnk.CommandArgument;
-
-            if (command == "Prev" && gvOrderHistory.PageIndex > 0)
-            {
-                gvOrderHistory.PageIndex--;
-            }
-            else if (command == "Next" && gvOrderHistory.PageIndex < gvOrderHistory.PageCount - 1)
-            {
-                gvOrderHistory.PageIndex++;
-            }
-            BindOrderHistoryGrid();
-        }
-
-        protected void gvOrderHistory_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void viewDetails(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "ViewDetails")
             {
                 int orderId = Convert.ToInt32(e.CommandArgument);
-                divOrderDetails.Visible = true;
-                BindOrderDetails(orderId);
+                orDetailsDiv.Visible = true;
+                showOrdDetails(orderId);
             }
         }
 
         protected string GetStatusClass(object status)
         {
+
             string statusStr = status.ToString().ToLower();
             switch (statusStr)
             {

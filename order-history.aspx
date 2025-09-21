@@ -187,7 +187,7 @@
 
 
             <!-- Order Details Section -->
-            <div id="divOrderDetails" runat="server" visible="false">
+            <div id="orDetailsDiv" runat="server" visible="false">
                 <div class="container container-ver2">
                     <div class="order-details-section">
                         <div class="row">
@@ -292,12 +292,7 @@
                                 <asp:GridView ID="gvOrderHistory" runat="server"
                                     AutoGenerateColumns="False"
                                     CssClass="order-history-table"
-                                    GridLines="None"
-                                    AllowPaging="True"
-                                    PageSize="5"
-                                    OnRowCommand="gvOrderHistory_RowCommand"
-                                    OnDataBound="gvOrderHistory_DataBound">
-                                    <PagerSettings Visible="False" />
+                                    GridLines="None" OnRowCommand="viewDetails">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Order ID">
                                             <ItemTemplate>
@@ -347,12 +342,11 @@
                                             <ItemStyle CssClass="order-actions" />
                                         </asp:TemplateField>
                                     </Columns>
-                                    
                                 </asp:GridView>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <%--<div class="row">
                         <div class="col-md-12">
                             <div class="pagination-container">
                                 <nav aria-label="Order history pagination">
@@ -379,7 +373,7 @@
                                 </nav>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
             <!-- End Order History Section -->
