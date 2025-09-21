@@ -42,7 +42,7 @@
                             </button>
                         </form>--%>
                         <ul class="nav navbar-nav menu-main">
-                            <li class="menu-home"><a href="home.html">Home</a><figure id="home-1">
+                            <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
                             </li>
                             <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
@@ -55,25 +55,25 @@
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.html">Shopping</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.html">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.html">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.html">Order</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.html">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.html">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.html">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.html">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.html">Wishlist</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -84,16 +84,16 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="order.html" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li><a href="order.aspx" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.html">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.html">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.html"><i class="far fa-user"></i>My Account</a></li>
+                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
                             <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
                                     <i class="far fa-times-circle"></i>
@@ -106,7 +106,7 @@
                     <ul class="nav navbar-nav navbar-right icon-menu">
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                         <li class="dropdown cart-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                             <div class="dropdown-menu">
@@ -228,7 +228,7 @@
             </div>
 
             <!-- Order Details Section -->
-            <div class="container container-ver2">
+            <div class="container container-ver2" id="orderDetailsContainer" runat="server">
                 <div class="order-details-section">
                     <div class="row">
                         <div class="col-md-12">
@@ -240,33 +240,34 @@
                             <div class="order-info-box">
                                 <h3>Order Information</h3>
                                 <div class="order-info-item">
-                                    <span class="info-label">Order ID:</span> <span class="info-value">#ORD-2024-001234</span>
+                                    <span class="info-label">Order ID:</span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblOrderID" runat="server"></asp:Label></span>
                                 </div>
                                 <div class="order-info-item">
-                                    <span class="info-label">Order Date:</span> <span class="info-value">December 15, 2024</span>
+                                    <span class="info-label">Order Date:</span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblOrderDate" runat="server"></asp:Label></span>
                                 </div>
                                 <div class="order-info-item">
-                                    <span class="info-label">Order Status:</span> <span class="info-value status-completed">Completed</span>
+                                    <span class="info-label">Order Status:</span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblOrderStatus" runat="server"></asp:Label></span>
                                 </div>
                                 <div class="order-info-item">
-                                    <span class="info-label">Payment Method:</span> <span class="info-value">Credit Card (****1234)</span>
+                                    <span class="info-label">Payment Method:</span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="order-info-box">
-                                <h3>Billing Information</h3>
+                                <h3>Shipping Information</h3>
                                 <div class="order-info-item">
-                                    <span class="info-label">Customer Name:</span> <span class="info-value">John Smith</span>
-                                </div>
-                                <div class="order-info-item">
-                                    <span class="info-label">Email:</span> <span class="info-value">john.smith@email.com</span>
-                                </div>
-                                <div class="order-info-item">
-                                    <span class="info-label">Phone:</span> <span class="info-value">+1 (555) 123-4567</span>
-                                </div>
-                                <div class="order-info-item">
-                                    <span class="info-label">Address:</span> <span class="info-value">123 Main St, City, State 12345</span>
+                                    <span class="info-label">Address:</span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblShippingAddress" runat="server"></asp:Label></span>
                                 </div>
                             </div>
                         </div>
@@ -276,55 +277,36 @@
                             <div class="order-summary-box">
                                 <h3>Order Summary</h3>
                                 <div class="order-items">
-                                    <div class="order-item">
-                                        <div class="item-image">
-                                            <img src="img/340x420.png" alt="Pink roses" class="img-responsive">
-                                        </div>
-                                        <div class="item-details">
-                                            <h4>Pink Roses Bouquet</h4>
-                                            <p>
-                                                Quantity: 1
-                                            </p>
-                                            <span class="item-price">$207.20</span>
-                                        </div>
-                                    </div>
-                                    <div class="order-item">
-                                        <div class="item-image">
-                                            <img src="img/340x420.png" alt="Elegant by BloomNation" class="img-responsive">
-                                        </div>
-                                        <div class="item-details">
-                                            <h4>Elegant by BloomNation</h4>
-                                            <p>
-                                                Quantity: 1
-                                            </p>
-                                            <span class="item-price">$207.20</span>
-                                        </div>
-                                    </div>
-                                    <div class="order-item">
-                                        <div class="item-image">
-                                            <img src="img/340x420.png" alt="Queen Rose Yellow" class="img-responsive">
-                                        </div>
-                                        <div class="item-details">
-                                            <h4>Queen Rose - Yellow</h4>
-                                            <p>
-                                                Quantity: 1
-                                            </p>
-                                            <span class="item-price">$207.20</span>
-                                        </div>
-                                    </div>
+                                    <asp:Repeater ID="rptOrderItems" runat="server">
+                                        <ItemTemplate>
+                                            <div class="order-item">
+                                                <div class="item-image">
+                                                    <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' class="img-responsive">
+                                                </div>
+                                                <div class="item-details">
+                                                    <h4><%# Eval("product_name") %></h4>
+                                                    <p>Quantity: <%# Eval("quantity") %></p>
+                                                    <span class="item-price"><%# Eval("price_at_purchase", "{0:C}") %></span>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </div>
                                 <div class="order-totals">
                                     <div class="total-line">
-                                        <span class="total-label">Subtotal:</span> <span class="total-value">$621.60</span>
+                                        <span class="total-label">Subtotal:</span>
+                                        <span class="total-value">
+                                            <asp:Label ID="lblSubTotal" runat="server"></asp:Label></span>
                                     </div>
                                     <div class="total-line">
-                                        <span class="total-label">Shipping:</span> <span class="total-value">$15.00</span>
-                                    </div>
-                                    <div class="total-line">
-                                        <span class="total-label">Tax:</span> <span class="total-value">$49.73</span>
+                                        <span class="total-label">Shipping:</span>
+                                        <span class="total-value">
+                                            <asp:Label ID="lblShipping" runat="server"></asp:Label></span>
                                     </div>
                                     <div class="total-line total-final">
-                                        <span class="total-label">Total Amount:</span> <span class="total-value">$686.33</span>
+                                        <span class="total-label">Total Amount:</span>
+                                        <span class="total-value">
+                                            <asp:Label ID="lblGrandTotal" runat="server"></asp:Label></span>
                                     </div>
                                 </div>
                             </div>
@@ -352,60 +334,61 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="order-history-table-container">
-                                <table class="order-history-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Order ID</th>
-                                            <th>Order Date</th>
-                                            <th>Status</th>
-                                            <th>Total Amount</th>
-                                            <th>Payment Method</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="order-id">#ORD-2024-001234</td>
-                                            <td class="order-date">Dec 15, 2024</td>
-                                            <td class="order-status"><span class="status-badge status-completed">Completed</span> </td>
-                                            <td class="order-total">$686.33</td>
-                                            <td class="payment-method">Credit Card</td>
-                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-id">#ORD-2024-001189</td>
-                                            <td class="order-date">Dec 10, 2024</td>
-                                            <td class="order-status"><span class="status-badge status-delivered">Delivered</span> </td>
-                                            <td class="order-total">$245.50</td>
-                                            <td class="payment-method">PayPal</td>
-                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-id">#ORD-2024-001156</td>
-                                            <td class="order-date">Dec 5, 2024</td>
-                                            <td class="order-status"><span class="status-badge status-shipped">Shipped</span> </td>
-                                            <td class="order-total">$189.75</td>
-                                            <td class="payment-method">Credit Card</td>
-                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-id">#ORD-2024-001123</td>
-                                            <td class="order-date">Nov 28, 2024</td>
-                                            <td class="order-status"><span class="status-badge status-processing">Processing</span> </td>
-                                            <td class="order-total">$156.20</td>
-                                            <td class="payment-method">Bank Transfer</td>
-                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-id">#ORD-2024-001098</td>
-                                            <td class="order-date">Nov 20, 2024</td>
-                                            <td class="order-status"><span class="status-badge status-cancelled">Cancelled</span> </td>
-                                            <td class="order-total">$98.40</td>
-                                            <td class="payment-method">Credit Card</td>
-                                            <td class="order-actions"><a href="#" class="btn-view-details">View Details</a> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <asp:GridView ID="gvOrderHistory" runat="server"
+                                    AutoGenerateColumns="False"
+                                    CssClass="order-history-table"
+                                    GridLines="None"
+                                    AllowPaging="True"
+                                    PageSize="5"
+                                    OnPageIndexChanging="gvOrderHistory_PageIndexChanging"
+                                    OnRowCommand="gvOrderHistory_RowCommand">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Order ID">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGridOrderId" runat="server" Text='<%# "#ORD-" + Eval("order_id") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="order-id" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Order Date">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGridOrderDate" runat="server" Text='<%# Eval("order_date", "{0:MMM dd, yyyy}") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="order-date" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Status">
+                                            <ItemTemplate>
+                                                <span class='status-badge <%# GetStatusClass(Eval("order_status")) %>'>
+                                                    <%# Eval("order_status") %>
+                                                </span>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="order-status" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Total Amount">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGridTotalAmount" runat="server" Text='<%# Eval("total_amount", "{0:C}") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="order-total" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Payment Method">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGridPaymentMethod" runat="server" Text='<%# Eval("payment_method") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="payment-method" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Actions">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btnViewDetails" runat="server"
+                                                    CssClass="btn-view-details"
+                                                    CommandName="ViewDetails"
+                                                    CommandArgument='<%# Eval("order_id") %>'
+                                                    Text="View Details">
+                                                </asp:LinkButton>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="order-actions" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <PagerStyle CssClass="pagination-container" />
+                                </asp:GridView>
                             </div>
                         </div>
                     </div>
