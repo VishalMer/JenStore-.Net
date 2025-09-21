@@ -392,7 +392,7 @@
                                     View and manage your cart items
                                 </div>
                             </div>
-                            <div class="shortcut-card" onclick="window.location.href='order.aspx'">
+                            <div class="shortcut-card" onclick="window.location.href='order-history.aspx'">
                                 <div class="shortcut-icon">
                                     <i class="fas fa-box"></i>
                                 </div>

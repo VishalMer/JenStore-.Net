@@ -232,6 +232,7 @@
     <Content Include="js\jquery-ui_c2.js" />
     <Content Include="js\jquery.min_af.js" />
     <Content Include="login_register.aspx" />
+    <Content Include="order-history.aspx" />
     <Content Include="order.aspx" />
     <Content Include="scrolling\jquery.superscrollorama.js" />
     <Content Include="scrolling\TweenMax.min.js" />
@@ -317,6 +318,20 @@
     </Compile>
     <Compile Include="login_register.aspx.designer.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="order-history.aspx.cs">
+      <DependentUpon>order-history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order-history.aspx.designer.cs">
+      <DependentUpon>order-history.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="order-history.Master.cs">
+      <DependentUpon>order-history.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order-history.Master.designer.cs">
+      <DependentUpon>order-history.Master</DependentUpon>
     </Compile>
     <Compile Include="order.aspx.cs">
       <DependentUpon>order.aspx</DependentUpon>
@@ -465,6 +480,7 @@
     <Content Include="css\bootstrap\mixin-style-search.css.map" />
     <Content Include="css\bootstrap\mixin.css.map" />
     <Content Include="order.Master" />
+    <Content Include="order-history.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />

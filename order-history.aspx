@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/order.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="JenStore.order1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/order-history.Master" AutoEventWireup="true" CodeBehind="order-history.aspx.cs" Inherits="JenStore.order_history1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -25,6 +25,13 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -35,14 +42,8 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                        <%--<form class="hidden-lg hidden-md form-group form-search-mobile">
-                            <input type="text" name="search" placeholder="Search here..." class="form-control">
-                            <button type="submit">
-                                <img src="img/Search.png" alt="search" class="img-responsive">
-                            </button>
-                        </form>--%>
                         <ul class="nav navbar-nav menu-main">
-                            <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
+                            <li class="menu-home"><a href="home.html">Home</a><figure id="home-1">
                             </figure>
                             </li>
                             <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
@@ -55,25 +56,25 @@
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.html">Shopping</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.html">Shopping Cart</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.html">Checkout</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.html">Order</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
                                                         <ul>
                                                             <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
+                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.html">FAQ</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.html">Login/Register</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.html">Page404</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.html">Tracking</a></li>
+                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-mrd hidden-xs"></i><a href="wishlist.html">Wishlist</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -84,16 +85,16 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="order.aspx" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li><a href="order.html" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="blog.html">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="contact-menu"><a href="contact.html">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
+                            <li class="hidden-lg hidden-md"><a href="user-dashboard.html"><i class="far fa-user"></i>My Account</a></li>
                             <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
                                     <i class="far fa-times-circle"></i>
@@ -106,7 +107,7 @@
                     <ul class="nav navbar-nav navbar-right icon-menu">
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
                         <li class="dropdown cart-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                             <div class="dropdown-menu">
@@ -167,147 +168,108 @@
                     </form>
                 </div>
             </div>
-            <div class="banner">
+            <div class="banner" style="margin-bottom: -3em;">
                 <div class="container">
                     <figure id="banner-about">
                         <a href="#">
                             <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
-                        <h1>Order Completed</h1>
+                        <h1>Order History</h1>
                         <p>
-                            <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Order Completed
+                            <a href="home.aspx" title="Home">Home</a><i class="fa fa-caret-right"></i>Order History
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="container container-ver2 space-padding-tb-30">
-                <div class="row head-cart">
-                    <div class="col-md-4 space-30">
-                        <div class="item active center">
-                            <p class="icon">
-                                01
-                            </p>
-                            <h3>Shopping cart</h3>
-                        </div>
-                    </div>
-                    <!-- End col-md-4 -->
-                    <div class="col-md-4 space-30">
-                        <div class="item active center">
-                            <p class="icon">
-                                02
-                            </p>
-                            <h3>Check out</h3>
-                        </div>
-                    </div>
-                    <!-- End col-md-4 -->
-                    <div class="col-md-4 space-30">
-                        <div class="item center active">
-                            <p class="icon">
-                                03
-                            </p>
-                            <h3>Order completed</h3>
-                        </div>
-                    </div>
-                    <!-- End col-md-4 -->
-                </div>
-            </div>
-            <!-- End container -->
-            <div class="container container-ver2">
-                <div class="box float-left order-complete center space-50">
-                    <div class="icon space-20">
-                        <img src="img/icon-order-complete.png" alt="icon">
-                    </div>
-                    <p class="box center space-50">
-                        Thank you for shopping with us, your order is complete!
-                    </p>
-                    <div class="box">
-                        <a class="link-v1 lh-50 margin-right-20 space-20 color-brand" href="#" title="HOME PAGE">HOME PAGE</a> <a class="link-v1 lh-50 rt space-20" href="#" title="CONTINUS SHOPPING">CONTINUS SHOPPING</a>
-                    </div>
-                </div>
-            </div>
+
+
+
 
             <!-- Order Details Section -->
-            <div class="container container-ver2" id="orderDetailsContainer" runat="server">
-                <div class="order-details-section">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="order-details-title">Order Details</h2>
+            <div id="divOrderDetails" runat="server" visible="false">
+                <div class="container container-ver2">
+                    <div class="order-details-section">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="order-details-title">Order Details</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="order-info-box">
-                                <h3>Order Information</h3>
-                                <div class="order-info-item">
-                                    <span class="info-label">Order ID:</span>
-                                    <span class="info-value"><asp:Label ID="lblOrderID" runat="server"></asp:Label></span>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="order-info-box">
+                                    <h3>Order Information</h3>
+                                    <div class="order-info-item">
+                                        <span class="info-label">Order ID:</span>
+                                        <span class="info-value">
+                                            <asp:Label ID="lblOrderID" runat="server"></asp:Label></span>
+                                    </div>
+                                    <div class="order-info-item">
+                                        <span class="info-label">Order Date:</span>
+                                        <span class="info-value">
+                                            <asp:Label ID="lblOrderDate" runat="server"></asp:Label></span>
+                                    </div>
+                                    <div class="order-info-item">
+                                        <span class="info-label">Order Status:</span>
+                                        <span class="info-value">
+                                            <asp:Label ID="lblOrderStatus" runat="server"></asp:Label></span>
+                                    </div>
+                                    <div class="order-info-item">
+                                        <span class="info-label">Payment Method:</span>
+                                        <span class="info-value">
+                                            <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label></span>
+                                    </div>
                                 </div>
-                                <div class="order-info-item">
-                                    <span class="info-label">Order Date:</span>
-                                    <span class="info-value"><asp:Label ID="lblOrderDate" runat="server"></asp:Label></span>
-                                </div>
-                                <div class="order-info-item">
-                                    <span class="info-label">Order Status:</span>
-                                    <span class="info-value"><asp:Label ID="lblOrderStatus" runat="server"></asp:Label></span>
-                                </div>
-                                <div class="order-info-item">
-                                    <span class="info-label">Payment Method:</span>
-                                    <span class="info-value"><asp:Label ID="lblPaymentMethod" runat="server"></asp:Label></span>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="order-info-box">
+                                    <h3>Shipping Information</h3>
+                                    <div class="order-info-item">
+                                        <span class="info-label">Address:</span>
+                                        <span class="info-value">
+                                            <asp:Label ID="lblShippingAddress" runat="server"></asp:Label></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="order-info-box">
-                                <h3>Shipping Information</h3>
-                                <div class="order-info-item">
-                                    <span class="info-label">Address:</span>
-                                    <span class="info-value"><asp:Label ID="lblShippingAddress" runat="server"></asp:Label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="order-summary-box">
-                                <h3>Order Summary</h3>
-                                <div class="order-items">
-                                    <asp:Repeater ID="rptOrderItems" runat="server">
-                                        <ItemTemplate>
-                                            <div class="order-item">
-                                                <div class="item-image">
-                                                    <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' class="img-responsive" />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="order-summary-box">
+                                    <h3>Order Summary</h3>
+                                    <div class="order-items">
+                                        <asp:Repeater ID="rptOrderItems" runat="server">
+                                            <ItemTemplate>
+                                                <div class="order-item">
+                                                    <div class="item-image">
+                                                        <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' class="img-responsive" />
+                                                    </div>
+                                                    <div class="item-details">
+                                                        <h4><%# Eval("product_name") %></h4>
+                                                        <p>Quantity: <%# Eval("quantity") %></p>
+                                                        <span class="item-price"><%# Eval("price_at_purchase", "{0:C}") %></span>
+                                                    </div>
                                                 </div>
-                                                <div class="item-details">
-                                                    <h4><%# Eval("product_name") %></h4>
-                                                    <p>Quantity: <%# Eval("quantity") %></p>
-                                                    <span class="item-price"><%# Eval("price_at_purchase", "{0:C}") %></span>
-                                                </div>
-                                            </div>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </div>
-                                <div class="order-totals">
-                                    <div class="total-line">
-                                        <span class="total-label">Subtotal:</span>
-                                        <span class="total-value"><asp:Label ID="lblSubTotal" runat="server"></asp:Label></span>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
                                     </div>
-                                    <div class="total-line">
-                                        <span class="total-label">Shipping:</span>
-                                        <span class="total-value"><asp:Label ID="lblShipping" runat="server"></asp:Label></span>
-                                    </div>
-                                    <div class="total-line total-final">
-                                        <span class="total-label">Total Amount:</span>
-                                        <span class="total-value"><asp:Label ID="lblGrandTotal" runat="server"></asp:Label></span>
+                                    <div class="order-totals">
+                                        <div class="total-line">
+                                            <span class="total-label">Subtotal:</span>
+                                            <span class="total-value">
+                                                <asp:Label ID="lblSubTotal" runat="server"></asp:Label></span>
+                                        </div>
+                                        <div class="total-line">
+                                            <span class="total-label">Shipping:</span>
+                                            <span class="total-value">
+                                                <asp:Label ID="lblShipping" runat="server"></asp:Label></span>
+                                        </div>
+                                        <div class="total-line total-final">
+                                            <span class="total-label">Total Amount:</span>
+                                            <span class="total-value">
+                                                <asp:Label ID="lblGrandTotal" runat="server"></asp:Label></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="order-actions">
-                                <a href="#" class="btn btn-primary">Download Invoice</a> <a href="#" class="btn btn-secondary">Track Order</a> <a href="#" class="btn btn-outline">Reorder Items</a>
                             </div>
                         </div>
                     </div>
@@ -315,12 +277,13 @@
             </div>
             <!-- End Order Details Section -->
 
+
             <!-- Order History Section -->
-           <%-- <div class="container container-ver2">
+            <div class="container container-ver2">
                 <div class="order-history-section">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2 class="order-history-title">Order History</h2>
+                            <h2 class="order-history-title">Your Past Orders</h2>
                         </div>
                     </div>
                     <div class="row">
@@ -332,8 +295,9 @@
                                     GridLines="None"
                                     AllowPaging="True"
                                     PageSize="5"
-                                    OnPageIndexChanging="gvOrderHistory_PageIndexChanging"
-                                    OnRowCommand="gvOrderHistory_RowCommand">
+                                    OnRowCommand="gvOrderHistory_RowCommand"
+                                    OnDataBound="gvOrderHistory_DataBound">
+                                    <PagerSettings Visible="False" />
                                     <Columns>
                                         <asp:TemplateField HeaderText="Order ID">
                                             <ItemTemplate>
@@ -341,12 +305,14 @@
                                             </ItemTemplate>
                                             <ItemStyle CssClass="order-id" />
                                         </asp:TemplateField>
+
                                         <asp:TemplateField HeaderText="Order Date">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblGridOrderDate" runat="server" Text='<%# Eval("order_date", "{0:MMM dd, yyyy}") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="order-date" />
                                         </asp:TemplateField>
+
                                         <asp:TemplateField HeaderText="Status">
                                             <ItemTemplate>
                                                 <span class='status-badge <%# GetStatusClass(Eval("order_status")) %>'>
@@ -355,12 +321,14 @@
                                             </ItemTemplate>
                                             <ItemStyle CssClass="order-status" />
                                         </asp:TemplateField>
+
                                         <asp:TemplateField HeaderText="Total Amount">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblGridTotalAmount" runat="server" Text='<%# Eval("total_amount", "{0:C}") %>'></asp:Label>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="order-total" />
                                         </asp:TemplateField>
+
                                         <asp:TemplateField HeaderText="Payment Method">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblGridPaymentMethod" runat="server" Text='<%# Eval("payment_method") %>'></asp:Label>
@@ -379,7 +347,7 @@
                                             <ItemStyle CssClass="order-actions" />
                                         </asp:TemplateField>
                                     </Columns>
-                                    <PagerStyle CssClass="pagination-container" />
+                                    
                                 </asp:GridView>
                             </div>
                         </div>
@@ -389,18 +357,31 @@
                             <div class="pagination-container">
                                 <nav aria-label="Order history pagination">
                                     <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a> </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a> </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a> </li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a> </li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a> </li>
+                                        <li class='<%= gvOrderHistory.PageIndex == 0 ? "page-item disabled" : "page-item" %>'>
+                                            <asp:LinkButton ID="lnkPrevious" runat="server" OnClick="lnkPage_Click" CommandArgument="Prev" CssClass="page-link">Previous</asp:LinkButton>
+                                        </li>
+
+                                        <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
+                                            <ItemTemplate>
+                                                <li class='<%# (Container.ItemIndex == gvOrderHistory.PageIndex) ? "page-item active" : "page-item" %>'>
+                                                    <asp:LinkButton ID="lnkPage" runat="server"
+                                                        CommandName="Page"
+                                                        CommandArgument='<%# Container.ItemIndex %>'
+                                                        CssClass="page-link"><%# Container.ItemIndex + 1 %></asp:LinkButton>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+
+                                        <li class='<%= gvOrderHistory.PageIndex >= gvOrderHistory.PageCount - 1 ? "page-item disabled" : "page-item" %>'>
+                                            <asp:LinkButton ID="lnkNext" runat="server" OnClick="lnkPage_Click" CommandArgument="Next" CssClass="page-link">Next</asp:LinkButton>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
             <!-- End Order History Section -->
             <!-- End container -->
             <div class="info-footer">

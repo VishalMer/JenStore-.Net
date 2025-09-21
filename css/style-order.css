@@ -229,7 +229,7 @@ ul.breadcrumb li a:hover {
     right: 12px;
     font-size: 16px;
     font-weight: 600;
-    font-family: Font Awesome\ 5 Free; }
+    font-family: "Font Awesome 5 Free"; }
   .select-styled:active:after, .select-styled.active:after {
     transform: rotate(180deg); }
 
@@ -833,13 +833,18 @@ figure.bg-input::after {
 }
 
 .status-processing {
-  background: #f8d7da;
-  color: #721c24;
+    background: #d4edda;
+    color: #155724;
 }
 
 .status-cancelled {
-  background: #f8d7da;
-  color: #721c24;
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-pending {
+    background: #d1ecf1;
+    color: #0c5460;
 }
 
 .btn-view-details {
