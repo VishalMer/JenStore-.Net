@@ -49,6 +49,11 @@
   border-bottom: 2px solid #000;
 }
 
+header .icon-menu::before {
+    content: none !important;
+    display: none !important;
+}
+
 @media (max-width: 991px) {
   .nav > li {
     position: unset; }

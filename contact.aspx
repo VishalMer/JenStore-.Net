@@ -103,40 +103,10 @@
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
-                        <li class="dropdown cart-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
-                            <div class="dropdown-menu">
-                                <div class="cart-1">
-                                    <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
-                                    <div class="info-cart">
-                                        <h1>Pink roses</h1>
-                                        <span class="number">x1</span> <span class="prince-cart">$207.2</span>
-                                    </div>
-                                </div>
-                                <div class="cart-1">
-                                    <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
-                                    <div class="info-cart">
-                                        <h1>Eleganr by BloomNation</h1>
-                                        <span class="number">x1</span> <span class="prince-cart">$207.2</span>
-                                    </div>
-                                </div>
-                                <div class="cart-1">
-                                    <div class="img-cart">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
-                                    <div class="info-cart">
-                                        <h1>Queen Rose - Yellow</h1>
-                                        <span class="number">x1</span> <span class="prince-cart">$207.2</span>
-                                    </div>
-                                </div>
-                                <div class="total">
-                                    <span>Total:</span> <span>$621.6</span>
-                                </div>
-                                <div id="div-cart-menu">
-                                    <a href="#">ADD TO CART</a> <a href="#" class="check">CHECK VIEW</a>
-                                </div>
-                            </div>
+
+                        <li class="cart-menu">
+                            <a href="shopping-cart.aspx">
+                                <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
                     </ul>
                 </div>
