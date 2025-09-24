@@ -238,7 +238,7 @@
     <Content Include="scrolling\TweenMax.min.js" />
     <Content Include="shopping-cart.aspx" />
     <Content Include="shopping.aspx" />
-    <Content Include="single-detail.aspx" />
+    <Content Include="product-details.aspx" />
     <Content Include="slick\ajax-loader.gif" />
     <Content Include="slick\fonts\slick.svg" />
     <Content Include="slick\slick-theme.css" />
@@ -390,12 +390,12 @@
     <Compile Include="shopping.Master.designer.cs">
       <DependentUpon>shopping.Master</DependentUpon>
     </Compile>
-    <Compile Include="single-detail.aspx.cs">
-      <DependentUpon>single-detail.aspx</DependentUpon>
+    <Compile Include="product-details.aspx.cs">
+      <DependentUpon>product-details.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="single-detail.aspx.designer.cs">
-      <DependentUpon>single-detail.aspx</DependentUpon>
+    <Compile Include="product-details.aspx.designer.cs">
+      <DependentUpon>product-details.aspx</DependentUpon>
     </Compile>
     <Compile Include="single-detail.Master.cs">
       <DependentUpon>single-detail.Master</DependentUpon>

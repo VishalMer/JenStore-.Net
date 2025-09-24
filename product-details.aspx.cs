@@ -1,67 +1,84 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace JenStore
 {
-    public partial class shopping1 : System.Web.UI.Page
+    public partial class single_detail1 : System.Web.UI.Page
     {
-        string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        string con_str = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         SqlConnection con;
-        SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
-        int userId;
+        SqlCommand cmd;
+        int p, row;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                rptProductShow();
+                getCon();
+                fillDataList();
             }
         }
 
-        private void rptProductShow()
+        void getCon()
         {
-            getcon();
+            con = new SqlConnection(con_str);
+            con.Open();
+        }
+
+        void fillDataList()
+        {
+            if (Request.QueryString["id"] == null)
+            {
+                Response.Redirect("shopping.aspx");
+                return;
+            }
+
+            getCon();
+            int productId = Convert.ToInt32(Request.QueryString["id"]);
+            int userId = (Session["UserID"] != null) ? Convert.ToInt32(Session["UserID"]) : -1;
 
             string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
                            " p.badge, p.rating_count, case when w.user_id is not null then 1 else 0 end as isinwishlist " +
-                           "from Products p left join Wishlist w on p.product_id = w.product_id and w.user_id = " + userId;
+                           "from Products p left join Wishlist w on p.product_id = w.product_id and w.user_id = " + userId +
+                           " where p.product_id = " + productId;
 
             da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
-
-            rptProducts.DataSource = ds;
-            rptProducts.DataBind();
+            dlProductDetails.DataSource = ds;
+            dlProductDetails.DataBind();
 
             con.Close();
         }
 
-        protected void ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void prDetails_Command(object source, DataListCommandEventArgs e)
         {
-            //view product
-            int productId = Convert.ToInt32(e.CommandArgument);
-            if (e.CommandName == "ViewProduct")
-            {
-                Response.Redirect("product-details.aspx?id=" + productId);
-            }
-
-            //check for user id
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
                 return;
             }
-            //add to cart
-            else if (e.CommandName == "AddToCart")
+
+            int userId = Convert.ToInt32(Session["UserID"]);
+            int productId = Convert.ToInt32(e.CommandArgument);
+            TextBox txtQuantity = (TextBox)e.Item.FindControl("txtQuantity");
+            int quantity = Convert.ToInt32(txtQuantity.Text);
+
+            if (e.CommandName == "AddToCart")
             {
-                userId = Convert.ToInt32(Session["UserID"]);
-                getcon();
+                getCon();
 
                 cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
                 if ((int)cmd.ExecuteScalar() <= 0)
@@ -78,17 +95,15 @@ namespace JenStore
                 }
                 else
                 {
-                    int quantity = 1;
                     cmd = new SqlCommand("insert into Cart (user_id, product_id, quantity) values (" + userId + ", " + productId + ", " + quantity + ")", con);
                     cmd.ExecuteNonQuery();
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to cart!');", true);
                 }
                 con.Close();
             }
-            // wishlist
             else if (e.CommandName == "AddToWishlist")
             {
-                getcon();
+                getCon();
                 cmd = new SqlCommand("select 1 from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                 if (cmd.ExecuteScalar() != null)
                 {
@@ -103,14 +118,9 @@ namespace JenStore
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to wishlist!');", true);
                 }
                 con.Close();
-                rptProductShow();
+                fillDataList();
             }
         }
 
-        void getcon()
-        {
-            con = new SqlConnection(connect);
-            con.Open();
-        }
     }
 }
