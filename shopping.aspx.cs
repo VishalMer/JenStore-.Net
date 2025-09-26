@@ -42,7 +42,7 @@ namespace JenStore
             con.Close();
         }
 
-        protected void ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void productCommand(object source, RepeaterCommandEventArgs e)
         {
             //view product
             int productId = Convert.ToInt32(e.CommandArgument);

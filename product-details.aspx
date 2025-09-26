@@ -227,13 +227,16 @@
                     </div>
                 </div>
 
+                <%-------------Rlated products-------------%>
                 <div class="related">
                     <div class="container">
                         <h1>Related Products</h1>
                         <div class="row rlated-contailner">
+
                             <asp:DataList ID="dlRelatedProducts" runat="server"
                                 RepeatColumns="4"
-                                RepeatDirection="Horizontal">
+                                RepeatDirection="Horizontal"
+                                OnItemCommand="prDetails_Command">
                                 <ItemTemplate>
                                     <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
                                         <div class="product-image-category" style="width: 268px; display: inline-block;">
@@ -241,7 +244,12 @@
                                                 <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: 100px;" />
                                             </figure>
                                             <div class="product-icon-category">
-                                                <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                                <%--<a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>--%>
+                                                <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="list-icon icon-2" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnAddToWishlist" runat="server" CssClass="list-icon icon-2" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
+                                                <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
+                                                     style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
+                                                    </asp:LinkButton>
                                             </div>
                                         </div>
                                         <div class="product-title-category">
@@ -255,191 +263,12 @@
                                                 <div class="prince" style="text-align: start">
                                                     $<%# Eval("price") %><s class="strike">$250.9</s>
                                                 </div>
+                                            </h5>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:DataList>
 
-                            <%--<asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatColumns="4" RepeatLayout="Flow" Width="100%">
-                                <ItemTemplate>--%>
-                            <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">--%>
-                            <%--<div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
-                                        <div class="product-image-category">
-                                            <figure class="sale">--%>
-                            <%--<a href="#">
-                                                    <img src="img/340x420.png" ></a>--%>
-                            <%-- <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("image_url") %>' />
-                                            </figure>
-                                            <div class="product-icon-category">
-                                                <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-title-category">
-                                            <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="prince">
-                                                <%# Eval("price") %><s class="strike">$250.9</s>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:DataList>--%>
-
-                            <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <figure class="sale">
-                                        <a href="#">
-                                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    </figure>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Queen Rose - Pink</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $300.2<s class="strike">$250.9</s>
-                                    </div>
-                                </div>
-                            </div>--%>
-                            <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <a href="#">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Bouquet Lavender</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $160.8
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <figure class="hot">
-                                        <a href="#">
-                                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    </figure>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Fun & Flirty By BloomNation</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $200.7
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <a href="#">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Bouquet Rose</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $350.4
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ------------------------------------------------ -->
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <a href="#">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Elegant by BloomNation</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $300.2<s class="strike">$250.9</s>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <figure class="hot">
-                                        <a href="#">
-                                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    </figure>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Tulipa Floriade - Red</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $160.8
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <a href="#">
-                                        <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Winter White Bouquet</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $200.7
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
-                                <div class="product-image-category">
-                                    <figure class="hot">
-                                        <a href="#">
-                                            <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
-                                    </figure>
-                                    <div class="product-icon-category">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-title-category">
-                                    <h5><a href="#">Rose - Red</a></h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <div class="prince">
-                                        $350.4
-                                    </div>
-                                </div>
-                            </div>--%>
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ namespace JenStore
         SqlDataAdapter da;
         DataSet ds;
         SqlCommand cmd;
-        int p, row;
+        int userId, row;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -71,12 +71,20 @@ namespace JenStore
                 Response.Redirect("login_register.aspx");
                 return;
             }
-
+            
             int userId = Convert.ToInt32(Session["UserID"]);
             int productId = Convert.ToInt32(e.CommandArgument);
-            TextBox txtQuantity = (TextBox)e.Item.FindControl("txtQuantity");
-            int quantity = Convert.ToInt32(txtQuantity.Text);
+            int quantity = 1;
+            try
+            {
+                TextBox txtQuantity = (TextBox)e.Item.FindControl("txtQuantity");
+                quantity = Convert.ToInt32(txtQuantity.Text);
+            }
+            catch (Exception ex)
+            {
 
+            }
+            
             if (e.CommandName == "AddToCart")
             {
                 getCon();
@@ -127,7 +135,11 @@ namespace JenStore
 
             getCon();
 
-            da = new SqlDataAdapter("SELECT * FROM Products", con);
+            string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
+                           " p.badge, p.rating_count, case when w.user_id is not null then 1 else 0 end as isinwishlist " +
+                           "from Products p left join Wishlist w on p.product_id = w.product_id and w.user_id = " + userId;
+
+            da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
             //dlRelatedProducts.RepeatColumns = 4;
