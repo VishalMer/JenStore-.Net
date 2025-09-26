@@ -171,11 +171,8 @@
                         </select>
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower content-flower-full">
-
+                        <div class="row">
                         <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="ItemCommand">
-                            <HeaderTemplate>
-                                <div class="row">
-                            </HeaderTemplate>
                             <ItemTemplate>
                                 <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-flower <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
                                     <div class="product-image-flower">
@@ -209,12 +206,8 @@
                                     </div>
                                 </div>
                             </ItemTemplate>
-                            <FooterTemplate>
-                                </div>
-                   
-                            </FooterTemplate>
                         </asp:Repeater>
-
+                            </div>
                     </div>
 
 

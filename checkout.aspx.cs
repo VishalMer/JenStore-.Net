@@ -78,23 +78,23 @@ namespace JenStore
 
             getcon();
 
-            SqlDataAdapter sda = new SqlDataAdapter("select c.product_id, c.quantity, p.price, p.stock_quantity from Cart c inner join Products p on c.product_id = p.product_id where c.user_id = " + userId, con);
-            DataTable pOrder = new DataTable();
-            sda.Fill(pOrder);
+            SqlDataAdapter da = new SqlDataAdapter("select c.product_id, c.quantity, p.price, p.stock_quantity from Cart c inner join Products p on c.product_id = p.product_id where c.user_id = " + userId, con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
 
-            if (pOrder.Rows.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Your cart is empty!');", true);
+                Response.Write("<script>alert('Your cart is empty!');</script>");
                 con.Close();
                 return;
             }
 
             decimal subTotal = 0;
-            foreach (DataRow row in pOrder.Rows)
+            foreach (DataRow row in ds.Tables[0].Rows)
             {
                 if (Convert.ToInt32(row["quantity"]) > Convert.ToInt32(row["stock_quantity"]))
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Not enough stock for one of your product. Please re-check your cart.');", true);
+                    Response.Write("<script>alert('Not enough stock for one of your product. Please re-check your cart.');</script>");
                     con.Close();
                     return;
                 }
@@ -109,7 +109,7 @@ namespace JenStore
             cmd = new SqlCommand("insert into Orders (user_id, total_amount, shipping_address, payment_method) values (" + userId + ", " + orderTotal + ", '" + shippingAddress.Replace("'", "''") + "', '" + paymentMethod + "'); select scope_identity();", con);
             int newOrderId = Convert.ToInt32(cmd.ExecuteScalar());
 
-            foreach (DataRow item in pOrder.Rows)
+            foreach (DataRow item in ds.Tables[0].Rows)
             {
                 int productId = Convert.ToInt32(item["product_id"]);
                 int quantity = Convert.ToInt32(item["quantity"]);

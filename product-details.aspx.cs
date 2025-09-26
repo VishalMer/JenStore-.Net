@@ -27,7 +27,8 @@ namespace JenStore
             if (!IsPostBack)
             {
                 getCon();
-                fillDataList();
+                fillViewProDL();
+                fillRelProDL();
             }
         }
 
@@ -37,7 +38,7 @@ namespace JenStore
             con.Open();
         }
 
-        void fillDataList()
+        void fillViewProDL()
         {
             if (Request.QueryString["id"] == null)
             {
@@ -83,7 +84,7 @@ namespace JenStore
                 cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
                 if ((int)cmd.ExecuteScalar() <= 0)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Sorry, this product is out of stock!');", true);
+                    Response.Write("<script>alert('Sorry, this product is out of stock!');</script>");
                     con.Close();
                     return;
                 }
@@ -91,13 +92,13 @@ namespace JenStore
                 cmd = new SqlCommand("select 1 from Cart where user_id = " + userId + " and product_id = " + productId, con);
                 if (cmd.ExecuteScalar() != null)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product is already in your cart.');", true);
+                    Response.Write("<script>alert('Product is already in your cart.');</script>");
                 }
                 else
                 {
                     cmd = new SqlCommand("insert into Cart (user_id, product_id, quantity) values (" + userId + ", " + productId + ", " + quantity + ")", con);
                     cmd.ExecuteNonQuery();
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to cart!');", true);
+                    Response.Write("<script>alert('Product added to cart!');</script>");
                 }
                 con.Close();
             }
@@ -109,17 +110,36 @@ namespace JenStore
                 {
                     cmd = new SqlCommand("delete from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                     cmd.ExecuteNonQuery();
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product removed from wishlist!');", true);
+                    Response.Write("<script>alert('Product removed from wishlist!');</script>");
                 }
                 else
                 {
                     cmd = new SqlCommand("insert into Wishlist (user_id, product_id) values (" + userId + ", " + productId + ")", con);
                     cmd.ExecuteNonQuery();
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to wishlist!');", true);
+                    Response.Write("<script>alert('Product added to wishlist!');</script>");
                 }
                 con.Close();
-                fillDataList();
+                fillViewProDL();
             }
+        }
+        void fillRelProDL()
+        {
+
+            getCon();
+
+            da = new SqlDataAdapter("SELECT * FROM Products", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            //dlRelatedProducts.RepeatColumns = 4;
+            //dlRelatedProducts.RepeatDirection = (RepeatDirection)HorizontalAlign.Right;
+            dlRelatedProducts.RepeatColumns = 4;
+            dlRelatedProducts.RepeatDirection = RepeatDirection.Horizontal;
+            dlRelatedProducts.DataSource = ds;
+            dlRelatedProducts.DataBind();
+
+            con.Close();
+
+
         }
 
     }

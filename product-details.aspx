@@ -25,6 +25,36 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            .product-flower.product-out-of-stock .product-image-flower {
+                cursor: not-allowed;
+                filter: grayscale(100%);
+                opacity: 0.6;
+            }
+
+            .img-responsive {
+                min-height: 23em;
+                min-width: 100%;
+            }
+
+            .related .product-title-category h5 {
+                z-index: 100;
+                position: absolute;
+            }
+
+            .product-category {
+                margin-top: 2em;
+                margin-bottom: 2em;
+            }
+
+            .bold {
+                font-family: Poppins;
+                font-weight: 600;
+                font-size: 18px;
+                color: black;
+                padding-top: 5px;
+            }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -124,6 +154,7 @@
                         <input type="text" class="form-control control-search" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
                         <button class="button_search" type="submit">
                             search
+                       
                         </button>
                     </form>
                 </div>
@@ -141,11 +172,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="slider-for">
-                            <asp:DataList ID="dlProductDetails" runat="server" OnItemCommand="prDetails_Command" RepeatLayout="Flow" Width="100%">
+                            <asp:DataList ID="dlProductDetails" runat="server" OnItemCommand="prDetails_Command" RepeatLayout="Flow" Width="100%" RepeatColumns="4">
                                 <ItemTemplate>
                                     <div class="product-content">
                                         <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 img-content">
-                                            <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("image_url") %>' CssClass="img-responsive" AlternateText='<%# Eval("product_name") %>' />
+                                            <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("image_url") %>' AlternateText='<%# Eval("product_name") %>' />
                                         </div>
                                         <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 detail">
                                             <h1>
@@ -192,202 +223,71 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:DataList>
-
-                            <!-- ------ end content 1----- -->
-                           <%-- <div class="product-content">
-                                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 img-content">
-                                    <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
-                                </div>
-                                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 detail">
-                                    <h1>Queen Rose - Pink</h1>
-                                    <p class="p1">
-                                        It is a long established fact that a reader will be distracted  by the readable<br class="hidden-md hidden-sm hidden-xs">
-                                        content of a page when looking at its layout.
-                                    </p>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                    </div>
-                                    <div class="prince">
-                                        <span>$250.9</span><s class="strike">$300.02</s>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quantity:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="1" max="1000" value="1">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6" style="display: flex; align-items: center; justify-content: flex-end;">
-                                            <div class="subtotal">
-                                                <span>Subtotal: $ </span><span class="total-prince">250.9</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="Quality" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quantity:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="1" max="1000" value="1">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                </div>
-                                                <div class="subtotal" style="margin-left: auto; background: #f7f7f7; border: 1px solid #eee; border-radius: 6px; padding: 8px 12px; font-weight: 600;">
-                                                    <span>Subtotal: $ </span><span class="total-prince">250.9</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-cart" style="margin-top: 15px;">
-                                        <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ------ end content 2----- -->
-                            <div class="product-content">
-                                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 img-content">
-                                    <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
-                                </div>
-                                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 detail">
-                                    <h1>Queen Rose - Pink</h1>
-                                    <p class="p1">
-                                        It is a long established fact that a reader will be distracted  by the readable<br class="hidden-md hidden-sm hidden-xs">
-                                        content of a page when looking at its layout.
-                                    </p>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                    </div>
-                                    <div class="prince">
-                                        <span>$250.9</span><s class="strike">$300.02</s>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quantity:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="1" max="1000" value="1">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6" style="display: flex; align-items: center; justify-content: flex-end;">
-                                            <div class="subtotal">
-                                                <span>Subtotal: $ </span><span class="total-prince">250.9</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="Quality" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quantity:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="1" max="1000" value="1">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                </div>
-                                                <div class="subtotal" style="margin-left: auto; background: #f7f7f7; border: 1px solid #eee; border-radius: 6px; padding: 8px 12px; font-weight: 600;">
-                                                    <span>Subtotal: $ </span><span class="total-prince">250.9</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-cart" style="margin-top: 15px;">
-                                        <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ------ end content 3----- -->
-                            <div class="product-content">
-                                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 img-content">
-                                    <img src="img/340x420.png" class="img-responsive" alt="img-holiwood">
-                                </div>
-                                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 detail">
-                                    <h1>Queen Rose - Pink</h1>
-                                    <p class="p1">
-                                        It is a long established fact that a reader will be distracted  by the readable<br class="hidden-md hidden-sm hidden-xs">
-                                        content of a page when looking at its layout.
-                                    </p>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                    </div>
-                                    <div class="prince">
-                                        <span>$250.9</span><s class="strike">$300.02</s>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quantity:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="1" max="1000" value="1">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6" style="display: flex; align-items: center; justify-content: flex-end;">
-                                            <div class="subtotal">
-                                                <span>Subtotal: $ </span><span class="total-prince">250.9</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="Quality" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quantity:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="1" max="1000" value="1">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                </div>
-                                                <div class="subtotal" style="margin-left: auto; background: #f7f7f7; border: 1px solid #eee; border-radius: 6px; padding: 8px 12px; font-weight: 600;">
-                                                    <span>Subtotal: $ </span><span class="total-prince">250.9</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-cart" style="margin-top: 15px;">
-                                        <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>--%>
-                            <!-- ------ end content 4----- -->
                         </div>
                     </div>
                 </div>
+
                 <div class="related">
                     <div class="container">
                         <h1>Related Products</h1>
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
+                        <div class="row rlated-contailner">
+                            <asp:DataList ID="dlRelatedProducts" runat="server"
+                                RepeatColumns="4"
+                                RepeatDirection="Horizontal">
+                                <ItemTemplate>
+                                    <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
+                                        <div class="product-image-category" style="width: 268px; display: inline-block;">
+                                            <figure class="sale">
+                                                <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: 100px;" />
+                                            </figure>
+                                            <div class="product-icon-category">
+                                                <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-title-category">
+                                            <h5>
+                                                <div style="font-weight: 600; font-family: poppins; font-size: 15px; padding-bottom: 5px; text-align: start;">
+                                                    <%# Eval("product_name") %>
+                                                </div>
+                                                <div class="star" style="text-align: start">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="prince" style="text-align: start">
+                                                    $<%# Eval("price") %><s class="strike">$250.9</s>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+
+                            <%--<asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatColumns="4" RepeatLayout="Flow" Width="100%">
+                                <ItemTemplate>--%>
+                            <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">--%>
+                            <%--<div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
+                                        <div class="product-image-category">
+                                            <figure class="sale">--%>
+                            <%--<a href="#">
+                                                    <img src="img/340x420.png" ></a>--%>
+                            <%-- <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("image_url") %>' />
+                                            </figure>
+                                            <div class="product-icon-category">
+                                                <a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-title-category">
+                                            <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="prince">
+                                                <%# Eval("price") %><s class="strike">$250.9</s>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:DataList>--%>
+
+                            <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
                                 <div class="product-image-category">
                                     <figure class="sale">
                                         <a href="#">
@@ -406,8 +306,8 @@
                                         $300.2<s class="strike">$250.9</s>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
+                            </div>--%>
+                            <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category">
                                 <div class="product-image-category">
                                     <a href="#">
                                         <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
@@ -539,7 +439,7 @@
                                         $350.4
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -590,6 +490,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social">
                             <p>
                                 CONNECT WITH US:
+                           
                             </p>
                             <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
                             <h1>Newsletter</h1>
