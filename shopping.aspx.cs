@@ -14,7 +14,6 @@ namespace JenStore
         SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
-        int userId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +26,7 @@ namespace JenStore
         private void rptProductShow()
         {
             getcon();
-
+            int userId = Convert.ToInt32(Session["UserID"]);
             string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
                            " p.badge, p.rating_count, case when w.user_id is not null then 1 else 0 end as isinwishlist " +
                            "from Products p left join Wishlist w on p.product_id = w.product_id and w.user_id = " + userId;
@@ -62,7 +61,7 @@ namespace JenStore
                 //add to cart
                 if (e.CommandName == "AddToCart")
                 {
-                    userId = Convert.ToInt32(Session["UserID"]);
+                   int userId = Convert.ToInt32(Session["UserID"]);
                     getcon();
 
                     cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
@@ -91,13 +90,13 @@ namespace JenStore
                 else if (e.CommandName == "AddToWishlist")
                 {
                     getcon();
+                    int userId = Convert.ToInt32(Session["UserID"]);
                     cmd = new SqlCommand("select 1 from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                     if (cmd.ExecuteScalar() != null)
                     {
                         cmd = new SqlCommand("delete from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                         cmd.ExecuteNonQuery();
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product removed from wishlist!');", true);
-                        Response.Write("<script>alert('Product added to wishlist!');</script>");
+                        Response.Write("<script>alert('Product removed from wishlist!');</script>");
                     }
                     else
                     {

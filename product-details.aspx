@@ -26,10 +26,9 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <style>
-            .product-flower.product-out-of-stock .product-image-flower {
+            .product-out-of-stock .product-image-flower {
                 cursor: not-allowed;
-                filter: grayscale(100%);
-                opacity: 0.6;
+                filter: grayscale(100%) !important;
             }
 
             .img-responsive {
@@ -236,7 +235,7 @@
                             <asp:DataList ID="dlRelatedProducts" runat="server"
                                 RepeatColumns="4"
                                 RepeatDirection="Horizontal"
-                                OnItemCommand="prDetails_Command">
+                                OnItemCommand="relProCommand">
                                 <ItemTemplate>
                                     <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
                                         <div class="product-image-category" style="width: 268px; display: inline-block;">
@@ -245,11 +244,12 @@
                                             </figure>
                                             <div class="product-icon-category">
                                                 <%--<a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>--%>
+                                                <asp:LinkButton ID="btnViewProduct" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
                                                 <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="list-icon icon-2" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
                                                 <asp:LinkButton ID="btnAddToWishlist" runat="server" CssClass="list-icon icon-2" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                                 <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                                      style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
-                                                    </asp:LinkButton>
+                                                </asp:LinkButton>
                                             </div>
                                         </div>
                                         <div class="product-title-category">
