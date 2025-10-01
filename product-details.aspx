@@ -26,7 +26,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <style>
-            .product-out-of-stock .product-image-flower {
+            .product-out-of-stock .product-image-category {
                 cursor: not-allowed;
                 filter: grayscale(100%) !important;
             }
@@ -240,7 +240,9 @@
                                     <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
                                         <div class="product-image-category" style="width: 268px; display: inline-block;">
                                             <figure class="sale">
-                                                <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: 100px;" />
+                                                <asp:LinkButton ID="LinkButton1" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: 100px;" />
+                                                </asp:LinkButton>
                                             </figure>
                                             <div class="product-icon-category">
                                                 <%--<a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>--%>
@@ -255,7 +257,9 @@
                                         <div class="product-title-category">
                                             <h5>
                                                 <div style="font-weight: 600; font-family: poppins; font-size: 15px; padding-bottom: 5px; text-align: start;">
-                                                    <%# Eval("product_name") %>
+                                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <%# Eval("product_name") %>
+                                                    </asp:LinkButton>
                                                 </div>
                                                 <div class="star" style="text-align: start">
                                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>

@@ -30,7 +30,6 @@
             .product-out-of-stock .product-image-flower {
                 cursor: not-allowed;
                 filter: grayscale(100%) !important;
-                
             }
         </style>
     </head>
@@ -172,42 +171,45 @@
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-flower content-flower-full">
                         <div class="row">
-                        <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="productCommand">
-                            <ItemTemplate>
-                                <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-flower <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
-                                    <div class="product-image-flower">
-                                        <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                            <a href="#">
-                                                <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
-                                        </figure>
-                                        <div class="product-icon-flower">
-                                            <asp:LinkButton ID="btnViewProduct" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
-                                            <asp:LinkButton ID="btnAddToCart" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'
-                                                Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                            <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
+                            <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="productCommand">
+                                <ItemTemplate>
+                                    <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-flower <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
+                                        <div class="product-image-flower">
+                                            <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
+                                                <%--<a href="#">
+                                                    <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>--%>
+                                                <asp:LinkButton ID="LB_image" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'>
+                                                </asp:LinkButton>
+                                            </figure>
+                                            <div class="product-icon-flower">
+                                                <asp:LinkButton ID="btnViewProduct" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnAddToCart" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'
+                                                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnAddToWishlist" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                         <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                            style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
-                                    </asp:LinkButton>
+                                                </asp:LinkButton>
+                                            </div>
+                                        </div>
+                                        <div class="product-title-flower">
+                                            <h5><asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><%# Eval("product_name") %></asp:LinkButton></h5>
+                                            <p class="p-title"><%# Eval("description") %></p>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                <span class="rating"><%# Eval("rating_count") %> Rating(s)</span>
+                                            </div>
+                                            <div class="prince">
+                                                $<%# Eval("price", "{0:N2}") %>
+                                                <span runat="server" visible='<%# Eval("old_price") != DBNull.Value %>'>
+                                                    <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="product-title-flower">
-                                        <h5><a href="#"><%# Eval("product_name") %></a></h5>
-                                        <p class="p-title"><%# Eval("description") %></p>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                            <span class="rating"><%# Eval("rating_count") %> Rating(s)</span>
-                                        </div>
-                                        <div class="prince">
-                                            $<%# Eval("price", "{0:N2}") %>
-                                            <span runat="server" visible='<%# Eval("old_price") != DBNull.Value %>'>
-                                                <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                            </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
                     </div>
 
 

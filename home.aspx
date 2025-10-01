@@ -104,10 +104,13 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class="hidden-sm hidden-xs">
+                            <%--<li><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class="hidden-sm hidden-xs">
+                            </figure>
+                            </li>--%>
+                            <li class="blog-menu"><a href="aboutus.aspx">About Us</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="order-history.aspx">Orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
