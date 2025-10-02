@@ -53,6 +53,11 @@
                 color: black;
                 padding-top: 5px;
             }
+            .container h1{
+                margin-top: 2em;
+                margin-bottom: -2em;    
+                font-weight: 600;
+            }
         </style>
     </head>
     <body>
@@ -239,7 +244,7 @@
                                 <ItemTemplate>
                                     <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6 product-category <%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "product-out-of-stock" : "" %>'>
                                         <div class="product-image-category" style="width: 268px; display: inline-block;">
-                                            <figure class="sale">
+                                            <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
                                                 <asp:LinkButton ID="LinkButton1" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
                                                     <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: 100px;" />
                                                 </asp:LinkButton>
@@ -268,7 +273,9 @@
                                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                             </div>
                                             <div class="prince" style="text-align: start">
-                                                $<%# Eval("price") %><s class="strike">$250.9</s>
+                                                $<%# Eval("price") %><span runat="server" visible='<%# Eval("old_price") != DBNull.Value %>'>
+    <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
+</span>
                                             </div>
                                         </h5>
                                     </div>
