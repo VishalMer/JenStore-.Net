@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
 namespace JenStore
 {
@@ -25,11 +25,11 @@ namespace JenStore
             userId = Convert.ToInt32(Session["UserID"]);
             if (!IsPostBack)
             {
-                WishlistRepeater();
+                fillWishlistGrid();
             }
         }
 
-        private void WishlistRepeater()
+        private void fillWishlistGrid()
         {
             getcon();
             cmd = new SqlCommand("select W.wishlist_item_id, P.product_id, P.product_name, P.price, P.image_url, P.stock_quantity from Wishlist W " +
@@ -37,22 +37,45 @@ namespace JenStore
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            rptWishlist.DataSource = dt;
-            rptWishlist.DataBind();
+            gvWishlist.DataSource = dt;
+            gvWishlist.DataBind();
             con.Close();
         }
 
-        protected void btnRemove_Click(object sender, EventArgs e)
+        protected void gvWishlist_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            LinkButton btn = (LinkButton)sender;
-            int wishlistPId = Convert.ToInt32(btn.CommandArgument);
+            if (e.CommandName == "AddToCart")
+            {
+                int productId = Convert.ToInt32(e.CommandArgument);
+                AddToCart(userId, productId);
+                fillWishlistGrid();
+            }
+            else if (e.CommandName == "Remove")
+            {
+                int wishlistItemId = Convert.ToInt32(e.CommandArgument);
+                getcon();
+                cmd = new SqlCommand("delete from Wishlist where wishlist_item_id = " + wishlistItemId, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                fillWishlistGrid();
+            }
+        }
 
-            getcon();
-            cmd = new SqlCommand("delete from Wishlist where wishlist_item_id = " + wishlistPId, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            WishlistRepeater();
+        protected void gvWishlist_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView drv = (DataRowView)e.Row.DataItem;
+                int stockQuantity = Convert.ToInt32(drv["stock_quantity"]);
+                if (stockQuantity <= 0)
+                {
+                    e.Row.CssClass = "item_cart out-of-stock-row";
+                }
+                else
+                {
+                    e.Row.CssClass = "item_cart";
+                }
+            }
         }
 
         protected void btnRemoveAllFromWishlist_Click(object sender, EventArgs e)
@@ -62,15 +85,7 @@ namespace JenStore
             cmd.ExecuteNonQuery();
             con.Close();
 
-            WishlistRepeater();
-        }
-
-        protected void btnAddToCart_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            int productId = Convert.ToInt32(btn.CommandArgument);
-            AddToCart(userId, productId);
-            WishlistRepeater();
+            fillWishlistGrid();
         }
 
         private void AddToCart(int userId, int productId)
@@ -148,7 +163,7 @@ namespace JenStore
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + dt.Rows.Count + " items were successfully moved to your cart.');", true);
 
-            WishlistRepeater();
+            fillWishlistGrid();
         }
 
         void getcon()

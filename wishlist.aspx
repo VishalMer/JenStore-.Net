@@ -30,7 +30,7 @@
                 font-family: Abril Fatface;
                 font-weight: 400;
                 font-size: 18px;
-                color: white; 
+                color: white;
                 padding: 10px 30px;
                 background-color: black;
                 border: 1px solid black;
@@ -65,6 +65,14 @@
             .out-of-stock-row .product-in {
                 filter: none;
                 opacity: 0.8;
+            }
+
+            .product-name {
+                padding-left: 5em !important;
+                padding-right: 5em !important;
+                color: black !important;
+                font-weight: 600 !important;
+                text-decoration:none;
             }
         </style>
     </head>
@@ -199,45 +207,70 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <asp:Repeater ID="rptWishlist" runat="server">
-                                    <ItemTemplate>
-                                        <tr class='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 ? "item_cart out-of-stock-row" : "item_cart" %>'>
-                                            <td class="product-photo">
+                                <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False"
+                                    GridLines="None" OnRowCommand="gvWishlist_RowCommand" OnRowDataBound="gvWishlist_RowDataBound"
+                                    ShowHeader="False"
+                                    RowStyle-CssClass="item_cart">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
                                                 <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
-                                            </td>
-                                            <td class="produc-name">
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="product-photo" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
                                                 <a href="#" title=""><%# Eval("product_name") %></a>
-                                            </td>
-                                            <td class="produc-price">$<%# Eval("price", "{0:N2}") %>
-                                            </td>
-                                            <td class="product-in">
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="product-name" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <%# Eval("price", "{0:C2}") %>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="produc-price" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
                                                 <span class="stock-status in-stock" style="color: green" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'>
                                                     <i class="fas fa-check-circle" style="color: green"></i>In Stock
                                                 </span>
                                                 <span class="stock-status out-of-stock" style="color: red !important" runat="server" visible='<%# Convert.ToInt32(Eval("stock_quantity")) <= 0 %>'>
                                                     <i class="fas fa-times-circle" style="color: red"></i>Out of Stock
                                                 </span>
-                                            </td>
-                                            <td class="add-to-cart">
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="product-in" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
                                                 <asp:LinkButton ID="btnAddToCartFromWishlist" runat="server"
                                                     Text="SHOP NOW"
-                                                    OnClick="btnAddToCart_Click"
+                                                    CommandName="AddToCart"
                                                     CommandArgument='<%# Eval("product_id") %>'
                                                     Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'
                                                     CssClass='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? "btn-shop" : "btn-shop out-of-stock" %>'>
                                                 </asp:LinkButton>
-                                            </td>
-                                            <td class="product-remove">
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="add-to-cart" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
                                                 <asp:LinkButton ID="btnRemoveFromWishlist" runat="server"
                                                     CssClass="remove"
-                                                    OnClick="btnRemove_Click"
+                                                    CommandName="Remove"
                                                     CommandArgument='<%# Eval("wishlist_item_id") %>'>
-<img src="img/icon-delete-cart.png" alt="close" />
+                    <img src="img/icon-delete-cart.png" alt="close" />
                                                 </asp:LinkButton>
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="product-remove" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
                             </tbody>
                             <tfoot>
                                 <tr>
