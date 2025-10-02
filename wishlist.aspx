@@ -67,13 +67,67 @@
                 opacity: 0.8;
             }
 
+            /*.product-photo {
+                margin-bottom: 3em !important;
+            }
+
             .product-name {
                 padding-left: 5em !important;
                 padding-right: 5em !important;
                 color: black !important;
                 font-weight: 600 !important;
-                text-decoration:none;
-            }
+            }*/
+
+       .product-photo {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+    /* Product Name column styling */
+    .product-name a {
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+        padding-left: 6em;
+        padding-right: 6em;
+    }
+    .product-name a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    /* Price column styling */
+    .product-price {
+        padding-left: 2.7em;
+        font-weight: bold;
+    }
+
+    /* Stock Status column styling */
+    .product-stock {
+        padding-left: 5.2em;
+        padding-right: 12em;
+    }
+    
+    /* "SHOP NOW" button styling */
+    .btn-shop-custom {
+        font-family: 'Abril Fatface', serif;
+        font-weight: 400;
+        font-size: 18px;
+        color: white;
+        padding: 10px 30px;
+        background-color: black;
+        border: 1px solid black;
+        background-image: linear-gradient(90deg, black 50%, transparent 50%);
+        background-size: 600px;
+        background-repeat: no-repeat;
+        background-position: 0%;
+        transition: all 0.3s ease-in-out;
+        margin-right: 1em;
+    }
+    .btn-shop-custom:hover {
+        color: black;
+        background-position: 100%;
+    }
         </style>
     </head>
     <body>
@@ -192,15 +246,15 @@
                     </div>
                 </div>
             </div>
-            <div class="cart-box-container">
+            <div class="cart-box-container" style="text-align:center">
                 <div class="container container-ver2">
                     <div class="box cart-container">
                         <table class="table cart-table space-30">
                             <thead>
                                 <tr>
-                                    <th class="product-photo">PRODUCT NAME</th>
-                                    <th class="produc-name"></th>
-                                    <th class="produc-price">PRINCE</th>
+                                    <th class="product-photo">PHOTO</th>
+                                    <th class="produc-name">PRODUCT NAME</th>
+                                    <th class="produc-price">PRICE</th>
                                     <th class="product-quantity">STOCK STATUS</th>
                                     <th class="total-price">ADD TO CART</th>
                                     <th class="product-remove"></th>
@@ -209,8 +263,7 @@
                             <tbody>
                                 <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False"
                                     GridLines="None" OnRowCommand="gvWishlist_RowCommand" OnRowDataBound="gvWishlist_RowDataBound"
-                                    ShowHeader="False"
-                                    RowStyle-CssClass="item_cart">
+                                    ShowHeader="False" RowStyle-CssClass="item_cart">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
@@ -230,7 +283,7 @@
                                             <ItemTemplate>
                                                 <%# Eval("price", "{0:C2}") %>
                                             </ItemTemplate>
-                                            <ItemStyle CssClass="produc-price" />
+                                            <ItemStyle CssClass="product-price" />
                                         </asp:TemplateField>
 
                                         <asp:TemplateField>
@@ -242,7 +295,7 @@
                                                     <i class="fas fa-times-circle" style="color: red"></i>Out of Stock
                                                 </span>
                                             </ItemTemplate>
-                                            <ItemStyle CssClass="product-in" />
+                                            <ItemStyle CssClass="product-stock" />
                                         </asp:TemplateField>
 
                                         <asp:TemplateField>
@@ -252,8 +305,8 @@
                                                     CommandName="AddToCart"
                                                     CommandArgument='<%# Eval("product_id") %>'
                                                     Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'
-                                                    CssClass='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? "btn-shop" : "btn-shop out-of-stock" %>'>
-                                                </asp:LinkButton>
+                                                    CssClass='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? "btn-shop-custom" : "btn-shop-custom out-of-stock" %>'>
+                </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="add-to-cart" />
                                         </asp:TemplateField>
