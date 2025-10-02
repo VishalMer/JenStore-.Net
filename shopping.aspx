@@ -193,7 +193,10 @@
                                             </div>
                                         </div>
                                         <div class="product-title-flower">
-                                            <h5><asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><%# Eval("product_name") %></asp:LinkButton></h5>
+                                            <h5>
+                                                <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <%# Eval("product_name") %></asp:LinkButton>
+                                            </h5>
                                             <p class="p-title"><%# Eval("description") %></p>
                                             <div class="star">
                                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>

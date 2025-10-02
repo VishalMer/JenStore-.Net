@@ -292,7 +292,8 @@
                 <div class="gallery clearfix">
                     <figure>
                         <div class="img-wedding">
-                            <img src="img/1920x1170.png" alt="img-holiwood"></div>
+                            <img src="img/1920x1170.png" alt="img-holiwood">
+                        </div>
                         <div class="container wedding-content">
                             <div class="row">
                                 <asp:Repeater ID="rptWedding" runat="server">

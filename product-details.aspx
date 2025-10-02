@@ -129,7 +129,7 @@
                     <ul class="nav navbar-nav navbar-right icon-menu">
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
                             <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="#"><i class="far fa-user"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
 
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
@@ -247,28 +247,31 @@
                                             <div class="product-icon-category">
                                                 <%--<a href="#"><i class="fas fa-shopping-basket"></i></a><a href="#"><i class="far fa-heart"></i></a>--%>
                                                 <asp:LinkButton ID="btnViewProduct" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
-                                                <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="list-icon icon-2" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                <%--<asp:LinkButton ID="btnAddToCart" runat="server" CssClass="list-icon icon-2" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>--%>
+                                                <asp:LinkButton ID="LinkButton3" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'
+    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+
                                                 <asp:LinkButton ID="btnAddToWishlist" runat="server" CssClass="list-icon icon-2" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                                 <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                                      style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
                                                 </asp:LinkButton>
                                             </div>
-                                        </div>
-                                        <div class="product-title-category">
-                                            <h5>
-                                                <div style="font-weight: 600; font-family: poppins; font-size: 15px; padding-bottom: 5px; text-align: start;">
-                                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                    </div>
+                                    <div class="product-title-category">
+                                        <h5>
+                                            <div style="font-weight: 600; font-family: poppins; font-size: 15px; padding-bottom: 5px; text-align: start;">
+                                                <asp:LinkButton ID="LinkButton2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
                                                         <%# Eval("product_name") %>
-                                                    </asp:LinkButton>
-                                                </div>
-                                                <div class="star" style="text-align: start">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="prince" style="text-align: start">
-                                                    $<%# Eval("price") %><s class="strike">$250.9</s>
-                                                </div>
-                                            </h5>
-                                        </div>
+                                                </asp:LinkButton>
+                                            </div>
+                                            <div class="star" style="text-align: start">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="prince" style="text-align: start">
+                                                $<%# Eval("price") %><s class="strike">$250.9</s>
+                                            </div>
+                                        </h5>
+                                    </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:DataList>
