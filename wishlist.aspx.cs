@@ -42,7 +42,7 @@ namespace JenStore
             con.Close();
         }
 
-        protected void gvWishlist_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvWishlistCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "AddToCart")
             {
@@ -61,7 +61,7 @@ namespace JenStore
             }
         }
 
-        protected void gvWishlist_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvWishlistDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {

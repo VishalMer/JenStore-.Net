@@ -23,11 +23,11 @@ namespace JenStore
 
             if (!IsPostBack)
             {
-                BindCartGrid();
+                fillCartGrid();
             }
         }
 
-        private void BindCartGrid()
+        private void fillCartGrid()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             decimal subTotal = 0;
@@ -54,7 +54,7 @@ namespace JenStore
             lblSubTotal.Text = subTotal.ToString("C");
         }
 
-        protected void gvCartProducts_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvCartCommand(object sender, GridViewCommandEventArgs e)
         {
             int cartItemId = Convert.ToInt32(e.CommandArgument);
 
@@ -91,23 +91,7 @@ namespace JenStore
                 con.Close();
             }
 
-            BindCartGrid(); // Re-bind the data to show all changes
-        }
-
-        protected void gvCartProducts_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                DataRowView drv = (DataRowView)e.Row.DataItem;
-                if (Convert.ToInt32(drv["stock_quantity"]) <= 0)
-                {
-                    e.Row.CssClass = "item_cart out-of-stock-row";
-                }
-                else
-                {
-                    e.Row.CssClass = "item_cart";
-                }
-            }
+            fillCartGrid();
         }
 
         protected void btnClearCart_Click(object sender, EventArgs e)
@@ -119,7 +103,7 @@ namespace JenStore
             cmd.ExecuteNonQuery();
             con.Close();
 
-            BindCartGrid();
+            fillCartGrid();
         }
 
         void getcon()

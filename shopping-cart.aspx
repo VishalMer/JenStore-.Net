@@ -237,7 +237,7 @@
 
                                 <asp:GridView ID="gvCartProducts" runat="server" AutoGenerateColumns="False"
                                     CssClass="table cart-table space-30" GridLines="None"
-                                    OnRowCommand="gvCartProducts_RowCommand">
+                                    OnRowCommand="gvCartCommand">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
@@ -288,7 +288,7 @@
                                                 <asp:LinkButton ID="btnRemoveFromCart" runat="server"
                                                     CssClass="remove" ToolTip="Remove item from cart"
                                                     CommandName="RemoveItem" CommandArgument='<%# Eval("cart_item_id") %>'>
-                    <img src="img/icon-delete-cart.png" alt="close" />
+                                                         <img src="img/icon-delete-cart.png" alt="close" />
                                                 </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="product-remove" />

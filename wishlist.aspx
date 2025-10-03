@@ -234,7 +234,7 @@
                             </thead>
                             <tbody>
                                 <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False"
-                                    GridLines="None" OnRowCommand="gvWishlist_RowCommand" OnRowDataBound="gvWishlist_RowDataBound"
+                                    GridLines="None" OnRowCommand="gvWishlistCommand" OnRowDataBound="gvWishlistDataBound"
                                     ShowHeader="False" RowStyle-CssClass="item_cart">
                                     <Columns>
                                         <asp:TemplateField>
