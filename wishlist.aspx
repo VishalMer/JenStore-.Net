@@ -26,7 +26,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <style>
-            .add-allBtn {
+            .add-allBtn, .btShopNow {
                 font-family: Abril Fatface;
                 font-weight: 400;
                 font-size: 18px;
@@ -44,90 +44,62 @@
                 margin-right: 1em;
             }
 
-                .add-allBtn:hover {
+                .add-allBtn:hover, .btShopNow:hover {
                     background-position: 100%;
                     background-color: #fff;
                     color: black;
                     text-decoration: none;
                 }
 
-            .btn-shop.out-of-stock {
-                opacity: 0.5;
-                cursor: not-allowed;
-                pointer-events: none;
-            }
+                .btShopNow.out-of-stock {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                    pointer-events: none;
+                }
 
-            .out-of-stock-row td {
+            .out-of-stock-row img {
                 filter: grayscale(100%);
-                opacity: 0.8;
+                opacity: 0.9;
             }
 
             .out-of-stock-row .product-in {
                 filter: none;
-                opacity: 0.8;
             }
 
-            /*.product-photo {
-                margin-bottom: 3em !important;
+
+            .product-photo {
+                padding-top: 1.5em;
+                padding-bottom: 1.5em;
             }
 
-            .product-name {
-                padding-left: 5em !important;
-                padding-right: 5em !important;
-                color: black !important;
-                font-weight: 600 !important;
-            }*/
+            .product-name a {
+                text-decoration: none;
+                color: black;
+                font-weight: 400;
+                font-family: 'poppins';
+                font-size: medium;
+                padding-left: 6em;
+                padding-right: 5em;
+            }
 
-       .product-photo {
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-}
+                .product-name a:hover {
+                    text-decoration: none;
+                    color: black;
+                }
 
-    /* Product Name column styling */
-    .product-name a {
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-        padding-left: 6em;
-        padding-right: 6em;
-    }
-    .product-name a:hover {
-        text-decoration: none;
-        color: black;
-    }
+            .product-price {
+                padding-left: 0em;
+                font-weight: bold;
+                font-family: 'poppins';
+                font-size: medium;
+            }
 
-    /* Price column styling */
-    .product-price {
-        padding-left: 2.7em;
-        font-weight: bold;
-    }
-
-    /* Stock Status column styling */
-    .product-stock {
-        padding-left: 5.2em;
-        padding-right: 12em;
-    }
-    
-    /* "SHOP NOW" button styling */
-    .btn-shop-custom {
-        font-family: 'Abril Fatface', serif;
-        font-weight: 400;
-        font-size: 18px;
-        color: white;
-        padding: 10px 30px;
-        background-color: black;
-        border: 1px solid black;
-        background-image: linear-gradient(90deg, black 50%, transparent 50%);
-        background-size: 600px;
-        background-repeat: no-repeat;
-        background-position: 0%;
-        transition: all 0.3s ease-in-out;
-        margin-right: 1em;
-    }
-    .btn-shop-custom:hover {
-        color: black;
-        background-position: 100%;
-    }
+            .product-stock {
+                padding-left: 4em;
+                padding-right: 10em;
+                font-family: 'poppins';
+                font-size: medium;
+            }
         </style>
     </head>
     <body>
@@ -246,7 +218,7 @@
                     </div>
                 </div>
             </div>
-            <div class="cart-box-container" style="text-align:center">
+            <div class="cart-box-container">
                 <div class="container container-ver2">
                     <div class="box cart-container">
                         <table class="table cart-table space-30">
@@ -305,8 +277,8 @@
                                                     CommandName="AddToCart"
                                                     CommandArgument='<%# Eval("product_id") %>'
                                                     Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'
-                                                    CssClass='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? "btn-shop-custom" : "btn-shop-custom out-of-stock" %>'>
-                </asp:LinkButton>
+                                                    CssClass='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? "btShopNow" : "btShopNow out-of-stock" %>'>
+                                                </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="add-to-cart" />
                                         </asp:TemplateField>
