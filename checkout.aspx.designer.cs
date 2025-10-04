@@ -132,13 +132,13 @@ namespace JenStore
         protected global::System.Web.UI.WebControls.LinkButton btnPlaceOrder;
 
         /// <summary>
-        /// rptOrderSummary control.
+        /// dlOrderSummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptOrderSummary;
+        protected global::System.Web.UI.WebControls.DataList dlOrderSummary;
 
         /// <summary>
         /// lblSubTotal control.

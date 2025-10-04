@@ -23,11 +23,11 @@ namespace JenStore
 
             if (!IsPostBack)
             {
-                rptOrderDetails();
+                fillDL();
             }
         }
 
-        private void rptOrderDetails()
+        private void fillDL()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             decimal subTotal = 0;
@@ -46,8 +46,8 @@ namespace JenStore
                 return;
             }
 
-            rptOrderSummary.DataSource = dt;
-            rptOrderSummary.DataBind();
+            dlOrderSummary.DataSource = dt;
+            dlOrderSummary.DataBind();
 
             foreach (DataRow row in dt.Rows)
             {

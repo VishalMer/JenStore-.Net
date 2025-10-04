@@ -92,6 +92,7 @@
                 font-weight: 900;
                 font: 300 14px / 20px "Poppins";
             }
+
         </style>
     </head>
     <body>
@@ -318,15 +319,15 @@
                                                 <span class="total"><b>SUB TOTAL</b></span>
                                             </li>
 
-                                            <asp:Repeater ID="rptOrderSummary" runat="server">
+                                                <asp:DataList ID="dlOrderSummary" runat="server">
                                                 <ItemTemplate>
-                                                    <li>
+                                                    <li style="width:100%">
                                                         <span class="name"><%# Eval("product_name") %></span>
                                                         <span class="qty"><%# Eval("quantity") %></span>
-                                                        <span class="total">$<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("N2") %></span>
+                                                        <span class="total" style=" margin-left:11em;">$<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("N2") %></span>
                                                     </li>
                                                 </ItemTemplate>
-                                            </asp:Repeater>
+                                                    </asp:DataList>
                                         </ul>
                                     </div>
                                     <!-- End product-name -->
