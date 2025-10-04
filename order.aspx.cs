@@ -23,11 +23,11 @@ namespace JenStore
 
             if (!IsPostBack)
             {
-                BindLatestOrderDetails();
+                fillOrderDL();
             }
         }
 
-        private void BindLatestOrderDetails()
+        private void fillOrderDL()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             int latestOrderId = 0;
@@ -37,7 +37,7 @@ namespace JenStore
             cmd = new SqlCommand("select top 1 order_id from Orders where user_id = " + userId + " order by order_id desc", con);
             object result = cmd.ExecuteScalar();
 
-            if (result == null)
+            if (result == null || result == DBNull.Value)
             {
                 orderDetailsContainer.Visible = false;
                 con.Close();
@@ -46,28 +46,34 @@ namespace JenStore
 
             latestOrderId = Convert.ToInt32(result);
 
-            cmd = new SqlCommand("select order_date, order_status, payment_method, shipping_address, total_amount from Orders where order_id = " + latestOrderId, con);
-            SqlDataReader reader = cmd.ExecuteReader();
             decimal grandTotal = 0;
+            SqlDataAdapter da = new SqlDataAdapter("select order_date, order_status, payment_method, shipping_address, total_amount from Orders where order_id = " + latestOrderId, con);
 
-            if (reader.Read())
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                lblOrderID.Text = "#ORD-" + latestOrderId;
-                lblOrderDate.Text = Convert.ToDateTime(reader["order_date"]).ToString("MMMM dd, yyyy");
-                lblOrderStatus.Text = reader["order_status"].ToString();
-                lblPaymentMethod.Text = reader["payment_method"].ToString();
-                lblShippingAddress.Text = reader["shipping_address"].ToString().Replace(", ", "<br />");
-                grandTotal = Convert.ToDecimal(reader["total_amount"]);
-            }
-            reader.Close();
+                DataRow orderRow = ds.Tables[0].Rows[0];
 
+                lblOrderID.Text = "#ORD-" + latestOrderId;
+                lblOrderDate.Text = Convert.ToDateTime(orderRow["order_date"]).ToString("MMMM dd, yyyy");
+                lblOrderStatus.Text = orderRow["order_status"].ToString();
+                lblPaymentMethod.Text = orderRow["payment_method"].ToString();
+                lblShippingAddress.Text = orderRow["shipping_address"].ToString().Replace(", ", "<br />");
+                grandTotal = Convert.ToDecimal(orderRow["total_amount"]);
+            }
+
+            // Fetch the items 
             SqlDataAdapter sda = new SqlDataAdapter("select od.quantity, od.price_at_purchase, p.product_name, p.image_url from OrderDetails od inner join Products p on od.product_id = p.product_id where od.order_id = " + latestOrderId, con);
+
             DataTable dtItems = new DataTable();
             sda.Fill(dtItems);
 
-            rptOrderItems.DataSource = dtItems;
-            rptOrderItems.DataBind();
+            dlOrderItems.DataSource = dtItems;
+            dlOrderItems.DataBind();
 
+            // Calculate totals
             decimal subTotal = 0;
             foreach (DataRow row in dtItems.Rows)
             {
@@ -75,6 +81,7 @@ namespace JenStore
             }
             decimal shippingFee = grandTotal - subTotal;
 
+            // Display totals
             lblSubTotal.Text = subTotal.ToString("C");
             lblShipping.Text = shippingFee.ToString("C");
             lblGrandTotal.Text = grandTotal.ToString("C");

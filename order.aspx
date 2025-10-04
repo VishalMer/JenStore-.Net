@@ -208,19 +208,23 @@
                                 <h3>Order Information</h3>
                                 <div class="order-info-item">
                                     <span class="info-label">Order ID:</span>
-                                    <span class="info-value"><asp:Label ID="lblOrderID" runat="server"></asp:Label></span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblOrderID" runat="server"></asp:Label></span>
                                 </div>
                                 <div class="order-info-item">
                                     <span class="info-label">Order Date:</span>
-                                    <span class="info-value"><asp:Label ID="lblOrderDate" runat="server"></asp:Label></span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblOrderDate" runat="server"></asp:Label></span>
                                 </div>
                                 <div class="order-info-item">
                                     <span class="info-label">Order Status:</span>
-                                    <span class="info-value"><asp:Label ID="lblOrderStatus" runat="server"></asp:Label></span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblOrderStatus" runat="server"></asp:Label></span>
                                 </div>
                                 <div class="order-info-item">
                                     <span class="info-label">Payment Method:</span>
-                                    <span class="info-value"><asp:Label ID="lblPaymentMethod" runat="server"></asp:Label></span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label></span>
                                 </div>
                             </div>
                         </div>
@@ -229,7 +233,8 @@
                                 <h3>Shipping Information</h3>
                                 <div class="order-info-item">
                                     <span class="info-label">Address:</span>
-                                    <span class="info-value"><asp:Label ID="lblShippingAddress" runat="server"></asp:Label></span>
+                                    <span class="info-value">
+                                        <asp:Label ID="lblShippingAddress" runat="server"></asp:Label></span>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +244,8 @@
                             <div class="order-summary-box">
                                 <h3>Order Summary</h3>
                                 <div class="order-items">
-                                    <asp:Repeater ID="rptOrderItems" runat="server">
+
+                                    <asp:DataList ID="dlOrderItems" runat="server">
                                         <ItemTemplate>
                                             <div class="order-item">
                                                 <div class="item-image">
@@ -252,20 +258,24 @@
                                                 </div>
                                             </div>
                                         </ItemTemplate>
-                                    </asp:Repeater>
+                                    </asp:DataList>
+
                                 </div>
                                 <div class="order-totals">
                                     <div class="total-line">
                                         <span class="total-label">Subtotal:</span>
-                                        <span class="total-value"><asp:Label ID="lblSubTotal" runat="server"></asp:Label></span>
+                                        <span class="total-value">
+                                            <asp:Label ID="lblSubTotal" runat="server"></asp:Label></span>
                                     </div>
                                     <div class="total-line">
                                         <span class="total-label">Shipping:</span>
-                                        <span class="total-value"><asp:Label ID="lblShipping" runat="server"></asp:Label></span>
+                                        <span class="total-value">
+                                            <asp:Label ID="lblShipping" runat="server"></asp:Label></span>
                                     </div>
                                     <div class="total-line total-final">
                                         <span class="total-label">Total Amount:</span>
-                                        <span class="total-value"><asp:Label ID="lblGrandTotal" runat="server"></asp:Label></span>
+                                        <span class="total-value">
+                                            <asp:Label ID="lblGrandTotal" runat="server"></asp:Label></span>
                                     </div>
                                 </div>
                             </div>
@@ -283,7 +293,7 @@
             <!-- End Order Details Section -->
 
             <!-- Order History Section -->
-           <%-- <div class="container container-ver2">
+            <%-- <div class="container container-ver2">
                 <div class="order-history-section">
                     <div class="row">
                         <div class="col-md-12">
