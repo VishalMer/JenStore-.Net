@@ -204,7 +204,8 @@
                                 <div class="order-summary-box">
                                     <h3>Order Summary</h3>
                                     <div class="order-items">
-                                        <asp:Repeater ID="rptOrderItems" runat="server">
+
+                                        <asp:DataList ID="dlorderItems" runat="server">
                                             <ItemTemplate>
                                                 <div class="order-item">
                                                     <div class="item-image">
@@ -217,7 +218,8 @@
                                                     </div>
                                                 </div>
                                             </ItemTemplate>
-                                        </asp:Repeater>
+                                        </asp:DataList>
+
                                     </div>
                                     <div class="order-totals">
                                         <div class="total-line">
@@ -313,34 +315,7 @@
                             </div>
                         </div>
                     </div>
-                    <%--<div class="row">
-                        <div class="col-md-12">
-                            <div class="pagination-container">
-                                <nav aria-label="Order history pagination">
-                                    <ul class="pagination">
-                                        <li class='<%= gvOrderHistory.PageIndex == 0 ? "page-item disabled" : "page-item" %>'>
-                                            <asp:LinkButton ID="lnkPrevious" runat="server" OnClick="lnkPage_Click" CommandArgument="Prev" CssClass="page-link">Previous</asp:LinkButton>
-                                        </li>
 
-                                        <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
-                                            <ItemTemplate>
-                                                <li class='<%# (Container.ItemIndex == gvOrderHistory.PageIndex) ? "page-item active" : "page-item" %>'>
-                                                    <asp:LinkButton ID="lnkPage" runat="server"
-                                                        CommandName="Page"
-                                                        CommandArgument='<%# Container.ItemIndex %>'
-                                                        CssClass="page-link"><%# Container.ItemIndex + 1 %></asp:LinkButton>
-                                                </li>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-
-                                        <li class='<%= gvOrderHistory.PageIndex >= gvOrderHistory.PageCount - 1 ? "page-item disabled" : "page-item" %>'>
-                                            <asp:LinkButton ID="lnkNext" runat="server" OnClick="lnkPage_Click" CommandArgument="Next" CssClass="page-link">Next</asp:LinkButton>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>--%>
                 </div>
             </div>
             <!-- End Order History Section -->

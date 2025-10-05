@@ -24,11 +24,11 @@ namespace JenStore
             if (!IsPostBack)
             {
                 orDetailsDiv.Visible = false;
-                showOrHist();
+                fillOrderHis();
             }
         }
 
-        private void showOrHist()
+        private void fillOrderHis()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             getcon();
@@ -46,28 +46,33 @@ namespace JenStore
         private void showOrdDetails(int orderId)
         {
             getcon();
-            cmd = new SqlCommand("select order_date, order_status, payment_method, shipping_address, total_amount from Orders where order_id = " + orderId, con);
-            SqlDataReader reader = cmd.ExecuteReader();
             decimal grandTotal = 0;
 
-            if (reader.Read())
+            SqlDataAdapter da = new SqlDataAdapter("select order_date, order_status, payment_method, shipping_address, total_amount from Orders where order_id = " + orderId, con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            // Check for return order
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
+                DataRow orRow = ds.Tables[0].Rows[0];
+
                 lblOrderID.Text = "#ORD-" + orderId;
-                lblOrderDate.Text = Convert.ToDateTime(reader["order_date"]).ToString("MMMM dd, yyyy");
-                lblOrderStatus.Text = reader["order_status"].ToString();
-                lblPaymentMethod.Text = reader["payment_method"].ToString();
-                lblShippingAddress.Text = reader["shipping_address"].ToString().Replace(", ", "<br />");
-                grandTotal = Convert.ToDecimal(reader["total_amount"]);
+                lblOrderDate.Text = Convert.ToDateTime(orRow["order_date"]).ToString("MMMM dd, yyyy");
+                lblOrderStatus.Text = orRow["order_status"].ToString();
+                lblPaymentMethod.Text = orRow["payment_method"].ToString();
+                lblShippingAddress.Text = orRow["shipping_address"].ToString().Replace(", ", "<br />");
+                grandTotal = Convert.ToDecimal(orRow["total_amount"]);
             }
-            reader.Close();
 
             SqlDataAdapter sda = new SqlDataAdapter("select od.quantity, od.price_at_purchase, p.product_name, p.image_url from OrderDetails od inner join Products p on od.product_id = p.product_id where od.order_id = " + orderId, con);
             DataTable dtItems = new DataTable();
             sda.Fill(dtItems);
 
-            rptOrderItems.DataSource = dtItems;
-            rptOrderItems.DataBind();
+            dlorderItems.DataSource = dtItems;
+            dlorderItems.DataBind();
 
+            // Calculate total
             decimal subTotal = 0;
             foreach (DataRow row in dtItems.Rows)
             {
@@ -98,12 +103,18 @@ namespace JenStore
             string statusStr = status.ToString().ToLower();
             switch (statusStr)
             {
-                case "completed": return "status-completed";
-                case "delivered": return "status-delivered";
-                case "shipped": return "status-shipped";
-                case "processing": return "status-processing";
-                case "cancelled": return "status-cancelled";
-                default: return "status-pending";
+                case "completed":
+                    return "status-completed";
+                case "delivered":
+                    return "status-delivered";
+                case "shipped":
+                    return "status-shipped";
+                case "processing":
+                    return "status-processing";
+                case "cancelled":
+                    return "status-cancelled";
+                default:
+                    return "status-pending";
             }
         }
 
