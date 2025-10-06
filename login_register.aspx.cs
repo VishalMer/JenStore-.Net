@@ -138,16 +138,29 @@ namespace JenStore
             {
                 getcon();
 
-                SqlCommand checkUserLog = new SqlCommand("select id from users where (email = '" + inputemail.Text + "' or uname = '" + inputemail.Text + "') and password = '" + inputpass.Text + "'", con);
+                SqlCommand checkUserLog = new SqlCommand("select id, role from users where (email = '" + inputemail.Text + "' or uname = '" + inputemail.Text + "') and password = '" + inputpass.Text + "'", con);
 
-                object result = checkUserLog.ExecuteScalar();
+                SqlDataAdapter da = new SqlDataAdapter(checkUserLog);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
                 con.Close();
 
-                if (result != null)
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Session["UserID"] = Convert.ToInt32(result);
+                    int userId = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
+                    string userRole = ds.Tables[0].Rows[0][1].ToString().ToLower();
+                    Session["UserID"] = userId;
+
                     clear();
-                    Response.Redirect("home.aspx");
+
+                    if (userRole == "admin")
+                    {
+                        Response.Redirect("admin-panel/index.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("home.aspx");
+                    }
                 }
                 else
                 {
