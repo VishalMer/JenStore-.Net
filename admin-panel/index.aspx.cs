@@ -11,15 +11,45 @@ namespace JenStore.admin_panel
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         SqlConnection con;
         SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("../login_register.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 DisplayStats();
+                WelcomeMessage();
             }
         }
 
+        private void WelcomeMessage()
+        {
+            getcon();
+            int userId = Convert.ToInt32(Session["UserID"]);
+
+            da = new SqlDataAdapter("select uname, role from users where Id = " + userId, con);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string username = ds.Tables[0].Rows[0][0].ToString();
+                string role = ds.Tables[0].Rows[0][1].ToString();
+
+                role = char.ToUpper(role[0]) + role.Substring(1);
+
+                lblWelcomeMessage.Text = "Welcome back, " + username + " (" + role + ")";
+            }
+
+            con.Close();
+        }
         private void DisplayStats()
         {
             getcon();

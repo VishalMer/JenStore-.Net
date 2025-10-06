@@ -233,13 +233,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1><i class="fas fa-tachometer-alt"></i> JenStore Admin Panel</h1>
+                        <h1><i class="fas fa-tachometer-alt"></i>JenStore Admin Panel</h1>
                         <p class="mb-0">
-                            Welcome back, Administrator
+                            <asp:Label ID="lblWelcomeMessage" runat="server" Text="Label"></asp:Label>
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.html" class="btn btn-store btn-sm"><i class="fas fa-home"></i> Back to Store </a> <a href="../login_register.html" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i> Logout </a>
+                        <a href="../home.html" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a> <a href="../login_register.html" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
                     </div>
                 </div>
             </div>
@@ -250,7 +250,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard </a><a href="products.html" class="nav-link"><i class="fas fa-box"></i> Products </a><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i> Categories </a><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.html" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.html" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.html" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
                     </div>
                 </div>
             </div>
