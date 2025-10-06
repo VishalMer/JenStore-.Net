@@ -54,14 +54,14 @@ namespace JenStore
 
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                DataRow orderRow = ds.Tables[0].Rows[0];
+                DataRow orRow = ds.Tables[0].Rows[0];
 
                 lblOrderID.Text = "#ORD-" + latestOrderId;
-                lblOrderDate.Text = Convert.ToDateTime(orderRow["order_date"]).ToString("MMMM dd, yyyy");
-                lblOrderStatus.Text = orderRow["order_status"].ToString();
-                lblPaymentMethod.Text = orderRow["payment_method"].ToString();
-                lblShippingAddress.Text = orderRow["shipping_address"].ToString().Replace(", ", "<br />");
-                grandTotal = Convert.ToDecimal(orderRow["total_amount"]);
+                lblOrderDate.Text = Convert.ToDateTime(orRow["order_date"]).ToString("MMMM dd, yyyy");
+                lblOrderStatus.Text = orRow["order_status"].ToString();
+                lblPaymentMethod.Text = orRow["payment_method"].ToString();
+                lblShippingAddress.Text = orRow["shipping_address"].ToString().Replace(", ", "<br />");
+                grandTotal = Convert.ToDecimal(orRow["total_amount"]);
             }
 
             // Fetch the items 

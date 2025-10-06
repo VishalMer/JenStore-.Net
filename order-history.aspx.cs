@@ -55,14 +55,14 @@ namespace JenStore
             // Check for return order
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                DataRow orRow = ds.Tables[0].Rows[0];
+                DataRow orderRow = ds.Tables[0].Rows[0];
 
                 lblOrderID.Text = "#ORD-" + orderId;
-                lblOrderDate.Text = Convert.ToDateTime(orRow["order_date"]).ToString("MMMM dd, yyyy");
-                lblOrderStatus.Text = orRow["order_status"].ToString();
-                lblPaymentMethod.Text = orRow["payment_method"].ToString();
-                lblShippingAddress.Text = orRow["shipping_address"].ToString().Replace(", ", "<br />");
-                grandTotal = Convert.ToDecimal(orRow["total_amount"]);
+                lblOrderDate.Text = Convert.ToDateTime(orderRow["order_date"]).ToString("MMMM dd, yyyy");
+                lblOrderStatus.Text = orderRow["order_status"].ToString();
+                lblPaymentMethod.Text = orderRow["payment_method"].ToString();
+                lblShippingAddress.Text = orderRow["shipping_address"].ToString().Replace(", ", "<br />");
+                grandTotal = Convert.ToDecimal(orderRow["total_amount"]);
             }
 
             SqlDataAdapter sda = new SqlDataAdapter("select od.quantity, od.price_at_purchase, p.product_name, p.image_url from OrderDetails od inner join Products p on od.product_id = p.product_id where od.order_id = " + orderId, con);
