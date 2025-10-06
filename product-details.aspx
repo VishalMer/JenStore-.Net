@@ -58,6 +58,11 @@
                 margin-bottom: -2em;    
                 font-weight: 600;
             }
+            .p_description{
+                margin: -1.5em 0 -1em 0;
+                font-family:'poppins';
+                font-size:12px !important;
+            }
         </style>
     </head>
     <body>
@@ -193,6 +198,9 @@
                                                 <span>
                                                     <asp:Label ID="lblRating" runat="server" Text='<%# Eval("rating_count") + " Rating(s)" %>' />
                                                     | Add Your Rating</span>
+                                            </div>
+                                            <div class="p_description">
+                                                <p><%# Eval("description") %></p>
                                             </div>
                                             <div class="prince">
                                                 <span><%# Eval("price", "{0:C}") %></span>
