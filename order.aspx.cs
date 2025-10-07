@@ -15,6 +15,8 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getcon();
+
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
@@ -27,12 +29,10 @@ namespace JenStore
             }
         }
 
-        private void fillOrderDL()
+        void fillOrderDL()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             int latestOrderId = 0;
-
-            getcon();
 
             cmd = new SqlCommand("select top 1 order_id from Orders where user_id = " + userId + " order by order_id desc", con);
             object result = cmd.ExecuteScalar();
@@ -40,7 +40,6 @@ namespace JenStore
             if (result == null || result == DBNull.Value)
             {
                 orderDetailsContainer.Visible = false;
-                con.Close();
                 return;
             }
 
@@ -86,7 +85,6 @@ namespace JenStore
             lblShipping.Text = shippingFee.ToString("C");
             lblGrandTotal.Text = grandTotal.ToString("C");
 
-            con.Close();
         }
 
         void getcon()

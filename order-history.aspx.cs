@@ -15,6 +15,9 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            getcon();
+
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
@@ -28,10 +31,9 @@ namespace JenStore
             }
         }
 
-        private void fillOrderHis()
+        void fillOrderHis()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
-            getcon();
             cmd = new SqlCommand("select order_id, order_date, order_status, total_amount, payment_method from Orders where user_id = " + userId + " order by order_date desc", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -39,13 +41,10 @@ namespace JenStore
 
             gvOrderHistory.DataSource = dt;
             gvOrderHistory.DataBind();
-
-            con.Close();
         }
 
-        private void showOrdDetails(int orderId)
+        void showOrdDetails(int orderId)
         {
-            getcon();
             decimal grandTotal = 0;
 
             SqlDataAdapter da = new SqlDataAdapter("select order_date, order_status, payment_method, shipping_address, total_amount from Orders where order_id = " + orderId, con);
@@ -84,7 +83,6 @@ namespace JenStore
             lblShipping.Text = shippingFee.ToString("C");
             lblGrandTotal.Text = grandTotal.ToString("C");
 
-            con.Close();
         }
 
         protected void viewDetails(object sender, GridViewCommandEventArgs e)

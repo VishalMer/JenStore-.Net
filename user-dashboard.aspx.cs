@@ -27,32 +27,29 @@ namespace JenStore
             getcon();
             userDetails(userId);
             DisplayStats(userId);
-            con.Close();
         }
 
-        private void userDetails(int userId)
+        void userDetails(int userId)
         {
-            SqlCommand userCmd = new SqlCommand("select id, uname, email, gender, created_at from users where id = " + userId, con);
-            SqlDataReader reader = userCmd.ExecuteReader();
+            da = new SqlDataAdapter("select id, uname, email, gender, created_at from users where id = " + userId, con);
+            ds = new DataSet();
+            da.Fill(ds);
 
-            if (reader.Read())
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                userNameHeading.InnerText = reader["uname"].ToString();
-                genderVal.InnerText = reader["gender"].ToString();
-                emailVal.InnerText = reader["email"].ToString();
-                memberSinceVal.InnerText = ((DateTime)reader["created_at"]).ToString("dd MMMM yyyy");
+                DataRow row = ds.Tables[0].Rows[0];
+                userNameHeading.InnerText = row["uname"].ToString();
+                genderVal.InnerText = row["gender"].ToString();
+                emailVal.InnerText = row["email"].ToString();
+                memberSinceVal.InnerText = ((DateTime)row["created_at"]).ToString("dd MMMM yyyy");
             }
             else
             {
-                reader.Close();
-                con.Close();
                 Response.Redirect("login_register.aspx");
             }
-
-            reader.Close();
         }
 
-        private void DisplayStats(int userId)
+        void DisplayStats(int userId)
         {
             SqlCommand totalOrders = new SqlCommand("select count(*) from Orders where user_id = " + userId, con);
             lblTotalOrders.Text = totalOrders.ExecuteScalar().ToString();

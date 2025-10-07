@@ -17,15 +17,16 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getcon();
+
             if (!IsPostBack)
             {
                 rptProductShow();
             }
         }
 
-        private void rptProductShow()
+        void rptProductShow()
         {
-            getcon();
             int userId = Convert.ToInt32(Session["UserID"]);
             string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
                            " p.badge, p.rating_count, case when w.user_id is not null then 1 else 0 end as isinwishlist " +
@@ -37,8 +38,6 @@ namespace JenStore
 
             rptProducts.DataSource = ds;
             rptProducts.DataBind();
-
-            con.Close();
         }
 
         protected void productCommand(object source, RepeaterCommandEventArgs e)
@@ -62,13 +61,11 @@ namespace JenStore
                 if (e.CommandName == "AddToCart")
                 {
                    int userId = Convert.ToInt32(Session["UserID"]);
-                    getcon();
 
                     cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
                     if ((int)cmd.ExecuteScalar() <= 0)
                     {
                         Response.Write("<script>alert('Sorry, this product is out of stock!');</script>");
-                        con.Close();
                         return;
                     }
 
@@ -84,12 +81,10 @@ namespace JenStore
                         cmd.ExecuteNonQuery();
                         Response.Write("<script>alert('Product added to cart!');</script>");
                     }
-                    con.Close();
                 }
                 // wishlist
                 else if (e.CommandName == "AddToWishlist")
                 {
-                    getcon();
                     int userId = Convert.ToInt32(Session["UserID"]);
                     cmd = new SqlCommand("select 1 from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                     if (cmd.ExecuteScalar() != null)
@@ -104,7 +99,6 @@ namespace JenStore
                         cmd.ExecuteNonQuery();
                         Response.Write("<script>alert('Product added to wishlist!');</script>");
                     }
-                    con.Close();
                     rptProductShow();
                 }
             }

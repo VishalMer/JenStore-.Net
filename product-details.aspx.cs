@@ -24,9 +24,10 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getCon();
+
             if (!IsPostBack)
             {
-                getCon();
                 fillViewProDL();
                 fillRelProDL();
             }
@@ -47,7 +48,6 @@ namespace JenStore
                 return;
             }
 
-            getCon();
             int productId = Convert.ToInt32(Request.QueryString["id"]);
             int userId = (Session["UserID"] != null) ? Convert.ToInt32(Session["UserID"]) : -1;
 
@@ -61,15 +61,12 @@ namespace JenStore
             da.Fill(ds);
             dlProductDetails.DataSource = ds;
             dlProductDetails.DataBind();
-
-            con.Close();
         }
 
         
         //Related products datalist fill
         void fillRelProDL()
         {
-            getCon();
             int userId =  Convert.ToInt32(Session["UserId"]);
 
             string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, p.image_url," +
@@ -85,8 +82,6 @@ namespace JenStore
             dlRelatedProducts.RepeatDirection = RepeatDirection.Horizontal;
             dlRelatedProducts.DataSource = ds;
             dlRelatedProducts.DataBind();
-
-            con.Close();
         }
 
 
@@ -109,13 +104,10 @@ namespace JenStore
 
             if (e.CommandName == "AddToCart")
             {
-                getCon();
-
                 cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
                 if ((int)cmd.ExecuteScalar() <= 0)
                 {
                     Response.Write("<script>alert('Sorry, this product is out of stock!');</script>");
-                    con.Close();
                     return;
                 }
 
@@ -130,11 +122,9 @@ namespace JenStore
                     cmd.ExecuteNonQuery();
                     Response.Write("<script>alert('Product added to cart!');</script>");
                 }
-                con.Close();
             }
             else if (e.CommandName == "AddToWishlist")
             {
-                getCon();
                 cmd = new SqlCommand("select 1 from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                 if (cmd.ExecuteScalar() != null)
                 {
@@ -148,7 +138,6 @@ namespace JenStore
                     cmd.ExecuteNonQuery();
                     Response.Write("<script>alert('Product added to wishlist!');</script>");
                 }
-                con.Close();
                 fillViewProDL();
                 fillRelProDL();
             }
@@ -174,13 +163,10 @@ namespace JenStore
 
             if (e.CommandName == "AddToCart")
             {
-                getCon();
-
                 cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
                 if ((int)cmd.ExecuteScalar() <= 0)
                 {
                     Response.Write("<script>alert('Sorry, this product is out of stock!');</script>");
-                    con.Close();
                     return;
                 }
 
@@ -195,11 +181,9 @@ namespace JenStore
                     cmd.ExecuteNonQuery();
                     Response.Write("<script>alert('Product added to cart!');</script>");
                 }
-                con.Close();
             }
             else if (e.CommandName == "AddToWishlist")
             {
-                getCon();
                 cmd = new SqlCommand("select 1 from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
                 if (cmd.ExecuteScalar() != null)
                 {
@@ -213,13 +197,9 @@ namespace JenStore
                     cmd.ExecuteNonQuery();
                     Response.Write("<script>alert('Product added to wishlist!');</script>");
                 }
-                con.Close();
                 fillViewProDL();
                 fillRelProDL();
             }
         }
-
-
-
     }
 }

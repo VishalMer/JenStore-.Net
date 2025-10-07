@@ -16,6 +16,8 @@ namespace JenStore.admin_panel
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getcon();
+
             if (Session["UserID"] == null)
             {
                 Response.Redirect("../login_register.aspx");
@@ -31,7 +33,6 @@ namespace JenStore.admin_panel
 
         private void WelcomeMessage()
         {
-            getcon();
             int userId = Convert.ToInt32(Session["UserID"]);
 
             da = new SqlDataAdapter("select uname, role from users where Id = " + userId, con);
@@ -48,12 +49,9 @@ namespace JenStore.admin_panel
                 lblWelcomeMessage.Text = "Welcome back, " + username + " (" + role + ")";
             }
 
-            con.Close();
         }
         private void DisplayStats()
         {
-            getcon();
-
             cmd = new SqlCommand("select sum(total_amount) from Orders where order_status = 'Completed'", con);
             object totalSales = cmd.ExecuteScalar();
             if (totalSales != DBNull.Value)
@@ -73,8 +71,6 @@ namespace JenStore.admin_panel
             cmd = new SqlCommand("select count(*) from users", con);
             lblTotalCustomers.Text = cmd.ExecuteScalar().ToString();
 
-
-            con.Close();
         }
 
         void getcon()

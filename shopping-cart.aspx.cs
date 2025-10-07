@@ -15,6 +15,8 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getcon();
+
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
@@ -27,12 +29,10 @@ namespace JenStore
             }
         }
 
-        private void fillCartGrid()
+        void fillCartGrid()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             decimal subTotal = 0;
-
-            getcon();
 
             string query = "select C.cart_item_id, C.product_id, C.quantity, P.product_name, P.price, P.image_url, P.stock_quantity from Cart C " +
                            "inner join Products P on C.product_id = P.product_id where C.user_id = " + userId;
@@ -49,8 +49,6 @@ namespace JenStore
             gvCartProducts.DataSource = dt;
             gvCartProducts.DataBind();
 
-            con.Close();
-
             lblSubTotal.Text = subTotal.ToString("C");
         }
 
@@ -60,14 +58,11 @@ namespace JenStore
 
             if (e.CommandName == "Increase")
             {
-                getcon();
                 cmd = new SqlCommand("update Cart set quantity = quantity + 1 where cart_item_id = " + cartItemId, con);
                 cmd.ExecuteNonQuery();
-                con.Close();
             }
             else if (e.CommandName == "Decrease")
             {
-                getcon();
                 cmd = new SqlCommand("select quantity from Cart where cart_item_id = " + cartItemId, con);
                 int currentQuantity = (int)cmd.ExecuteScalar();
 
@@ -81,14 +76,11 @@ namespace JenStore
                     cmd = new SqlCommand("delete from Cart where cart_item_id = " + cartItemId, con);
                     cmd.ExecuteNonQuery();
                 }
-                con.Close();
             }
             else if (e.CommandName == "RemoveItem")
             {
-                getcon();
                 cmd = new SqlCommand("delete from Cart where cart_item_id = " + cartItemId, con);
                 cmd.ExecuteNonQuery();
-                con.Close();
             }
 
             fillCartGrid();
@@ -98,12 +90,10 @@ namespace JenStore
         {
             int userId = Convert.ToInt32(Session["UserID"]);
 
-            getcon();
             cmd = new SqlCommand("delete from Cart where user_id = " + userId, con);
             cmd.ExecuteNonQuery();
             con.Close();
 
-            fillCartGrid();
         }
 
         void getcon()

@@ -15,6 +15,8 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getcon();
+
             if (Session["UserID"] == null)
             {
                 Response.Redirect("login_register.aspx");
@@ -27,13 +29,11 @@ namespace JenStore
             }
         }
 
-        private void fillDL()
+        void fillDL()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
             decimal subTotal = 0;
             decimal shippingFee = 0;
-
-            getcon();
 
             SqlDataAdapter sda = new SqlDataAdapter("select c.quantity, p.product_name, p.price from Cart c inner join Products p on c.product_id = p.product_id where c.user_id = " + userId + " and p.stock_quantity > 0", con);
             DataTable dt = new DataTable();
@@ -53,8 +53,6 @@ namespace JenStore
             {
                 subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
             }
-
-            con.Close();
 
             if (subTotal > 0 && subTotal < 1000)
             {
@@ -76,8 +74,6 @@ namespace JenStore
 
             int userId = Convert.ToInt32(Session["UserID"]);
 
-            getcon();
-
             SqlDataAdapter da = new SqlDataAdapter("select c.product_id, c.quantity, p.price, p.stock_quantity from Cart c inner join Products p on c.product_id = p.product_id where c.user_id = " + userId, con);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -85,7 +81,6 @@ namespace JenStore
             if (ds.Tables[0].Rows.Count == 0)
             {
                 Response.Write("<script>alert('Your cart is empty!');</script>");
-                con.Close();
                 return;
             }
 
@@ -95,7 +90,6 @@ namespace JenStore
                 if (Convert.ToInt32(row["quantity"]) > Convert.ToInt32(row["stock_quantity"]))
                 {
                     Response.Write("<script>alert('Not enough stock for one of your product. Please re-check your cart.');</script>");
-                    con.Close();
                     return;
                 }
                 subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
@@ -124,8 +118,6 @@ namespace JenStore
 
             cmd = new SqlCommand("delete from Cart where user_id = " + userId, con);
             cmd.ExecuteNonQuery();
-
-            con.Close();
 
             Response.Redirect("order.aspx");
         }

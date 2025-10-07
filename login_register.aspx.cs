@@ -23,7 +23,7 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+           getcon();
         }
 
         void getcon()
@@ -83,7 +83,6 @@ namespace JenStore
             }
             else
             {
-                getcon();
                 SqlCommand checkUser = new SqlCommand("select count(*) from users where uname = '" + inputusernameres.Text + "' ", con);
                 int uCount = (int)checkUser.ExecuteScalar();
 
@@ -110,7 +109,6 @@ namespace JenStore
                     cmd = new SqlCommand(query, con);
 
                     object newUserId = cmd.ExecuteScalar();
-                    con.Close();
 
                     Session["UserID"] = Convert.ToInt32(newUserId);
 
@@ -136,14 +134,11 @@ namespace JenStore
             }
             else
             {
-                getcon();
-
                 SqlCommand checkUserLog = new SqlCommand("select id, role from users where (email = '" + inputemail.Text + "' or uname = '" + inputemail.Text + "') and password = '" + inputpass.Text + "'", con);
 
                 SqlDataAdapter da = new SqlDataAdapter(checkUserLog);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
-                con.Close();
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {

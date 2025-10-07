@@ -15,37 +15,31 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getcon();
             productRepeaters();
         }
 
-        private void productRepeaters()
+        void productRepeaters()
         {
-            getcon();
             int userId = (Session["UserID"] != null) ? Convert.ToInt32(Session["UserID"]) : -1;
 
-            rptCollection.DataSource = newestProducts(4, userId);
-            rptCollection.DataBind();
-
-            rptWedding.DataSource = newestProducts(4, userId);
-            rptWedding.DataBind();
-
-            rptHoliday.DataSource = newestProducts(4, userId);
-            rptHoliday.DataBind();
-
-            con.Close();
+            fillReProd(rptCollection, 4, userId);
+            fillReProd(rptWedding, 4, userId);
+            fillReProd(rptHoliday, 4, userId);
         }
 
-        private DataTable newestProducts(int count, int userId)
+        void fillReProd(Repeater repeater, int count, int userId)
         {
             DataTable dt = new DataTable();
-
             string query = "select top " + count + " p.product_id, p.product_name, p.description, p.price, p.old_price, p.stock_quantity, " +
                 "p.image_url, p.badge, p.rating_count, case when w.user_id is not null then 1 else 0 end as isinwishlist from Products p left join " +
                 "Wishlist w on p.product_id = w.product_id and w.user_id = " + userId + " where p.stock_quantity > 0 order by p.product_id desc";
 
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             sda.Fill(dt);
-            return dt;
+
+            repeater.DataSource = dt;
+            repeater.DataBind();
         }
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
@@ -77,16 +71,13 @@ namespace JenStore
             productRepeaters();
         }
 
-        private void addToCart(int userId, int productId)
+        void addToCart(int userId, int productId)
         {
-            getcon();
-
             cmd = new SqlCommand("select stock_quantity from Products where product_id = " + productId, con);
             int stock = (int)cmd.ExecuteScalar();
             if (stock <= 0)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Sorry, this product is out of stock!');", true);
-                con.Close();
                 return;
             }
 
@@ -102,13 +93,10 @@ namespace JenStore
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to cart!');", true);
             }
 
-            con.Close();
         }
 
-        private void toggleWishlist(int userId, int productId)
+        void toggleWishlist(int userId, int productId)
         {
-            getcon();
-
             cmd = new SqlCommand("select 1 from Wishlist where user_id = " + userId + " and product_id = " + productId, con);
 
             if (cmd.ExecuteScalar() != null)
@@ -123,8 +111,6 @@ namespace JenStore
                 cmd.ExecuteNonQuery();
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Product added to wishlist!');", true);
             }
-
-            con.Close();
         }
 
         void getcon()
