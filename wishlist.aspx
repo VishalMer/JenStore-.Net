@@ -234,7 +234,7 @@
                             </thead>
                             <tbody>
                                 <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False"
-                                    GridLines="None" OnRowCommand="gvWishlistCommand" OnRowDataBound="gvWishlistDataBound"
+                                    GridLines="None" OnRowCommand="gvWishlistCommand"
                                     ShowHeader="False" RowStyle-CssClass="item_cart">
                                     <Columns>
                                         <asp:TemplateField>
@@ -312,7 +312,7 @@
                                                 <asp:LinkButton ID="removeAll" runat="server"
                                                     CssClass="add-allBtn"
                                                     Text="REMOVE ALL"
-                                                    OnClick="btnRemoveAllFromWishlist_Click" />
+                                                    OnClick="btnRemoveAll_Click" />
                                             </div>
                                         </div>
                                     </td>

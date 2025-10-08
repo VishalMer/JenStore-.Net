@@ -37,11 +37,10 @@ namespace JenStore
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                DataRow row = ds.Tables[0].Rows[0];
-                userNameHeading.InnerText = row["uname"].ToString();
-                genderVal.InnerText = row["gender"].ToString();
-                emailVal.InnerText = row["email"].ToString();
-                memberSinceVal.InnerText = ((DateTime)row["created_at"]).ToString("dd MMMM yyyy");
+                userNameHeading.InnerText = ds.Tables[0].Rows[0][1].ToString();
+                genderVal.InnerText = ds.Tables[0].Rows[0][3].ToString();
+                emailVal.InnerText = ds.Tables[0].Rows[0][2].ToString();
+                memberSinceVal.InnerText = ((DateTime)ds.Tables[0].Rows[0][4]).ToString("dd MMMM yyyy");
             }
             else
             {

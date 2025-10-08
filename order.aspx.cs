@@ -53,17 +53,15 @@ namespace JenStore
 
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                DataRow orRow = ds.Tables[0].Rows[0];
-
                 lblOrderID.Text = "#ORD-" + latestOrderId;
-                lblOrderDate.Text = Convert.ToDateTime(orRow["order_date"]).ToString("MMMM dd, yyyy");
-                lblOrderStatus.Text = orRow["order_status"].ToString();
-                lblPaymentMethod.Text = orRow["payment_method"].ToString();
-                lblShippingAddress.Text = orRow["shipping_address"].ToString().Replace(", ", "<br />");
-                grandTotal = Convert.ToDecimal(orRow["total_amount"]);
+                lblOrderDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0][0]).ToString("MMMM dd, yyyy");
+                lblOrderStatus.Text = ds.Tables[0].Rows[0][1].ToString();
+                lblPaymentMethod.Text = ds.Tables[0].Rows[0][2].ToString();
+                lblShippingAddress.Text = ds.Tables[0].Rows[0][3].ToString().Replace(", ", "<br />");
+                grandTotal = Convert.ToDecimal(ds.Tables[0].Rows[0][4]);
             }
 
-            // Fetch the items 
+            // Fetch the items from order details
             SqlDataAdapter sda = new SqlDataAdapter("select od.quantity, od.price_at_purchase, p.product_name, p.image_url from OrderDetails od inner join Products p on od.product_id = p.product_id where od.order_id = " + latestOrderId, con);
 
             DataTable dtItems = new DataTable();

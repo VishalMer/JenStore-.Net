@@ -239,7 +239,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.html" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a> <a href="../login_register.html" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="../home.aspx" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a> <%--class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>--%><asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
                     </div>
                 </div>
             </div>

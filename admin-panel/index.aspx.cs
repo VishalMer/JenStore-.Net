@@ -31,7 +31,7 @@ namespace JenStore.admin_panel
             }
         }
 
-        private void WelcomeMessage()
+        void WelcomeMessage()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
 
@@ -50,7 +50,7 @@ namespace JenStore.admin_panel
             }
 
         }
-        private void DisplayStats()
+        void DisplayStats()
         {
             cmd = new SqlCommand("select sum(total_amount) from Orders where order_status = 'Completed'", con);
             object totalSales = cmd.ExecuteScalar();
@@ -77,6 +77,12 @@ namespace JenStore.admin_panel
         {
             con = new SqlConnection(connect);
             con.Open();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("../login_register.aspx");
         }
     }
 }

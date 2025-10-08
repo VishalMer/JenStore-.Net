@@ -54,28 +54,26 @@ namespace JenStore
             // Check for return order
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                DataRow orderRow = ds.Tables[0].Rows[0];
-
                 lblOrderID.Text = "#ORD-" + orderId;
-                lblOrderDate.Text = Convert.ToDateTime(orderRow["order_date"]).ToString("MMMM dd, yyyy");
-                lblOrderStatus.Text = orderRow["order_status"].ToString();
-                lblPaymentMethod.Text = orderRow["payment_method"].ToString();
-                lblShippingAddress.Text = orderRow["shipping_address"].ToString().Replace(", ", "<br />");
-                grandTotal = Convert.ToDecimal(orderRow["total_amount"]);
+                lblOrderDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0][0]).ToString("MMMM dd, yyyy");
+                lblOrderStatus.Text = ds.Tables[0].Rows[0][1].ToString();
+                lblPaymentMethod.Text = ds.Tables[0].Rows[0][2].ToString();
+                lblShippingAddress.Text = ds.Tables[0].Rows[0][3].ToString().Replace(", ", "<br />");
+                grandTotal = Convert.ToDecimal(ds.Tables[0].Rows[0][4]);
             }
 
             SqlDataAdapter sda = new SqlDataAdapter("select od.quantity, od.price_at_purchase, p.product_name, p.image_url from OrderDetails od inner join Products p on od.product_id = p.product_id where od.order_id = " + orderId, con);
-            DataTable dtItems = new DataTable();
-            sda.Fill(dtItems);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
 
-            dlorderItems.DataSource = dtItems;
+            dlorderItems.DataSource = dt;
             dlorderItems.DataBind();
 
             // Calculate total
             decimal subTotal = 0;
-            foreach (DataRow row in dtItems.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
-                subTotal += Convert.ToDecimal(row["price_at_purchase"]) * Convert.ToInt32(row["quantity"]);
+                subTotal += Convert.ToDecimal(dr["price_at_purchase"]) * Convert.ToInt32(dr["quantity"]);
             }
             decimal shippingFee = grandTotal - subTotal;
 

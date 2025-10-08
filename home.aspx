@@ -254,7 +254,7 @@
                                 <a href="#">Shop now</a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <asp:Repeater ID="rptCollection" runat="server">
+                                <asp:Repeater ID="rptCollection" runat="server" OnItemCommand="product_ItemCommand">
                                     <ItemTemplate>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
                                             <div class="product-image-collec">
@@ -263,9 +263,10 @@
                                                         <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
                                                 </figure>
                                                 <div class="product-icon-collec">
-                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
-                                                    <asp:LinkButton ID="btnAddToCart1" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                                    <asp:LinkButton ID="btnAddToWishlist1" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <%--<a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>--%>
+                                                    <asp:LinkButton ID="btnViewProduct1" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnAddToCart1" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnAddToWishlist1" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                                         <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                                            style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
                                                     </asp:LinkButton>
@@ -296,7 +297,7 @@
                         </div>
                         <div class="container wedding-content">
                             <div class="row">
-                                <asp:Repeater ID="rptWedding" runat="server">
+                                <asp:Repeater ID="rptWedding" runat="server" OnItemCommand="product_ItemCommand">
                                     <ItemTemplate>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
                                             <div class="product-image-wedding">
@@ -305,9 +306,10 @@
                                                         <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
                                                 </figure>
                                                 <div class="product-icon-wedding">
-                                                    <a href="#"><i class="far fa-eye"></i></a>
-                                                    <asp:LinkButton ID="btnAddToCart2" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                                    <asp:LinkButton ID="btnAddToWishlist2" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <%--<a href="#"><i class="far fa-eye"></i></a>--%>
+                                                    <asp:LinkButton ID="btnViewProduct2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnAddToCart2" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btnAddToWishlist2" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                                          <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                                            style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
                                                     </asp:LinkButton>
@@ -336,7 +338,7 @@
                         <figure>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <asp:Repeater ID="rptHoliday" runat="server">
+                                    <asp:Repeater ID="rptHoliday" runat="server" OnItemCommand="product_ItemCommand">
                                         <ItemTemplate>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
                                                 <div class="product-image-holiday">
@@ -345,9 +347,10 @@
                                                             <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
                                                     </figure>
                                                     <div class="product-icon-holiday">
-                                                        <a href="#"><i class="far fa-eye"></i></a>
-                                                        <asp:LinkButton ID="btnAddToCart3" runat="server" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
-                                                        <asp:LinkButton ID="btnAddToWishlist3" runat="server" OnClick="btnAddToWishlist_Click" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <%--<a href="#"><i class="far fa-eye"></i></a>--%>
+                                                        <asp:LinkButton ID="btnViewProduct3" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
+                                                        <asp:LinkButton ID="btnAddToCart3" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                        <asp:LinkButton ID="btnAddToWishlist3" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                                              <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                                                style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
                                                         </asp:LinkButton>

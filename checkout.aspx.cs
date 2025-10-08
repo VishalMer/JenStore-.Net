@@ -72,54 +72,7 @@ namespace JenStore
                 return;
             }
 
-            int userId = Convert.ToInt32(Session["UserID"]);
-
-            SqlDataAdapter da = new SqlDataAdapter("select c.product_id, c.quantity, p.price, p.stock_quantity from Cart c inner join Products p on c.product_id = p.product_id where c.user_id = " + userId, con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                Response.Write("<script>alert('Your cart is empty!');</script>");
-                return;
-            }
-
-            decimal subTotal = 0;
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
-                if (Convert.ToInt32(row["quantity"]) > Convert.ToInt32(row["stock_quantity"]))
-                {
-                    Response.Write("<script>alert('Not enough stock for one of your product. Please re-check your cart.');</script>");
-                    return;
-                }
-                subTotal += Convert.ToDecimal(row["price"]) * Convert.ToInt32(row["quantity"]);
-            }
-
-            decimal shippingCost = (subTotal > 0 && subTotal < 1000) ? 40 : 0;
-            decimal orderTotal = subTotal + shippingCost;
-            string shippingAddress = txtFullName.Text + ", " + txtAddress.Text + ", " + txtTownCity.Text + ", " + txtPostcode.Text + ", Phone: " + txtPhone.Text;
-            string paymentMethod = rblPaymentMethod.SelectedValue;
-
-            cmd = new SqlCommand("insert into Orders (user_id, total_amount, shipping_address, payment_method) values (" + userId + ", " + orderTotal + ", '" + shippingAddress.Replace("'", "''") + "', '" + paymentMethod + "'); select scope_identity();", con);
-            int newOrderId = Convert.ToInt32(cmd.ExecuteScalar());
-
-            foreach (DataRow item in ds.Tables[0].Rows)
-            {
-                int productId = Convert.ToInt32(item["product_id"]);
-                int quantity = Convert.ToInt32(item["quantity"]);
-                decimal price = Convert.ToDecimal(item["price"]);
-
-                cmd = new SqlCommand("insert into OrderDetails (order_id, product_id, quantity, price_at_purchase) values (" + newOrderId + ", " + productId + ", " + quantity + ", " + price + ")", con);
-                cmd.ExecuteNonQuery();
-
-                cmd = new SqlCommand("update Products set stock_quantity = stock_quantity - " + quantity + " where product_id = " + productId, con);
-                cmd.ExecuteNonQuery();
-            }
-
-            cmd = new SqlCommand("delete from Cart where user_id = " + userId, con);
-            cmd.ExecuteNonQuery();
-
-            Response.Redirect("order.aspx");
+            
         }
 
         void getcon()
@@ -148,7 +101,7 @@ namespace JenStore
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
-            {
+            {   
                 phoneErr.Text = "Phone Number is required!";
                 return false;
             }
