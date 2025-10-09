@@ -207,7 +207,6 @@
     <Content Include="img\shopping-banner.jpg" />
     <Content Include="img\winter_white_bouquet.jpg" />
     <Content Include="js\bootstrap.min_0028.js" />
-    <Content Include="edit-profile.aspx" />
     <Content Include="js\edit-profile.js" />
     <Content Include="js\function-back-top.js" />
     <Content Include="js\function-flower.js" />
@@ -305,13 +304,6 @@
     <Compile Include="home.Master.designer.cs">
       <DependentUpon>home.Master</DependentUpon>
     </Compile>
-    <Compile Include="edit-profile.aspx.cs">
-      <DependentUpon>edit-profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="edit-profile.aspx.designer.cs">
-      <DependentUpon>edit-profile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="login_register.aspx.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -368,13 +360,6 @@
     </Compile>
     <Compile Include="shopping-cart.Master.designer.cs">
       <DependentUpon>shopping-cart.Master</DependentUpon>
-    </Compile>
-    <Compile Include="edit-profile.Master.cs">
-      <DependentUpon>edit-profile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="edit-profile.Master.designer.cs">
-      <DependentUpon>edit-profile.Master</DependentUpon>
     </Compile>
     <Compile Include="shopping.aspx.cs">
       <DependentUpon>shopping.aspx</DependentUpon>
@@ -534,7 +519,6 @@
     <Content Include="slick\slick.scss" />
     <Content Include="user-dashboard.Master" />
     <Content Include="shopping-cart.Master" />
-    <Content Include="edit-profile.Master" />
     <Content Include="shopping.Master" />
     <Content Include="single-detail.Master" />
     <None Include="Web.Debug.config">
