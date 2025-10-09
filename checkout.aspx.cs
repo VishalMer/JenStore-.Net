@@ -140,35 +140,60 @@ namespace JenStore
             payErr.Text = "";
         }
 
-         bool validation()
+        private bool validation()
         {
-            Clear();
+            Clear(); 
 
             if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
                 nameErr.Text = "Full Name is required!";
                 return false;
             }
+            if (!Regex.IsMatch(txtFullName.Text, @"^[a-zA-Z\s]+$"))
+            {
+                nameErr.Text = "Full Name can only contain letters and spaces.";
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
-            {   
+            {
                 phoneErr.Text = "Phone Number is required!";
                 return false;
             }
+            if (!Regex.IsMatch(txtPhone.Text, @"^\d{10}$"))
+            {
+                phoneErr.Text = "Phone Number must be exactly 10 digits.";
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
                 addErr.Text = "Address is required!";
                 return false;
             }
+
             if (string.IsNullOrWhiteSpace(txtTownCity.Text))
             {
                 cityErr.Text = "Town/City is required!";
                 return false;
             }
+            if (!Regex.IsMatch(txtTownCity.Text, @"^[a-zA-Z\s]+$"))
+            {
+                cityErr.Text = "Town/City can only contain letters and spaces.";
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(txtPostcode.Text))
             {
                 postErr.Text = "Postcode is required!";
                 return false;
             }
+            if (!Regex.IsMatch(txtPostcode.Text, @"^\d{6}$"))
+            {
+                postErr.Text = "Postcode must be exactly 6 digits.";
+                return false;
+            }
+
             if (rblPaymentMethod.SelectedValue == "")
             {
                 payErr.Text = "Please select a payment method!";
