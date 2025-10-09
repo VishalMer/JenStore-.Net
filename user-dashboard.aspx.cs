@@ -76,5 +76,11 @@ namespace JenStore
             con = new SqlConnection(connect);
             con.Open();
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+           Response.Redirect("login_register.aspx");
+        }
     }
 }

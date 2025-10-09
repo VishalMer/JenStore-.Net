@@ -305,9 +305,11 @@
                                 <div class="user-detail-item">
                                     <span class="detail-label">Status:</span> <span class="detail-value">Active</span>
                                 </div>
-                                <button class="edit-profile-btn" id="editProfile">
+                                <%--Edit Profile & Logout Buttons--%>
+                                <button class="edit-profile-btn" id="editProfile" style="margin-right:8em;">
                                     <a href="edit-profile.aspx" style="color: white; text-decoration: none;">Edit Profile</a>
                                 </button>
+                                <asp:Button ID="Button1" CssClass="edit-profile-btn" runat="server" style="color: white; text-decoration: none;" Text="Logout" OnClick="btnLogout_Click" />
                             </div>
                         </div>
                     </div>
@@ -315,7 +317,7 @@
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    <asp:Label ID="lblTotalOrders" runat="server" ></asp:Label>
+                                    <asp:Label ID="lblTotalOrders" runat="server"></asp:Label>
                                 </div>
                                 <div class="stat-label">
                                     Total Orders
@@ -323,7 +325,7 @@
                             </div>
                             <div class="stat-card">
                                 <div class="stat-number">
-                                    <asp:Label ID="lblWishlistItems" runat="server" ></asp:Label>
+                                    <asp:Label ID="lblWishlistItems" runat="server"></asp:Label>
                                 </div>
                                 <div class="stat-label">
                                     Wishlist Items
