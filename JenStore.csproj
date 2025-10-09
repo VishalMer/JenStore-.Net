@@ -300,6 +300,7 @@
     </Compile>
     <Compile Include="edit-profile.Master.cs">
       <DependentUpon>edit-profile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="edit-profile.Master.designer.cs">
       <DependentUpon>edit-profile.Master</DependentUpon>
