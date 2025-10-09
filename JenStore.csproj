@@ -133,6 +133,7 @@
     <Content Include="css\style-shopping.css" />
     <Content Include="css\style-tracking.css" />
     <Content Include="css\style-wishlist.css" />
+    <Content Include="edit-profile.aspx" />
     <Content Include="home.aspx" />
     <Content Include="img\1050x850.png" />
     <Content Include="img\115x115.jpg" />
@@ -289,6 +290,19 @@
     </Compile>
     <Compile Include="contact.Master.designer.cs">
       <DependentUpon>contact.Master</DependentUpon>
+    </Compile>
+    <Compile Include="edit-profile.aspx.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit-profile.aspx.designer.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edit-profile.Master.cs">
+      <DependentUpon>edit-profile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="edit-profile.Master.designer.cs">
+      <DependentUpon>edit-profile.Master</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -466,6 +480,7 @@
     <Content Include="css\bootstrap\mixin.css.map" />
     <Content Include="order.Master" />
     <Content Include="order-history.Master" />
+    <Content Include="edit-profile.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
