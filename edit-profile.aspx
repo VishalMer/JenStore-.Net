@@ -31,8 +31,27 @@
                 margin-right: 0px !important;
                 margin-left: 7px !important;
             }
-            .btn-cancel:hover{
-                
+
+            .btn-cancel:hover {
+                color: #6c757d !important;
+                background-color: white;
+                border: .5px solid #6c757d;
+            }
+
+            .btn-update:hover {
+                color: #ff6b6b;
+                background-color: white;
+                border: .5px solid #ff6b6b;
+            }
+
+            .errMSG {
+                color: red;
+                font-family: 'poppins';
+            }
+
+            .sucMSG {
+                color: green;
+                font-family: 'poppins';
             }
         </style>
     </head>
@@ -47,8 +66,8 @@
                                 <h2><i class="fas fa-user-edit"></i>Edit Profile</h2>
                             </div>
 
-                            <asp:Label ID="successMsg" runat="server" Text="Profile updated successfully!" Visible="false"></asp:Label>
-                            <asp:Label ID="errorMsg" runat="server" Text="An error occured while updating profile!" Visible="false"></asp:Label>
+                            <asp:Label ID="successMsg" runat="server" CssClass="sucMSG" Text="Profile updated successfully!" Visible="false"></asp:Label>
+                            <asp:Label ID="errorMsg" runat="server" CssClass="errMSG" Text="An error occured while updating profile!" Visible="false"></asp:Label>
 
                             <div class="form-horizontal" role="form">
                                 <div class="row form-row">
@@ -100,7 +119,10 @@
                                 <div class="row action-row">
                                     <div class="col-sm-12 text-right">
                                         <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn-update btn btn-primary" OnClick="btnUpdateProfile_Click" />
-                                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn-cancel btn btn-default" PostBackUrl="~/user-dashboard.aspx" CausesValidation="false" />
+                                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn-cancel btn btn-default"
+                                            OnClientClick="return confirm('Are you sure you want to cancel? Any unsaved changes will be lost.');"
+                                            OnClick="btnCancel_Click" CausesValidation="false" />
+
                                     </div>
                                 </div>
                             </div>
