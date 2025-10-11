@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JenStore
 {
@@ -20,6 +16,7 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Open the connection once when the page loads
             getcon();
 
             if (Session["UserID"] == null)
@@ -33,11 +30,13 @@ namespace JenStore
                 LoadUserProfile();
             }
         }
+
         private void LoadUserProfile()
         {
             int userId = Convert.ToInt32(Session["UserID"]);
 
-            da = new SqlDataAdapter("select uname, email, gender from users where Id = " + userId, con);
+            // Using SqlDataAdapter as requested
+            da = new SqlDataAdapter("SELECT uname, email, gender FROM users WHERE Id = " + userId, con);
             ds = new DataSet();
             da.Fill(ds);
 
@@ -48,61 +47,62 @@ namespace JenStore
                 txtEmail.Text = row["email"].ToString();
 
                 string gender = row["gender"].ToString();
-
                 if (ddlGender.Items.FindByValue(gender) != null)
                 {
                     ddlGender.SelectedValue = gender;
                 }
             }
+            // The connection is intentionally left open as per your instruction.
         }
 
         protected void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            if (!Page.IsValid)
+            int userId = Convert.ToInt32(Session["UserID"]);
+            string currentPassword = txtCurrentPassword.Text;
+
+            // Using string concatenation for the query as requested
+            cmd = new SqlCommand("SELECT 1 FROM users WHERE Id = " + userId + " AND password = '" + currentPassword + "'", con);
+            object result = cmd.ExecuteScalar();
+
+            if (result == null)
             {
-                return;
+                successMsg.Visible = false;
+                errorMsg.Text = "Your current password is incorrect.";
+                errorMsg.Visible = true;
+                btnCancel.Text = "Cancel";
+                return; // Stop processing
             }
 
-            int userId = Convert.ToInt32(Session["UserID"]);
-            string currentPassword = txtCurrentPassword.Text.Replace("'", "''"); // Basic sanitation
-            string newUsername = txtUsername.Text.Replace("'", "''");
-            string newEmail = txtEmail.Text.Replace("'", "''");
+            string newUsername = txtUsername.Text;
+            string newEmail = txtEmail.Text;
             string newGender = ddlGender.SelectedValue;
 
-            getcon(); 
-
-            cmd = new SqlCommand("select password from users where Id = " + userId, con);
-            string storedPassword = cmd.ExecuteScalar() as string;
-
-            if (storedPassword != currentPassword)
-            {
-                pnlSuccessMessage.Visible = false;
-                litErrorText.Text = "Your current password is incorrect.";
-                pnlErrorMessage.Visible = true;
-                return;
-            }
-
-            cmd = new SqlCommand("update users set uname = '" + newUsername + "', email = '" + newEmail + "', gender = '" + newGender + "' where Id = " + userId, con);
+            // Using string concatenation for the update query as requested
+            cmd = new SqlCommand("UPDATE users SET uname = '" + newUsername + "', email = '" + newEmail + "', gender = '" + newGender + "' WHERE Id = " + userId, con);
             int rowsAffected = cmd.ExecuteNonQuery();
-
 
             if (rowsAffected > 0)
             {
-                pnlErrorMessage.Visible = false;
-                pnlSuccessMessage.Visible = true;
+                errorMsg.Visible = false;
+                successMsg.Visible = true;
+                Response.Write("<script>if(confirm('Profile updated successfully! Would you like to go to the dashboard?')) { window.location.href = 'user-dashboard.aspx'; }</script>");
             }
             else
             {
-                pnlSuccessMessage.Visible = false;
-                litErrorText.Text = "An error occurred and the profile could not be updated.";
-                pnlErrorMessage.Visible = true;
+                successMsg.Visible = false;
+                errorMsg.Visible = true;
+                btnCancel.Text = "Cancel";
             }
+            // The connection is intentionally left open as per your instruction.
         }
 
         void getcon()
         {
-            con = new SqlConnection(connect);
-            con.Open();
+            if (con == null || con.State == ConnectionState.Closed)
+            {
+                con = new SqlConnection(connect);
+                con.Open();
+            }
         }
     }
 }

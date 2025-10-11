@@ -15,31 +15,22 @@ namespace JenStore
     {
 
         /// <summary>
-        /// pnlSuccessMessage control.
+        /// successMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSuccessMessage;
+        protected global::System.Web.UI.WebControls.Label successMsg;
 
         /// <summary>
-        /// pnlErrorMessage control.
+        /// errorMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlErrorMessage;
-
-        /// <summary>
-        /// litErrorText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litErrorText;
+        protected global::System.Web.UI.WebControls.Label errorMsg;
 
         /// <summary>
         /// txtUsername control.
