@@ -97,9 +97,9 @@ $(document).ready(function() {
     });
     
     // Handle cancel button
-    $('.btn-cancel').on('click', function() {
-        if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
-            window.location.href = 'user-dashboard.html';
-        }
-    });
+    //$('.btn-cancel').on('click', function() {
+    //    if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+    //        window.location.href = 'user-dashboard.html';
+    //    }
+    //});
 });
