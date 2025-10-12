@@ -196,6 +196,8 @@
     <Content Include="img\icon-delete-cart.png" />
     <Content Include="img\icon-order-complete.png" />
     <Content Include="img\icon-page404.png" />
+    <Content Include="img\img-about.jpg" />
+    <Content Include="img\img-contact.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\Next.png" />
     <Content Include="img\queen_rose_pink.jpg" />

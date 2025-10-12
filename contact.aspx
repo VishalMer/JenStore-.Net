@@ -181,7 +181,7 @@
                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                         <figure id="img-contact">
                             <a href="#">
-                            <img src="img/550x450.png" class="img-responsive" alt="img-holiwood"></a></figure>
+                            <img src="img/img-contact.jpg" class="img-responsive" alt="img-holiwood"></a></figure>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 message-contact">
                         <h1>Send us a message</h1>
