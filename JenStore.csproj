@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aboutus.aspx" />
     <Content Include="css\admin.css" />
     <Content Include="admin-panel\index.aspx" />
     <Content Include="App_Data\JenStoreDB.mdf" />
@@ -204,6 +205,7 @@
     <Content Include="img\queen_rose_red.jpg" />
     <Content Include="img\queen_rose_yellow.jpg" />
     <Content Include="img\Rahul.jpg" />
+    <Content Include="img\reference.jpg" />
     <Content Include="img\rose_red.jpg" />
     <Content Include="img\Search.png" />
     <Content Include="img\Send.png" />
@@ -251,6 +253,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aboutus.Master.cs">
+      <DependentUpon>aboutus.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aboutus.Master.designer.cs">
+      <DependentUpon>aboutus.Master</DependentUpon>
+    </Compile>
     <Compile Include="admin-panel\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -484,6 +500,7 @@
     <Content Include="order.Master" />
     <Content Include="order-history.Master" />
     <Content Include="edit-profile.Master" />
+    <Content Include="aboutus.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
