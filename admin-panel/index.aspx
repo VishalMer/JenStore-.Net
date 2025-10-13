@@ -186,23 +186,33 @@
             }
 
             .status-pending {
-                background: #fff3cd;
-                color: #856404;
-            }
-
-            .status-processing {
                 background: #d1ecf1;
                 color: #0c5460;
             }
 
-            .status-shipped {
+            .status-processing {
                 background: #d4edda;
                 color: #155724;
             }
 
-            .status-delivered {
-                background: #c3e6cb;
+            .status-cancelled {
+                background: #f8d7da;
+                color: #721c24;
+            }
+
+            .status-completed {
+                background: #d4edda;
                 color: #155724;
+            }
+
+            .status-shipped {
+                background: #fff3cd;
+                color: #856404;
+            }
+
+            .status-delivered {
+                background: #cce5ff;
+                color: #004085;
             }
 
             .chart-container {
@@ -239,7 +249,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.aspx" target="_blank" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a> <%--class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>--%><asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
+                        <a href="../home.aspx" target="_blank" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a><%--class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>--%><asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -331,54 +341,46 @@
                     <div class="col-md-4">
                         <div class="recent-orders">
                             <h4><i class="fas fa-clock"></i>Recent Orders</h4>
-                            <div class="order-item">
-                                <div>
-                                    <strong>#ORD-001</strong><br>
-                                    <small>John Doe</small>
-                                </div>
-                                <div class="text-right">
-                                    <div class="order-status status-pending">
-                                        Pending
-                                    </div>
-                                    <small>$89.99</small>
-                                </div>
-                            </div>
-                            <div class="order-item">
-                                <div>
-                                    <strong>#ORD-002</strong><br>
-                                    <small>Jane Smith</small>
-                                </div>
-                                <div class="text-right">
-                                    <div class="order-status status-processing">
-                                        Processing
-                                    </div>
-                                    <small>$124.50</small>
-                                </div>
-                            </div>
-                            <div class="order-item">
-                                <div>
-                                    <strong>#ORD-003</strong><br>
-                                    <small>Mike Johnson</small>
-                                </div>
-                                <div class="text-right">
-                                    <div class="order-status status-shipped">
-                                        Shipped
-                                    </div>
-                                    <small>$67.25</small>
-                                </div>
-                            </div>
-                            <div class="order-item">
-                                <div>
-                                    <strong>#ORD-004</strong><br>
-                                    <small>Sarah Wilson</small>
-                                </div>
-                                <div class="text-right">
-                                    <div class="order-status status-delivered">
-                                        Delivered
-                                    </div>
-                                    <small>$156.75</small>
-                                </div>
-                            </div>
+
+                            <asp:GridView ID="gvRecentOrders" runat="server"
+                                AutoGenerateColumns="False"
+                                CssClass="table"
+                                Width="100%"
+                                GridLines="None">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="ID">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblGridOrderId" runat="server" Text='<%# Eval("order_id") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle CssClass="order-id" />
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Customer">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblGridUsername" runat="server" Text='<%# Eval("Username") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle CssClass="customer-name" />
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Amount">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblGridTotalAmount" runat="server" Text='<%# Eval("total_amount", "{0:C}") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle CssClass="order-total" />
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Status">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblStatus" runat="server"
+                                                Text='<%# Eval("order_status") %>'
+                                                CssClass='<%# GetStatusCssClass(Eval("order_status")) %>'>
+                                            </asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle CssClass="order-status" />
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+
                             <div class="text-center mt-3">
                                 <a href="orders.aspx" class="btn btn-primary btn-sm">View All Orders</a>
                             </div>

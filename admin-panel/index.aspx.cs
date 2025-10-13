@@ -28,6 +28,7 @@ namespace JenStore.admin_panel
             {
                 DisplayStats();
                 WelcomeMessage();
+                BindRecentOrders();
             }
         }
 
@@ -52,25 +53,74 @@ namespace JenStore.admin_panel
         }
         void DisplayStats()
         {
-            cmd = new SqlCommand("select sum(total_amount) from Orders where order_status = 'Completed'", con);
+            cmd = new SqlCommand("select sum(total_amount) from orders where order_status = 'Completed'", con);
             object totalSales = cmd.ExecuteScalar();
             if (totalSales != DBNull.Value)
             {
                 lblTotalSales.Text = Convert.ToDecimal(totalSales).ToString("C0");
-                lblMonthlyToatal.Text = Convert.ToDecimal(totalSales).ToString("C0");
             }
             else
             {
                 lblTotalSales.Text = "$0";
+            }
+
+            cmd = new SqlCommand("SELECT SUM(total_amount) FROM orders WHERE order_status = 'Completed' AND MONTH(order_date) = MONTH(GETDATE()) AND YEAR(order_date) = YEAR(GETDATE())", con);
+            object monthlySales = cmd.ExecuteScalar();
+            if (monthlySales != DBNull.Value)
+            {
+                lblMonthlyToatal.Text = Convert.ToDecimal(monthlySales).ToString("C0");
+            }
+            else
+            {
                 lblMonthlyToatal.Text = "$0";
             }
 
-            cmd = new SqlCommand("select count(*) from Orders", con);
+            cmd = new SqlCommand("select count(*) from orders", con);
             lblTotalOrders.Text = cmd.ExecuteScalar().ToString();
 
-            cmd = new SqlCommand("select count(*) from users", con);
+            cmd = new SqlCommand("select count(*) from users where role != 'admin'", con); 
             lblTotalCustomers.Text = cmd.ExecuteScalar().ToString();
+        }
 
+        private void BindRecentOrders()
+        {
+            string query = "SELECT TOP 5 o.order_id, u.uname as Username, o.total_amount, o.order_status FROM orders o INNER JOIN users u ON o.user_id = u.Id ORDER BY o.order_date DESC";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            gvRecentOrders.DataSource = ds;
+            gvRecentOrders.DataBind();
+        }
+
+        public string GetStatusCssClass(object status)
+        {
+            string statusClass = "order-status ";
+            switch (status.ToString().ToLower())
+            {
+                case "pending":
+                    statusClass += "status-pending";
+                    break;
+                case "processing":
+                    statusClass += "status-processing";
+                    break;
+                case "shipped":
+                    statusClass += "status-shipped";
+                    break;
+                case "delivered":
+                    statusClass += "status-delivered";
+                    break;
+                case "cancelled":
+                    statusClass += "status-cancelled";
+                    break;
+                case "completed":
+                    statusClass += "status-completed";
+                    break;
+                default:
+                    statusClass += "status-pending";
+                    break;
+            }
+            return statusClass;
         }
 
         void getcon()
