@@ -239,7 +239,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.aspx" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a> <%--class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>--%><asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
+                        <a href="../home.aspx" target="_blank" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a> <%--class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>--%><asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -250,7 +250,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.html" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.html" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link active"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
                     </div>
                 </div>
             </div>
@@ -380,7 +380,7 @@
                                 </div>
                             </div>
                             <div class="text-center mt-3">
-                                <a href="orders.html" class="btn btn-primary btn-sm">View All Orders</a>
+                                <a href="orders.aspx" class="btn btn-primary btn-sm">View All Orders</a>
                             </div>
                         </div>
                     </div>
@@ -393,22 +393,22 @@
                             <h4><i class="fas fa-bolt"></i>Quick Actions</h4>
                             <div class="row">
                                 <div class="col-md-3 col-sm-6 text-center mb-3">
-                                    <a href="add-edit-product.html" class="btn btn-success btn-lg btn-block"><i class="fas fa-plus"></i>
+                                    <a href="add-edit-product.aspx" class="btn btn-success btn-lg btn-block"><i class="fas fa-plus"></i>
                                         <br>
                                         Add Product </a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 text-center mb-3">
-                                    <a href="categories.html" class="btn btn-info btn-lg btn-block"><i class="fas fa-tag"></i>
+                                    <a href="categories.aspx" class="btn btn-info btn-lg btn-block"><i class="fas fa-tag"></i>
                                         <br>
                                         Manage Categories </a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 text-center mb-3">
-                                    <a href="orders.html" class="btn btn-warning btn-lg btn-block"><i class="fas fa-shipping-fast"></i>
+                                    <a href="orders.aspx" class="btn btn-warning btn-lg btn-block"><i class="fas fa-shipping-fast"></i>
                                         <br>
                                         Process Orders </a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 text-center mb-3">
-                                    <a href="customers.html" class="btn btn-primary btn-lg btn-block"><i class="fas fa-users"></i>
+                                    <a href="customers.aspx" class="btn btn-primary btn-lg btn-block"><i class="fas fa-users"></i>
                                         <br>
                                         View Customers </a>
                                 </div>

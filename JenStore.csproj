@@ -68,6 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="aboutus.aspx" />
+    <Content Include="admin-panel\add-edit-product.aspx" />
+    <Content Include="admin-panel\analytics.aspx" />
+    <Content Include="admin-panel\categories.aspx" />
+    <Content Include="admin-panel\customers.aspx" />
+    <Content Include="admin-panel\order-details.aspx" />
+    <Content Include="admin-panel\orders.aspx" />
+    <Content Include="admin-panel\products.aspx" />
     <Content Include="css\admin.css" />
     <Content Include="admin-panel\index.aspx" />
     <Content Include="App_Data\JenStoreDB.mdf" />
@@ -267,6 +274,62 @@
     <Compile Include="aboutus.Master.designer.cs">
       <DependentUpon>aboutus.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin-panel\add-edit-product.aspx.cs">
+      <DependentUpon>add-edit-product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\add-edit-product.aspx.designer.cs">
+      <DependentUpon>add-edit-product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\add-edit-product.Master.cs">
+      <DependentUpon>add-edit-product.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\add-edit-product.Master.designer.cs">
+      <DependentUpon>add-edit-product.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\analytics.aspx.cs">
+      <DependentUpon>analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\analytics.aspx.designer.cs">
+      <DependentUpon>analytics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\analytics.Master.cs">
+      <DependentUpon>analytics.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\analytics.Master.designer.cs">
+      <DependentUpon>analytics.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\categories.aspx.cs">
+      <DependentUpon>categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\categories.aspx.designer.cs">
+      <DependentUpon>categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\categories.Master.cs">
+      <DependentUpon>categories.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\categories.Master.designer.cs">
+      <DependentUpon>categories.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\customers.aspx.cs">
+      <DependentUpon>customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\customers.aspx.designer.cs">
+      <DependentUpon>customers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\customers.Master.cs">
+      <DependentUpon>customers.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\customers.Master.designer.cs">
+      <DependentUpon>customers.Master</DependentUpon>
+    </Compile>
     <Compile Include="admin-panel\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +343,48 @@
     </Compile>
     <Compile Include="admin-panel\index.Master.designer.cs">
       <DependentUpon>index.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\order-details.aspx.cs">
+      <DependentUpon>order-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\order-details.aspx.designer.cs">
+      <DependentUpon>order-details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\order-details.Master.cs">
+      <DependentUpon>order-details.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\order-details.Master.designer.cs">
+      <DependentUpon>order-details.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\orders.Master.cs">
+      <DependentUpon>orders.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\orders.Master.designer.cs">
+      <DependentUpon>orders.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\products.Master.cs">
+      <DependentUpon>products.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\products.Master.designer.cs">
+      <DependentUpon>products.Master</DependentUpon>
     </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
@@ -501,6 +606,13 @@
     <Content Include="order-history.Master" />
     <Content Include="edit-profile.Master" />
     <Content Include="aboutus.Master" />
+    <Content Include="admin-panel\products.Master" />
+    <Content Include="admin-panel\categories.Master" />
+    <Content Include="admin-panel\orders.Master" />
+    <Content Include="admin-panel\customers.Master" />
+    <Content Include="admin-panel\analytics.Master" />
+    <Content Include="admin-panel\order-details.Master" />
+    <Content Include="admin-panel\add-edit-product.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />

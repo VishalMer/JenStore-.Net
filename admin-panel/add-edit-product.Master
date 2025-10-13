@@ -1,0 +1,535 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="add-edit-product.master.cs" Inherits="JenStore.admin_panel.add_edit_product" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Add/Edit Product - JenStore Admin</title>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                    <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+                    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+                    <style>
+                    	body {
+                    		font-family: 'Poppins', sans-serif;
+                    		background: #f8f9fa;
+                    	}
+
+                    	.admin-header {
+                    		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    		color: white;
+                    		padding: 20px 0;
+                    		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    	}
+
+                    	.admin-nav {
+                    		background: white;
+                    		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    		padding: 15px 0;
+                    	}
+
+                    		.admin-nav .nav-link {
+                    			color: #333;
+                    			font-weight: 500;
+                    			padding: 10px 20px;
+                    			margin: 0 5px;
+                    			border-radius: 5px;
+                    			transition: all 0.3s ease;
+                    		}
+
+                    			.admin-nav .nav-link:hover,
+                    			.admin-nav .nav-link.active {
+                    				background: #667eea;
+                    				color: white;
+                    				text-decoration: none;
+                    			}
+                    	/* Header Action Buttons */
+                    	.btn-store {
+                    		background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+                    		color: #fff !important;
+                    		border: 0;
+                    		border-radius: 30px;
+                    		padding: 8px 16px;
+                    		box-shadow: 0 6px 18px rgba(0,114,255,.35);
+                    		transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+                    	}
+
+                    		.btn-store:hover {
+                    			transform: translateY(-2px);
+                    			box-shadow: 0 10px 24px rgba(0,114,255,.45);
+                    			text-decoration: none;
+                    			opacity: .95;
+                    		}
+
+                    	.btn-logout {
+                    		background: linear-gradient(135deg, #ff5858 0%, #f857a6 100%);
+                    		color: #fff !important;
+                    		border: 0;
+                    		border-radius: 30px;
+                    		padding: 8px 16px;
+                    		box-shadow: 0 6px 18px rgba(248,87,166,.35);
+                    		transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+                    	}
+
+                    		.btn-logout:hover {
+                    			transform: translateY(-2px);
+                    			box-shadow: 0 10px 24px rgba(248,87,166,.45);
+                    			text-decoration: none;
+                    			opacity: .95;
+                    		}
+
+                    	.content-container {
+                    		padding: 40px 0;
+                    	}
+
+                    	.page-header {
+                    		background: white;
+                    		padding: 25px;
+                    		border-radius: 10px;
+                    		box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    		margin-bottom: 30px;
+                    	}
+
+                    	.product-form {
+                    		background: white;
+                    		border-radius: 10px;
+                    		padding: 30px;
+                    		box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    	}
+
+                    	.form-section {
+                    		border-bottom: 1px solid #eee;
+                    		padding-bottom: 25px;
+                    		margin-bottom: 25px;
+                    	}
+
+                    		.form-section:last-child {
+                    			border-bottom: none;
+                    			padding-bottom: 0;
+                    			margin-bottom: 0;
+                    		}
+
+                    	.section-title {
+                    		color: #333;
+                    		font-size: 18px;
+                    		font-weight: 600;
+                    		margin-bottom: 20px;
+                    		padding-bottom: 10px;
+                    		border-bottom: 2px solid #667eea;
+                    	}
+
+                    	.image-upload-area {
+                    		border: 2px dashed #ddd;
+                    		border-radius: 10px;
+                    		padding: 40px;
+                    		text-align: center;
+                    		background: #f8f9fa;
+                    		cursor: pointer;
+                    		transition: all 0.3s ease;
+                    	}
+
+                    		.image-upload-area:hover {
+                    			border-color: #667eea;
+                    			background: #f0f2ff;
+                    		}
+
+                    		.image-upload-area.dragover {
+                    			border-color: #667eea;
+                    			background: #e8f0ff;
+                    		}
+
+                    	.upload-icon {
+                    		font-size: 48px;
+                    		color: #667eea;
+                    		margin-bottom: 15px;
+                    	}
+
+                    	.preview-image {
+                    		max-width: 200px;
+                    		max-height: 200px;
+                    		border-radius: 8px;
+                    		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    	}
+
+                    	.category-checkboxes {
+                    		max-height: 200px;
+                    		overflow-y: auto;
+                    		border: 1px solid #ddd;
+                    		border-radius: 5px;
+                    		padding: 15px;
+                    		background: #f8f9fa;
+                    	}
+
+                    	.category-item {
+                    		display: flex;
+                    		align-items: center;
+                    		margin-bottom: 10px;
+                    	}
+
+                    		.category-item:last-child {
+                    			margin-bottom: 0;
+                    		}
+
+                    		.category-item input[type="checkbox"] {
+                    			margin-right: 10px;
+                    		}
+
+                    	.badge-options {
+                    		display: flex;
+                    		flex-wrap: wrap;
+                    		gap: 10px;
+                    	}
+
+                    	.badge-option {
+                    		padding: 8px 16px;
+                    		border: 2px solid #ddd;
+                    		border-radius: 20px;
+                    		cursor: pointer;
+                    		transition: all 0.3s ease;
+                    	}
+
+                    		.badge-option:hover {
+                    			border-color: #667eea;
+                    			background: #f0f2ff;
+                    		}
+
+                    		.badge-option.selected {
+                    			border-color: #667eea;
+                    			background: #667eea;
+                    			color: white;
+                    		}
+
+                    	.form-actions {
+                    		background: #f8f9fa;
+                    		padding: 20px;
+                    		border-radius: 10px;
+                    		margin-top: 30px;
+                    	}
+                    </style>
+                    <link rel="stylesheet" href="../css/admin.css">
+                </head>
+                <body>
+                    <!-- Admin Header -->
+                    <header class="admin-header">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h1><i class="fas fa-edit"></i>Add/Edit Product</h1>
+                                    <p class="mb-0" id="page-subtitle">Create a new product for your store</p>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <a href="products.html" class="btn btn-outline-light btn-sm">
+                                        <i class="fas fa-arrow-left"></i>Back to Products
+                                    </a>
+                                    <a href="../home.html" class="btn btn-store btn-sm ml-2">
+                                        <i class="fas fa-home"></i>Back to Store
+                                    </a>
+                                    <a href="../login_register.html" class="btn btn-logout btn-sm ml-2">
+                                        <i class="fas fa-sign-out-alt"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Admin Navigation -->
+                    <nav class="admin-nav">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="index.html" class="nav-link">
+                                        <i class="fas fa-tachometer-alt"></i>Dashboard
+                                    </a>
+                                    <a href="products.html" class="nav-link active">
+                                        <i class="fas fa-box"></i>Products
+                                    </a>
+                                    <a href="categories.html" class="nav-link">
+                                        <i class="fas fa-tags"></i>Categories
+                                    </a>
+                                    <a href="orders.html" class="nav-link">
+                                        <i class="fas fa-shopping-cart"></i>Orders
+                                    </a>
+                                    <a href="customers.html" class="nav-link">
+                                        <i class="fas fa-users"></i>Customers
+                                    </a>
+                                    <a href="analytics.html" class="nav-link">
+                                        <i class="fas fa-chart-bar"></i>Analytics
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- Main Content -->
+                    <div class="content-container">
+                        <div class="container">
+                            <!-- Page Header -->
+                            <div class="page-header">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <h2 id="page-title"><i class="fas fa-plus"></i>Add New Product</h2>
+                                        <p class="mb-0">Fill in the details below to create a new product</p>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <button type="button" class="btn btn-secondary btn-lg" onclick="resetForm()">
+                                            <i class="fas fa-undo"></i>Reset Form
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product Form -->
+                            <form class="product-form" id="productForm">
+                                <!-- Basic Information -->
+                                <div class="form-section">
+                                    <h3 class="section-title"><i class="fas fa-info-circle"></i>Basic Information</h3>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="productName">Product Name *</label>
+                                                <input type="text" class="form-control" id="productName" name="product_name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="productBadge">Badge</label>
+                                                <select class="form-control" id="productBadge" name="badge">
+                                                    <option value="">No Badge</option>
+                                                    <option value="sale">Sale</option>
+                                                    <option value="new">New</option>
+                                                    <option value="popular">Popular</option>
+                                                    <option value="featured">Featured</option>
+                                                    <option value="limited">Limited</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productDescription">Description *</label>
+                                        <textarea class="form-control" id="productDescription" name="description" rows="4" required></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Pricing -->
+                                <div class="form-section">
+                                    <h3 class="section-title"><i class="fas fa-dollar-sign"></i>Pricing</h3>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="productPrice">Price *</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="number" class="form-control" id="productPrice" name="price" step="0.01" min="0" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="productOldPrice">Old Price</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="number" class="form-control" id="productOldPrice" name="old_price" step="0.01" min="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="productStock">Stock</label>
+                                                <input type="number" class="form-control" id="productStock" name="stock_quantity" min="0" placeholder="Enter available stock">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Image Upload -->
+                                <div class="form-section">
+                                    <h3 class="section-title"><i class="fas fa-image"></i>Product Image</h3>
+                                    <div class="image-upload-area" id="imageUploadArea" onclick="document.getElementById('imageInput').click()">
+                                        <div id="uploadContent">
+                                            <div class="upload-icon">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                            </div>
+                                            <h4>Click to upload image</h4>
+                                            <p>or drag and drop</p>
+                                            <p><small>PNG, JPG, GIF up to 5MB</small></p>
+                                        </div>
+                                        <img id="previewImage" class="preview-image" style="display: none;">
+                                    </div>
+                                    <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                                    <input type="hidden" id="imageUrl" name="image_url">
+                                </div>
+
+                                <!-- Categories -->
+                                <div class="form-section">
+                                    <h3 class="section-title"><i class="fas fa-tags"></i>Categories</h3>
+                                    <div class="category-checkboxes">
+                                        <div class="category-item">
+                                            <input type="checkbox" id="cat-roses" name="categories[]" value="roses">
+                                            <label for="cat-roses">Roses</label>
+                                        </div>
+                                        <div class="category-item">
+                                            <input type="checkbox" id="cat-bouquets" name="categories[]" value="bouquets">
+                                            <label for="cat-bouquets">Bouquets</label>
+                                        </div>
+                                        <div class="category-item">
+                                            <input type="checkbox" id="cat-tulips" name="categories[]" value="tulips">
+                                            <label for="cat-tulips">Tulips</label>
+                                        </div>
+                                        <div class="category-item">
+                                            <input type="checkbox" id="cat-seasonal" name="categories[]" value="seasonal">
+                                            <label for="cat-seasonal">Seasonal</label>
+                                        </div>
+                                        <div class="category-item">
+                                            <input type="checkbox" id="cat-premium" name="categories[]" value="premium">
+                                            <label for="cat-premium">Premium</label>
+                                        </div>
+                                        <div class="category-item">
+                                            <input type="checkbox" id="cat-wildflowers" name="categories[]" value="wildflowers">
+                                            <label for="cat-wildflowers">Wildflowers</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Details removed as requested -->
+
+                                <!-- Form Actions -->
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='products.html'">
+                                                <i class="fas fa-times"></i>Cancel
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <button type="submit" class="btn btn-success btn-lg">
+                                                <i class="fas fa-save"></i>Save Product
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                    <script>
+                        // Check if we're editing an existing product
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const productId = urlParams.get('id');
+
+                        if (productId) {
+                            // We're editing - load product data
+                            loadProductData(productId);
+                        }
+
+                        function loadProductData(id) {
+                            // This would typically make an API call to get product data
+                            // For now, we'll simulate loading data
+                            document.getElementById('page-title').innerHTML = '<i class="fas fa-edit"></i> Edit Product';
+                            document.getElementById('page-subtitle').textContent = 'Update the product information below';
+
+                            // Simulate loading product data
+                            setTimeout(() => {
+                                document.getElementById('productName').value = 'Rose Bouquet';
+                                document.getElementById('productDescription').value = 'Beautiful red roses arranged in a stunning bouquet perfect for any occasion.';
+                                document.getElementById('productPrice').value = '89.99';
+                                document.getElementById('productOldPrice').value = '99.99';
+                                document.getElementById('productBadge').value = 'sale';
+                                const stockField = document.getElementById('productStock');
+                                if (stockField) stockField.value = '20';
+                                document.getElementById('cat-roses').checked = true;
+                                document.getElementById('cat-bouquets').checked = true;
+
+                                // Show preview image
+                                document.getElementById('previewImage').src = '../img/340x420(buqet rose).jpg';
+                                document.getElementById('previewImage').style.display = 'block';
+                                document.getElementById('uploadContent').style.display = 'none';
+                            }, 500);
+                        }
+
+                        function handleImageUpload(event) {
+                            const file = event.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                reader.onload = function (e) {
+                                    document.getElementById('previewImage').src = e.target.result;
+                                    document.getElementById('previewImage').style.display = 'block';
+                                    document.getElementById('uploadContent').style.display = 'none';
+                                    document.getElementById('imageUrl').value = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        }
+
+                        function resetForm() {
+                            document.getElementById('productForm').reset();
+                            document.getElementById('previewImage').style.display = 'none';
+                            document.getElementById('uploadContent').style.display = 'block';
+                            document.getElementById('imageUrl').value = '';
+                        }
+
+                        // Handle form submission
+                        document.getElementById('productForm').addEventListener('submit', function (e) {
+                            e.preventDefault();
+
+                            // Collect form data
+                            const formData = new FormData(this);
+
+                            // Here you would typically make an API call to save the product
+                            console.log('Saving product...', Object.fromEntries(formData));
+
+                            alert('Product saved successfully!');
+
+                            // Redirect back to products page
+                            window.location.href = 'products.html';
+                        });
+
+                        // Drag and drop functionality
+                        const imageUploadArea = document.getElementById('imageUploadArea');
+
+                        imageUploadArea.addEventListener('dragover', function (e) {
+                            e.preventDefault();
+                            this.classList.add('dragover');
+                        });
+
+                        imageUploadArea.addEventListener('dragleave', function (e) {
+                            e.preventDefault();
+                            this.classList.remove('dragover');
+                        });
+
+                        imageUploadArea.addEventListener('drop', function (e) {
+                            e.preventDefault();
+                            this.classList.remove('dragover');
+
+                            const files = e.dataTransfer.files;
+                            if (files.length > 0) {
+                                document.getElementById('imageInput').files = files;
+                                handleImageUpload({ target: { files: files } });
+                            }
+                        });
+                    </script>
+                </body>
+                </html>
+
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
