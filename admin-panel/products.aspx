@@ -153,14 +153,28 @@
                 font-weight: 600;
             }
 
-            .status-active {
-                background: #d4edda;
-                color: #155724;
+            .stock-ok {
+                font-weight: bold;
+                color: #155724; /* Darker Green for better contrast */
+                background-color: #d4edda; /* Light Green */
+                padding: 3px 8px;
+                border-radius: 12px;
             }
 
-            .status-inactive {
-                background: #f8d7da;
-                color: #721c24;
+            .stock-low {
+                font-weight: bold;
+                color: #856404; /* Darker Yellow/Orange for better contrast */
+                background-color: #fff3cd; /* Light Yellow/Orange */
+                padding: 3px 8px;
+                border-radius: 12px;
+            }
+
+            .stock-out-of-stock {
+                font-weight: bold;
+                color: #dc3545; /* Red */
+                background-color: #f8d7da;
+                padding: 3px 6px;
+                border-radius: 12px;
             }
 
             .search-box {
@@ -241,148 +255,74 @@
 
                 <!-- Products Table -->
                 <div class="products-table">
-                    <div class="table-header">
-                        <h4 class="mb-0">Product List</h4>
-                    </div>
                     <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Old Price</th>
-                                    <th>Badge</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="../img/340x420(buqet rose).jpg" alt="Rose Bouquet" class="product-image">
-                                    </td>
-                                    <td><strong>Rose Bouquet</strong><br>
-                                        <small class="text-muted">Beautiful red roses arranged in a stunning bouquet</small> </td>
-                                    <td>Bouquets, Roses</td>
-                                    <td><strong>$89.99</strong></td>
-                                    <td><del>$99.99</del></td>
-                                    <td><span class="badge badge-warning">Sale</span></td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>
+                        <asp:GridView ID="gvProducts" runat="server"
+                            AutoGenerateColumns="False"
+                            CssClass="table table-hover mb-0"
+                            GridLines="None"
+                            OnRowCommand="gvProducts_RowCommand">
+                            <Columns>
+                                <asp:TemplateField HeaderText="Image">
+                                    <ItemTemplate>
+                                        <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# "~/" + Eval("image_url") %>' CssClass="product-image" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Product Name">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("product_name") %></strong><br />
+                                        <small class="text-muted"><%# Eval("description") %></small>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+ <asp:TemplateField HeaderText="Category">
+            <ItemTemplate>
+                <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("category_names") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>                                <asp:TemplateField HeaderText="Price">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("price", "{0:C}") %></strong>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <%--<asp:TemplateField HeaderText="Old Price">
+                                    <ItemTemplate>
+                                        <del><%# (Eval("old_price") != DBNull.Value && Convert.ToDecimal(Eval("old_price")) > 0) ? string.Format("{0:C}", Eval("old_price")) : "" %></del>
+                                    </ItemTemplate>
+                                </asp:TemplateField>--%>
+                                <asp:TemplateField HeaderText="Stock">
+                                    <ItemTemplate>
+                                        <span class='<%# GetStockStatusClass(Eval("stock_quantity")) %>'>
+                                            <%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? Eval("stock_quantity") : "Out" %>
+                </span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Actions">
+                                    <ItemTemplate>
                                         <div class="action-buttons">
-                                            <button class="btn-edit" onclick="window.location.href='add-edit-product.aspx?id=1'">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteProduct(1)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
+                                            <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn-edit" CommandName="EditProduct" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-edit"></i> Edit</asp:LinkButton>
+                                            <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn-delete" CommandName="DeleteProduct" CommandArgument='<%# Eval("product_id") %>' OnClientClick="return confirm('Are you sure you want to delete this product?');"><i class="fas fa-trash"></i> Delete</asp:LinkButton>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/340x420(tulip yellow).jpg" alt="Yellow Tulips" class="product-image">
-                                    </td>
-                                    <td><strong>Yellow Tulips</strong><br>
-                                        <small class="text-muted">Fresh yellow tulips perfect for spring</small> </td>
-                                    <td>Tulips, Seasonal</td>
-                                    <td><strong>$45.50</strong></td>
-                                    <td><del>$55.00</del></td>
-                                    <td><span class="badge badge-info">New</span></td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="window.location.href='add-edit-product.aspx?id=2'">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteProduct(2)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/340x420(cottage).jpg" alt="Cottage Garden" class="product-image">
-                                    </td>
-                                    <td><strong>Cottage Garden Mix</strong><br>
-                                        <small class="text-muted">Wildflower mix perfect for cottage gardens</small> </td>
-                                    <td>Bouquets, Seasonal</td>
-                                    <td><strong>$67.25</strong></td>
-                                    <td><del>$75.00</del></td>
-                                    <td><span class="badge badge-success">Popular</span></td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="window.location.href='add-edit-product.aspx?id=3'">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteProduct(3)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/340x420(winter white buqet).jpg" alt="Winter White" class="product-image">
-                                    </td>
-                                    <td><strong>Winter White Bouquet</strong><br>
-                                        <small class="text-muted">Elegant white flowers for winter occasions</small> </td>
-                                    <td>Bouquets, Seasonal</td>
-                                    <td><strong>$78.99</strong></td>
-                                    <td><del>$88.99</del></td>
-                                    <td><span class="badge badge-primary">Featured</span></td>
-                                    <td><span class="status-badge status-inactive">Inactive</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="window.location.href='add-edit-product.aspx?id=4'">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteProduct(4)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/340x420(queen rose).jpg" alt="Queen Rose" class="product-image">
-                                    </td>
-                                    <td><strong>Queen Rose Collection</strong><br>
-                                        <small class="text-muted">Premium roses in elegant arrangements</small> </td>
-                                    <td>Roses, Premium</td>
-                                    <td><strong>$125.00</strong></td>
-                                    <td><del>$150.00</del></td>
-                                    <td><span class="badge badge-danger">Limited</span></td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="window.location.href='add-edit-product.aspx?id=5'">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteProduct(5)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
 
-                <!-- Pagination -->
                 <div class="text-center mt-4">
                     <nav>
                         <ul class="pagination">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a> </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a> </li>
+                            <li class='<%# !lnkPrev.Enabled ? "page-item disabled" : "page-item" %>'>
+                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="page-link" OnClick="lnkPrev_Click">Previous</asp:LinkButton>
+                            </li>
+                            <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
+                                <ItemTemplate>
+                                    <li class='<%# Convert.ToBoolean(Eval("Enabled")) ? "page-item active" : "page-item" %>'>
+                                        <asp:LinkButton ID="lnkPage" runat="server" CssClass="page-link" CommandName="Page" CommandArgument='<%# Eval("Value") %>'><%# Eval("Text") %></asp:LinkButton>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <li class='<%# !lnkNext.Enabled ? "page-item disabled" : "page-item" %>'>
+                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="page-link" OnClick="lnkNext_Click">Next</asp:LinkButton>
+                            </li>
                         </ul>
                     </nav>
                 </div>
