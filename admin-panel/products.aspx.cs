@@ -17,7 +17,6 @@ namespace JenStore.admin_panel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Open connection and leave it open as requested
             getcon();
 
             if (Session["UserID"] == null)
@@ -41,7 +40,6 @@ namespace JenStore.admin_panel
 
         private void BindProducts()
         {
-            // Using non-parameterized query and SqlDataAdapter as requested
             string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.image_url, p.stock_quantity, stuff((select top 2 ', ' + c.category_name from categories c inner join product_categories pc on c.category_id = pc.category_id where pc.product_id = p.product_id order by c.category_name for xml path('')), 1, 2, '') as category_names from products p order by p.product_id desc";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             DataSet ds = new DataSet();
@@ -50,14 +48,12 @@ namespace JenStore.admin_panel
             PagedDataSource pg = new PagedDataSource();
             pg.DataSource = ds.Tables[0].DefaultView;
             pg.AllowPaging = true;
-            pg.PageSize = 5; // 5 rows per page as requested
+            pg.PageSize = 5; 
             pg.CurrentPageIndex = (int)ViewState["PageIndex"];
 
-            // Enable/disable previous and next buttons
             lnkPrev.Enabled = !pg.IsFirstPage;
             lnkNext.Enabled = !pg.IsLastPage;
 
-            // Bind the page numbers to the repeater
             var pages = new List<ListItem>();
             for (int i = 0; i < pg.PageCount; i++)
             {
@@ -66,7 +62,6 @@ namespace JenStore.admin_panel
             rptPager.DataSource = pages;
             rptPager.DataBind();
 
-            // Bind the paged data to the GridView
             gvProducts.DataSource = pg;
             gvProducts.DataBind();
         }
@@ -84,7 +79,7 @@ namespace JenStore.admin_panel
         protected void lnkNext_Click(object sender, EventArgs e)
         {
             int currentPage = (int)ViewState["PageIndex"];
-            // We can add a check here, but PagedDataSource handles the last page
+
             ViewState["PageIndex"] = currentPage + 1;
             BindProducts();
         }
@@ -108,14 +103,12 @@ namespace JenStore.admin_panel
             }
             else if (e.CommandName == "DeleteProduct")
             {
-                // Using non-parameterized query as requested
                 SqlCommand cmd = new SqlCommand("delete from products where product_id = " + productId, con);
                 cmd.ExecuteNonQuery();
-                BindProducts(); // Refresh the grid
+                BindProducts();
             }
         }
 
-        // Helper method for status badge CSS
         public string GetStockStatusClass(object stockObj)
         {
             if (stockObj == DBNull.Value) return "stock-out-of-stock";
@@ -125,7 +118,7 @@ namespace JenStore.admin_panel
             {
                 return "stock-out-of-stock";
             }
-            if (stock <= 10) // Set your low-stock threshold here
+            if (stock <= 10) 
             {
                 return "stock-low";
             }
