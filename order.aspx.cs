@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CrystalDecisions.Shared;
 
 namespace JenStore
 {
@@ -83,6 +84,11 @@ namespace JenStore
             lblShipping.Text = shippingFee.ToString("C");
             lblGrandTotal.Text = grandTotal.ToString("C");
 
+        }
+
+        protected void btnDownloadInvoice_Click(object sender, EventArgs e)
+        {
+           
         }
 
         void getcon()

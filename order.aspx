@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                      
+
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
@@ -279,7 +279,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="order-actions">
-                                <a href="#" class="btn btn-primary">Download Invoice</a> <a href="#" class="btn btn-secondary">Track Order</a> <a href="#" class="btn btn-outline">Reorder Items</a>
+                                <asp:Button ID="btnDownloadInvoice" runat="server" Text="Download Invoice" CssClass="btn btn-primary" OnClick="btnDownloadInvoice_Click" />
+                                <a href="#" class="btn btn-secondary">Track Order</a>
+                                <a href="#" class="btn btn-outline">Reorder Items</a>
                             </div>
                         </div>
                     </div>
@@ -287,93 +289,7 @@
             </div>
             <!-- End Order Details Section -->
 
-            <!-- Order History Section -->
-            <%-- <div class="container container-ver2">
-                <div class="order-history-section">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="order-history-title">Order History</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="order-history-table-container">
-                                <asp:GridView ID="gvOrderHistory" runat="server"
-                                    AutoGenerateColumns="False"
-                                    CssClass="order-history-table"
-                                    GridLines="None"
-                                    AllowPaging="True"
-                                    PageSize="5"
-                                    OnPageIndexChanging="gvOrderHistory_PageIndexChanging"
-                                    OnRowCommand="gvOrderHistory_RowCommand">
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="Order ID">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblGridOrderId" runat="server" Text='<%# "#ORD-" + Eval("order_id") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="order-id" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Order Date">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblGridOrderDate" runat="server" Text='<%# Eval("order_date", "{0:MMM dd, yyyy}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="order-date" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Status">
-                                            <ItemTemplate>
-                                                <span class='status-badge <%# GetStatusClass(Eval("order_status")) %>'>
-                                                    <%# Eval("order_status") %>
-                                                </span>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="order-status" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Total Amount">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblGridTotalAmount" runat="server" Text='<%# Eval("total_amount", "{0:C}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="order-total" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Payment Method">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblGridPaymentMethod" runat="server" Text='<%# Eval("payment_method") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="payment-method" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Actions">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="btnViewDetails" runat="server"
-                                                    CssClass="btn-view-details"
-                                                    CommandName="ViewDetails"
-                                                    CommandArgument='<%# Eval("order_id") %>'
-                                                    Text="View Details">
-                                                </asp:LinkButton>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="order-actions" />
-                                        </asp:TemplateField>
-                                    </Columns>
-                                    <PagerStyle CssClass="pagination-container" />
-                                </asp:GridView>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pagination-container">
-                                <nav aria-label="Order history pagination">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a> </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a> </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a> </li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a> </li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a> </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
-            <!-- End Order History Section -->
+
             <!-- End container -->
             <div class="info-footer">
                 <div class="container">
