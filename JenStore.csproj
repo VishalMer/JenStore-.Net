@@ -470,11 +470,6 @@
     <Compile Include="contact.Master.designer.cs">
       <DependentUpon>contact.Master</DependentUpon>
     </Compile>
-    <Compile Include="dsInvoice.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsInvoice.xsd</DependentUpon>
-    </Compile>
     <Compile Include="edit-profile.aspx.cs">
       <DependentUpon>edit-profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -674,17 +669,6 @@
     <Content Include="admin-panel\analytics.Master" />
     <Content Include="admin-panel\order-details.Master" />
     <Content Include="admin-panel\add-edit-product.Master" />
-    <Content Include="dsInvoice.xsc">
-      <DependentUpon>dsInvoice.xsd</DependentUpon>
-    </Content>
-    <None Include="dsInvoice.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsInvoice.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="dsInvoice.xss">
-      <DependentUpon>dsInvoice.xsd</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
