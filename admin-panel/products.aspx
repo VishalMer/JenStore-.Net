@@ -260,7 +260,7 @@
                             AutoGenerateColumns="False"
                             CssClass="table table-hover mb-0"
                             GridLines="None"
-                            OnRowCommand="gvProducts_RowCommand">
+                            OnRowCommand="gv_Command">
                             <Columns>
                                 <asp:TemplateField HeaderText="Image">
                                     <ItemTemplate>
@@ -289,7 +289,7 @@
                                 </asp:TemplateField>--%>
                                 <asp:TemplateField HeaderText="Stock">
                                     <ItemTemplate>
-                                        <span class='<%# GetStockStatusClass(Eval("stock_quantity")) %>'>
+                                        <span class='<%# GetStockStatus(Eval("stock_quantity")) %>'>
                                             <%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? Eval("stock_quantity") : "Out" %>
                 </span>
                                     </ItemTemplate>
