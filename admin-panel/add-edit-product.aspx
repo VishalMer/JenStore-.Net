@@ -247,167 +247,96 @@
             <div class="container">
                 <!-- Page Header -->
                 <div class="page-header">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <h2 id="page-title"><i class="fas fa-plus"></i>Add New Product</h2>
-                            <p class="mb-0">
-                                Fill in the details below to create a new product
-                            </p>
+                    <div class="page-header">
+                        <h2><i class="fas fa-edit"></i>
+                            <asp:Label ID="lblPageTitle" runat="server" Text="Add New Product"></asp:Label></h2>
+                        <p>
+                            <asp:Label ID="lblPageSubtitle" runat="server" Text="Fill in the details below to create a new product"></asp:Label></p>
+                    </div>
+
+                    <div class="product-form">
+                        <asp:HiddenField ID="hdnProductId" runat="server" Value="0" />
+                        <asp:HiddenField ID="hdnExistingImage" runat="server" />
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-info-circle"></i>Basic Information</h3>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="txtProductName">Product Name *</label>
+                                        <asp:TextBox ID="txtProductName" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="ddlBadge">Badge</label>
+                                        <asp:DropDownList ID="ddlBadge" runat="server" CssClass="form-control">
+                                            <asp:ListItem Value="">No Badge</asp:ListItem>
+                                            <asp:ListItem Value="sale">Sale</asp:ListItem>
+                                            <asp:ListItem Value="new">New</asp:ListItem>
+                                            <asp:ListItem Value="popular">Popular</asp:ListItem>
+                                            <asp:ListItem Value="featured">Featured</asp:ListItem>
+                                            <asp:ListItem Value="limited">Limited</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtDescription">Description *</label>
+                                <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" required="true"></asp:TextBox>
+                            </div>
                         </div>
-                        <div class="col-md-6 text-right">
-                            <button type="button" class="btn btn-secondary btn-lg" onclick="resetForm()">
-                                <i class="fas fa-undo"></i>Reset Form
-                            </button>
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-dollar-sign"></i>Pricing</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="txtPrice">Price *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">$</span>
+                                            <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control" TextMode="Number" required="true"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="txtOldPrice">Old Price</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">$</span>
+                                            <asp:TextBox ID="txtOldPrice" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="txtStock">Stock *</label>
+                                        <asp:TextBox ID="txtStock" runat="server" CssClass="form-control" TextMode="Number" required="true"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-image"></i>Product Image</h3>
+                            <asp:FileUpload ID="fileUploadImage" runat="server" CssClass="form-control" />
+                            <asp:Image ID="imgPreview" runat="server" CssClass="preview-image" Style="margin-top: 15px;" Visible="false" />
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-tags"></i>Categories</h3>
+                            <div class="category-checkboxes">
+                                <asp:CheckBoxList ID="cblCategories" runat="server"></asp:CheckBoxList>
+                            </div>
+                        </div>
+
+                        <div class="form-actions text-right">
+                            <asp:Button ID="btnSave" runat="server" Text="Save Product" CssClass="btn btn-success btn-lg" OnClick="btnSave_Click" />
+                            <a href="products.aspx" class="btn btn-secondary btn-lg">Cancel</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product Form -->
-                <form class="product-form" id="productForm">
-                    <!-- Basic Information -->
-                    <div class="form-section">
-                        <h3 class="section-title"><i class="fas fa-info-circle"></i>Basic Information</h3>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="productName">
-                                        Product Name *</label>
-                                    <input type="text" class="form-control" id="productName" name="product_name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="productBadge">
-                                        Badge</label>
-                                    <select class="form-control" id="productBadge" name="badge">
-                                        <option value="">No Badge</option>
-                                        <option value="sale">Sale</option>
-                                        <option value="new">New</option>
-                                        <option value="popular">Popular</option>
-                                        <option value="featured">Featured</option>
-                                        <option value="limited">Limited</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="productDescription">
-                                Description *</label>
-                            <textarea class="form-control" id="productDescription" name="description" rows="4" required></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Pricing -->
-                    <div class="form-section">
-                        <h3 class="section-title"><i class="fas fa-dollar-sign"></i>Pricing</h3>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="productPrice">
-                                        Price *</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">$</span>
-                                        <input type="number" class="form-control" id="productPrice" name="price" step="0.01" min="0" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="productOldPrice">
-                                        Old Price</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">$</span>
-                                        <input type="number" class="form-control" id="productOldPrice" name="old_price" step="0.01" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="productStock">
-                                        Stock</label>
-                                    <input type="number" class="form-control" id="productStock" name="stock_quantity" min="0" placeholder="Enter available stock">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Image Upload -->
-                    <div class="form-section">
-                        <h3 class="section-title"><i class="fas fa-image"></i>Product Image</h3>
-                        <div class="image-upload-area" id="imageUploadArea" onclick="document.getElementById('imageInput').click()">
-                            <div id="uploadContent">
-                                <div class="upload-icon">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                </div>
-                                <h4>Click to upload image</h4>
-                                <p>
-                                    or drag and drop
-                                </p>
-                                <p>
-                                    <small>PNG, JPG, GIF up to 5MB</small>
-                                </p>
-                            </div>
-                            <img id="previewImage" class="preview-image" style="display: none;">
-                        </div>
-                        <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
-                        <input type="hidden" id="imageUrl" name="image_url">
-                    </div>
-
-                    <!-- Categories -->
-                    <div class="form-section">
-                        <h3 class="section-title"><i class="fas fa-tags"></i>Categories</h3>
-                        <div class="category-checkboxes">
-                            <div class="category-item">
-                                <input type="checkbox" id="cat-roses" name="categories[]" value="roses">
-                                <label for="cat-roses">
-                                    Roses</label>
-                            </div>
-                            <div class="category-item">
-                                <input type="checkbox" id="cat-bouquets" name="categories[]" value="bouquets">
-                                <label for="cat-bouquets">
-                                    Bouquets</label>
-                            </div>
-                            <div class="category-item">
-                                <input type="checkbox" id="cat-tulips" name="categories[]" value="tulips">
-                                <label for="cat-tulips">
-                                    Tulips</label>
-                            </div>
-                            <div class="category-item">
-                                <input type="checkbox" id="cat-seasonal" name="categories[]" value="seasonal">
-                                <label for="cat-seasonal">
-                                    Seasonal</label>
-                            </div>
-                            <div class="category-item">
-                                <input type="checkbox" id="cat-premium" name="categories[]" value="premium">
-                                <label for="cat-premium">
-                                    Premium</label>
-                            </div>
-                            <div class="category-item">
-                                <input type="checkbox" id="cat-wildflowers" name="categories[]" value="wildflowers">
-                                <label for="cat-wildflowers">
-                                    Wildflowers</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Additional Details removed as requested -->
-
-                    <!-- Form Actions -->
-                    <div class="form-actions">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='products.aspx'">
-                                    <i class="fas fa-times"></i>Cancel
-                                </button>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <button type="submit" class="btn btn-success btn-lg">
-                                    <i class="fas fa-save"></i>Save Product
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
 
