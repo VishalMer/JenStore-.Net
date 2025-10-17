@@ -733,7 +733,9 @@
     <Content Include="wishlist.aspx" />
     <Content Include="wishlist.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="img\product_img\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

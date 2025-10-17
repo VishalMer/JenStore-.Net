@@ -251,7 +251,8 @@
                         <h2><i class="fas fa-edit"></i>
                             <asp:Label ID="lblPageTitle" runat="server" Text="Add New Product"></asp:Label></h2>
                         <p>
-                            <asp:Label ID="lblPageSubtitle" runat="server" Text="Fill in the details below to create a new product"></asp:Label></p>
+                            <asp:Label ID="lblPageSubtitle" runat="server" Text="Fill in the details below to create a new product"></asp:Label>
+                        </p>
                     </div>
 
                     <div class="product-form">
@@ -325,8 +326,9 @@
 
                         <div class="form-section">
                             <h3 class="section-title"><i class="fas fa-tags"></i>Categories</h3>
-                            <div class="category-checkboxes">
-                                <asp:CheckBoxList ID="cblCategories" runat="server"></asp:CheckBoxList>
+                            <div class="form-group">
+                                <label for="ddlCategories">Category *</label>
+                                <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlCategories_cmd"></asp:DropDownList>
                             </div>
                         </div>
 
