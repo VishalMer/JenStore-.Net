@@ -31,12 +31,15 @@ namespace JenStore.admin_panel
             {
                 if (!IsPostBack)
                 {
+                    fillCategory();
+
                     if (Request.QueryString["product_id"] != null)
                     {
                         int productId = Convert.ToInt32(Request.QueryString["product_id"]);
                         lblPageTitle.Text = "Edit Product";
                         lblPageSubtitle.Text = "Update the product information below";
-                        hdnProductId.Value = Request.QueryString["id"];
+                        hdnProductId.Value = Request.QueryString["product_id"];
+                        loadProductData(productId.ToString());
 
                     }
                     else
@@ -76,22 +79,96 @@ namespace JenStore.admin_panel
             txtOldPrice.Text = "";
             txtStock.Text = "";
             ddlBadge.SelectedIndex = 0;
-            ddlCategories.SelectedIndex = 0;
+            
         }
         void fillCategory()
         {
-            getcon();
-            da = new SqlDataAdapter("select * from categories", con);
+            da = new SqlDataAdapter("select category_id, category_name from categories order by category_name", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            cblCategories.DataSource = ds;
+            cblCategories.DataTextField = "category_name";
+            cblCategories.DataValueField = "category_id";
+            cblCategories.DataBind();
+        }
+
+        void loadProductData(string productId)
+        {
+            da = new SqlDataAdapter("select * from products where product_id = " + productId, con);
             ds = new DataSet();
             da.Fill(ds);
 
-            ddlCategories.Items.Clear();
-            ddlCategories.Items.Add("-- select category --");
-
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                ddlCategories.Items.Add(ds.Tables[0].Rows[i][1].ToString());
+                DataRow row = ds.Tables[0].Rows[0];
+                txtProductName.Text = row["product_name"].ToString();
+                txtDescription.Text = row["description"].ToString();
+                txtPrice.Text = row["price"].ToString();
+                txtOldPrice.Text = row["old_price"].ToString();
+                txtStock.Text = row["stock_quantity"].ToString();
+                ddlBadge.SelectedValue = row["badge"].ToString();
+
+                if (row["image_url"] != DBNull.Value)
+                {
+                    imgPreview.ImageUrl = "~/img/" + row["image_url"].ToString();
+                    imgPreview.Visible = true;
+                    hdnExistingImage.Value = row["image_url"].ToString();
+                }
+
+                da = new SqlDataAdapter("select category_id from product_categories where product_id = " + productId, con);
+                DataSet dsCats = new DataSet();
+                da.Fill(dsCats);
+
+                foreach (DataRow catRow in dsCats.Tables[0].Rows)
+                {
+                    ListItem item = cblCategories.Items.FindByValue(catRow["category_id"].ToString());
+                    if (item != null)
+                    {
+                        item.Selected = true;
+                    }
+                }
             }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            string productId = hdnProductId.Value;
+            string prod_name = txtProductName.Text;
+            string prod_desc = txtDescription.Text; 
+            string price = txtPrice.Text;
+            string old_price = string.IsNullOrEmpty(txtOldPrice.Text) ? "null" : txtOldPrice.Text;
+            string stock = txtStock.Text;
+            string badge = ddlBadge.SelectedValue;
+
+            img_upload(); 
+
+            if (productId == "0")
+            {
+                string query = "insert into products (product_name, description, price, old_price, stock_quantity, badge, image_url) values ('" + prod_name + "', '" + prod_desc + "', " + price + ", " + old_price + ", " + stock + ", '" + badge + "', '" + img_file_name + "'); select scope_identity();";
+                cmd = new SqlCommand(query, con);
+                productId = cmd.ExecuteScalar().ToString();
+            }
+            else
+            {
+                string query = "update products set product_name = '" + prod_name + "', description = '" + prod_desc + "', price = " + price + ", old_price = " + old_price + ", stock_quantity = " + stock + ", badge = '" + badge + "', image_url = '" + img_file_name + "' where product_id = " + productId;
+                cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            cmd = new SqlCommand("delete from product_categories where product_id = " + productId, con);
+            cmd.ExecuteNonQuery();
+
+            foreach (ListItem item in cblCategories.Items)
+            {
+                if (item.Selected)
+                {
+                    string insertCatQuery = "insert into product_categories (product_id, category_id) values (" + productId + ", " + item.Value + ")";
+                    cmd = new SqlCommand(insertCatQuery, con);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            clear();
+            Response.Redirect("products.aspx");
         }
 
         

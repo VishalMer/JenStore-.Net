@@ -325,10 +325,11 @@
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title"><i class="fas fa-tags"></i>Categories</h3>
-                            <div class="form-group">
-                                <label for="ddlCategories">Category *</label>
-                                <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlCategories_cmd"></asp:DropDownList>
+                            <div class="form-section">
+                                <h3 class="section-title"><i class="fas fa-tags"></i>Categories *</h3>
+                                <div class="category-checkboxes">
+                                    <asp:CheckBoxList ID="cblCategories" runat="server"></asp:CheckBoxList>
+                                </div>
                             </div>
                         </div>
 
