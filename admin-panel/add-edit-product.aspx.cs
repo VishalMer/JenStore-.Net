@@ -23,31 +23,27 @@ namespace JenStore.admin_panel
         {
             getcon();
 
-            if (Session["UserID"] == null)
+            if (Session["UserID"] == null) 
             {
                 Response.Redirect("../login_register.aspx");
             }
-            else
+
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
+                fillCategory();
+
+                if (Request.QueryString["id"] != null)
                 {
-                    fillCategory();
-
-                    if (Request.QueryString["product_id"] != null)
-                    {
-                        int productId = Convert.ToInt32(Request.QueryString["product_id"]);
-                        lblPageTitle.Text = "Edit Product";
-                        lblPageSubtitle.Text = "Update the product information below";
-                        hdnProductId.Value = Request.QueryString["product_id"];
-                        loadProductData(productId.ToString());
-
-                    }
-                    else
-                    {
-                        lblPageTitle.Text = "Add Product";
-                        lblPageSubtitle.Text = "Fill in the details below to create a new product";
-                        hdnProductId.Value = "0";
-                    }
+                    lblPageTitle.Text = "Edit Product";
+                    lblPageSubtitle.Text = "Update the product information below";
+                    hdnProductId.Value = Request.QueryString["id"];
+                    loadProductData(hdnProductId.Value);
+                }
+                else
+                {
+                    lblPageTitle.Text = "Add Product";
+                    lblPageSubtitle.Text = "Fill in the details below to create a new product";
+                    hdnProductId.Value = "0";
                 }
             }
         }
@@ -110,7 +106,7 @@ namespace JenStore.admin_panel
 
                 if (row["image_url"] != DBNull.Value)
                 {
-                    imgPreview.ImageUrl = "~/img/" + row["image_url"].ToString();
+                    imgPreview.ImageUrl = "~/" + row["image_url"].ToString();
                     imgPreview.Visible = true;
                     hdnExistingImage.Value = row["image_url"].ToString();
                 }
