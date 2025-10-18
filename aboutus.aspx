@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                       <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
+                        <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
                             <input type="text" name="search" placeholder="Search here..." class="form-control">
                             <button type="submit">
                                 <img src="img/Search.png" alt="search" class="img-responsive">
@@ -43,49 +43,13 @@
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
                             </li>
-                            <li class="shop-menu dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
-                                <div class="dropdown-menu">
-                                    <div class="container container-menu">
-                                        <ul class="row">
-                                            <li class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                <ul>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner"><a href="#">
-                                                <img src="img/340x240.png" alt="img-holiwood"></a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </li>
                             <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
@@ -150,7 +114,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="img/reference.jpg" alt="img-holiwood" style="height:115px; width:115px;" ></a>
+                                        <img src="img/reference.jpg" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <h1>WELCOME</h1>
