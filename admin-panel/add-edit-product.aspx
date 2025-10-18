@@ -83,6 +83,23 @@
                     opacity: .95;
                 }
 
+            .btn-back {
+                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+                color: #fff !important;
+                border: 0;
+                border-radius: 30px;
+                padding: 8px 16px;
+                box-shadow: 0 6px 18px rgba(56,249,215,.35);
+                transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+            }
+
+                .btn-back:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 24px rgba(56,249,215,.45);
+                    text-decoration: none;
+                    opacity: .95;
+                }
+
             .content-container {
                 padding: 40px 0;
             }
@@ -225,7 +242,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="products.aspx" class="btn btn-outline-light btn-sm"><i class="fas fa-arrow-left"></i>Back to Products </a><a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="products.aspx" class="btn btn-back btn-sm ml-2"><i class="fas fa-arrow-left"></i>Go Back</a><a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
                     </div>
                 </div>
             </div>

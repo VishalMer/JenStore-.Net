@@ -187,6 +187,21 @@
             .col-md-6 {
                 margin-bottom: 2em;
             }
+
+
+            /*added css*/
+            .btn-edit:hover {
+                color: #667eea;
+                background-color: white;
+                text-decoration: none;
+            }
+
+            .btn-delete:hover {
+                color: #dc3545;
+                background-color: white;
+                text-decoration: none;
+                transition:ease-in;
+            }
         </style>
         <link rel="stylesheet" href="../css/admin.css">
     </head>
@@ -273,13 +288,15 @@
                                         <small class="text-muted"><%# Eval("description") %></small>
                                     </ItemTemplate>
                                 </asp:TemplateField>
- <asp:TemplateField HeaderText="Category">
-            <ItemTemplate>
-                <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("category_names") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>                                <asp:TemplateField HeaderText="Price">
+                                <asp:TemplateField HeaderText="Category">
                                     <ItemTemplate>
-                                        <strong><%# Eval("price", "{0:C}") %></strong>
+                                        <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("category_names") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Price">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("price", "{0:C}") %></strong><br />
+                                        <strike><small class="text-muted"><%# Eval("old_price", "{0:C}") %></small></strike>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <%--<asp:TemplateField HeaderText="Old Price">
@@ -291,7 +308,7 @@
                                     <ItemTemplate>
                                         <span class='<%# GetStockStatus(Eval("stock_quantity")) %>'>
                                             <%# Convert.ToInt32(Eval("stock_quantity")) > 0 ? Eval("stock_quantity") : "Out" %>
-                </span>
+                                        </span>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Actions">
