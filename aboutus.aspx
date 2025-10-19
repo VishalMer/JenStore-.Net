@@ -23,6 +23,12 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+        <style>
+            .team-img{
+                width:315px;
+            }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -33,26 +39,21 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                        <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
-                            <input type="text" name="search" placeholder="Search here..." class="form-control">
-                            <button type="submit">
-                                <img src="img/Search.png" alt="search" class="img-responsive">
-                            </button>
-                        </form>--%>
+                       
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1"  class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1"  class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1"  class="hidden-sm hidden-xs">
                             </figure>
                             </li>
                             <%--<li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>--%>
@@ -66,12 +67,12 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-10 col-xs-9">
                     <ul class="nav navbar-nav navbar-right icon-menu">
-                        <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                        <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
-                            <a href="shopping-cart.html">
+                            <a href="shopping-cart.aspx">
                                 <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
                 <div class="navbar-header mobile-menu">
@@ -101,7 +102,7 @@
                             <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
-                        <h1>About JenStore</h1>
+                        <h1>About Us</h1>
                         <p>Your premier destination for exquisite flowers, exceptional service, and memorable moments</p>
                     </div>
                 </div>
@@ -117,7 +118,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h1>WELCOME</h1>
-                                    <h2>Hello! I am Vishal Mer
+                                    <h2>Hello! I am Vishal 
                                                 <br>
                                         Founder of JenStore</h2>
                                 </div>
@@ -149,10 +150,10 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/user_img/admin2.PNG" class="img-responsive team-img" alt="img-holiwood" ></a>
                             <div class="title-acc">
-                                <h2>LILA SIMPSON</h2>
-                                <p>Stylist</p>
+                                <h2>Rahul Kumar</h2>
+                                <p>Products Designer</p>
                                 <div class="social-acc">
                                     <a href="#" class="link-gmail-acc"></a>
                                     <a href="#" class="link-fb-acc"></a>
@@ -161,12 +162,13 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/user_img/admin1.PNG"  class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
-                                <h2>JOHNSON SMITH</h2>
-                                <p>Fashion Designer</p>
+                                <h2>Vishal Mer</h2>
+                                <p>Backend Developer</p>
                                 <div class="social-acc">
                                     <a href="#" class="link-gmail-acc"></a>
                                     <a href="#" class="link-fb-acc"></a>
@@ -175,26 +177,13 @@
                                 </div>
                             </div>
                         </div>
-                        <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 team-account">
-                            <a href="#">
-                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
-                            <div class="title-acc">
-                                <h2>BARNEY MOLLY</h2>
-                                <p>Stylist</p>
-                                <div class="social-acc">
-                                    <a href="#" class="link-gmail-acc"></a>
-                                    <a href="#" class="link-fb-acc"></a>
-                                    <a href="#" class="link-in-acc"></a>
-                                    <a href="#" class="link-insta-acc"></a>
-                                </div>
-                            </div>
-                        </div>--%>
+                       
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/user_img/admin3.PNG" class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
-                                <h2>JUDY WINTER</h2>
-                                <p>Model</p>
+                                <h2>Dhruv Bhau</h2>
+                                <p>Template Finder</p>
                                 <div class="social-acc">
                                     <a href="#" class="link-gmail-acc"></a>
                                     <a href="#" class="link-fb-acc"></a>
