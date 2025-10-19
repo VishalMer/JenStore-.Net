@@ -94,6 +94,7 @@ namespace JenStore
             cmd.ExecuteNonQuery();
             con.Close();
 
+            fillCartGrid();
         }
 
         void getcon()

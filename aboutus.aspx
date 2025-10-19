@@ -46,31 +46,33 @@
                             <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
-                            <li>
+                            <%--<li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>--%>
+                            <%-- <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
                                     <i class="far fa-times-circle"></i>
                                 </figure>
-                            </li>
+                            </li>--%>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-10 col-xs-9">
                     <ul class="nav navbar-nav navbar-right icon-menu">
                         <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
-                            <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
+                            <i class="far fa-heart"></i></a> </li>
                         <li class="cart-menu"><a href="shopping-cart.aspx">
                             <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a> </li>
+                        <%--<li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-heart"></i></a></li>--%>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
+                        
                     </ul>
                 </div>
                 <div class="navbar-header mobile-menu">
