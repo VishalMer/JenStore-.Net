@@ -6,7 +6,9 @@
   header .icon-menu li img#search-img {
     margin-right: 10px; }
   header .icon-menu li .fa-user {
-    padding-right: 33px; } }
+    padding-right: 15px; }
+  header .icon-menu li .fa-heart {
+    padding-right: 15px; } }
 @media (max-width: 991px) {
   #myNavbar {
     position: fixed;
@@ -96,7 +98,9 @@
     header .icon-menu li a {
       padding-right: 0; }
     header .icon-menu li .fa-user {
-      padding-right: 20px; }
+      padding-right: 10px; }
+    header .icon-menu li .fa-heart {
+      padding-right: 10px; }
     header .icon-menu li#input-search .alert-search {
       left: unset;
       right: -150px; }

@@ -581,22 +581,18 @@ header {
     position: relative;
     padding-top: 20px; }
     header .icon-menu::before {
-      content: "3";
-      width: 20px;
-      height: 20px;
-      background-color: black;
-      position: absolute;
-      text-align: center;
-      right: 18px;
-      border-radius: 50%;
-      top: 30px;
-      color: white; }
+      content: none;
+      display: none; }
     header .icon-menu li .fa-user {
       font-size: 22px;
-      padding-right: 30px;
+      padding-right: 15px;
+      color: black; }
+    header .icon-menu li .fa-heart {
+      font-size: 22px;
+      padding-right: 15px;
       color: black; }
     header .icon-menu li img {
-      padding-right: 15px; }
+      padding-right: 5px; }
       header .icon-menu li img#search-img {
         margin-right: 40px; }
     header .icon-menu li a:hover {

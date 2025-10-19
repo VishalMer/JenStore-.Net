@@ -17,7 +17,9 @@
   header .icon-menu li img#search-img {
     margin-right: 10px; }
   header .icon-menu li .fa-user {
-    padding-right: 33px; } }
+    padding-right: 15px; }
+  header .icon-menu li .fa-heart {
+    padding-right: 15px; } }
 @media (max-width: 991px) {
   #myNavbar {
     position: fixed;
@@ -154,7 +156,9 @@
   header .icon-menu li img#search-img {
     margin-right: 10px; }
   header .icon-menu li .fa-user {
-    padding-right: 33px; } }
+    padding-right: 15px; }
+  header .icon-menu li .fa-heart {
+    padding-right: 15px; } }
 @media (max-width: 991px) {
   #myNavbar {
     position: fixed;

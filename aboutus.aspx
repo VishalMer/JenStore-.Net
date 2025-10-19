@@ -66,13 +66,12 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-10 col-xs-9">
                     <ul class="nav navbar-nav navbar-right icon-menu">
-                        <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
-                            <i class="far fa-heart"></i></a> </li>
-                        <li class="cart-menu"><a href="shopping-cart.aspx">
-                            <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a> </li>
-                        <%--<li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-heart"></i></a></li>--%>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
-                        
+                        <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                        <li class="cart-menu">
+                            <a href="shopping-cart.html">
+                                <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                        </li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
                 <div class="navbar-header mobile-menu">
@@ -102,10 +101,8 @@
                             <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
-                        <h1>About Us</h1>
-                        <p>
-                            Welcome to JenStore - Your trusted destination for beautiful flowers and exceptional service
-                        </p>
+                        <h1>About JenStore</h1>
+                        <p>Your premier destination for exquisite flowers, exceptional service, and memorable moments</p>
                     </div>
                 </div>
             </div>
@@ -126,9 +123,9 @@
                                 </div>
                             </div>
                             <p>
-                                At JenStore, we believe that flowers have the power to brighten any day and make every occasion special. Our passion for floral design drives us to create beautiful arrangements that bring joy to our customers.<br>
+                                At JenStore, we believe that flowers have the power to transform ordinary moments into extraordinary memories. Founded with a passion for floral artistry, we specialize in creating stunning arrangements that capture the essence of every celebration.<br>
                                 <br>
-                                We are committed to providing the highest quality flowers, exceptional customer service, and timely delivery to ensure your satisfaction with every purchase.
+                                Our commitment to excellence drives us to source only the freshest, highest-quality flowers from trusted growers worldwide. From intimate bouquets to grand event displays, we craft each arrangement with meticulous attention to detail and artistic flair.
                             </p>
                             <div class="social-well">
                                 <span>SOCIAL:</span> <a href="#" id="link-insta2"></a><a href="#" id="link-fb2"></a><a href="#" id="link-tw2"></a><a href="#" id="link-sky2"></a>
@@ -143,6 +140,213 @@
                     </div>
                 </div>
             </div>
+
+            <div class="team">
+
+                <div class="container">
+                    <h1>Meet our team</h1>
+                    <h3>Profestional and  Outstanding Ideas of our passlonate team makes us unique in every sense</h3>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
+                            <a href="#">
+                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                            <div class="title-acc">
+                                <h2>LILA SIMPSON</h2>
+                                <p>Stylist</p>
+                                <div class="social-acc">
+                                    <a href="#" class="link-gmail-acc"></a>
+                                    <a href="#" class="link-fb-acc"></a>
+                                    <a href="#" class="link-in-acc"></a>
+                                    <a href="#" class="link-insta-acc"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
+                            <a href="#">
+                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                            <div class="title-acc">
+                                <h2>JOHNSON SMITH</h2>
+                                <p>Fashion Designer</p>
+                                <div class="social-acc">
+                                    <a href="#" class="link-gmail-acc"></a>
+                                    <a href="#" class="link-fb-acc"></a>
+                                    <a href="#" class="link-in-acc"></a>
+                                    <a href="#" class="link-insta-acc"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <%--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 team-account">
+                            <a href="#">
+                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                            <div class="title-acc">
+                                <h2>BARNEY MOLLY</h2>
+                                <p>Stylist</p>
+                                <div class="social-acc">
+                                    <a href="#" class="link-gmail-acc"></a>
+                                    <a href="#" class="link-fb-acc"></a>
+                                    <a href="#" class="link-in-acc"></a>
+                                    <a href="#" class="link-insta-acc"></a>
+                                </div>
+                            </div>
+                        </div>--%>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
+                            <a href="#">
+                                <img src="img/315x400.png" class="img-responsive" alt="img-holiwood"></a>
+                            <div class="title-acc">
+                                <h2>JUDY WINTER</h2>
+                                <p>Model</p>
+                                <div class="social-acc">
+                                    <a href="#" class="link-gmail-acc"></a>
+                                    <a href="#" class="link-fb-acc"></a>
+                                    <a href="#" class="link-in-acc"></a>
+                                    <a href="#" class="link-insta-acc"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                </div>
+            </div>
+
+            <div class="our-story">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h1>Our Story</h1>
+                            <h3>Bringing beauty and joy to your special moments since 2018</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="story-item">
+                                <div class="story-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h2>Fresh & Quality</h2>
+                                <p>We work directly with local and international flower farms to ensure every bloom is at its peak freshness when it reaches you.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="story-item">
+                                <div class="story-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <h2>Fast Delivery</h2>
+                                <p>Our efficient delivery network ensures your flowers arrive on time, every time, maintaining their beauty and freshness.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="story-item">
+                                <div class="story-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h2>Expert Design</h2>
+                                <p>Our skilled florists combine creativity with expertise to create arrangements that perfectly match your vision and occasion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ------------------------- -->
+
+
+            <div class="feedback">
+                <div class="container">
+                    <h1>Customers say</h1>
+                    <h2>,,</h2>
+                    <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel1" data-slide-to="1"></li>
+                            <li data-target="#myCarousel1" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br class="hidden-sm hidden-xs">
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap<br class="hidden-sm hidden-xs">
+                                    into electronic typesetting, remaining essentially unchanged
+                                </p>
+                                <div class="img-customer">
+                                    <img src="img/115x115.png" alt="img-holiwood">
+                                    <h1>JUDY BEAUTY - <span>Customers</span></h1>
+                                </div>
+                            </div>
+
+                            <div class="item">
+
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br class="hidden-sm hidden-xs">
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap<br class="hidden-sm hidden-xs">
+                                    into electronic typesetting, remaining essentially unchanged
+                                </p>
+                                <div class="img-customer">
+                                    <img src="img/115x115.png" alt="img-holiwood">
+                                    <h1>JUDY BEAUTY - <span>Customers</span></h1>
+                                </div>
+                            </div>
+
+                            <div class="item">
+
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br class="hidden-sm hidden-xs">
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap<br class="hidden-sm hidden-xs">
+                                    into electronic typesetting, remaining essentially unchanged
+                                </p>
+                                <div class="img-customer">
+                                    <img src="img/115x115.png" alt="img-holiwood">
+                                    <h1>JUDY BEAUTY - <span>Customers</span></h1>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="img-link">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="img-color-1">
+                                <div class="img-content">
+                                    <img src="img/70x71.png" class="img-responsive" alt="img-holiwood">
+                                </div>
+                                <h1>100%</h1>
+                                <h2>Product quality protection</h2>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="img-color-2">
+                                <div class="img-content">
+                                    <img src="img/82x62.png" class="img-responsive" alt="img-holiwood">
+                                </div>
+                                <h1>100%</h1>
+                                <h2>Payment protection</h2>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="img-color-3">
+                                <div class="img-content">
+                                    <img src="img/62x62.png" class="img-responsive" alt="img-holiwood">
+                                </div>
+                                <h1>100%</h1>
+                                <h2>On-time shipment protection</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             <div class="info-footer">
                 <div class="container">
                     <div class="row">

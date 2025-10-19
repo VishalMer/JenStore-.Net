@@ -1553,9 +1553,11 @@ figure.bg-input::after {
     padding-left: 18px; }
 
   .icon-menu li .fa-user {
-    padding-right: 6px; }
+    padding-right: 3px; }
+  .icon-menu li .fa-heart {
+    padding-right: 3px; }
   .icon-menu li img#img-cart {
-    padding-right: 8px; }
+    padding-right: 3px; }
 
   .carousel-indicators {
     margin-bottom: 76px; }
@@ -2037,6 +2039,10 @@ figure.bg-input::after {
     .icon-menu::before {
       right: -10px; }
     .icon-menu li .fa-user {
+      font-size: 18px;
+      position: relative;
+      top: 1px; }
+    .icon-menu li .fa-heart {
       font-size: 18px;
       position: relative;
       top: 1px; }
