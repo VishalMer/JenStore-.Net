@@ -26,15 +26,15 @@
 
         <style>
             .team-img {
-                width:400px;
+                width: 400px;
             }
 
             .icon-menu li .fa-heart {
-               padding-right:5px !important;
+                padding-right: 5px !important;
             }
 
-            .title-banner h1, .title-banner p{
-                margin-left:-2em;
+            .title-banner h1, .title-banner p {
+                margin-left: -2em;
             }
         </style>
     </head>

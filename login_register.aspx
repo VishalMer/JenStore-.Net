@@ -109,7 +109,7 @@
                             <a href="shopping-cart.aspx">
                                 <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="fas fa-user" style="color:#e74c3c"></i></a></li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="fas fa-user" style="color: #e74c3c"></i></a></li>
                     </ul>
                 </div>
                 <div class="navbar-header mobile-menu">
