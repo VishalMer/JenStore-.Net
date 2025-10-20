@@ -59,8 +59,6 @@
                             <li class="blog-menu"><a href="aboutus.aspx">About Us</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-
-
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
