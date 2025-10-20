@@ -62,13 +62,13 @@
                             <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
+                            <li class="blog-menu"><a href="order-history.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
                             <li class="wedding-menu "><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu active"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
+                            <li class="contact-menu active"><a href="#">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
                             <%--<li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>--%>

@@ -26,11 +26,15 @@
 
         <style>
             .team-img {
-                width: 315px;
+                width:400px;
             }
 
             .icon-menu li .fa-heart {
                padding-right:5px !important;
+            }
+
+            .title-banner h1, .title-banner p{
+                margin-left:-2em;
             }
         </style>
     </head>
@@ -51,10 +55,10 @@
                             <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
+                            <li class="blog-menu"><a href="order-history.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-xs">
+                            <li class="wedding-menu active"><a href="#">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-xs">
                             </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
