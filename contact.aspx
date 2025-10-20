@@ -23,6 +23,22 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            .icon-menu li .fa-heart {
+                font-size: 22px;
+                top: 1px;
+                color: black;
+                padding-right: 5px !important;
+            }
+
+            .icon-menu li img {
+                padding-right: 5px !important;
+            }
+
+            .icon-menu li .fa-user {
+                padding-right: 15px !important;
+            }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">

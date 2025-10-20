@@ -25,8 +25,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <style>
-            .team-img{
-                width:315px;
+            .team-img {
+                width: 315px;
+            }
+
+            .icon-menu li .fa-heart {
+               padding-right:5px !important;
             }
         </style>
     </head>
@@ -39,21 +43,21 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                       
+
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1"  class="hidden-sm hidden-xs">
+                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1"  class="hidden-sm hidden-xs">
+                            <li class="blog-menu"><a href="order-hidtory.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
                             <li class="wedding-menu active"><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class=" hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1"  class="hidden-sm hidden-xs">
+                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
                             <%--<li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>--%>
@@ -150,7 +154,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/user_img/admin2.PNG" class="img-responsive team-img" alt="img-holiwood" ></a>
+                                <img src="img/user_img/admin2.PNG" class="img-responsive team-img" alt="img-holiwood"></a>
                             <div class="title-acc">
                                 <h2>Rahul Kumar</h2>
                                 <p>Products Designer</p>
@@ -165,7 +169,7 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/user_img/admin1.PNG"  class="img-responsive" alt="img-holiwood"></a>
+                                <img src="img/user_img/admin1.PNG" class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
                                 <h2>Vishal Mer</h2>
                                 <p>Backend Developer</p>
@@ -177,7 +181,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
                                 <img src="img/user_img/admin3.PNG" class="img-responsive" alt="img-holiwood"></a>
