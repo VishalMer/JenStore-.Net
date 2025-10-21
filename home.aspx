@@ -24,6 +24,22 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" xintegrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            .icon-menu li .fa-heart {
+                font-size: 22px;
+                top: 1px;
+                color: black;
+                padding-right: 5px !important;
+            }
+
+            .icon-menu li img#img-cart {
+                padding-right: 5px;
+            }
+
+            .icon-menu{
+                margin-right: -11em;
+            }
+        </style>
     </head>
     <body>
         <header class="navbar-fixed-top pos-header" id="header-v1">
@@ -107,10 +123,11 @@
                             <%--<li><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>--%>
-                            <li class="blog-menu"><a href="aboutus.aspx">About Us</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+
+                            <li class="blog-menu"><a href="order-history.aspx">Orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="order-history.aspx">Orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="aboutus.aspx">About Us</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
@@ -125,13 +142,14 @@
                         <li><a href="#">
                             <img src="img/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right icon-menu col-lg-4 col-md-4 col-sm-5 col-xs-5">
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
 
+                    <ul class="nav navbar-nav navbar-right icon-menu col-lg-4 col-md-4 col-sm-5 col-xs-5">
+                        <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
                                 <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
             </div>
