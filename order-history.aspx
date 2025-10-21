@@ -63,12 +63,6 @@
                             <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <%--<li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>--%>
-                            <%-- <li>
-                <figure id="btn-close-menu" class="hidden-lg hidden-md">
-                    <i class="far fa-times-circle"></i>
-                </figure>
-            </li>--%>
                         </ul>
                     </div>
                 </div>

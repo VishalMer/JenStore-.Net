@@ -49,12 +49,7 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
-                        <%--<form class="hidden-lg hidden-md form-group form-search-mobile">
-                            <input type="text" name="search" placeholder="Search here..." class="form-control">
-                            <button type="submit">
-                                <img src="img/Search.png" alt="search" class="img-responsive">
-                            </button>
-                        </form>--%>
+
                         <ul class="nav navbar-nav menu-main">
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
@@ -71,12 +66,6 @@
                             <li class="contact-menu active"><a href="#">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <%--<li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>--%>
-                            <%-- <li>
-                <figure id="btn-close-menu" class="hidden-lg hidden-md">
-                    <i class="far fa-times-circle"></i>
-                </figure>
-            </li>--%>
                         </ul>
                     </div>
                 </div>
