@@ -36,7 +36,7 @@
                 padding-right: 5px;
             }
 
-            .icon-menu{
+            .icon-menu {
                 margin-right: -11em;
             }
         </style>
@@ -81,49 +81,9 @@
                                 </figure>
                             </li>
                             <li class="menu-home active"><a href="home.aspx">Home</a> </li>
-                            <li class="shop-menu dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class="hidden-sm hidden-xs">
+                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
-                                <div class="dropdown-menu">
-                                    <div class="container container-menu">
-                                        <ul class="row">
-                                            <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                <ul>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="shopping.aspx">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner"><a href="#">
-                                                <img src="img/340x240.png" alt="img-holiwood"></a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </li>
-                            <%--<li><a href="aboutus.aspx">About Us</a><figure id="wedding-1" class="hidden-sm hidden-xs">
-                            </figure>
-                            </li>--%>
-
                             <li class="blog-menu"><a href="order-history.aspx">Orders</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
