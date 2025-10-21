@@ -25,6 +25,15 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+            .icon-menu li .fa-heart {
+                padding-right: 5px !important;
+            }
+
+            .head-cart a {
+                text-decoration: none;
+            }
+        </style>
     </head>
     <body>
         <header class="container" id="header-v3">
@@ -40,73 +49,29 @@
                             <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
                             </figure>
                             </li>
-                            <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
-                            </figure>
-                                <div class="dropdown-menu">
-                                    <div class="container container-menu">
-                                        <ul class="row">
-                                            <li class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                <ul>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner"><a href="#">
-                                                <img src="img/340x240.png" alt="img-holiwood"></a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="order.aspx" class="active">Order</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="shopping.aspx">Shopping</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="order-history.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="aboutus.aspx">About Us</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
-                            <li>
-                                <figure id="btn-close-menu" class="hidden-lg hidden-md">
-                                    <i class="far fa-times-circle"></i>
-                                </figure>
+                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
+                            </figure>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-10 col-xs-9">
                     <ul class="nav navbar-nav navbar-right icon-menu">
-                        <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
-                            <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
-
+                        <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
                                 <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
                 <div class="navbar-header mobile-menu">
@@ -138,7 +103,7 @@
                     <div class="title-banner">
                         <h1>Order Completed</h1>
                         <p>
-                            <a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Order Completed
+                            <a href="home.aspx" title="Home">Home</a><i class="fa fa-caret-right"></i><a href="shopping-cart.aspx" title="Shopping cart">Shopping Cart</a><i class="fa fa-caret-right"></i>Order Completed
                         </p>
                     </div>
                 </div>
@@ -150,7 +115,9 @@
                             <p class="icon">
                                 01
                             </p>
-                            <h3>Shopping cart</h3>
+                            <a href="shopping-cart.aspx">
+                                <h3>Shopping cart</h3>
+                            </a>
                         </div>
                     </div>
                     <!-- End col-md-4 -->
@@ -159,7 +126,9 @@
                             <p class="icon">
                                 02
                             </p>
-                            <h3>Check out</h3>
+                            <a href="checkout.aspx">
+                                <h3>Check out</h3>
+                            </a>
                         </div>
                     </div>
                     <!-- End col-md-4 -->
@@ -168,7 +137,9 @@
                             <p class="icon">
                                 03
                             </p>
-                            <h3>Order completed</h3>
+                            <a href="#">
+                                <h3>Order completed</h3>
+                            </a>
                         </div>
                     </div>
                     <!-- End col-md-4 -->
