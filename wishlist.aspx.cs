@@ -100,7 +100,6 @@ namespace JenStore
         protected void btnAddAllToCart_Click(object sender, EventArgs e)
         {
 
-            //select all which is not in cart and is in stock
             cmd = new SqlCommand("select P.product_id from Wishlist W inner join Products P ON W.product_id = P.product_id " +
                                  "where W.user_id = " + userId + " and P.stock_quantity > 0 " +
                                  "and P.product_id not in (select product_id from Cart where user_id = " + userId + ")", con);
@@ -123,13 +122,11 @@ namespace JenStore
                 cmd.ExecuteNonQuery();
             }
 
-            //remove all which moved from wishlist
             string idList = "";
             foreach (DataRow row in dt.Rows)
             {
                 idList += row["product_id"].ToString() + ",";
             }
-            // Remove last coma
             idList = idList.TrimEnd(',');
 
             //delete from wishlist

@@ -16,7 +16,6 @@ namespace JenStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Open the connection once when the page loads
             getcon();
 
             if (Session["UserID"] == null)
@@ -35,24 +34,21 @@ namespace JenStore
         {
             int userId = Convert.ToInt32(Session["UserID"]);
 
-            // Using SqlDataAdapter as requested
-            da = new SqlDataAdapter("SELECT uname, email, gender FROM users WHERE Id = " + userId, con);
+            da = new SqlDataAdapter("select uname, email, gender from users where Id = " + userId, con);
             ds = new DataSet();
             da.Fill(ds);
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                DataRow row = ds.Tables[0].Rows[0];
-                txtUsername.Text = row["uname"].ToString();
-                txtEmail.Text = row["email"].ToString();
+                txtUsername.Text = ds.Tables[0].Rows[0][0].ToString();
+                txtEmail.Text = ds.Tables[0].Rows[0][1].ToString();
 
-                string gender = row["gender"].ToString();
+                string gender = ds.Tables[0].Rows[0][2].ToString();
                 if (ddlGender.Items.FindByValue(gender) != null)
                 {
                     ddlGender.SelectedValue = gender;
                 }
             }
-            // The connection is intentionally left open as per your instruction.
         }
 
         protected void btnUpdateProfile_Click(object sender, EventArgs e)
@@ -60,8 +56,7 @@ namespace JenStore
             int userId = Convert.ToInt32(Session["UserID"]);
             string currentPassword = txtCurrentPassword.Text;
 
-            // Using string concatenation for the query as requested
-            cmd = new SqlCommand("SELECT 1 FROM users WHERE Id = " + userId + " AND password = '" + currentPassword + "'", con);
+            cmd = new SqlCommand("select 1 from users where Id = " + userId + " and password = '" + currentPassword + "'", con);
             object result = cmd.ExecuteScalar();
 
             if (result == null)
@@ -70,15 +65,14 @@ namespace JenStore
                 errorMsg.Text = "Your current password is incorrect.";
                 errorMsg.Visible = true;
                 btnCancel.Text = "Cancel";
-                return; // Stop processing
+                return;
             }
 
             string newUsername = txtUsername.Text;
             string newEmail = txtEmail.Text;
             string newGender = ddlGender.SelectedValue;
 
-            // Using string concatenation for the update query as requested
-            cmd = new SqlCommand("UPDATE users SET uname = '" + newUsername + "', email = '" + newEmail + "', gender = '" + newGender + "' WHERE Id = " + userId, con);
+            cmd = new SqlCommand("update users set uname = '" + newUsername + "', email = '" + newEmail + "', gender = '" + newGender + "' where Id = " + userId, con);
             int rowsAffected = cmd.ExecuteNonQuery();
 
             if (rowsAffected > 0)
@@ -93,16 +87,13 @@ namespace JenStore
                 errorMsg.Visible = true;
                 btnCancel.Text = "Cancel";
             }
-            // The connection is intentionally left open as per your instruction.
         }
 
         void getcon()
         {
-            if (con == null || con.State == ConnectionState.Closed)
-            {
-                con = new SqlConnection(connect);
-                con.Open();
-            }
+            con = new SqlConnection(connect);
+            con.Open();
+
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

@@ -76,8 +76,6 @@ namespace JenStore
             da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
-            //dlRelatedProducts.RepeatColumns = 4;
-            //dlRelatedProducts.RepeatDirection = (RepeatDirection)HorizontalAlign.Right;
             dlRelatedProducts.RepeatColumns = 4;
             dlRelatedProducts.RepeatDirection = RepeatDirection.Horizontal;
             dlRelatedProducts.DataSource = ds;
