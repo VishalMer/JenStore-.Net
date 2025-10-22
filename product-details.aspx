@@ -53,15 +53,32 @@
                 color: black;
                 padding-top: 5px;
             }
-            .container h1{
+
+            .container h1 {
                 margin-top: 2em;
-                margin-bottom: -2em;    
+                margin-bottom: -2em;
                 font-weight: 600;
             }
-            .p_description{
+
+            .p_description {
                 margin: -1.5em 0 -1em 0;
-                font-family:'poppins';
-                font-size:12px !important;
+                font-family: 'poppins';
+                font-size: 12px !important;
+            }
+
+            .icon-menu li .fa-heart {
+                font-size: 22px;
+                top: 1px;
+                color: black;
+                padding-right: 5px !important;
+            }
+
+            .icon-menu li .fa-user {
+                padding-right: 15px !important;
+            }
+
+            .icon-menu li img {
+                padding-right: 5px !important;
             }
         </style>
     </head>
@@ -75,76 +92,32 @@
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav menu-main">
-                            <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1">
+                            <li class="menu-home"><a href="home.aspx">Home</a><figure id="home-1" class="hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="shop-menu dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop +</a><figure id="shop-1" class=" hidden-sm hidden-md hidden-xs">
-                            </figure>
-                                <div class="dropdown-menu">
-                                    <div class="container container-menu">
-                                        <ul class="row">
-                                            <li class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                <ul>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">SHOP PAGE</a> </li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="Shopping.aspx">Shopping</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">CHECKING PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="shopping-cart.aspx">Shopping Cart</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="checkout.aspx">Checkout</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="order.aspx">Order</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 menu-home-lv2">
-                                                        <ul>
-                                                            <li><a href="#">OTHER PAGE</a></li>
-                                                            <li class="li-home li-one"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="FAQ.aspx">FAQ</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="login_register.aspx">Login/Register</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="page404.aspx">Page404</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="tracking.aspx">Tracking</a></li>
-                                                            <li class="li-home"><i class="fas fa-long-arrow-alt-right hidden-sm hidden-md hidden-xs"></i><a href="wishlist.aspx">Wishlist</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner"><a href="#">
-                                                <img src="img/340x240.png" alt="img-holiwood"></a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="single-detail.aspx" class="active">View Detail</a><figure id="wedding-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="shop-menu active"><a href="#" id="shop-menu">Shopping</a><figure id="shop-1" class="hidden-sm hidden-md hidden-xs">
                             </figure>
                             </li>
-                            <li class="blog-menu"><a href="blog.aspx">Blog</a><figure id="blog-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="order-history.aspx">orders</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class=" hidden-sm hidden-md hidden-xs">
+                            <li class="blog-menu"><a href="aboutus.aspx">About Us</a><figure id="blog-1" class="hidden-sm hidden-xs">
                             </figure>
                             </li>
-                            <li class="hidden-lg hidden-md"><a href="user-dashboard.aspx"><i class="far fa-user"></i>My Account</a></li>
-                            <li>
-                                <figure id="btn-close-menu" class="hidden-lg hidden-md">
-                                    <i class="far fa-times-circle"></i>
-                                </figure>
+                            <li class="contact-menu"><a href="contact.aspx">Contact</a><figure id="contact-1" class="hidden-sm hidden-xs">
+                            </figure>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-10 col-xs-9">
                     <ul class="nav navbar-nav navbar-right icon-menu">
-                        <li id="input-search" class="hidden-sm hidden-xs"><a href="#">
-                            <img id="search-img" src="img/Search.png" alt="img-holiwood"></a> </li>
-                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
-
+                        <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
                                 <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
+                        <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
                 <div class="navbar-header mobile-menu">
@@ -262,31 +235,31 @@
                                                 <asp:LinkButton ID="btnViewProduct" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
                                                 <%--<asp:LinkButton ID="btnAddToCart" runat="server" CssClass="list-icon icon-2" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>--%>
                                                 <asp:LinkButton ID="LinkButton3" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'
-    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
+                                                    Enabled='<%# Convert.ToInt32(Eval("stock_quantity")) > 0 %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
 
                                                 <asp:LinkButton ID="btnAddToWishlist" runat="server" CssClass="list-icon icon-2" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
                                                 <i class='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "fas fa-heart" : "far fa-heart" %>' 
                                                      style='<%# (Convert.ToInt32(Eval("IsInWishlist")) == 1) ? "color: red;" : "" %>'></i>
                                                 </asp:LinkButton>
                                             </div>
-                                    </div>
-                                    <div class="product-title-category">
-                                        <h5>
-                                            <div style="font-weight: 600; font-family: poppins; font-size: 15px; padding-bottom: 5px; text-align: start;">
-                                                <asp:LinkButton ID="LinkButton2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                        </div>
+                                        <div class="product-title-category">
+                                            <h5>
+                                                <div style="font-weight: 600; font-family: poppins; font-size: 15px; padding-bottom: 5px; text-align: start;">
+                                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
                                                         <%# Eval("product_name") %>
-                                                </asp:LinkButton>
-                                            </div>
-                                            <div class="star" style="text-align: start">
-                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="prince" style="text-align: start">
-                                                $<%# Eval("price") %><span runat="server" visible='<%# Eval("old_price") != DBNull.Value %>'>
-    <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
-</span>
-                                            </div>
-                                        </h5>
-                                    </div>
+                                                    </asp:LinkButton>
+                                                </div>
+                                                <div class="star" style="text-align: start">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="prince" style="text-align: start">
+                                                    $<%# Eval("price") %><span runat="server" visible='<%# Eval("old_price") != DBNull.Value %>'>
+                                                        <s class="strike">$<%# Eval("old_price", "{0:N2}") %></s>
+                                                    </span>
+                                                </div>
+                                            </h5>
+                                        </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:DataList>
