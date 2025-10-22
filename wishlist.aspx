@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/wishlist.Master" AutoEventWireup="true" CodeBehind="wishlist.aspx.cs" Inherits="JenStore.wishlist1" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/wishlist.Master" AutoEventWireup="true" CodeBehind="wishlist.aspx.cs" Inherits="JenStore.wishlist1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,13 +12,13 @@
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="css/style-about.css">
-        <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
-        <link rel="stylesheet" type="text/css" href="css/style-faq.css">
-        <link rel="stylesheet" type="text/css" href="css/style-shopping.css">
-        <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-        <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="../css/style-about.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-faq.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-shopping.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
         <!-- slick -->
 
         <!-- GG FONT -->
@@ -111,7 +111,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="home.aspx">
-                        <img src="img/logo.png" alt="img-holiwood"></a>
+                        <img src="../img/logo.png" alt="img-holiwood"></a>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
@@ -139,7 +139,7 @@
                         <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="fas fa-heart" style="color: #e74c3c"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
-                                <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
@@ -168,7 +168,7 @@
                 <div class="container">
                     <figure id="banner-about">
                         <a href="#">
-                            <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                            <img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
                         <h1>Wishlist</h1>
@@ -249,7 +249,7 @@
                                                     CssClass="remove"
                                                     CommandName="Remove"
                                                     CommandArgument='<%# Eval("wishlist_item_id") %>'>
-                    <img src="img/icon-delete-cart.png" alt="close" />
+                    <img src="../img/icon-delete-cart.png" alt="close" />
                                                 </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="product-remove" />
@@ -337,7 +337,7 @@
                             <form class="form-group" action="mail" method="post">
                                 <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                 <button type="submit">
-                                    <img src="img/Send.png" alt="img-holiwood">
+                                    <img src="../img/Send.png" alt="img-holiwood">
                                 </button>
                             </form>
                         </div>
@@ -367,15 +367,15 @@
         </footer>
 
         <!-- boostrap & jquery -->
-        <script src="js/jquery.min_af.js"></script>
-        <script src="js/bootstrap.min_0028.js"></script>
+        <script src="../js/jquery.min_af.js"></script>
+        <script src="../js/bootstrap.min_0028.js"></script>
 
         <!-- js file -->
-        <script src="js/function-back-top.js"></script>
-        <script src="js/function-sidebar.js"></script>
-        <script src="js/funtion-header-v3.js"></script>
-        <script src="js/function-search-v2.js"></script>
-        <script src="js/function-shopping-cart.js"></script>
+        <script src="../js/function-back-top.js"></script>
+        <script src="../js/function-sidebar.js"></script>
+        <script src="../js/funtion-header-v3.js"></script>
+        <script src="../js/function-search-v2.js"></script>
+        <script src="../js/function-shopping-cart.js"></script>
     </body>
     </html>
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/aboutus.Master" AutoEventWireup="true" CodeBehind="aboutus.aspx.cs" Inherits="JenStore.aboutus1" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/aboutus.Master" AutoEventWireup="true" CodeBehind="aboutus.aspx.cs" Inherits="JenStore.aboutus1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,11 +12,11 @@
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="css/style-about.css">
-        <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
-        <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-        <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="../css/style-about.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
         <!-- slick -->
 
         <!-- GG FONT -->
@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="home.aspx">
-                        <img src="img/logo.png" alt="img-holiwood"></a>
+                        <img src="../img/logo.png" alt="img-holiwood"></a>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
@@ -72,7 +72,7 @@
                         <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
-                                <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
@@ -101,7 +101,7 @@
                 <div class="container">
                     <figure id="banner-about">
                         <a href="#">
-                            <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                            <img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
                         <h1>About Us</h1>
@@ -116,7 +116,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="img/reference.jpg" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
+                                        <img src="../img/reference.jpg" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <h1>WELCOME</h1>
@@ -137,7 +137,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 img-well">
                             <figure id="img-about">
                                 <a href="#">
-                                    <img src="img/img-about.jpg" alt="img-holiwood"></a>
+                                    <img src="../img/img-about.jpg" alt="img-holiwood"></a>
                             </figure>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/user_img/admin2.PNG" class="img-responsive team-img" alt="img-holiwood"></a>
+                                <img src="../img/user_img/admin2.PNG" class="img-responsive team-img" alt="img-holiwood"></a>
                             <div class="title-acc">
                                 <h2>Rahul Kumar</h2>
                                 <p>Products Designer</p>
@@ -167,7 +167,7 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/user_img/admin1.PNG" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="../img/user_img/admin1.PNG" class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
                                 <h2>Vishal Mer</h2>
                                 <p>Backend Developer</p>
@@ -182,7 +182,7 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="img/user_img/admin3.PNG" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="../img/user_img/admin3.PNG" class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
                                 <h2>Dhruv Bhau</h2>
                                 <p>Template Finder</p>
@@ -264,7 +264,7 @@
                                     into electronic typesetting, remaining essentially unchanged
                                 </p>
                                 <div class="img-customer">
-                                    <img src="img/115x115.png" alt="img-holiwood">
+                                    <img src="../img/115x115.png" alt="img-holiwood">
                                     <h1>JUDY BEAUTY - <span>Customers</span></h1>
                                 </div>
                             </div>
@@ -277,7 +277,7 @@
                                     into electronic typesetting, remaining essentially unchanged
                                 </p>
                                 <div class="img-customer">
-                                    <img src="img/115x115.png" alt="img-holiwood">
+                                    <img src="../img/115x115.png" alt="img-holiwood">
                                     <h1>JUDY BEAUTY - <span>Customers</span></h1>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@
                                     into electronic typesetting, remaining essentially unchanged
                                 </p>
                                 <div class="img-customer">
-                                    <img src="img/115x115.png" alt="img-holiwood">
+                                    <img src="../img/115x115.png" alt="img-holiwood">
                                     <h1>JUDY BEAUTY - <span>Customers</span></h1>
                                 </div>
                             </div>
@@ -306,7 +306,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="img-color-1">
                                 <div class="img-content">
-                                    <img src="img/70x71.png" class="img-responsive" alt="img-holiwood">
+                                    <img src="../img/70x71.png" class="img-responsive" alt="img-holiwood">
                                 </div>
                                 <h1>100%</h1>
                                 <h2>Product quality protection</h2>
@@ -316,7 +316,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="img-color-2">
                                 <div class="img-content">
-                                    <img src="img/82x62.png" class="img-responsive" alt="img-holiwood">
+                                    <img src="../img/82x62.png" class="img-responsive" alt="img-holiwood">
                                 </div>
                                 <h1>100%</h1>
                                 <h2>Payment protection</h2>
@@ -326,7 +326,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="img-color-3">
                                 <div class="img-content">
-                                    <img src="img/62x62.png" class="img-responsive" alt="img-holiwood">
+                                    <img src="../img/62x62.png" class="img-responsive" alt="img-holiwood">
                                 </div>
                                 <h1>100%</h1>
                                 <h2>On-time shipment protection</h2>
@@ -391,7 +391,7 @@
                             <form class="form-group" action="mail" method="post">
                                 <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                 <button type="submit">
-                                    <img src="img/Send.png" alt="img-holiwood">
+                                    <img src="../img/Send.png" alt="img-holiwood">
                                 </button>
                             </form>
                         </div>
@@ -421,14 +421,14 @@
         </footer>
 
         <!-- boostrap & jquery -->
-        <script src="js/jquery.min_af.js"></script>
-        <script src="js/bootstrap.min_0028.js"></script>
+        <script src="../js/jquery.min_af.js"></script>
+        <script src="../js/bootstrap.min_0028.js"></script>
 
         <!-- js file -->
-        <script src="js/function-back-top.js"></script>
-        <script src="js/function-sidebar.js"></script>
-        <script src="js/funtion-header-v3.js"></script>
-        <script src="js/function-search-v2.js"></script>
+        <script src="../js/function-back-top.js"></script>
+        <script src="../js/function-sidebar.js"></script>
+        <script src="../js/funtion-header-v3.js"></script>
+        <script src="../js/function-search-v2.js"></script>
     </body>
     </html>
 </asp:Content>

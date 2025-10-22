@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="aboutus.master.cs" Inherits="JenStore.aboutus" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="aboutus.master.cs" Inherits="JenStore.aboutus" %>
 
 <!DOCTYPE html>
 
@@ -21,11 +21,11 @@
                     <!-- bootstrap vs fontawesome-->
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-                    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
-                    <link rel="stylesheet" type="text/css" href="css/style-about.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+                    <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+                    <link rel="stylesheet" type="text/css" href="../css/style-about.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
                     <!-- slick -->
 
                     <!-- GG FONT -->
@@ -38,14 +38,14 @@
 
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo"><a href="#">
-                                <img src="img/logo.png" alt="img-holiwood"></a></div>
+                                <img src="../img/logo.png" alt="img-holiwood"></a></div>
                             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                                 <div class=" collapse navbar-collapse" id="myNavbar">
 
                                     <form class="hidden-lg hidden-md form-group form-search-mobile">
                                         <input type="text" name="search" placeholder="Search here..." class="form-control">
                                         <button type="submit">
-                                            <img src="img/Search.png" alt="search" class="img-responsive"></button>
+                                            <img src="../img/Search.png" alt="search" class="img-responsive"></button>
                                     </form>
 
                                     <ul class="nav navbar-nav menu-main">
@@ -88,7 +88,7 @@
                                                         </li>
                                                         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner">
                                                             <a href="#">
-                                                                <img src="img/340x240.png" alt="img-holiwood"></a>
+                                                                <img src="../img/340x240.png" alt="img-holiwood"></a>
                                                         </li>
 
                                                     </ul>
@@ -115,12 +115,12 @@
 
                                     <li id="input-search" class="hidden-sm hidden-xs">
                                         <a href="#">
-                                            <img id="search-img" src="img/Search.png" alt="img-holiwood"></a>
+                                            <img id="search-img" src="../img/Search.png" alt="img-holiwood"></a>
                                     </li>
                                     <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
                                     <li class="cart-menu">
                                         <a href="shopping-cart.html">
-                                            <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                            <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -149,7 +149,7 @@
                         <div class="banner">
                             <div class="container">
                                 <figure id="banner-about"><a href="#">
-                                    <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
+                                    <img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
                                 <div class="title-banner">
                                     <h1>About Us</h1>
                                     <p>Welcome to JenStore - Your trusted destination for beautiful flowers and exceptional service</p>
@@ -163,7 +163,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-well">
                                         <div class="media">
                                             <div class="media-left"><a href="#">
-                                                <img src="img/115x115.png" alt="img-holiwood"></a></div>
+                                                <img src="../img/115x115.png" alt="img-holiwood"></a></div>
                                             <div class="media-body">
                                                 <h1>WELCOME</h1>
                                                 <h2>Hello! I am Laura Ellie
@@ -186,7 +186,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 img-well">
                                         <figure id="img-about"><a href="#">
-                                            <img src="img/660x360.png" alt="img-holiwood"></a></figure>
+                                            <img src="../img/660x360.png" alt="img-holiwood"></a></figure>
                                     </div>
                                 </div>
                             </div>
@@ -246,7 +246,7 @@
                                         <form class="form-group" action="mail" method="post">
                                             <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                             <button type="submit">
-                                                <img src="img/Send.png" alt="img-holiwood"></button>
+                                                <img src="../img/Send.png" alt="img-holiwood"></button>
                                         </form>
                                     </div>
                                 </div>
@@ -272,14 +272,14 @@
                     </footer>
 
                     <!-- boostrap & jquery -->
-                    <script src="js/jquery.min_af.js"></script>
-                    <script src="js/bootstrap.min_0028.js"></script>
+                    <script src="../js/jquery.min_af.js"></script>
+                    <script src="../js/bootstrap.min_0028.js"></script>
 
                     <!-- js file -->
-                    <script src="js/function-back-top.js"></script>
-                    <script src="js/function-sidebar.js"></script>
-                    <script src="js/funtion-header-v3.js"></script>
-                    <script src="js/function-search-v2.js"></script>
+                    <script src="../js/function-back-top.js"></script>
+                    <script src="../js/function-sidebar.js"></script>
+                    <script src="../js/funtion-header-v3.js"></script>
+                    <script src="../js/function-search-v2.js"></script>
                 </body>
                 </html>
             </asp:ContentPlaceHolder>

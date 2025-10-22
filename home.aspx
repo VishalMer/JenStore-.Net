@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/home.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="JenStore.home1" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/home.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="JenStore.home1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,11 +12,11 @@
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" xintegrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="css/style-homev1.css">
-        <link rel="stylesheet" type="text/css" href="css/style-res-v1.css">
-        <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-        <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="../css/style-homev1.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-res-v1.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
         <!-- scroll -->
 
 
@@ -71,7 +71,7 @@
                         <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
                             <input type="text" name="search" placeholder="Search here..." class="form-control">
                             <button type="submit">
-                                <img src="img/Search.png" alt="search" class="img-responsive">
+                                <img src="../img/Search.png" alt="search" class="img-responsive">
                             </button>
                         </form>--%>
                         <ul class="nav navbar-nav menu-main">
@@ -100,14 +100,14 @@
                     </div>
                     <ul class="logo col-lg-2 col-md-2 col-sm-7 col-xs-7">
                         <li><a href="#">
-                            <img src="img/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
+                            <img src="../img/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right icon-menu col-lg-4 col-md-4 col-sm-5 col-xs-5">
                         <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
-                                <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
@@ -139,19 +139,19 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active slide-1">
-                        <img src="img/1920x1080.png" alt="img-holiwood">
+                        <img src="../img/1920x1080.png" alt="img-holiwood">
                         <div class="carousel-caption">
                             <h3>EXPLORE THE</h3>
                             <h1>New Arrivals</h1>
                             <p>
                                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
                             </p>
-                            <img src="img/home Pattern.png" alt="img-holiwood"><br>
+                            <img src="../img/home Pattern.png" alt="img-holiwood"><br>
                             <a href="shopping.aspx">Shop now</a>
                         </div>
                     </div>
                     <div class="item slide-2">
-                        <img src="img/1920x1080.png" alt="img-holiwood">
+                        <img src="../img/1920x1080.png" alt="img-holiwood">
                         <div class="carousel-caption">
                             <h3>A Ferfect</h3>
                             <h1>Bouquet</h1>
@@ -164,19 +164,19 @@
                         </div>
                     </div>
                     <div class="item slide-1">
-                        <img src="img/1920x1080.png" alt="img-holiwood">
+                        <img src="../img/1920x1080.png" alt="img-holiwood">
                         <div class="carousel-caption">
                             <h3>EXPLORE THE</h3>
                             <h1>New Arrivals</h1>
                             <p>
                                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
                             </p>
-                            <img src="img/home Pattern.png" alt="img-holiwood"><br>
+                            <img src="../img/home Pattern.png" alt="img-holiwood"><br>
                             <a href="shopping.aspx">Shop now</a>
                         </div>
                     </div>
                     <div class="item slide-2">
-                        <img src="img/1920x1080.png" alt="img-holiwood">
+                        <img src="../img/1920x1080.png" alt="img-holiwood">
                         <div class="carousel-caption">
                             <h3>A Ferfect</h3>
                             <h1>Bouquet</h1>
@@ -193,7 +193,7 @@
             <div class="who" id="showcase">
                 <div class="gallery clearfix">
                     <figure>
-                        <img src="img/1820x1090.png" alt="img-holiwood">
+                        <img src="../img/1820x1090.png" alt="img-holiwood">
                         <h1>who we are ?</h1>
                         <h1 class="h2">who we are ?</h1>
                         <p>
@@ -208,7 +208,7 @@
                         </p>
                         <div class="media">
                             <div class="media-left">
-                                <img src="img/rahul.JPG" id="avatar" class="media-object" alt="img-holiwood">
+                                <img src="../img/rahul.JPG" id="avatar" class="media-object" alt="img-holiwood">
                             </div>
                             <div class="media-body">
                                 <h3>Rahul Zapadiya</h3>
@@ -226,7 +226,7 @@
                     <figure>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-collec">
-                                <img src="img/800x1132.png" class="img-responsive" alt="img-holiwood">
+                                <img src="../img/800x1132.png" class="img-responsive" alt="img-holiwood">
                                 <h3>HELLO SUMMER</h3>
                                 <h1>Sale 10%</h1>
                                 <a href="#">Shop now</a>
@@ -271,7 +271,7 @@
                 <div class="gallery clearfix">
                     <figure>
                         <div class="img-wedding">
-                            <img src="img/1920x1170.png" alt="img-holiwood">
+                            <img src="../img/1920x1170.png" alt="img-holiwood">
                         </div>
                         <div class="container wedding-content">
                             <div class="row">
@@ -345,7 +345,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-holiday">
                                     <div class="img-banner-holiday">
-                                        <img src="img/720x1050.png" class="img-responsive" alt="img-holiwood">
+                                        <img src="../img/720x1050.png" class="img-responsive" alt="img-holiwood">
                                     </div>
                                     <div class="title-holiday">
                                         <h1>HAPPY MOTHER'S DAY</h1>
@@ -362,7 +362,7 @@
 
             <div class="count">
                 <div class="img-count">
-                    <img src="img/1920x880.png" alt="img-holiwood">
+                    <img src="../img/1920x880.png" alt="img-holiwood">
                 </div>
                 <div class="title-count">
                     <h1>Sale up to 40%</h1>
@@ -492,7 +492,7 @@
                                             </figure>
                                         </div>
                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="img/340x420.png" class="img-responsive" alt="holiwood">
+                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -552,7 +552,7 @@
                                             </figure>
                                         </div>
                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="img/340x420.png" class="img-responsive" alt="holiwood">
+                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -612,7 +612,7 @@
                                             </figure>
                                         </div>
                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="img/340x420.png" class="img-responsive" alt="holiwood">
+                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -672,7 +672,7 @@
                                             </figure>
                                         </div>
                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="img/340x420.png" class="img-responsive" alt="holiwood">
+                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -727,13 +727,13 @@
                             </div>
                             <ul class="nav nav-pills col-lg-6 col-md-6 col-sm-6 col-xs-12 img-pill">
                                 <li class="active col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-1">
-                                    <img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-2">
-                                    <img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-3">
-                                    <img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-4">
-                                    <img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -743,18 +743,18 @@
         </footer>
 
         <!-- boostrap & jquery -->
-        <script src="js/jquery.min_af.js"></script>
-        <script src="js/bootstrap.min_0028.js"></script>
+        <script src="../js/jquery.min_af.js"></script>
+        <script src="../js/bootstrap.min_0028.js"></script>
         <!-- js file -->
-        <script src="js/function-homev1.js"></script>
-        <script src="js/function-sidebar.js"></script>
-        <script src="js/function-back-top.js"></script>
-        <script src="js/function-select-custom.js"></script>
-        <script src="js/function-search-v2.js"></script>
+        <script src="../js/function-homev1.js"></script>
+        <script src="../js/function-sidebar.js"></script>
+        <script src="../js/function-back-top.js"></script>
+        <script src="../js/function-select-custom.js"></script>
+        <script src="../js/function-search-v2.js"></script>
         <!-- scroll js -->
         <script type="text/javascript" src="scrolling/TweenMax.min.js"></script>
         <script src="scrolling/jquery.superscrollorama.js"></script>
-        <script src="js/function-scroll.js"></script>
+        <script src="../js/function-scroll.js"></script>
 
     </body>
     </html>

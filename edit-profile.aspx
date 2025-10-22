@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/edit-profile.Master" AutoEventWireup="true" CodeBehind="edit-profile.aspx.cs" Inherits="JenStore.edit_profile1" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/edit-profile.Master" AutoEventWireup="true" CodeBehind="edit-profile.aspx.cs" Inherits="JenStore.edit_profile1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,14 +12,14 @@
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="img/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="css/style-about.css">
-        <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
-        <link rel="stylesheet" type="text/css" href="css/style-faq.css">
-        <link rel="stylesheet" type="text/css" href="css/style-login.css">
-        <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-        <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
-        <link rel="stylesheet" type="text/css" href="css/style-edit-profile.css">
+        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="../css/style-about.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-faq.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-login.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-edit-profile.css">
         <!-- slick -->
 
         <!-- GG FONT -->
@@ -183,7 +183,7 @@
                             <form class="form-group" action="mail" method="post">
                                 <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                 <button type="submit">
-                                    <img src="img/Send.png" alt="img-holiwood">
+                                    <img src="../img/Send.png" alt="img-holiwood">
                                 </button>
                             </form>
                         </div>
@@ -213,16 +213,16 @@
         </footer>
 
         <!-- boostrap & jquery -->
-        <script src="js/jquery.min_af.js"></script>
-        <script src="js/bootstrap.min_0028.js"></script>
+        <script src="../js/jquery.min_af.js"></script>
+        <script src="../js/bootstrap.min_0028.js"></script>
 
         <!-- js file -->
-        <script src="js/function-back-top.js"></script>
-        <script src="js/function-sidebar.js"></script>
-        <script src="js/funtion-header-v3.js"></script>
-        <script src="js/function-search-v2.js"></script>
+        <script src="../js/function-back-top.js"></script>
+        <script src="../js/function-sidebar.js"></script>
+        <script src="../js/funtion-header-v3.js"></script>
+        <script src="../js/function-search-v2.js"></script>
 
-        <script src="js/edit-profile.js"></script>
+        <script src="../js/edit-profile.js"></script>
     </body>
     </html>
 </asp:Content>

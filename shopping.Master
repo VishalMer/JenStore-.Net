@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="shopping.master.cs" Inherits="JenStore.shopping" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="shopping.master.cs" Inherits="JenStore.shopping" %>
 
 <!DOCTYPE html>
 
@@ -24,11 +24,11 @@
 	<!-- jquery ui -->
 	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
          <!--  -->
-         <link rel="icon" href="img/favicon.png" type="image/x-icon"/>
-	<link rel="stylesheet" type="text/css" href="css/style-flower.css">
-	<link rel="stylesheet" type="text/css" href="css/style-res-flower.css">
-	<link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-	<link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+         <link rel="icon" href="../img/favicon.png" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="../css/style-flower.css">
+	<link rel="stylesheet" type="text/css" href="../css/style-res-flower.css">
+	<link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+	<link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
 		<!-- slick -->
 	
 	<!-- GG FONT -->
@@ -45,13 +45,13 @@
 <header class="container" id="header-v3">
 	
 		<div class="row">
-			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo"><a href="#"><img src="img/logo.png" alt="img-holiwood"></a></div>
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo"><a href="#"><img src="../img/logo.png" alt="img-holiwood"></a></div>
 			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
 				<div class=" collapse navbar-collapse" id="myNavbar">
 					
 				<form class="hidden-lg hidden-md form-group form-search-mobile">
 					<input type="text" name="search" placeholder="Search here..." class="form-control">
-					<button type="submit"><img src="img/Search.png" alt="search" class="img-responsive"></button>
+					<button type="submit"><img src="../img/Search.png" alt="search" class="img-responsive"></button>
 				</form>
 				<ul class="nav navbar-nav menu-main">
 					
@@ -93,7 +93,7 @@
 						</ul>
 					</li>
 					<li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner">
-						<a href="#"><img src="img/340x240.png" alt="img-holiwood"></a>
+						<a href="#"><img src="../img/340x240.png" alt="img-holiwood"></a>
 					</li>
 					
 						</ul>
@@ -115,15 +115,15 @@
 					
 					
 					<li id="input-search" class="hidden-sm hidden-xs">
-				<a href="#"><img id="search-img" src="img/Search.png" alt="img-holiwood"></a>
+				<a href="#"><img id="search-img" src="../img/Search.png" alt="img-holiwood"></a>
 				
 					</li>
 					<li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
 					<li class="dropdown cart-menu">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
 				<div class="dropdown-menu">
 					<div class="cart-1">
-						<div class="img-cart"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+						<div class="img-cart"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
 						<div class="info-cart">
 							<h1>Pink roses</h1>
 							<span class="number">x1</span>
@@ -131,7 +131,7 @@
 						</div>
 					</div>
 					<div class="cart-1">
-						<div class="img-cart"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+						<div class="img-cart"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
 						<div class="info-cart">
 							<h1>Eleganr by BloomNation</h1>
 							<span class="number">x1</span>
@@ -139,7 +139,7 @@
 						</div>
 					</div>
 					<div class="cart-1">
-						<div class="img-cart"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+						<div class="img-cart"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
 						<div class="info-cart">
 							<h1>Queen Rose - Yellow</h1>
 							<span class="number">x1</span>
@@ -181,7 +181,7 @@
                             
 </div>
 	<div class="container banner">
-		<figure id="banner-figure"><a href="#"><img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
+		<figure id="banner-figure"><a href="#"><img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
 		<div class="text-banner">
 			<h1>Tulips<br>Collection</h1>
 			<p>SALE UP TO 20% OFF</p>
@@ -218,7 +218,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<figure class="sale"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+					<figure class="sale"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -241,7 +241,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+					<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -264,7 +264,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<figure class="hot"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+					<figure class="hot"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -287,7 +287,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<figure class="sale"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+					<figure class="sale"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -310,7 +310,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+					<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -333,7 +333,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<figure class="hot"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+					<figure class="hot"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -356,7 +356,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<figure class="sale"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+					<figure class="sale"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -379,7 +379,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+					<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -402,7 +402,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 product-flower product-flower-col-3">
 					<div class="product-image-flower">
-					<figure class="hot"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+					<figure class="hot"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 					<div class="product-icon-flower">
 						<a href="#"><i class="far fa-eye"></i></a>
 						<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -430,7 +430,7 @@
 						<li><a href="#">02</a></li>
 						<li><a href="#">03</a></li>
 						<li><a href="#">04</a></li>
-						<li><a href="#"><img src="img/Next.png" class="img-responsive" alt="img-holiwood"></a></li>
+						<li><a href="#"><img src="../img/Next.png" class="img-responsive" alt="img-holiwood"></a></li>
 					</ul>
 				</div>
 			
@@ -590,7 +590,7 @@
 				<h2>Sign up for our mailing list to get latest updates and offers</h2>
 				<form class="form-group" action="mail" method="post">
 					<input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
-					<button type="submit"><img src="img/Send.png" alt="img-holiwood"></button>
+					<button type="submit"><img src="../img/Send.png" alt="img-holiwood"></button>
 				</form>
 			</div>
 		</div>
@@ -620,23 +620,23 @@
 	<div class="BG-menu"></div>
 </footer>
 <!-- boostrap & jquery -->
-	<script src="js/jquery.min_af.js"></script>
-	<script src="js/bootstrap.min_0028.js"></script>
+	<script src="../js/jquery.min_af.js"></script>
+	<script src="../js/bootstrap.min_0028.js"></script>
 	<!-- jquery ui -->
-		<script src = "js/jquery-1.10.2.710.js"></script>
-     	<script src = "js/jquery-ui_c2.js"></script>
+		<script src = "../js/jquery-1.10.2.710.js"></script>
+     	<script src = "../js/jquery-ui_c2.js"></script>
 	
 	<!-- js file -->
-	<script src="js/function-flower.js"></script>
-	<script src="js/function-show-sidebar.js"></script>
+	<script src="../js/function-flower.js"></script>
+	<script src="../js/function-show-sidebar.js"></script>
 	
-	<script src="js/function-shop.js"></script>
-	<script src="js/function-range.js"></script>
-	<script src="js/function-select-custom.js"></script>
-	<script src="js/function-back-top.js"></script>
-	<script src="js/function-sidebar.js"></script>
-	<script src="js/funtion-header-v3.js"></script>
-	<script src="js/function-search-v2.js"></script>
+	<script src="../js/function-shop.js"></script>
+	<script src="../js/function-range.js"></script>
+	<script src="../js/function-select-custom.js"></script>
+	<script src="../js/function-back-top.js"></script>
+	<script src="../js/function-sidebar.js"></script>
+	<script src="../js/funtion-header-v3.js"></script>
+	<script src="../js/function-search-v2.js"></script>
 </body>
 </html>
             </asp:ContentPlaceHolder>

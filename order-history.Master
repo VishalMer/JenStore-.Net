@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="order-history.master.cs" Inherits="JenStore.order_history" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="order-history.master.cs" Inherits="JenStore.order_history" %>
 
 <!DOCTYPE html>
 
@@ -21,13 +21,13 @@
                     <!-- bootstrap vs fontawesome-->
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-                    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
-                    <link rel="stylesheet" type="text/css" href="css/style-about.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-res-about.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-faq.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-order.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-                    <link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+                    <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+                    <link rel="stylesheet" type="text/css" href="../css/style-about.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-faq.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-order.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+                    <link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
                     <!-- slick -->
 
                     <!-- GG FONT -->
@@ -40,14 +40,14 @@
 
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo"><a href="#">
-                                <img src="img/logo.png" alt="img-holiwood"></a></div>
+                                <img src="../img/logo.png" alt="img-holiwood"></a></div>
                             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                                 <div class=" collapse navbar-collapse" id="myNavbar">
 
                                     <form class="hidden-lg hidden-md form-group form-search-mobile">
                                         <input type="text" name="search" placeholder="Search here..." class="form-control">
                                         <button type="submit">
-                                            <img src="img/Search.png" alt="search" class="img-responsive"></button>
+                                            <img src="../img/Search.png" alt="search" class="img-responsive"></button>
                                     </form>
 
                                     <ul class="nav navbar-nav menu-main">
@@ -90,7 +90,7 @@
                                                         </li>
                                                         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner">
                                                             <a href="#">
-                                                                <img src="img/340x240.png" alt="img-holiwood"></a>
+                                                                <img src="../img/340x240.png" alt="img-holiwood"></a>
                                                         </li>
 
                                                     </ul>
@@ -117,16 +117,16 @@
 
                                     <li id="input-search" class="hidden-sm hidden-xs">
                                         <a href="#">
-                                            <img id="search-img" src="img/Search.png" alt="img-holiwood"></a>
+                                            <img id="search-img" src="../img/Search.png" alt="img-holiwood"></a>
                                     </li>
                                     <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
                                     <li class="dropdown cart-menu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                            <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
                                         <div class="dropdown-menu">
                                             <div class="cart-1">
                                                 <div class="img-cart">
-                                                    <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                                    <img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
                                                 <div class="info-cart">
                                                     <h1>Pink roses</h1>
                                                     <span class="number">x1</span>
@@ -135,7 +135,7 @@
                                             </div>
                                             <div class="cart-1">
                                                 <div class="img-cart">
-                                                    <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                                    <img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
                                                 <div class="info-cart">
                                                     <h1>Eleganr by BloomNation</h1>
                                                     <span class="number">x1</span>
@@ -144,7 +144,7 @@
                                             </div>
                                             <div class="cart-1">
                                                 <div class="img-cart">
-                                                    <img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+                                                    <img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
                                                 <div class="info-cart">
                                                     <h1>Queen Rose - Yellow</h1>
                                                     <span class="number">x1</span>
@@ -188,7 +188,7 @@
                         <div class="banner">
                             <div class="container">
                                 <figure id="banner-about"><a href="#">
-                                    <img src="img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
+                                    <img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a></figure>
                                 <div class="title-banner">
                                     <h1>Order History</h1>
                                     <p><a href="home.aspx" title="Home">Home</a><i class="fa fa-caret-right"></i>Order History</p>
@@ -259,7 +259,7 @@
                                             <div class="order-items">
                                                 <div class="order-item">
                                                     <div class="item-image">
-                                                        <img src="img/340x420.png" alt="Pink roses" class="img-responsive">
+                                                        <img src="../img/340x420.png" alt="Pink roses" class="img-responsive">
                                                     </div>
                                                     <div class="item-details">
                                                         <h4>Pink Roses Bouquet</h4>
@@ -269,7 +269,7 @@
                                                 </div>
                                                 <div class="order-item">
                                                     <div class="item-image">
-                                                        <img src="img/340x420.png" alt="Elegant by BloomNation" class="img-responsive">
+                                                        <img src="../img/340x420.png" alt="Elegant by BloomNation" class="img-responsive">
                                                     </div>
                                                     <div class="item-details">
                                                         <h4>Elegant by BloomNation</h4>
@@ -279,7 +279,7 @@
                                                 </div>
                                                 <div class="order-item">
                                                     <div class="item-image">
-                                                        <img src="img/340x420.png" alt="Queen Rose Yellow" class="img-responsive">
+                                                        <img src="../img/340x420.png" alt="Queen Rose Yellow" class="img-responsive">
                                                     </div>
                                                     <div class="item-details">
                                                         <h4>Queen Rose - Yellow</h4>
@@ -493,7 +493,7 @@
                                         <form class="form-group" action="mail" method="post">
                                             <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                             <button type="submit">
-                                                <img src="img/Send.png" alt="img-holiwood"></button>
+                                                <img src="../img/Send.png" alt="img-holiwood"></button>
                                         </form>
                                     </div>
                                 </div>
@@ -519,15 +519,15 @@
                     </footer>
 
                     <!-- boostrap & jquery -->
-                    <script src="js/jquery.min_af.js"></script>
-                    <script src="js/bootstrap.min_0028.js"></script>
+                    <script src="../js/jquery.min_af.js"></script>
+                    <script src="../js/bootstrap.min_0028.js"></script>
 
                     <!-- js file -->
-                    <script src="js/function-back-top.js"></script>
-                    <script src="js/function-sidebar.js"></script>
-                    <script src="js/funtion-header-v3.js"></script>
-                    <script src="js/function-search-v2.js"></script>
-                    <script src="js/function-shopping-cart.js"></script>
+                    <script src="../js/function-back-top.js"></script>
+                    <script src="../js/function-sidebar.js"></script>
+                    <script src="../js/funtion-header-v3.js"></script>
+                    <script src="../js/function-search-v2.js"></script>
+                    <script src="../js/function-shopping-cart.js"></script>
                 </body>
                 </html>
             </asp:ContentPlaceHolder>

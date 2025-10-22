@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="home.master.cs" Inherits="JenStore.home" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="home.master.cs" Inherits="JenStore.home" %>
 
 <!DOCTYPE html>
 
@@ -21,11 +21,11 @@
 <!-- bootstrap vs fontawesome-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="icon" href="img/favicon.png" type="image/x-icon"/>
-<link rel="stylesheet" type="text/css" href="css/style-homev1.css">
-<link rel="stylesheet" type="text/css" href="css/style-res-v1.css">
-<link rel="stylesheet" type="text/css" href="css/style-fix-nav.css">
-<link rel="stylesheet" type="text/css" href="css/style-form-search-mobile.css">
+<link rel="icon" href="../img/favicon.png" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="../css/style-homev1.css">
+<link rel="stylesheet" type="text/css" href="../css/style-res-v1.css">
+<link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
+<link rel="stylesheet" type="text/css" href="../css/style-form-search-mobile.css">
 <!-- scroll -->
 
 
@@ -65,7 +65,7 @@
 		<div class="collapse navbar-collapse col-lg-6 col-md-6 col-sm-12 col-xs-12" id="myNavbar">
 			<form class="hidden-lg hidden-md form-group form-search-mobile">
 				<input type="text" name="search" placeholder="Search here..." class="form-control">
-				<button type="submit"><img src="img/Search.png" alt="search" class="img-responsive"></button>
+				<button type="submit"><img src="../img/Search.png" alt="search" class="img-responsive"></button>
 		</form>
 	<ul class="nav navbar-nav menu-main">
 				<li><figure id="btn-close-menu" class="hidden-lg hidden-md"><i class="far fa-times-circle"></i></figure></li>
@@ -107,7 +107,7 @@
 					</ul>
 				</li>
 				<li class="col-lg-4 col-md-4 hidden-sm hidden-xs li-banner">
-					<a href="#"><img src="img/340x240.png" alt="img-holiwood"></a>
+					<a href="#"><img src="../img/340x240.png" alt="img-holiwood"></a>
 				</li>
 				
 					</ul>
@@ -125,15 +125,15 @@
 	</ul>
 </div>
 	<ul class="logo col-lg-2 col-md-2 col-sm-7 col-xs-7">
-		<li><a href="#"><img src="img/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
+		<li><a href="#"><img src="../img/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right icon-menu col-lg-4 col-md-4 col-sm-5 col-xs-5">
 							<li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.html"><i class="far fa-user"></i></a></li>
 		<li class="dropdown cart-menu">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/cart.png" id="img-cart" alt="img-holiwood"></a>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
 			<div class="dropdown-menu">
 				<div class="cart-1">
-					<div class="img-cart"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+					<div class="img-cart"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
 					<div class="info-cart">
 						<h1>Pink roses</h1>
 						<span class="number">x1</span>
@@ -141,7 +141,7 @@
 					</div>
 				</div>
 				<div class="cart-1">
-					<div class="img-cart"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+					<div class="img-cart"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
 					<div class="info-cart">
 						<h1>Eleganr by BloomNation</h1>
 						<span class="number">x1</span>
@@ -149,7 +149,7 @@
 					</div>
 				</div>
 				<div class="cart-1">
-					<div class="img-cart"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
+					<div class="img-cart"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></div>
 					<div class="info-cart">
 						<h1>Queen Rose - Yellow</h1>
 						<span class="number">x1</span>
@@ -167,7 +167,7 @@
 			</div>
 		</li>
 		<li id="input-search" class="hidden-sm hidden-xs">
-			<a href="#"><img src="img/Search.png" alt="img-holiwood"></a>
+			<a href="#"><img src="../img/Search.png" alt="img-holiwood"></a>
 		</li>
 	</ul>
 </div>
@@ -200,19 +200,19 @@
 <div class="carousel-inner">
 
 <div class="item active slide-1">
-	<img src="img/1920x1080.png" alt="img-holiwood">
+	<img src="../img/1920x1080.png" alt="img-holiwood">
 	<div class="carousel-caption">
       <h3>EXPLORE THE</h3>
       <h1>New Arrivals</h1>
       <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-      <img src="img/310x26.png" alt="img-holiwood"><br>
+      <img src="../img/310x26.png" alt="img-holiwood"><br>
       <a href="#">Shop now</a>
     </div>
   	
 </div>
 
 <div class="item slide-2">
-	<img src="img/1920x1080.png" alt="img-holiwood">
+	<img src="../img/1920x1080.png" alt="img-holiwood">
 	<div class="carousel-caption">
       <h3>A Ferfect</h3>
       <h1>Bouquet</h1>
@@ -224,19 +224,19 @@
 </div>
 
 <div class="item slide-1">
-	<img src="img/1920x1080.png" alt="img-holiwood">
+	<img src="../img/1920x1080.png" alt="img-holiwood">
 	<div class="carousel-caption">
       <h3>EXPLORE THE</h3>
       <h1>New Arrivals</h1>
       <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-      <img src="img/310x26.png" alt="img-holiwood"><br>
+      <img src="../img/310x26.png" alt="img-holiwood"><br>
       <a href="#">Shop now</a>
     </div>
   	
 </div>
 
 <div class="item slide-2">
-	<img src="img/1920x1080.png" alt="img-holiwood">
+	<img src="../img/1920x1080.png" alt="img-holiwood">
 	<div class="carousel-caption">
       <h3>A Ferfect</h3>
       <h1>Bouquet</h1>
@@ -253,7 +253,7 @@
 <div class="who" id="showcase">
 <div class="gallery clearfix">
 	<figure>
-<img src="img/1820x1090.png" alt="img-holiwood">
+<img src="../img/1820x1090.png" alt="img-holiwood">
 <h1>who we are ?</h1>
 <h1 class="h2">who we are ?</h1>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has<br class="hidden-md hidden-sm hidden-xs">
@@ -261,7 +261,7 @@ been the industry's standard dummy text ever since the 1500s, when an unknown pr
 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing <br class="hidden-md hidden-sm hidden-xs">
 software like Aldus PageMaker including versions of Lorem Ipsum
 </p>
-<div class="media"><div class="media-left"><img src="img/115x115.png" id="avatar" class="media-object" alt="img-holiwood"></div><div class="media-body"><h3>Laura Ellie</h3><span>Founder</span></div></div>
+<div class="media"><div class="media-left"><img src="../img/115x115.png" id="avatar" class="media-object" alt="img-holiwood"></div><div class="media-body"><h3>Laura Ellie</h3><span>Founder</span></div></div>
 </figure>
 </div>
 </div>
@@ -277,7 +277,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 <div class="row">
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-collec">
 
-		<img src="img/800x1132.png" class="img-responsive" alt="img-holiwood">
+		<img src="../img/800x1132.png" class="img-responsive" alt="img-holiwood">
 		<h3>HELLO SUMMER</h3>
 		<h1>Sale 10%</h1>
 		<a href="#">Shop now</a>
@@ -285,7 +285,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
 			<div class="product-image-collec">
-				<figure class="hot"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+				<figure class="hot"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 				<div class="product-icon-collec">
 					<a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -301,7 +301,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
 			<div class="product-image-collec">
-				<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+				<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 				<div class="product-icon-collec">
 					<a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -316,7 +316,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
 			<div class="product-image-collec">
-				<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+				<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 				<div class="product-icon-collec">
 					<a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -331,7 +331,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
 			<div class="product-image-collec">
-				<figure class="sale"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+				<figure class="sale"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 				<div class="product-icon-collec">
 					<a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -357,12 +357,12 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 <h2>- Lorem Ipsum is<span class="hidden-xs"> simply dummy</span> text of the printing -</h2>
 <div class="gallery clearfix">
 <figure>
-	<div class="img-wedding"><img src="img/1920x1170.png" alt="img-holiwood"></div>
+	<div class="img-wedding"><img src="../img/1920x1170.png" alt="img-holiwood"></div>
 	<div class="container wedding-content">
 		<div class="row">
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
 		<div class="product-image-wedding">
-			<figure class="sale"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+			<figure class="sale"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 				<div class="product-icon-wedding">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -377,7 +377,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
 		<div class="product-image-wedding">
-				<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+				<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 				<div class="product-icon-wedding">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -392,7 +392,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
 		<div class="product-image-wedding">
-			<figure class="hot"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+			<figure class="hot"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 				<div class="product-icon-wedding">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -407,7 +407,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
 		<div class="product-image-wedding">
-				<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+				<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 				<div class="product-icon-wedding">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -439,7 +439,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
 			<div class="product-image-holiday">
-				<figure class="hot"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+				<figure class="hot"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 				<div class="product-icon-holiday">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -454,7 +454,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
 			<div class="product-image-holiday">
-				<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+				<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 				<div class="product-icon-holiday">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -469,7 +469,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
 			<div class="product-image-holiday">
-				<a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
+				<a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a>
 				<div class="product-icon-holiday">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -484,7 +484,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
 			<div class="product-image-holiday">
-				<figure class="sale"><a href="#"><img src="img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
+				<figure class="sale"><a href="#"><img src="../img/340x420.png" class="img-responsive" alt="img-holiwood"></a></figure>
 				<div class="product-icon-holiday">
 					<a href="#"><i class="far fa-eye"></i></a>
 					<a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -501,7 +501,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 	
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-holiday">
 		<div class="img-banner-holiday">
-			<img src="img/720x1050.png" class="img-responsive" alt="img-holiwood">
+			<img src="../img/720x1050.png" class="img-responsive" alt="img-holiwood">
 		</div>
 		<div class="title-holiday">
 			<h1>HAPPY MOTHER'S DAY</h1>
@@ -518,7 +518,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 </div>
 <div class="count">
 <div class="img-count">
-	<img src="img/1920x880.png" alt="img-holiwood">
+	<img src="../img/1920x880.png" alt="img-holiwood">
 </div>
 <div class="title-count">
 	<h1>Sale up to 40%</h1>
@@ -553,7 +553,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 <p>- Lorem Ipsum is<span class="hidden-xs"> simply dummy</span> text of the printing -</p>
 <div class="row">
 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 product-blog">
-		<a href="#"><img src="img/440x360.png" class="img-responsive" title="img-blog" alt="img-holiwood"></a>
+		<a href="#"><img src="../img/440x360.png" class="img-responsive" title="img-blog" alt="img-holiwood"></a>
 		<div class="time-blog">
 			<span class="time"><i class="far fa-calendar-alt"></i><span>May, 12 2018</span></span>
 			<span class="time"><i class="far fa-edit"></i><span>Pixel-Creative</span></span>
@@ -562,7 +562,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 	</div>
 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 product-blog">
-		<a href="#"><img src="img/440x360.png" class="img-responsive" title="img-blog" alt="img-holiwood"></a>
+		<a href="#"><img src="../img/440x360.png" class="img-responsive" title="img-blog" alt="img-holiwood"></a>
 		<div class="time-blog">
 			<span class="time"><i class="far fa-calendar-alt"></i><span>May, 12 2018</span></span>
 			<span class="time"><i class="far fa-edit"></i><span>Pixel-Creative</span></span>
@@ -572,7 +572,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 
 	</div>
 	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 product-blog">
-		<a href="#"><img src="img/440x360.png" class="img-responsive" title="img-blog" alt="img-holiwood"></a>
+		<a href="#"><img src="../img/440x360.png" class="img-responsive" title="img-blog" alt="img-holiwood"></a>
 		<div class="time-blog">
 			<span class="time"><i class="far fa-calendar-alt"></i><span>May, 12 2018</span></span>
 			<span class="time"><i class="far fa-edit"></i><span>Pixel-Creative</span></span>
@@ -667,7 +667,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 							<figure class="fi-quick"><h1>QUICK VIEW</h1></figure>
 						</div>
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-							<img src="img/340x420.png" class="img-responsive" alt="holiwood">
+							<img src="../img/340x420.png" class="img-responsive" alt="holiwood">
 						</div>
 					</div>
   						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -720,7 +720,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 							<figure class="fi-quick"><h1>QUICK VIEW</h1></figure>
 						</div>
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-							<img src="img/340x420.png" class="img-responsive" alt="holiwood">
+							<img src="../img/340x420.png" class="img-responsive" alt="holiwood">
 						</div>
 					</div>
   					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -773,7 +773,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 							<figure class="fi-quick"><h1>QUICK VIEW</h1></figure>
 						</div>
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-							<img src="img/340x420.png" class="img-responsive" alt="holiwood">
+							<img src="../img/340x420.png" class="img-responsive" alt="holiwood">
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -827,7 +827,7 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 							<figure class="fi-quick"><h1>QUICK VIEW</h1></figure>
 						</div>
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-							<img src="img/340x420.png" class="img-responsive" alt="holiwood">
+							<img src="../img/340x420.png" class="img-responsive" alt="holiwood">
 						</div>
 					</div>
  					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
@@ -876,10 +876,10 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 				</div>
 				</div>
 				<ul class="nav nav-pills col-lg-6 col-md-6 col-sm-6 col-xs-12 img-pill">
-				  <li class="active col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-1"><img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-				  <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-2"><img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-				  <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-3"><img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-				  <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-4"><img src="img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+				  <li class="active col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-1"><img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+				  <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-2"><img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+				  <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-3"><img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
+				  <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-4"><img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
 				</ul>
 								      </div>
 								      
@@ -891,18 +891,18 @@ software like Aldus PageMaker including versions of Lorem Ipsum
 </footer>
 
 <!-- boostrap & jquery -->
-<script src="js/jquery.min_af.js"></script>
-<script src="js/bootstrap.min_0028.js"></script>
+<script src="../js/jquery.min_af.js"></script>
+<script src="../js/bootstrap.min_0028.js"></script>
 <!-- js file -->
-<script src="js/function-homev1.js"></script>
-<script src="js/function-sidebar.js"></script>
-<script src="js/function-back-top.js"></script>
-<script src="js/function-select-custom.js"></script>
-<script src="js/function-search-v2.js"></script>
+<script src="../js/function-homev1.js"></script>
+<script src="../js/function-sidebar.js"></script>
+<script src="../js/function-back-top.js"></script>
+<script src="../js/function-select-custom.js"></script>
+<script src="../js/function-search-v2.js"></script>
 <!-- scroll js -->
 <script type="text/javascript" src="scrolling/TweenMax.min.js"></script>
 <script src="scrolling/jquery.superscrollorama.js"></script>
-<script src="js/function-scroll.js"></script>
+<script src="../js/function-scroll.js"></script>
 
 </body>
 </html>
