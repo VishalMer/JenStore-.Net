@@ -51,6 +51,11 @@
                 min-height: 23.9em;
                 min-width: 100%;
             }
+
+            .product-title-flower h5 a:hover {
+                text-decoration: none;
+                color: #e74c3c !important;
+            }
         </style>
     </head>
     <body>

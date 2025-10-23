@@ -80,6 +80,11 @@
             .icon-menu li img {
                 padding-right: 5px !important;
             }
+
+            .related .product-category .product-title-category h5 a:hover {
+                text-decoration: none;
+                color: #e74c3c ;
+            }
         </style>
     </head>
     <body>
@@ -317,7 +322,7 @@
                            
                             </p>
                             <a href="#" id="link-insta"></a><a href="#" id="link-fb"></a><a href="#" id="link-tw"></a><a href="#" id="link-sky"></a>
-                            <h1 style="margin-bottom:0.5em; margin-top:0.2em;">Newsletter</h1>
+                            <h1 style="margin-bottom: 0.5em; margin-top: 0.2em;">Newsletter</h1>
                             <h2>Sign up for our mailing list to get latest updates and offers</h2>
                             <form class="form-group" action="mail" method="post">
                                 <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
