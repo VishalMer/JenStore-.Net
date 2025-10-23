@@ -135,7 +135,7 @@
                 <div class="container">
                     <figure id="banner-about">
                         <a href="#">
-                            <img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                            <img src="img/backgounds/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
                         <h1>Shopping Cart</h1>

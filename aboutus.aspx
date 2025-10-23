@@ -12,7 +12,7 @@
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="icon" href="img/icons/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../css/style-about.css">
         <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
         <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
@@ -101,7 +101,7 @@
                 <div class="container">
                     <figure id="banner-about">
                         <a href="#">
-                            <img src="../img/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
+                            <img src="img/backgounds/1350x500.png" class="img-responsive" alt="img-holiwood"></a>
                     </figure>
                     <div class="title-banner">
                         <h1>About Us</h1>
@@ -116,7 +116,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="img/user_img/reference.jpg" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
+                                        <img src="img/user_img/admin1.PNG" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <h1>WELCOME</h1>
@@ -137,7 +137,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 img-well">
                             <figure id="img-about">
                                 <a href="#">
-                                    <img src="../img/img-about.jpg" alt="img-holiwood"></a>
+                                    <img src="img/backgounds/img-about.jpg" alt="img-holiwood"></a>
                             </figure>
                         </div>
                     </div>

@@ -114,7 +114,7 @@
             <div class="container banner">
                 <figure id="banner-figure">
                     <a href="#">
-                        <img src="../img/shopping-banner.JPG" class="img-responsive" alt="img-holiwood"></a>
+                        <img src="img/backgounds/shopping-banner.JPG" class="img-responsive" alt="img-holiwood"></a>
                 </figure>
                 <div class="text-banner">
                     <h1>Tulips<br>

@@ -12,7 +12,7 @@
         <!-- bootstrap vs fontawesome-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="icon" href="img/icons/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../css/style-about.css">
         <link rel="stylesheet" type="text/css" href="../css/style-res-about.css">
         <link rel="stylesheet" type="text/css" href="../css/style-faq.css">
@@ -183,7 +183,7 @@
                             <form class="form-group" action="mail" method="post">
                                 <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                 <button type="submit">
-                                    <img src="../img/Send.png" alt="img-holiwood">
+                                    <img src="img/icons/Send.png" alt="img-holiwood">
                                 </button>
                             </form>
                         </div>
