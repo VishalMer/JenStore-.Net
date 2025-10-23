@@ -27,6 +27,15 @@ namespace JenStore
             getcon();
             userDetails(userId);
             DisplayStats(userId);
+
+            if (Session["UserRole"] != null && Session["UserRole"].ToString().ToLower() == "admin")
+            {
+                btnAdminPanel.Visible = true;
+            }
+            else
+            {
+                btnAdminPanel.Visible = false;
+            }
         }
 
         void userDetails(int userId)
@@ -81,6 +90,11 @@ namespace JenStore
         {
             Session.Clear();
            Response.Redirect("login_register.aspx");
+        }
+
+        protected void btnAdminPanel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin-panel/index.aspx");
         }
     }
 }

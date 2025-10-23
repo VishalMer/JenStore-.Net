@@ -111,7 +111,7 @@ namespace JenStore
                     object newUserId = cmd.ExecuteScalar();
 
                     Session["UserID"] = Convert.ToInt32(newUserId);
-
+                    Session["UserRole"] = "customer";
                     Response.Redirect("user-dashboard.aspx");
                     clear();
                 }
@@ -150,10 +150,12 @@ namespace JenStore
 
                     if (userRole == "admin")
                     {
+                        Session["UserRole"] = "admin";
                         Response.Redirect("admin-panel/index.aspx");
                     }
                     else
                     {
+                        Session["UserRole"] = "customer";
                         Response.Redirect("home.aspx");
                     }
                 }

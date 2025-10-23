@@ -261,10 +261,14 @@
                                     <span class="detail-label">Status:</span> <span class="detail-value">Active</span>
                                 </div>
                                 <%--Edit Profile & Logout Buttons--%>
-                                <button class="edit-profile-btn" id="editProfile" style="margin-right: 8em;">
+                                <button class="edit-profile-btn" id="editProfile" style="margin-left:-0.2em;">
                                     <a href="edit-profile.aspx" style="color: white; text-decoration: none;">Edit Profile</a>
                                 </button>
-                                <asp:Button ID="Button1" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none;" Text="Logout" OnClick="btnLogout_Click" />
+                               <%-- <asp:Button ID="btnAdminPanel" CssClass="edit-profile-btn" runat="server"
+                                    Text="admin panel" OnClick="btnAdminPanel_Click"
+                                    Visible="false" Style="color: white; text-decoration: none; margin-right: 1em;" />--%>
+                                <asp:Button ID="btnAdminPanel" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none;" Text="Admin Panel" OnClick="btnAdminPanel_Click" Visible="false"/>
+                                <asp:Button ID="Button1" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none; margin-right:-1em;" Text="Logout" OnClick="btnLogout_Click" />
                             </div>
                         </div>
                     </div>
