@@ -46,6 +46,11 @@
             .icon-menu li img {
                 padding-right: 5px !important;
             }
+
+            .img-responsive {
+                min-height: 23.9em;
+                min-width: 100%;
+            }
         </style>
     </head>
     <body>
