@@ -15,7 +15,7 @@
         <!-- jquery ui -->
         <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
         <!--  -->
-        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <link rel="icon" href="img/icons/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../css/style-flower.css">
         <link rel="stylesheet" type="text/css" href="../css/style-res-flower.css">
         <link rel="stylesheet" type="text/css" href="../css/style-fix-nav.css">
@@ -58,7 +58,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="home.aspx">
-                        <img src="../img/logo.png" alt="img-holiwood"></a>
+                        <img src="img/icons/logo.png" alt="img-holiwood"></a>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
@@ -86,7 +86,7 @@
                         <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
-                                <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                <img src="img/icons/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
@@ -249,7 +249,7 @@
                             <form class="form-group" action="mail" method="post">
                                 <input type="text" name="input-mail" placeholder="Your mail here" class="input-lg">
                                 <button type="submit">
-                                    <img src="../img/Send.png" alt="img-holiwood">
+                                    <img src="img/icons/Send.png" alt="img-holiwood">
                                 </button>
                             </form>
                         </div>

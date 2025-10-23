@@ -68,12 +68,7 @@
                         </button>
                     </div>
                     <div class="collapse navbar-collapse col-lg-6 col-md-6 col-sm-12 col-xs-12" id="myNavbar">
-                        <%-- <form class="hidden-lg hidden-md form-group form-search-mobile">
-                            <input type="text" name="search" placeholder="Search here..." class="form-control">
-                            <button type="submit">
-                                <img src="../img/Search.png" alt="search" class="img-responsive">
-                            </button>
-                        </form>--%>
+                       
                         <ul class="nav navbar-nav menu-main">
                             <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
@@ -100,14 +95,14 @@
                     </div>
                     <ul class="logo col-lg-2 col-md-2 col-sm-7 col-xs-7">
                         <li><a href="#">
-                            <img src="../img/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
+                            <img src="img/icons/logo.png" class="img-responsive" alt="img-holiwood"></a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right icon-menu col-lg-4 col-md-4 col-sm-5 col-xs-5">
                         <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
-                                <img src="../img/cart.png" id="img-cart" alt="img-holiwood"></a>
+                                <img src="img/icons/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
@@ -146,7 +141,7 @@
                             <p>
                                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
                             </p>
-                            <img src="../img/home Pattern.png" alt="img-holiwood"><br>
+                            <img src="img/icons/home Pattern.png" alt="img-holiwood"><br>
                             <a href="shopping.aspx">Shop now</a>
                         </div>
                     </div>
@@ -171,7 +166,7 @@
                             <p>
                                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
                             </p>
-                            <img src="../img/home Pattern.png" alt="img-holiwood"><br>
+                            <img src="img/icons/home Pattern.png" alt="img-holiwood"><br>
                             <a href="shopping.aspx">Shop now</a>
                         </div>
                     </div>
@@ -208,7 +203,7 @@
                         </p>
                         <div class="media">
                             <div class="media-left">
-                                <img src="../img/rahul.JPG" id="avatar" class="media-object" alt="img-holiwood">
+                                <img src="img/user_img/admin2.PNG" id="avatar" class="media-object" alt="img-holiwood" height="110px">
                             </div>
                             <div class="media-body">
                                 <h3>Rahul Zapadiya</h3>
