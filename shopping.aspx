@@ -195,10 +195,7 @@
                             </asp:Repeater>
                         </div>
                     </div>
-
-
                 </div>
-            </div>
             </div>
 
             <div class="info-footer">
