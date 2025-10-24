@@ -25,6 +25,13 @@ namespace JenStore.admin_panel
             if (Session["UserID"] == null)
             {
                 Response.Redirect("../login_register.aspx");
+                return;
+            }
+
+            if (Session["UserRole"].ToString().ToLower() != "admin")
+            {
+                Response.Redirect("../home.aspx");
+                return;
             }
 
             if (!IsPostBack)

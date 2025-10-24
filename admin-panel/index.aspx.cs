@@ -24,6 +24,12 @@ namespace JenStore.admin_panel
                 return;
             }
 
+            if (Session["UserRole"].ToString().ToLower() != "admin" )
+            {
+                Response.Redirect("../home.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 DisplayStats();
