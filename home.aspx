@@ -39,6 +39,12 @@
             .icon-menu {
                 margin-right: -11em;
             }
+
+            .product-title-collec h5 a:hover, .product-title-wedding h5 a:hover, .product-title-holiday h5 a:hover {
+                text-decoration: none;
+                color: #e74c3c !important;
+               /*text-shadow: 0px 0px 10px black;*/
+            }
         </style>
     </head>
     <body>
@@ -68,7 +74,7 @@
                         </button>
                     </div>
                     <div class="collapse navbar-collapse col-lg-6 col-md-6 col-sm-12 col-xs-12" id="myNavbar">
-                       
+
                         <ul class="nav navbar-nav menu-main">
                             <li>
                                 <figure id="btn-close-menu" class="hidden-lg hidden-md">
@@ -232,11 +238,10 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-collection">
                                             <div class="product-image-collec">
                                                 <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                                    <a href="#">
-                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                                    <asp:LinkButton ID="LB_image" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></asp:LinkButton>
                                                 </figure>
                                                 <div class="product-icon-collec">
-                                                    <%--<a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>--%>
                                                     <asp:LinkButton ID="btnViewProduct1" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
                                                     <asp:LinkButton ID="btnAddToCart1" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
                                                     <asp:LinkButton ID="btnAddToWishlist1" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
@@ -246,7 +251,10 @@
                                                 </div>
                                             </div>
                                             <div class="product-title-collec">
-                                                <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                                <h5>
+                                                    <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <%# Eval("product_name") %></asp:LinkButton>
+                                                </h5>
                                                 <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                                                 <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
                                             </div>
@@ -275,11 +283,10 @@
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product-wedding">
                                             <div class="product-image-wedding">
                                                 <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                                    <a href="#">
-                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                                    <asp:LinkButton ID="LB_image" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></asp:LinkButton>
                                                 </figure>
                                                 <div class="product-icon-wedding">
-                                                    <%--<a href="#"><i class="far fa-eye"></i></a>--%>
                                                     <asp:LinkButton ID="btnViewProduct2" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
                                                     <asp:LinkButton ID="btnAddToCart2" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
                                                     <asp:LinkButton ID="btnAddToWishlist2" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
@@ -289,7 +296,10 @@
                                                 </div>
                                             </div>
                                             <div class="product-title-wedding">
-                                                <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                                <h5>
+                                                    <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <%# Eval("product_name") %></asp:LinkButton>
+                                                </h5>
                                                 <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                                                 <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
                                             </div>
@@ -316,11 +326,10 @@
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-holiday">
                                                 <div class="product-image-holiday">
                                                     <figure class='<%# Eval("badge")?.ToString().ToLower() %>'>
-                                                        <a href="#">
-                                                            <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></a>
+                                                        <asp:LinkButton ID="LB_image" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>'></asp:LinkButton>
                                                     </figure>
                                                     <div class="product-icon-holiday">
-                                                        <%--<a href="#"><i class="far fa-eye"></i></a>--%>
                                                         <asp:LinkButton ID="btnViewProduct3" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'><i class="far fa-eye"></i></asp:LinkButton>
                                                         <asp:LinkButton ID="btnAddToCart3" runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("product_id") %>'><i class="fas fa-shopping-basket"></i></asp:LinkButton>
                                                         <asp:LinkButton ID="btnAddToWishlist3" runat="server" CommandName="AddToWishlist" CommandArgument='<%# Eval("product_id") %>'>
@@ -330,7 +339,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-title-holiday">
-                                                    <h5><a href="#"><%# Eval("product_name") %></a></h5>
+                                                    <h5>
+                                                        <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                        <%# Eval("product_name") %></asp:LinkButton>
+                                                    </h5>
                                                     <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                                                     <div class="prince">$<%# Eval("price", "{0:N2}") %></div>
                                                 </div>
@@ -466,274 +478,7 @@
             </div>
             <div class="BG-menu">
             </div>
-            <!-- Modal quick view -->
-            <%--<div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                                &times;
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="tab-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div id="img-pill-1" class="tab-pane fade in active">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 title-quick">
-                                            <figure class="fi-quick">
-                                                <h1>QUICK VIEW</h1>
-                                            </figure>
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
-                                        <h1>Queen Rose - Pink</h1>
-                                        <p class="p1">
-                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        </p>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                        </div>
-                                        <div class="prince">
-                                            <span>$250.9</span><s class="strike">$300.02</s>
-                                        </div>
-                                        <figure class="fi-option">
-                                            <p class="option">
-                                                Option
-                                            </p>
-                                        </figure>
-                                        <div class="size">
-                                            <span class="lb-size">Size <span class="sta-red">*</span></span><span class="lb-color">Color <span class="sta-red">*</span></span>
-                                        </div>
-                                        <div class="select-custom">
-                                            <select>
-                                                <option>S</option>
-                                                <option>M</option>
-                                                <option>L</option>
-                                                <option>XL</option>
-                                            </select>
-                                            <a href="#"><span class="color-1"></span></a><a href="#"><span class="color-2"></span></a><a href="#"><span class="color-3"></span></a><a href="#"><span class="color-4"></span></a>
-                                            <p class="require">
-                                                Required Fields <span>*</span>
-                                            </p>
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quanty:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="0" max="1000" value="01">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                    <span class="dola">$ </span><span class="total">250.9</span>
-                                                </div>
-                                            </div>
-                                            <div class="add-cart">
-                                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="img-pill-2" class="tab-pane fade">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 title-quick">
-                                            <figure class="fi-quick">
-                                                <h1>QUICK VIEW</h1>
-                                            </figure>
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
-                                        <h1>Queen Rose</h1>
-                                        <p class="p1">
-                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        </p>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                        </div>
-                                        <div class="prince">
-                                            <span>$300.02</span><s class="strike">$250.9</s>
-                                        </div>
-                                        <figure class="fi-option">
-                                            <p class="option">
-                                                Option
-                                            </p>
-                                        </figure>
-                                        <div class="size">
-                                            <span class="lb-size">Size <span class="sta-red">*</span></span><span class="lb-color">Color <span class="sta-red">*</span></span>
-                                        </div>
-                                        <div class="select-custom">
-                                            <select>
-                                                <option>S</option>
-                                                <option>M</option>
-                                                <option>L</option>
-                                                <option>XL</option>
-                                            </select>
-                                            <a href="#"><span class="color-1"></span></a><a href="#"><span class="color-2"></span></a><a href="#"><span class="color-3"></span></a><a href="#"><span class="color-4"></span></a>
-                                            <p class="require">
-                                                Required Fields <span>*</span>
-                                            </p>
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quanty:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="0" max="1000" value="01">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                    <span class="dola">$ </span><span class="total">250.9</span>
-                                                </div>
-                                            </div>
-                                            <div class="add-cart">
-                                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="img-pill-3" class="tab-pane fade">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 title-quick">
-                                            <figure class="fi-quick">
-                                                <h1>QUICK VIEW</h1>
-                                            </figure>
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
-                                        <h1>Lavender</h1>
-                                        <p class="p1">
-                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        </p>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                        </div>
-                                        <div class="prince">
-                                            <span>$300.02</span><s class="strike">$250.9</s>
-                                        </div>
-                                        <figure class="fi-option">
-                                            <p class="option">
-                                                Option
-                                            </p>
-                                        </figure>
-                                        <div class="size">
-                                            <span class="lb-size">Size <span class="sta-red">*</span></span><span class="lb-color">Color <span class="sta-red">*</span></span>
-                                        </div>
-                                        <div class="select-custom">
-                                            <select>
-                                                <option>S</option>
-                                                <option>M</option>
-                                                <option>L</option>
-                                                <option>XL</option>
-                                            </select>
-                                            <a href="#"><span class="color-1"></span></a><a href="#"><span class="color-2"></span></a><a href="#"><span class="color-3"></span></a><a href="#"><span class="color-4"></span></a>
-                                            <p class="require">
-                                                Required Fields <span>*</span>
-                                            </p>
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quanty:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="0" max="1000" value="01">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                    <span class="dola">$ </span><span class="total">250.9</span>
-                                                </div>
-                                            </div>
-                                            <div class="add-cart">
-                                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="img-pill-4" class="tab-pane fade">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 title-quick">
-                                            <figure class="fi-quick">
-                                                <h1>QUICK VIEW</h1>
-                                            </figure>
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <img src="../img/340x420.png" class="img-responsive" alt="holiwood">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 detail">
-                                        <h1>Queen Rose - Yellow</h1>
-                                        <p class="p1">
-                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        </p>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>10 Rating(s) | Add Your Rating</span>
-                                        </div>
-                                        <div class="prince">
-                                            <span>$300.02</span><s class="strike">$250.9</s>
-                                        </div>
-                                        <figure class="fi-option">
-                                            <p class="option">
-                                                Option
-                                            </p>
-                                        </figure>
-                                        <div class="size">
-                                            <span class="lb-size">Size <span class="sta-red">*</span></span><span class="lb-color">Color <span class="sta-red">*</span></span>
-                                        </div>
-                                        <div class="select-custom">
-                                            <select>
-                                                <option>S</option>
-                                                <option>M</option>
-                                                <option>L</option>
-                                                <option>XL</option>
-                                            </select>
-                                            <a href="#"><span class="color-1"></span></a><a href="#"><span class="color-2"></span></a><a href="#"><span class="color-3"></span></a><a href="#"><span class="color-4"></span></a>
-                                            <p class="require">
-                                                Required Fields <span>*</span>
-                                            </p>
-                                            <div class="Quality">
-                                                <div class="input-group input-number-group">
-                                                    <span class="text-qua">Quanty:</span>
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-decrement">-</span>
-                                                    </div>
-                                                    <input class="input-number" type="number" min="0" max="1000" value="01">
-                                                    <div class="input-group-button">
-                                                        <span class="input-number-increment">+</span>
-                                                    </div>
-                                                    <span class="dola">$ </span><span class="total">250.9</span>
-                                                </div>
-                                            </div>
-                                            <div class="add-cart">
-                                                <a href="#" class="btn-add-cart">Add to cart</a> <a href="#" class="list-icon icon-1"><i class="far fa-eye"></i></a><a href="#" class="list-icon icon-2"><i class="far fa-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="nav nav-pills col-lg-6 col-md-6 col-sm-6 col-xs-12 img-pill">
-                                <li class="active col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-1">
-                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-2">
-                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-3">
-                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a data-toggle="pill" href="#img-pill-4">
-                                    <img src="../img/340x420.png" class="img-responsive" alt="holiwood"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
+            
             <!-- --------------------------- -->
         </footer>
 
