@@ -36,6 +36,11 @@
             .title-banner h1, .title-banner p {
                 margin-left: -2em;
             }
+
+            .img-link .container .img-content img{
+                height:72px;
+                border-radius:13px;
+            }
         </style>
     </head>
     <body>
@@ -303,10 +308,10 @@
             <div class="img-link">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="img-color-1">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+                            <div class="img-color-1" style="background-color:#f3dddf;">
                                 <div class="img-content">
-                                    <img src="../img/70x71.png" class="img-responsive" alt="img-holiwood">
+                                    <img src="img/other-imgs/product-qality.png" class="img-responsive" alt="img-holiwood">
                                 </div>
                                 <h1>100%</h1>
                                 <h2>Product quality protection</h2>
@@ -314,9 +319,9 @@
 
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="img-color-2">
+                            <div class="img-color-2" style="background-color:#e7e7e7;">
                                 <div class="img-content">
-                                    <img src="../img/82x62.png" class="img-responsive" alt="img-holiwood">
+                                    <img src="img/other-imgs/payment-protection.png" class="img-responsive" alt="img-holiwood">
                                 </div>
                                 <h1>100%</h1>
                                 <h2>Payment protection</h2>
@@ -326,7 +331,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="img-color-3">
                                 <div class="img-content">
-                                    <img src="../img/62x62.png" class="img-responsive" alt="img-holiwood">
+                                    <img src="img/other-imgs/on-time-ship.png" class="img-responsive" alt="img-holiwood">
                                 </div>
                                 <h1>100%</h1>
                                 <h2>On-time shipment protection</h2>
