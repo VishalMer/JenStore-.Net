@@ -84,6 +84,11 @@ namespace JenStore
             }
 
             fillCartGrid();
+            //view product
+            if (e.CommandName == "ViewProduct")
+            {
+                Response.Redirect("product-details.aspx?id=" + cartItemId);
+            }
         }
 
         protected void btnClearCart_Click(object sender, EventArgs e)

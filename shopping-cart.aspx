@@ -68,8 +68,8 @@
                 padding-right: 5px !important;
             }
 
-            .cart-box-container a{
-                text-decoration:none;
+            .cart-box-container a {
+                text-decoration: none;
             }
         </style>
     </head>
@@ -153,7 +153,9 @@
                                 <p class="icon">
                                     01
                                 </p>
-                                <a href="#"><h3>Shopping cart</h3></a>
+                                <a href="#">
+                                    <h3>Shopping cart</h3>
+                                </a>
                             </div>
                         </div>
                         <!-- End col-md-4 -->
@@ -199,14 +201,17 @@
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
+                                                <asp:LinkButton ID="LB_image" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;">
+                                                </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="product-photo" />
                                         </asp:TemplateField>
 
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <a href="#" title=""><%# Eval("product_name") %></a>
+                                                <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <%# Eval("product_name") %></asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="produc-name" />
                                         </asp:TemplateField>
