@@ -199,14 +199,18 @@
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />
+                                                <%--<img src='<%# Eval("image_url") %>' alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;" />--%>
+                                                <asp:LinkButton ID="LB_image" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                    <img src='<%# Eval("image_url") %>' class="img-responsive" alt='<%# Eval("product_name") %>' style="width: 100px; height: auto;">
+                                                </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="product-photo" />
                                         </asp:TemplateField>
 
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <a href="#" title=""><%# Eval("product_name") %></a>
+                                                <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                <%# Eval("product_name") %></asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="product-name" />
                                         </asp:TemplateField>

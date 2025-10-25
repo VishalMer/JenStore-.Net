@@ -45,9 +45,9 @@ namespace JenStore
 
         protected void gvWishlistCommand(object sender, GridViewCommandEventArgs e)
         {
+            int productId = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "AddToCart")
-            {
-                int productId = Convert.ToInt32(e.CommandArgument);
+            {                
                 AddToCart(userId, productId);
                 fillWishlistGrid();
             }
@@ -57,6 +57,11 @@ namespace JenStore
                 cmd = new SqlCommand("delete from Wishlist where wishlist_item_id = " + wishlistItemId, con);
                 cmd.ExecuteNonQuery();
                 fillWishlistGrid();
+            }
+            //view product
+            if (e.CommandName == "ViewProduct")
+            {
+                Response.Redirect("product-details.aspx?id=" + productId);
             }
         }
 
