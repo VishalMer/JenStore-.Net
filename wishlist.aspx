@@ -104,6 +104,15 @@
             .icon-menu li .fa-heart {
                 padding-right: 5px !important;
             }
+
+           .cart-container img:hover{
+               filter:brightness(95%);
+           }
+
+            .product-name a:hover {
+                text-decoration: none;
+                color: #e74c3c !important;
+            }
         </style>
     </head>
     <body>

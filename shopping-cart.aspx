@@ -71,6 +71,15 @@
             .cart-box-container a {
                 text-decoration: none;
             }
+
+            .cart-table img:hover {
+                filter: brightness(95%);
+            }
+
+            .table.table.cart-table td.produc-name a:hover {
+                text-decoration: none;
+                color: #e74c3c !important;
+            }
         </style>
     </head>
     <body>
@@ -210,8 +219,10 @@
 
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
+                                                <p>
+                                                    <asp:LinkButton ID="LB_Pname" runat="server" CommandName="ViewProduct" CommandArgument='<%# Eval("product_id") %>'>
                                                     <%# Eval("product_name") %></asp:LinkButton>
+                                                </p>
                                             </ItemTemplate>
                                             <ItemStyle CssClass="produc-name" />
                                         </asp:TemplateField>
