@@ -34,8 +34,9 @@
                 background: #fff;
                 border-radius: 10px;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                padding: 30px;
+                padding: 53px 30px;
                 margin-bottom: 30px;
+                min-height: 530px;
             }
 
             .user-avatar {
@@ -79,7 +80,7 @@
 
             .shortcuts-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
                 margin-top: 30px;
             }
@@ -119,8 +120,8 @@
 
             .stats-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
                 margin-bottom: 30px;
             }
 
@@ -254,6 +255,10 @@
                                     <span class="detail-value" id="genderVal" runat="server"></span>
                                 </div>
                                 <div class="user-detail-item">
+                                    <span class="detail-label">Role:</span>
+                                    <span class="detail-value" id="roleVal" runat="server"></span>
+                                </div>
+                                <div class="user-detail-item">
                                     <span class="detail-label">Member Since:</span>
                                     <span class="detail-value" id="memberSinceVal" runat="server"></span>
                                 </div>
@@ -261,14 +266,14 @@
                                     <span class="detail-label">Status:</span> <span class="detail-value">Active</span>
                                 </div>
                                 <%--Edit Profile & Logout Buttons--%>
-                                <button class="edit-profile-btn" id="editProfile" style="margin-left:-0.2em;">
+                                <button class="edit-profile-btn" id="editProfile" style="margin-left: -0.2em;">
                                     <a href="edit-profile.aspx" style="color: white; text-decoration: none;">Edit Profile</a>
                                 </button>
-                               <%-- <asp:Button ID="btnAdminPanel" CssClass="edit-profile-btn" runat="server"
+                                <%-- <asp:Button ID="btnAdminPanel" CssClass="edit-profile-btn" runat="server"
                                     Text="admin panel" OnClick="btnAdminPanel_Click"
                                     Visible="false" Style="color: white; text-decoration: none; margin-right: 1em;" />--%>
-                                <asp:Button ID="btnAdminPanel" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none;" Text="Admin Panel" OnClick="btnAdminPanel_Click" Visible="false"/>
-                                <asp:Button ID="Button1" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none; margin-right:-1em;" Text="Logout" OnClick="btnLogout_Click" />
+                                <asp:Button ID="btnAdminPanel" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none;" Text="Admin Panel" OnClick="btnAdminPanel_Click" Visible="false" />
+                                <asp:Button ID="Button1" CssClass="edit-profile-btn" runat="server" Style="color: white; text-decoration: none; margin-right: -1em;" Text="Logout" OnClick="btnLogout_Click" />
                             </div>
                         </div>
                     </div>
@@ -342,7 +347,7 @@
                                     Your saved favorite items
                                 </div>
                             </div>
-                            <div class="shortcut-card" onclick="window.location.href='tracking.aspx'">
+                            <%--  <div class="shortcut-card" onclick="window.location.href='tracking.aspx'">
                                 <div class="shortcut-icon">
                                     <i class="fas fa-truck"></i>
                                 </div>
@@ -352,7 +357,7 @@
                                 <div class="shortcut-desc">
                                     Track your current orders
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="shortcut-card" onclick="window.location.href='Shopping.aspx'">
                                 <div class="shortcut-icon">
                                     <i class="fas fa-store"></i>

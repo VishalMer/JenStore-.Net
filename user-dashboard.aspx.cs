@@ -40,7 +40,7 @@ namespace JenStore
 
         void userDetails(int userId)
         {
-            da = new SqlDataAdapter("select id, uname, email, gender, created_at from users where id = " + userId, con);
+            da = new SqlDataAdapter("select id, uname, email, gender, role, created_at from users where id = " + userId, con);
             ds = new DataSet();
             da.Fill(ds);
 
@@ -49,7 +49,8 @@ namespace JenStore
                 userNameHeading.InnerText = ds.Tables[0].Rows[0][1].ToString();
                 genderVal.InnerText = ds.Tables[0].Rows[0][3].ToString();
                 emailVal.InnerText = ds.Tables[0].Rows[0][2].ToString();
-                memberSinceVal.InnerText = ((DateTime)ds.Tables[0].Rows[0][4]).ToString("dd MMMM yyyy");
+                roleVal.InnerText = ds.Tables[0].Rows[0][4].ToString();
+                memberSinceVal.InnerText = ((DateTime)ds.Tables[0].Rows[0][5]).ToString("dd MMMM yyyy");
             }
             else
             {
