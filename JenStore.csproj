@@ -128,6 +128,7 @@
     <Content Include="admin-panel\analytics.aspx" />
     <Content Include="admin-panel\categories.aspx" />
     <Content Include="admin-panel\customers.aspx" />
+    <Content Include="admin-panel\feedback.aspx" />
     <Content Include="admin-panel\order-details.aspx" />
     <Content Include="admin-panel\orders.aspx" />
     <Content Include="admin-panel\products.aspx" />
@@ -384,6 +385,20 @@
     </Compile>
     <Compile Include="admin-panel\customers.Master.designer.cs">
       <DependentUpon>customers.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\feedback.aspx.cs">
+      <DependentUpon>feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\feedback.aspx.designer.cs">
+      <DependentUpon>feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\feedback.Master.cs">
+      <DependentUpon>feedback.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\feedback.Master.designer.cs">
+      <DependentUpon>feedback.Master</DependentUpon>
     </Compile>
     <Compile Include="admin-panel\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -668,6 +683,7 @@
     <Content Include="admin-panel\analytics.Master" />
     <Content Include="admin-panel\order-details.Master" />
     <Content Include="admin-panel\add-edit-product.Master" />
+    <Content Include="admin-panel\feedback.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
