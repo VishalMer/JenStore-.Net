@@ -38,6 +38,61 @@
             .icon-menu li .fa-user {
                 padding-right: 15px !important;
             }
+
+            .message-contact .form-group label {
+                font-family: Poppins;
+                font-weight: 600;
+                color: black;
+                padding: 25px 0 10px 0;
+            }
+
+            .message .message-contact input {
+                outline: 0;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                padding-left: 20px;
+                border: 1px solid #ddd;
+                width: 90% 214.125px;
+                padding-left: 20px;
+                background: #fff;
+                font-family: Poppins !important;
+                font-size:14px;
+            }
+
+            .message .message-contact textarea {
+                border-radius:0px;
+                margin-bottom:2em;
+            }
+
+            .message-contact label span {
+                color: red;
+            }
+
+            .form-group .btn-send {
+                font-family: Abril Fatface;
+                font-weight: 400;
+                font-size: 18px;
+                color: white;
+                padding: 10px 30px;
+                background-color: black !important;
+                border: 1px solid black !important;
+                background-image: -webkit-linear-gradient(90deg, black 50%, transparent 50%);
+                background-image: linear-gradient(90deg, black 50%, transparent 50%);
+                background-size: 600px;
+                background-repeat: no-repeat;
+                background-position: 0%;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                margin-left: 0.8em;
+            }
+
+                .form-group .btn-send:hover {
+                    background-position: 100%;
+                    background-color: #fff !important;
+                    color: black;
+                    text-decoration: none;
+                }
         </style>
     </head>
     <body>
@@ -158,26 +213,31 @@
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 message-contact">
                             <h1>Send us a message</h1>
-                            <form class="form-group" action="form" method="post">
+                            <asp:Label ID="lblMessage" runat="server" Visible="false" Style="display: block; margin:0 0 -10px 15px;"></asp:Label>
+
+                            <div class="form-group">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label for="name-ip">
                                         Name<span>*</span></label><br>
-                                    <input type="text" name="input-name" id="name-ip" class="input-lg form-control" placeholder="Mark Stevens">
+                                    <asp:TextBox ID="txtName" runat="server" CssClass="input-lg form-control" placeholder="mark stevens" ReadOnly="true"></asp:TextBox>
                                 </div>
+
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label for="mail-ip">
                                         Mail<span>*</span></label><br>
-                                    <input type="text" name="input-mail" id="mail-ip" class="input-lg form-control" placeholder="Mark Stevens">
+                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="input-lg form-control" placeholder="mark.stevens@example.com" ReadOnly="true" TextMode="Email"></asp:TextBox>
+
                                 </div>
+
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label>
                                         What's on your mind?<span>*</span></label>
-                                    <textarea placeholder="Write your message here..." class="form-control"></textarea>
+                                    <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="5" placeholder="write your message here..."></asp:TextBox>
+
                                 </div>
-                                <button type="submit">
-                                    Send message
-                                </button>
-                            </form>
+                                <asp:Button ID="btnSend" runat="server" Text="Send Message" CssClass="btn-send" OnClick="btnSend_Click" />
+
+                            </div>
                         </div>
                     </div>
                 </div>
