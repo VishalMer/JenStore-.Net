@@ -25,6 +25,7 @@
                 color: white;
                 padding: 20px 0;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/*                max-height:130px;*/
             }
 
             .admin-nav {
@@ -185,7 +186,7 @@
             }
 
             .col-md-6 {
-                margin-bottom: 2em;
+/*                margin-bottom: 2em;*/
             }
 
 

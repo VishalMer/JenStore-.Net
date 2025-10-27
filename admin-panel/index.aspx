@@ -157,6 +157,7 @@
                 border-radius: 10px;
                 padding: 25px;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top:2em;
             }
 
                 .recent-orders h4 {
