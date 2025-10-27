@@ -286,6 +286,10 @@
             .read-feedback {
                 border-left: 4px solid #6c757d;
             }
+
+            .feedback-header .feedback-date{
+                margin-top:-2.5em;
+            }
         </style>
     </head>
     <body>
@@ -300,7 +304,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.html" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.html" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="../home.aspx" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
                     </div>
                 </div>
             </div>
@@ -311,7 +315,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.html" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.html" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="feedback.html" class="nav-link active"><i class="fas fa-comments"></i>Feedback </a><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="feedback.aspx" class="nav-link active"><i class="fas fa-comments"></i>Feedback </a><a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
                     </div>
                 </div>
             </div>
@@ -398,11 +402,11 @@
                                     </div>
                                     <div class="feedback-message"><%# Eval("message") %></div>
                                     <div class="feedback-actions">
-<%--                                        <asp:Button ID="btnReply" runat="server" Text="Reply" CssClass="btn-reply" CommandName="Reply" CommandArgument='<%# Eval("feedback_id") %>' />--%>
+                                        <%--                                        <asp:Button ID="btnReply" runat="server" Text="Reply" CssClass="btn-reply" CommandName="Reply" CommandArgument='<%# Eval("feedback_id") %>' />--%>
                                         <button type="button" class="btn-reply" onclick="openReplyModal('<%# Eval("feedback_id") %>')">
-    <i class="fas fa-reply"></i> Reply
-</button>
-                                        <asp:Button ID="btnMarkRead" runat="server" Text="Mark as Read" CssClass="btn-mark-read" CommandName="MarkRead" CommandArgument='<%# Eval("feedback_id") %>' Visible='<%# Eval("status").ToString().ToLower() != "read" && Eval("status").ToString().ToLower() != "replied" %>'/>
+                                            <i class="fas fa-reply"></i>Reply
+                                        </button>
+                                        <asp:Button ID="btnMarkRead" runat="server" Text="Mark as Read" CssClass="btn-mark-read" CommandName="MarkRead" CommandArgument='<%# Eval("feedback_id") %>' Visible='<%# Eval("status").ToString().ToLower() != "read" && Eval("status").ToString().ToLower() != "replied" %>' />
                                         <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn-delete" CommandName="DeleteFeedback" CommandArgument='<%# Eval("feedback_id") %>' OnClientClick="return confirm('are you sure you want to delete this feedback?');" />
                                     </div>
                                 </div>

@@ -53,7 +53,7 @@ namespace JenStore.admin_panel
             lblTotalFeedback.Text = cmd.ExecuteScalar().ToString();
 
             // New Feedback
-            cmd = new SqlCommand("select count(*) from feedback_management where status = 'new'", con);
+            cmd = new SqlCommand("select count(f.feedback_id) from feedback f left join feedback_management fm on f.feedback_id = fm.feedback_id where fm.feedback_id is null", con);
             lblNewFeedback.Text = cmd.ExecuteScalar().ToString();
 
             // Replied Feedback
