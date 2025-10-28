@@ -449,11 +449,25 @@
                     <div class="col-12 text-center">
                         <nav aria-label="Feedback pagination">
                             <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                <li class='<%# !lnkPrev.Enabled ? "page-item disabled" : "page-item" %>'>
+                                    <asp:LinkButton ID="lnkPrev" runat="server" CssClass="page-link" OnClick="lnkPrev_Click">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </asp:LinkButton>
+                                </li>
+
+                                <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
+                                    <ItemTemplate>
+                                        <li class='<%# Convert.ToBoolean(Eval("Enabled")) ? "page-item active" : "page-item" %>'>
+                                            <asp:LinkButton ID="lnkPage" runat="server" CssClass="page-link" CommandName="Page" CommandArgument='<%# Eval("Value") %>'><%# Eval("Text") %></asp:LinkButton>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+                                <li class='<%# !lnkNext.Enabled ? "page-item disabled" : "page-item" %>'>
+                                    <asp:LinkButton ID="lnkNext" runat="server" CssClass="page-link" OnClick="lnkNext_Click">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </asp:LinkButton>
+                                </li>
                             </ul>
                         </nav>
                     </div>
