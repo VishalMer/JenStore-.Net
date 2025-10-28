@@ -84,7 +84,7 @@
                 }
 
             .content-container {
-                padding: 40px 0;
+                padding:0px 0 40px 0 !important;
             }
 
             .page-header {

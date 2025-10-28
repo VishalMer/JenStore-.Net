@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 logo">
                     <a href="home.aspx">
-                        <img src="../img/logo.png" alt="img-holiwood"></a>
+                        <img src="img/icons/logo.png" alt="img-holiwood"></a>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 menu-mobile">
                     <div class=" collapse navbar-collapse" id="myNavbar">
