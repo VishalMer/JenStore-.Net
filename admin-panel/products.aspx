@@ -25,7 +25,6 @@
                 color: white;
                 padding: 20px 0;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-/*                max-height:130px;*/
             }
 
             .admin-nav {
@@ -183,12 +182,8 @@
                 border-radius: 5px;
                 padding: 8px 15px;
                 width: 300px;
+                margin-bottom: 1.5em;
             }
-
-            .col-md-6 {
-/*                margin-bottom: 2em;*/
-            }
-
 
             /*added css*/
             .btn-edit:hover {
@@ -201,7 +196,7 @@
                 color: #dc3545;
                 background-color: white;
                 text-decoration: none;
-                transition:ease-in;
+                transition: ease-in;
             }
         </style>
         <link rel="stylesheet" href="../css/admin.css">
@@ -229,7 +224,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.aspx" class="nav-link active"><i class="fas fa-box"></i>Products </a><a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
+                        <a href="products.aspx" class="nav-link active"><i class="fas fa-box"></i>Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
+                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
+                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i>Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i>Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
                     </div>
                 </div>
             </div>

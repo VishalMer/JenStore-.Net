@@ -157,7 +157,7 @@
                 border-radius: 10px;
                 padding: 25px;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                margin-top:2em;
+                margin-top: 2em;
             }
 
                 .recent-orders h4 {
@@ -261,12 +261,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link active"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="feedback.aspx" class="nav-link">
-                            <i class="fas fa-comments"></i>Feedback
-                        </a>
-                        <a href="notifications.aspx" class="nav-link">
-                            <i class="fas fa-bullhorn"></i>Notifications
-                        </a><a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link active"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
+                        <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
+                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
+                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i>Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i>Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
                     </div>
                 </div>
             </div>

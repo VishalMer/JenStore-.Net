@@ -31,24 +31,30 @@
             .admin-nav {
                 background: white;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                padding: 15px 0;
+                padding: 10px 0;
             }
 
                 .admin-nav .nav-link {
                     color: #333;
-                    font-weight: 500;
-                    padding: 10px 20px;
-                    margin: 0 5px;
+                    font-weight: 600;
+                    padding: 10px 18px;
+                    margin: 4px 6px;
                     border-radius: 5px;
                     transition: all 0.3s ease;
                 }
 
-                    .admin-nav .nav-link:hover,
                     .admin-nav .nav-link.active {
                         background: #667eea;
                         color: white;
                         text-decoration: none;
                     }
+
+            admin-nav .nav-link:hover {
+                background: rgba(102, 126, 234, .1);
+                color: var(--admin-primary);
+                transform: translateY(-1px);
+                text-decoration: none;
+            }
             /* Header Action Buttons */
             .btn-store {
                 background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
@@ -287,8 +293,8 @@
                 border-left: 4px solid #6c757d;
             }
 
-            .feedback-header .feedback-date{
-                margin-top:-2.5em;
+            .feedback-header .feedback-date {
+                margin-top: -2.5em;
             }
         </style>
     </head>
@@ -315,7 +321,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="feedback.aspx" class="nav-link active"><i class="fas fa-comments"></i>Feedback </a><a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
+                        <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
+                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
+                        <a href="feedback.aspx" class="nav-link active"><i class="fas fa-comments"></i>Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i>Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
                     </div>
                 </div>
             </div>
