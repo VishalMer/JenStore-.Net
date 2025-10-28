@@ -113,8 +113,19 @@ namespace JenStore.admin_panel
                 cmd = new SqlCommand("delete from feedback where feedback_id = " + feedbackId, con);
                 cmd.ExecuteNonQuery();
             }
-            // Note: The "Reply" command is now handled by client-side JavaScript
+            else if (e.CommandName == "MarkResolved")
+            {
+                // Update status to 'resolved' or insert if not exists
+                string updateQuery = @"
+            if exists (select 1 from feedback_management where feedback_id = " + feedbackId + @")
+                update feedback_management set status = 'resolved', last_updated = getdate() where feedback_id = " + feedbackId + @"
+            else
+                insert into feedback_management (feedback_id, admin_id, status) values (" + feedbackId + ", " + adminId + ", 'resolved')";
 
+                cmd = new SqlCommand(updateQuery, con);
+                cmd.ExecuteNonQuery();
+            }
+            // Refresh data
             LoadStats();
             BindFeedback();
         }

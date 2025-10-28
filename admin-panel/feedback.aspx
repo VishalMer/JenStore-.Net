@@ -217,6 +217,11 @@
                 color: #856404;
             }
 
+            .status-resolved {
+                background: #e2e3e5;
+                color: #383d41;
+            }
+
             .filters-section {
                 background: white;
                 border-radius: 10px;
@@ -416,10 +421,21 @@
                                     <div class="feedback-message"><%# Eval("message") %></div>
                                     <div class="feedback-actions">
                                         <%--                                        <asp:Button ID="btnReply" runat="server" Text="Reply" CssClass="btn-reply" CommandName="Reply" CommandArgument='<%# Eval("feedback_id") %>' />--%>
-                                        <button type="button" class="btn-reply" onclick="openReplyModal('<%# Eval("feedback_id") %>')">
+                                        <button type="button" class="btn-reply"
+                                            onclick="openReplyModal('<%# Eval("feedback_id") %>')"
+                                            style='<%# (Eval("status").ToString().ToLower() == "resolved" || Eval("status").ToString().ToLower() == "replied") ? "display:none;": "" %>'>
                                             <i class="fas fa-reply"></i>Reply
                                         </button>
-                                        <asp:Button ID="btnMarkRead" runat="server" Text="Mark as Read" CssClass="btn-mark-read" CommandName="MarkRead" CommandArgument='<%# Eval("feedback_id") %>' Visible='<%# Eval("status").ToString().ToLower() != "read" && Eval("status").ToString().ToLower() != "replied" %>' />
+
+                                        <%-- Mark Read Button: Hidden if Read, Replied, or Resolved --%>
+                                        <asp:Button ID="btnMarkRead" runat="server" Text="Mark as Read" CssClass="btn-mark-read" CommandName="MarkRead" CommandArgument='<%# Eval("feedback_id") %>'
+                                            Visible='<%# Eval("status").ToString().ToLower() != "read" && Eval("status").ToString().ToLower() != "replied" && Eval("status").ToString().ToLower() != "resolved" %>' />
+
+                                        <%-- NEW: Resolved Button: Visible only if Read or Replied --%>
+                                        <asp:Button ID="btnMarkResolved" runat="server" Text="Mark Resolved" CssClass="btn btn-secondary" CommandName="MarkResolved" CommandArgument='<%# Eval("feedback_id") %>'
+                                            Visible='<%# Eval("status").ToString().ToLower() == "read" || Eval("status").ToString().ToLower() == "replied" %>' />
+
+                                        <%-- Delete Button: Always visible --%>
                                         <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn-delete" CommandName="DeleteFeedback" CommandArgument='<%# Eval("feedback_id") %>' OnClientClick="return confirm('are you sure you want to delete this feedback?');" />
                                     </div>
                                 </div>
@@ -491,13 +507,13 @@
                 });
 
                 // Delete functionality
-                $('.btn-delete').click(function () {
-                    if (confirm('Are you sure you want to delete this feedback?')) {
-                        $(this).closest('.feedback-card').fadeOut(300, function () {
-                            $(this).remove();
-                        });
-                    }
-                });
+                //$('.btn-delete').click(function () {
+                //    if (confirm('Are you sure you want to delete this feedback?')) {
+                //        $(this).closest('.feedback-card').fadeOut(300, function () {
+                //            $(this).remove();
+                //        });
+                //    }
+                //});
 
                 // Reply functionality (placeholder)
                 //$('.btn-reply').click(function () {
