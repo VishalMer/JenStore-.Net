@@ -55,22 +55,26 @@ namespace JenStore.admin_panel
             lblTotalFeedback.Text = cmd.ExecuteScalar().ToString();
 
             // New 
-            cmd = new SqlCommand("select count(f.feedback_id) from feedback f left join feedback_management fm on f.feedback_id = fm.feedback_id where fm.feedback_id is null", con);
+            cmd = new SqlCommand("select count(*) from feedback where status = 'new'", con);
             lblNewFeedback.Text = cmd.ExecuteScalar().ToString();
 
             // Replied 
-            cmd = new SqlCommand("select count(*) from feedback_management where status = 'replied'", con);
+            cmd = new SqlCommand("select count(distinct feedback_id) from notifications where notification_type = 'feedback_reply'", con);
             lblRepliedFeedback.Text = cmd.ExecuteScalar().ToString();
 
             // Read 
-            cmd = new SqlCommand("select count(*) from feedback_management where status = 'read' or status = 'replied'", con);
+            cmd = new SqlCommand("select count(*) from feedback where status != 'new'", con);
             lblReadFeedback.Text = cmd.ExecuteScalar().ToString();
+
+            // Resolved
+            cmd = new SqlCommand("select count(*) from feedback where status = 'resolved'", con);
+            lblResolvedFeedback.Text = cmd.ExecuteScalar().ToString();
         }
 
         void fillGVProducts()
         {
-            string query = "select f.feedback_id, f.message, f.feedback_date, u.uname, u.email, coalesce(fm.status, 'new') as status from feedback f inner join " +
-                "users u on f.user_id = u.id left join feedback_management fm on f.feedback_id = fm.feedback_id order by f.feedback_date desc";
+            string query = "select f.feedback_id, f.message, f.feedback_date, f.status, u.uname, u.email from feedback f inner join " +
+                "users u on f.user_id = u.id order by f.feedback_date desc";
 
             da = new SqlDataAdapter(query, con);
             ds = new DataSet();
@@ -100,36 +104,25 @@ namespace JenStore.admin_panel
         protected void dlFeedback_ItemCommand(object source, DataListCommandEventArgs e)
         {
             string feedbackId = e.CommandArgument.ToString();
-            string adminId = Session["admin_id"]?.ToString() ?? "null";
 
             if (e.CommandName == "MarkRead")
             {
-                // Update status to 'read' or insert if not exists 
-                string updateQuery = @"
-                    if exists (select 1 from feedback_management where feedback_id = " + feedbackId + @")
-                        update feedback_management set status = 'read', last_updated = getdate() where feedback_id = " + feedbackId + @"
-                    else
-                        insert into feedback_management (feedback_id, admin_id, status) values (" + feedbackId + ", " + adminId + ", 'read')";
-
+                // Update status to 'read'
+                string updateQuery = "update feedback set status = 'read' where feedback_id = " + feedbackId;
                 cmd = new SqlCommand(updateQuery, con);
                 cmd.ExecuteNonQuery();
             }
             else if (e.CommandName == "DeleteFeedback")
             {
-                cmd = new SqlCommand("delete from feedback_management where feedback_id = " + feedbackId, con);
+                cmd = new SqlCommand("delete from notifications where feedback_id = " + feedbackId, con);
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand("delete from feedback where feedback_id = " + feedbackId, con);
                 cmd.ExecuteNonQuery();
             }
             else if (e.CommandName == "MarkResolved")
             {
-                // Update status to 'resolved' or insert if not exists
-                string updateQuery = @"
-            if exists (select 1 from feedback_management where feedback_id = " + feedbackId + @")
-                update feedback_management set status = 'resolved', last_updated = getdate() where feedback_id = " + feedbackId + @"
-            else
-                insert into feedback_management (feedback_id, admin_id, status) values (" + feedbackId + ", " + adminId + ", 'resolved')";
-
+                // Update status to 'resolved' 
+                string updateQuery = "update feedback set status = 'resolved' where feedback_id = " + feedbackId;
                 cmd = new SqlCommand(updateQuery, con);
                 cmd.ExecuteNonQuery();
             }
@@ -143,7 +136,6 @@ namespace JenStore.admin_panel
         {
             string feedbackId = hdnReplyFeedbackId.Value;
             string replyMessage = txtReplyMessage.Text.Replace("'", "''"); 
-            string adminId = Session["UserID"]?.ToString() ?? "null";
 
             if (string.IsNullOrEmpty(feedbackId) || string.IsNullOrEmpty(replyMessage))
             {
@@ -151,14 +143,16 @@ namespace JenStore.admin_panel
                 return;
             }
 
-            // Update or insert into feedback_management table
-            string updateQuery = @"
-                if exists (select 1 from feedback_management where feedback_id = " + feedbackId + @")
-                    update feedback_management set status = 'replied', reply_message = '" + replyMessage + @"', admin_id = " + adminId + @", last_updated = getdate() where feedback_id = " + feedbackId + @"
-                else
-                    insert into feedback_management (feedback_id, admin_id, status, reply_message) values (" + feedbackId + ", " + adminId + ", 'replied', '" + replyMessage + @"')";
+            // fetch user id associated with the feedback
+            cmd = new SqlCommand("select user_id from feedback where feedback_id = " + feedbackId, con);
+            string userid = cmd.ExecuteScalar().ToString();
 
-            cmd = new SqlCommand(updateQuery, con);
+            string query = "insert into notifications (user_id, feedback_id, message, notification_type) values (" + userid + ", " + feedbackId + ", '" + replyMessage + "', 'feedback_reply')";
+            cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+
+            // Update feedback status to 'replied'
+            cmd = new SqlCommand("update feedback set status = 'replied' where feedback_id = " + feedbackId, con);
             cmd.ExecuteNonQuery();
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseReplyModal", "$('#replyModal').modal('hide');", true);

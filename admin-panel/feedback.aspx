@@ -298,8 +298,25 @@
                 border-left: 4px solid #6c757d;
             }
 
+            .resolved-feedback {
+                border-left: 4px solid #17a2b8;
+            }
+
             .feedback-header .feedback-date {
                 margin-top: -2.5em;
+            }
+
+            .stat-col-5 {
+                width: 20%;
+                float: left;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            @media (max-width: 991px) {
+                .stat-col-5 {
+                    width: 50%;
+                }
             }
         </style>
     </head>
@@ -343,7 +360,7 @@
         <div class="feedback-container">
             <div class="container">
                 <div class="row stats-row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="stat-col-5">
                         <div class="stat-card total-feedback">
                             <div class="stat-number">
                                 <asp:Label ID="lblTotalFeedback" runat="server">0</asp:Label>
@@ -351,7 +368,8 @@
                             <div class="stat-label">Total Feedback</div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+
+                    <div class="stat-col-5">
                         <div class="stat-card new-feedback">
                             <div class="stat-number">
                                 <asp:Label ID="lblNewFeedback" runat="server">0</asp:Label>
@@ -359,7 +377,8 @@
                             <div class="stat-label">New Messages</div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+
+                    <div class="stat-col-5">
                         <div class="stat-card replied-feedback">
                             <div class="stat-number">
                                 <asp:Label ID="lblRepliedFeedback" runat="server">0</asp:Label>
@@ -367,12 +386,22 @@
                             <div class="stat-label">Replied</div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+
+                    <div class="stat-col-5">
                         <div class="stat-card read-feedback">
                             <div class="stat-number">
                                 <asp:Label ID="lblReadFeedback" runat="server">0</asp:Label>
                             </div>
                             <div class="stat-label">Read</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-col-5">
+                        <div class="stat-card resolved-feedback">
+                            <div class="stat-number">
+                                <asp:Label ID="lblResolvedFeedback" runat="server">0</asp:Label>
+                            </div>
+                            <div class="stat-label">Resolved</div>
                         </div>
                     </div>
                 </div>
