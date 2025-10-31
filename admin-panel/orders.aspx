@@ -351,134 +351,78 @@
                 <!-- Orders Table -->
                 <div class="orders-table">
                     <div class="table-header">
-                        <h4 class="mb-0">Order List</h4>
+                        <h4 class="mb-0">order list</h4>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th>Order ID</th>
-                                    <th>Customer</th>
-                                    <th>Order Date</th>
-                                    <th>Products</th>
-                                    <th>Total Amount</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>#ORD-001</strong><br>
-                                        <small class="text-muted">User ID: 12345</small> </td>
-                                    <td><strong>John Doe</strong><br>
-                                        <small class="text-muted">john.doe@email.com</small> </td>
-                                    <td><strong>Dec 15, 2024</strong><br>
-                                        <small class="text-muted">2:30 PM</small> </td>
-                                    <td><strong>Rose Bouquet</strong><br>
-                                        <small class="text-muted">Qty: 1</small> </td>
-                                    <td><strong>$89.99</strong></td>
-                                    <td><span class="order-status status-pending">Pending</span></td>
-                                    <td>
+
+                        <asp:GridView ID="gvOrders" runat="server"
+                            AutoGenerateColumns="false"
+                            CssClass="table table-hover mb-0"
+                            GridLines="None"
+                            OnRowCommand="gvOrders_RowCommand">
+                            <HeaderStyle ForeColor="#6b7280" />
+                            <Columns>
+                                <asp:TemplateField HeaderText="order id">
+                                    <ItemTemplate>
+                                        <strong>#ord-<%# Eval("order_id") %></strong><br>
+                                        <small class="text-muted">user id: <%# Eval("user_id") %></small>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="customer">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("uname") %></strong><br>
+                                        <small class="text-muted"><%# Eval("email") %></small>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="order date">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("order_date", "{0:MMM dd, yyyy}") %></strong><br>
+                                        <small class="text-muted"><%# Eval("order_date", "{0:h:mm tt}") %></small>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+
+                                <asp:TemplateField HeaderText="products">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("product_count") %> <%# (int)Eval("product_count") > 1 ? "products" : "product" %></strong><br>
+                                        <small class="text-muted">total qty: <%# Eval("total_quantity") %></small>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+
+                                <asp:TemplateField HeaderText="total amount">
+                                    <ItemTemplate>
+                                        <strong><%# Eval("total_amount", "{0:C}") %></strong>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="status">
+                                    <ItemTemplate>
+                                        <span class='order-status <%# GetStatusClass(Eval("order_status")) %>'>
+                                            <%# Eval("order_status") %>
+                                        </span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="actions">
+                                    <ItemTemplate>
                                         <div class="action-buttons">
-                                            <button class="btn-view" onclick="viewOrderDetails('ORD-001')">
-                                                <i class="fas fa-eye"></i>View
-                                            </button>
-                                            <button class="btn-update" onclick="updateOrderStatus('ORD-001')">
-                                                <i class="fas fa-edit"></i>Update
-                                            </button>
+                                            <asp:LinkButton ID="btnView" runat="server" CssClass="btn-view"
+                                                CommandName="ViewOrder" CommandArgument='<%# Eval("order_id") %>'>
+                                <i class="fas fa-eye"></i> view
+                                            </asp:LinkButton>
+                                            <asp:LinkButton ID="btnUpdate" runat="server" CssClass="btn-update"
+                                                CommandName="UpdateStatus" CommandArgument='<%# Eval("order_id") %>'>
+                                <i class="fas fa-edit"></i> update
+                                            </asp:LinkButton>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>#ORD-002</strong><br>
-                                        <small class="text-muted">User ID: 12346</small> </td>
-                                    <td><strong>Jane Smith</strong><br>
-                                        <small class="text-muted">jane.smith@email.com</small> </td>
-                                    <td><strong>Dec 14, 2024</strong><br>
-                                        <small class="text-muted">11:45 AM</small> </td>
-                                    <td><strong>Yellow Tulips</strong><br>
-                                        <small class="text-muted">Qty: 2</small> </td>
-                                    <td><strong>$124.50</strong></td>
-                                    <td><span class="order-status status-processing">Processing</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-view" onclick="viewOrderDetails('ORD-002')">
-                                                <i class="fas fa-eye"></i>View
-                                            </button>
-                                            <button class="btn-update" onclick="updateOrderStatus('ORD-002')">
-                                                <i class="fas fa-edit"></i>Update
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>#ORD-003</strong><br>
-                                        <small class="text-muted">User ID: 12347</small> </td>
-                                    <td><strong>Mike Johnson</strong><br>
-                                        <small class="text-muted">mike.j@email.com</small> </td>
-                                    <td><strong>Dec 13, 2024</strong><br>
-                                        <small class="text-muted">4:20 PM</small> </td>
-                                    <td><strong>Cottage Garden Mix</strong><br>
-                                        <small class="text-muted">Qty: 1</small> </td>
-                                    <td><strong>$67.25</strong></td>
-                                    <td><span class="order-status status-shipped">Shipped</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-view" onclick="viewOrderDetails('ORD-003')">
-                                                <i class="fas fa-eye"></i>View
-                                            </button>
-                                            <button class="btn-update" onclick="updateOrderStatus('ORD-003')">
-                                                <i class="fas fa-edit"></i>Update
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>#ORD-004</strong><br>
-                                        <small class="text-muted">User ID: 12348</small> </td>
-                                    <td><strong>Sarah Wilson</strong><br>
-                                        <small class="text-muted">sarah.w@email.com</small> </td>
-                                    <td><strong>Dec 12, 2024</strong><br>
-                                        <small class="text-muted">9:15 AM</small> </td>
-                                    <td><strong>Winter White Bouquet</strong><br>
-                                        <small class="text-muted">Qty: 1</small> </td>
-                                    <td><strong>$156.75</strong></td>
-                                    <td><span class="order-status status-delivered">Delivered</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-view" onclick="viewOrderDetails('ORD-004')">
-                                                <i class="fas fa-eye"></i>View
-                                            </button>
-                                            <button class="btn-update" onclick="updateOrderStatus('ORD-004')">
-                                                <i class="fas fa-edit"></i>Update
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>#ORD-005</strong><br>
-                                        <small class="text-muted">User ID: 12349</small> </td>
-                                    <td><strong>David Brown</strong><br>
-                                        <small class="text-muted">david.b@email.com</small> </td>
-                                    <td><strong>Dec 11, 2024</strong><br>
-                                        <small class="text-muted">3:45 PM</small> </td>
-                                    <td><strong>Queen Rose Collection</strong><br>
-                                        <small class="text-muted">Qty: 1</small> </td>
-                                    <td><strong>$125.00</strong></td>
-                                    <td><span class="order-status status-cancelled">Cancelled</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-view" onclick="viewOrderDetails('ORD-005')">
-                                                <i class="fas fa-eye"></i>View
-                                            </button>
-                                            <button class="btn-update" onclick="updateOrderStatus('ORD-005')">
-                                                <i class="fas fa-edit"></i>Update
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+
                     </div>
                 </div>
 
