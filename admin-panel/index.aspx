@@ -186,34 +186,35 @@
                 font-weight: 600;
             }
 
-            .status-pending {
-                background: #d1ecf1;
-                color: #0c5460;
-            }
 
-            .status-processing {
-                background: #d4edda;
-                color: #155724;
-            }
-
-            .status-cancelled {
-                background: #f8d7da;
-                color: #721c24;
-            }
-
-            .status-completed {
-                background: #d4edda;
-                color: #155724;
-            }
-
-            .status-shipped {
-                background: #fff3cd;
-                color: #856404;
-            }
-
+            /* Delivered  -> Green */
             .status-delivered {
+                background: #d4edda;
+                color: #155724;
+            }
+
+            /* Shipped -> Blue */
+            .status-shipped {
                 background: #cce5ff;
                 color: #004085;
+            }
+
+            /* Processing -> Yellow */
+            .status-processing {
+                background: #fff3cd !important;
+                color: #856404 !important;
+            }
+
+            /* Cancelled -> Red */
+            .status-cancelled {
+                background: #f8d7da !important;
+                color: #721c24 !important;
+            }
+
+            /* Pending -> Grey/Teal */
+            .status-pending {
+                background: #e2e3e5 !important; /* You can also use #d1ecf1 if you prefer the teal */
+                color: #383d41 !important;
             }
 
             .chart-container {

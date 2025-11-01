@@ -116,29 +116,34 @@
                 text-transform: uppercase;
             }
 
-            .status-pending {
-                background: #fff3cd;
-                color: #856404;
-            }
-
-            .status-processing {
-                background: #d1ecf1;
-                color: #0c5460;
-            }
-
-            .status-shipped {
+            /* Delivered  -> Green */
+            .status-delivered {
                 background: #d4edda;
                 color: #155724;
             }
 
-            .status-delivered {
-                background: #c3e6cb;
-                color: #155724;
+            /* Shipped -> Blue */
+            .status-shipped {
+                background: #cce5ff;
+                color: #004085;
             }
 
+            /* Processing -> Yellow */
+            .status-processing {
+                background: #fff3cd !important;
+                color: #856404 !important;
+            }
+
+            /* Cancelled -> Red */
             .status-cancelled {
-                background: #f8d7da;
-                color: #721c24;
+                background: #f8d7da !important;
+                color: #721c24 !important;
+            }
+
+            /* Pending -> Grey/Teal */
+            .status-pending {
+                background: #e2e3e5 !important; /* You can also use #d1ecf1 if you prefer the teal */
+                color: #383d41 !important;
             }
 
             .action-buttons {
@@ -414,9 +419,10 @@
                                 <i class="fas fa-eye"></i> view
                                             </asp:LinkButton>
                                             <asp:LinkButton ID="btnUpdate" runat="server" CssClass="btn-update"
-                                                CommandName="UpdateStatus" CommandArgument='<%# Eval("order_id") %>'>
-                                <i class="fas fa-edit"></i> update
-                                            </asp:LinkButton>
+                                                CommandName="OpenUpdateModal"
+                                                CommandArgument='<%# Eval("order_id") + "," + Eval("order_status") %>'>
+                                            <i class="fas fa-edit"></i> update
+                                        </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -441,7 +447,7 @@
             </div>
         </div>
 
-        <!-- Update Order Status Modal -->
+        <!-- Order Status Modal -->
         <div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -451,45 +457,39 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="updateStatusForm">
-                        <input type="hidden" id="orderId" name="orderId">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="currentStatus">
-                                    Current Status</label>
-                                <input type="text" class="form-control" id="currentStatus" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="newStatus">
-                                    New Status *</label>
-                                <select class="form-control" id="newStatus" name="status" required>
-                                    <option value="pending">Pending</option>
-                                    <option value="processing">Processing</option>
-                                    <option value="shipped">Shipped</option>
-                                    <option value="delivered">Delivered</option>
-                                    <option value="cancelled">Cancelled</option>
-                                </select>
-                            </div>
+                    <div class="modal-body">
+                        <asp:HiddenField ID="hdnOrderId" runat="server" />
+
+                        <div class="form-group">
+                            <label>Current Status</label>
+                            <asp:TextBox ID="txtCurrentStatus" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                Cancel
-                            </button>
-                            <button type="submit" class="btn btn-primary">
-                                Update Status
-                            </button>
+                        <div class="form-group">
+                            <label>New Status *</label>
+                            <asp:DropDownList ID="ddlNewStatus" runat="server" CssClass="form-control" required="true">
+                                <asp:ListItem Value="pending">Pending</asp:ListItem>
+                                <asp:ListItem Value="processing">Processing</asp:ListItem>
+                                <asp:ListItem Value="shipped">Shipped</asp:ListItem>
+                                <asp:ListItem Value="delivered">Delivered</asp:ListItem>
+                                <asp:ListItem Value="cancelled">Cancelled</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
-                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <asp:Button ID="btnSaveStatus" runat="server" Text="Update Status" CssClass="btn btn-primary" OnClick="btnSaveStatus_Click" />
+                    </div>
+
                 </div>
             </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script>
+        <%-- <script>
             function viewOrderDetails(orderId) {
                 // Navigate to order details page
-                window.location.href = `order-details.aspx?id=${orderId}`;
+                window.location.href = `order-details.aspx?id=$orderId}`;
             }
 
             function updateOrderStatus(orderId) {
@@ -535,7 +535,7 @@
                     console.log('Filtering by status:', status);
                 });
             });
-        </script>
+        </script>--%>
     </body>
     </html>
 </asp:Content>

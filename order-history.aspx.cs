@@ -99,8 +99,6 @@ namespace JenStore
             string statusStr = status.ToString().ToLower();
             switch (statusStr)
             {
-                case "completed":
-                    return "status-completed";
                 case "delivered":
                     return "status-delivered";
                 case "shipped":

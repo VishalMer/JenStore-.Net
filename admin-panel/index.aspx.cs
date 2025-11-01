@@ -119,9 +119,6 @@ namespace JenStore.admin_panel
                 case "cancelled":
                     statusClass += "status-cancelled";
                     break;
-                case "completed":
-                    statusClass += "status-completed";
-                    break;
                 default:
                     statusClass += "status-pending";
                     break;

@@ -79,11 +79,11 @@ table.table tbody tr:hover { background: #fafbff; }
 .status-active { background: #e8f7ef !important; color: #1e824c !important; }
 .status-inactive { background: #fdecef !important; color: #b02a37 !important; }
 .status-banned { background: #fdecef !important; color: #b02a37 !important; }
-.status-pending { background: #fff6db !important; color: #8a6d1b !important; }
+/*.status-pending { background: #fff6db !important; color: #8a6d1b !important; }
 .status-processing { background: #e3f6fb !important; color: #0f5e6b !important; }
 .status-shipped { background: #e6f4ea !important; color: #146c43 !important; }
 .status-delivered { background: #dff1e3 !important; color: #146c43 !important; }
-.status-cancelled { background: #fdecef !important; color: #b02a37 !important; }
+.status-cancelled { background: #fdecef !important; color: #b02a37 !important; }*/
 
 /* Buttons */
 .btn-store { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); color: #fff !important; border: 0; border-radius: 30px; padding: 8px 16px; box-shadow: 0 6px 18px rgba(0,114,255,.35); transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease; }

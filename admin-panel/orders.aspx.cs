@@ -84,16 +84,49 @@ namespace JenStore.admin_panel
 
         protected void gvOrders_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            string orderId = e.CommandArgument.ToString();
-
             if (e.CommandName == "ViewOrder")
             {
+                string orderId = e.CommandArgument.ToString();
                 Response.Redirect("order-details.aspx?id=" + orderId);
             }
-            else if (e.CommandName == "UpdateStatus")
+            else if (e.CommandName == "OpenUpdateModal")
             {
-                //i'll add popup to update status later
+                string[] args = e.CommandArgument.ToString().Split(',');
+                string orderId = args[0];
+                string currentStatus = args[1];
+
+                hdnOrderId.Value = orderId;
+                txtCurrentStatus.Text = currentStatus;
+                ddlNewStatus.SelectedValue = currentStatus;
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "$('#updateStatusModal').modal('show');", true);
             }
+        }
+        protected void btnSaveStatus_Click(object sender, EventArgs e)
+        {
+            string orderId = hdnOrderId.Value;
+            string newStatus = ddlNewStatus.SelectedValue;
+            //string adminId = Session["admin_id"]?.ToString() ?? "null";
+
+            // Update the order status in the database
+            cmd = new SqlCommand("update orders set order_status = '" + newStatus + "' where order_id = " + orderId, con);
+            cmd.ExecuteNonQuery();
+
+            // Send a notification to the user
+            string message = "The status of your #ORD-" + orderId + " has been updated to: " + newStatus;
+            string link = "~/user-dashboard.aspx?view=orders&id=" + orderId;
+
+            // Get the user_id for this order
+            cmd = new SqlCommand("select user_id from orders where order_id = " + orderId, con);
+            string userId = cmd.ExecuteScalar().ToString();
+
+            string query = "insert into notifications (user_id, message, notification_type, link_url) values (" + userId + ", '" + message + "', 'order', '" + link + "')";
+            cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "HideModal", "$('#updateStatusModal').modal('hide');", true);
+
+            BindOrders();
         }
     }
 }
