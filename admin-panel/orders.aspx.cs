@@ -17,6 +17,7 @@ namespace JenStore.admin_panel
         SqlDataAdapter da;
         DataSet ds;
         SqlCommand cmd;
+        PagedDataSource pg;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +34,7 @@ namespace JenStore.admin_panel
             }
             if (!IsPostBack)
             {
+                ViewState["Id"] = 0;
                 BindOrders();
             }
         }
@@ -56,8 +58,54 @@ namespace JenStore.admin_panel
             ds = new DataSet();
             da.Fill(ds);
 
-            gvOrders.DataSource = ds;
+            pg = new PagedDataSource();
+            pg.DataSource = ds.Tables[0].DefaultView;
+            pg.AllowPaging = true;
+            pg.PageSize = 7; 
+            pg.CurrentPageIndex = Convert.ToInt32(ViewState["Id"]);
+
+            lnkPrev.Enabled = !pg.IsFirstPage;
+            lnkNext.Enabled = !pg.IsLastPage;
+
+            var pages = new List<ListItem>();
+            for (int i = 0; i < pg.PageCount; i++)
+            {
+                pages.Add(new ListItem((i + 1).ToString(), i.ToString(), i == pg.CurrentPageIndex));
+            }
+            rptPager.DataSource = pages;
+            rptPager.DataBind();
+
+            gvOrders.DataSource = pg;
             gvOrders.DataBind();
+        }
+
+        protected void lnkPrev_Click(object sender, EventArgs e)
+        {
+            int currentPage = Convert.ToInt32(ViewState["Id"]);
+            if (currentPage > 0)
+            {
+                currentPage--;
+                ViewState["Id"] = currentPage;
+                BindOrders();
+            }
+        }
+
+        protected void lnkNext_Click(object sender, EventArgs e)
+        {
+            int currentPage = Convert.ToInt32(ViewState["Id"]);
+            
+            currentPage++;
+            ViewState["Id"] = currentPage;
+            BindOrders();
+        }
+
+        protected void rptPager_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Page")
+            {
+                ViewState["Id"] = Convert.ToInt32(e.CommandArgument);
+                BindOrders();
+            }
         }
 
         public string GetStatusClass(object statusObj)

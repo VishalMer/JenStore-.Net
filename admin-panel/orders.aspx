@@ -422,7 +422,7 @@
                                                 CommandName="OpenUpdateModal"
                                                 CommandArgument='<%# Eval("order_id") + "," + Eval("order_status") %>'>
                                             <i class="fas fa-edit"></i> update
-                                        </asp:LinkButton>
+                                            </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -436,11 +436,19 @@
                 <div class="text-center mt-4">
                     <nav>
                         <ul class="pagination">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a> </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a> </li>
+                            <li class='<%# !lnkPrev.Enabled ? "page-item disabled" : "page-item" %>'>
+                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="page-link" OnClick="lnkPrev_Click"><span aria-hidden="true">&laquo;</span></asp:LinkButton>
+                            </li>
+                            <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
+                                <ItemTemplate>
+                                    <li class='<%# Convert.ToBoolean(Eval("Enabled")) ? "page-item active" : "page-item" %>'>
+                                        <asp:LinkButton ID="lnkPage" runat="server" CssClass="page-link" CommandName="Page" CommandArgument='<%# Eval("Value") %>'><%# Eval("Text") %></asp:LinkButton>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <li class='<%# !lnkNext.Enabled ? "page-item disabled" : "page-item" %>'>
+                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="page-link" OnClick="lnkNext_Click"><span aria-hidden="true">&raquo;</span></asp:LinkButton>
+                            </li>
                         </ul>
                     </nav>
                 </div>
