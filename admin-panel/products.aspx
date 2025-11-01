@@ -331,7 +331,7 @@
                     <nav>
                         <ul class="pagination">
                             <li class='<%# !lnkPrev.Enabled ? "page-item disabled" : "page-item" %>'>
-                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="page-link" OnClick="lnkPrev_Click">Previous</asp:LinkButton>
+                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="page-link" OnClick="lnkPrev_Click"><span aria-hidden="true">&laquo;</span></asp:LinkButton>
                             </li>
                             <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
                                 <ItemTemplate>
@@ -341,7 +341,7 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                             <li class='<%# !lnkNext.Enabled ? "page-item disabled" : "page-item" %>'>
-                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="page-link" OnClick="lnkNext_Click">Next</asp:LinkButton>
+                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="page-link" OnClick="lnkNext_Click"><span aria-hidden="true">&raquo;</span></asp:LinkButton>
                             </li>
                         </ul>
                     </nav>

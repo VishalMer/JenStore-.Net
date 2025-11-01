@@ -75,8 +75,6 @@ namespace JenStore.admin_panel
                     return "status-delivered";
                 case "cancelled":
                     return "status-cancelled";
-                case "completed":
-                    return "status-completed";
                 default:
                     return "status-pending";
             }

@@ -59,7 +59,7 @@ namespace JenStore.admin_panel
         }
         void DisplayStats()
         {
-            cmd = new SqlCommand("select sum(total_amount) from orders where order_status = 'Completed'", con);
+            cmd = new SqlCommand("select sum(total_amount) from orders where order_status = 'delivered'", con);
             object totalSales = cmd.ExecuteScalar();
             if (totalSales != DBNull.Value)
             {
@@ -70,7 +70,7 @@ namespace JenStore.admin_panel
                 lblTotalSales.Text = "$0";
             }
 
-            cmd = new SqlCommand("SELECT SUM(total_amount) FROM orders WHERE order_status = 'Completed' AND MONTH(order_date) = MONTH(GETDATE()) AND YEAR(order_date) = YEAR(GETDATE())", con);
+            cmd = new SqlCommand("SELECT SUM(total_amount) FROM orders WHERE order_status = 'delivered' AND MONTH(order_date) = MONTH(GETDATE()) AND YEAR(order_date) = YEAR(GETDATE())", con);
             object monthlySales = cmd.ExecuteScalar();
             if (monthlySales != DBNull.Value)
             {

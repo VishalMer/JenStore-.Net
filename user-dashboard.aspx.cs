@@ -66,7 +66,7 @@ namespace JenStore
             SqlCommand wishlist = new SqlCommand("select count(*) from Wishlist where user_id = " + userId, con);
             lblWishlistItems.Text = wishlist.ExecuteScalar().ToString();
 
-            SqlCommand totalSpent = new SqlCommand("select SUM(total_amount) from Orders where user_id = " + userId + " and order_status = 'Completed'", con);
+            SqlCommand totalSpent = new SqlCommand("select SUM(total_amount) from Orders where user_id = " + userId + " and order_status = 'delivered'", con);
             object totalSpentResult = totalSpent.ExecuteScalar();
             if (totalSpentResult != DBNull.Value && totalSpentResult != null)
             {
