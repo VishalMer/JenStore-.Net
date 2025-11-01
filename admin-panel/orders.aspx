@@ -222,6 +222,23 @@
                         background: #667eea;
                         border-color: #667eea;
                     }
+
+            .btn-view:hover {
+                color: #17a2b8;
+                background-color: white;
+                text-decoration: none;
+                transition: ease-in;
+                filter: brightness(.92);
+            }
+
+            .btn-update:hover {
+                color: #28a745;
+                background-color: white;
+                text-decoration: none;
+                transition: ease-in;
+                filter: brightness(.92);
+            }   
+
         </style>
         <link rel="stylesheet" href="../css/admin.css">
     </head>
