@@ -37,7 +37,7 @@ namespace JenStore.admin_panel
             if (!IsPostBack)
             {
                 ViewState["Id"] = 0;
-                LoadStats();
+                fillStats();
                 fillGVProducts();
             }
         }
@@ -48,25 +48,20 @@ namespace JenStore.admin_panel
             con.Open();
         }
 
-        void LoadStats()
+        void fillStats()
         {
-            // Total Feedback
             cmd = new SqlCommand("select count(*) from feedback", con);
             lblTotalFeedback.Text = cmd.ExecuteScalar().ToString();
 
-            // New 
             cmd = new SqlCommand("select count(*) from feedback where status = 'new'", con);
             lblNewFeedback.Text = cmd.ExecuteScalar().ToString();
 
-            // Replied 
             cmd = new SqlCommand("select count(distinct feedback_id) from notifications where notification_type = 'feedback_reply'", con);
             lblRepliedFeedback.Text = cmd.ExecuteScalar().ToString();
 
-            // Read 
             cmd = new SqlCommand("select count(*) from feedback where status != 'new'", con);
             lblReadFeedback.Text = cmd.ExecuteScalar().ToString();
 
-            // Resolved
             cmd = new SqlCommand("select count(*) from feedback where status = 'resolved'", con);
             lblResolvedFeedback.Text = cmd.ExecuteScalar().ToString();
         }
@@ -127,7 +122,7 @@ namespace JenStore.admin_panel
                 cmd.ExecuteNonQuery();
             }
 
-            LoadStats();
+            fillStats();
             fillGVProducts();
         }
 
@@ -157,7 +152,7 @@ namespace JenStore.admin_panel
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseReplyModal", "$('#replyModal').modal('hide');", true);
 
-            LoadStats();
+            fillStats();
             fillGVProducts();
         }
 

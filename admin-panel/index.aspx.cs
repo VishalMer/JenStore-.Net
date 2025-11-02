@@ -34,7 +34,7 @@ namespace JenStore.admin_panel
             {
                 DisplayStats();
                 WelcomeMessage();
-                BindRecentOrders();
+                fillRecentOrders();
             }
         }
 
@@ -70,7 +70,7 @@ namespace JenStore.admin_panel
                 lblTotalSales.Text = "$0";
             }
 
-            cmd = new SqlCommand("SELECT SUM(total_amount) FROM orders WHERE order_status = 'delivered' AND MONTH(order_date) = MONTH(GETDATE()) AND YEAR(order_date) = YEAR(GETDATE())", con);
+            cmd = new SqlCommand("select sum(total_amount) from orders where order_status = 'delivered' and month(order_date) = month(GETDATE()) and year(order_date) = year(GETDATE())", con);
             object monthlySales = cmd.ExecuteScalar();
             if (monthlySales != DBNull.Value)
             {
@@ -88,9 +88,9 @@ namespace JenStore.admin_panel
             lblTotalCustomers.Text = cmd.ExecuteScalar().ToString();
         }
 
-        private void BindRecentOrders()
+        private void fillRecentOrders()
         {
-            string query = "SELECT TOP 5 o.order_id, u.uname as Username, o.total_amount, o.order_status FROM orders o INNER JOIN users u ON o.user_id = u.Id ORDER BY o.order_date DESC";
+            string query = "select TOP 5 o.order_id, u.uname as Username, o.total_amount, o.order_status FROM orders o inner join users u on o.user_id = u.Id order by o.order_date desc";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             DataSet ds = new DataSet();
             da.Fill(ds);

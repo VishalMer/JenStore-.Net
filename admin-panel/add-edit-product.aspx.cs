@@ -18,7 +18,7 @@ namespace JenStore.admin_panel
         SqlDataAdapter da;
         DataSet ds;
         SqlCommand cmd;
-        string img_file_name;
+        string img_name;
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
@@ -44,7 +44,7 @@ namespace JenStore.admin_panel
                     lblPageTitle.Text = "Edit Product";
                     lblPageSubtitle.Text = "Update the product information below";
                     hdnProductId.Value = Request.QueryString["id"];
-                    loadProductData(hdnProductId.Value);
+                    fillProductData(hdnProductId.Value);
                 }
                 else
                 {
@@ -64,13 +64,13 @@ namespace JenStore.admin_panel
         {
             if (fileUploadImage.HasFile)
             {
-                img_file_name = "img/product_img/" + fileUploadImage.FileName;
+                img_name = "img/product_img/" + fileUploadImage.FileName;
 
-                fileUploadImage.SaveAs(Server.MapPath("~/" + img_file_name));
+                fileUploadImage.SaveAs(Server.MapPath("~/" + img_name));
             }
             else
             {
-                img_file_name = hdnExistingImage.Value;
+                img_name = hdnExistingImage.Value;
             }
         }
 
@@ -95,7 +95,7 @@ namespace JenStore.admin_panel
             cblCategories.DataBind();
         }
 
-        void loadProductData(string productId)
+        void fillProductData(string productId)
         {
             da = new SqlDataAdapter("select * from products where product_id = " + productId, con);
             ds = new DataSet();
@@ -147,13 +147,13 @@ namespace JenStore.admin_panel
 
             if (productId == "0")
             {
-                string query = "insert into products (product_name, description, price, old_price, stock_quantity, badge, image_url) values ('" + prod_name + "', '" + prod_desc + "', " + price + ", " + old_price + ", " + stock + ", '" + badge + "', '" + img_file_name + "'); select scope_identity();";
+                string query = "insert into products (product_name, description, price, old_price, stock_quantity, badge, image_url) values ('" + prod_name + "', '" + prod_desc + "', " + price + ", " + old_price + ", " + stock + ", '" + badge + "', '" + img_name + "'); select scope_identity();";
                 cmd = new SqlCommand(query, con);
                 productId = cmd.ExecuteScalar().ToString();
             }
             else
             {
-                string query = "update products set product_name = '" + prod_name + "', description = '" + prod_desc + "', price = " + price + ", old_price = " + old_price + ", stock_quantity = " + stock + ", badge = '" + badge + "', image_url = '" + img_file_name + "' where product_id = " + productId;
+                string query = "update products set product_name = '" + prod_name + "', description = '" + prod_desc + "', price = " + price + ", old_price = " + old_price + ", stock_quantity = " + stock + ", badge = '" + badge + "', image_url = '" + img_name + "' where product_id = " + productId;
                 cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
@@ -172,8 +172,6 @@ namespace JenStore.admin_panel
 
             clear();
             Response.Redirect("products.aspx");
-        }
-
-        
+        }       
     }
 }

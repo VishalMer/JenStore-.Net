@@ -35,7 +35,7 @@ namespace JenStore.admin_panel
             if (!IsPostBack)
             {
                 ViewState["Id"] = 0;
-                BindOrders();
+                fillOrders();
             }
         }
 
@@ -47,7 +47,7 @@ namespace JenStore.admin_panel
             
         }
 
-        void BindOrders()
+        void fillOrders()
         {
             string query = "select o.order_id, o.user_id, o.order_date, o.total_amount, o.order_status, u.uname, u.email, " +
                 "(select count(distinct od.product_id) from orderdetails od where od.order_id = o.order_id) as product_count, " +
@@ -86,7 +86,7 @@ namespace JenStore.admin_panel
             {
                 currentPage--;
                 ViewState["Id"] = currentPage;
-                BindOrders();
+                fillOrders();
             }
         }
 
@@ -96,7 +96,7 @@ namespace JenStore.admin_panel
             
             currentPage++;
             ViewState["Id"] = currentPage;
-            BindOrders();
+            fillOrders();
         }
 
         protected void rptPager_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -104,7 +104,7 @@ namespace JenStore.admin_panel
             if (e.CommandName == "Page")
             {
                 ViewState["Id"] = Convert.ToInt32(e.CommandArgument);
-                BindOrders();
+                fillOrders();
             }
         }
 
@@ -152,7 +152,6 @@ namespace JenStore.admin_panel
         {
             string orderId = hdnOrderId.Value;
             string newStatus = ddlNewStatus.SelectedValue;
-            //string adminId = Session["admin_id"]?.ToString() ?? "null";
 
             // Update the order status in the database
             cmd = new SqlCommand("update orders set order_status = '" + newStatus + "' where order_id = " + orderId, con);
@@ -172,7 +171,7 @@ namespace JenStore.admin_panel
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "HideModal", "$('#updateStatusModal').modal('hide');", true);
 
-            BindOrders();
+            fillOrders();
         }
     }
 }
