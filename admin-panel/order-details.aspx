@@ -84,7 +84,7 @@
                 }
 
             .content-container {
-                padding: 40px 0;
+                padding: 0 0 40px 0 !important;
             }
 
             .page-header {
@@ -323,7 +323,6 @@
             .btn {
                 padding: 12px 24px;
                 border-radius: 8px;
-                font-weight: 600;
                 text-decoration: none;
                 display: inline-flex;
                 align-items: center;
@@ -389,6 +388,23 @@
                     border-color: #23272b;
                     color: #fff;
                 }
+
+            .btn-back {
+                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+                color: #fff !important;
+                border: 0;
+                border-radius: 30px;
+                padding: 8px 16px;
+                box-shadow: 0 6px 18px rgba(56,249,215,.35);
+                transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+            }
+
+                .btn-back:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 24px rgba(56,249,215,.45);
+                    text-decoration: none;
+                    opacity: .95;
+                }
         </style>
         <link rel="stylesheet" href="../css/admin.css">
     </head>
@@ -404,7 +420,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="orders.aspx" class="btn btn-outline-light btn-sm"><i class="fas fa-arrow-left"></i>Back to Orders </a><a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="orders.aspx" class="btn btn-back btn-sm ml-2"><i class="fas fa-arrow-left"></i>Back to Orders</a> <a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
                     </div>
                 </div>
             </div>
@@ -422,6 +438,7 @@
         </nav>
 
         <!-- Main Content -->
+        <asp:HiddenField ID="hdnOrderId" runat="server" />
         <div class="content-container">
             <div class="container">
                 <!-- Page Header -->
@@ -454,38 +471,27 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="updateStatusForm">
-                                <input type="hidden" id="modalOrderId" name="orderId">
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="currentStatus">
-                                            Current Status</label>
-                                        <input type="text" class="form-control" id="currentStatus" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="newStatus">
-                                            New Status *</label>
-                                        <select class="form-control" id="newStatus" name="status" required>
-                                            <option value="pending">Pending</option>
-                                            <option value="processing">Processing</option>
-                                            <option value="shipped">Shipped</option>
-                                            <option value="delivered">Delivered</option>
-                                            <option value="cancelled">Cancelled</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <!-- Status Notes removed -->
-                                    </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Current Status</label>
+                                    <asp:TextBox ID="txtCurrentStatus" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                        Cancel
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">
-                                        Update Status
-                                    </button>
+                                <div class="form-group">
+                                    <label>New Status *</label>
+                                    <asp:DropDownList ID="ddlNewStatus" runat="server" CssClass="form-control">
+                                        <asp:ListItem Value="pending">Pending</asp:ListItem>
+                                        <asp:ListItem Value="processing">Processing</asp:ListItem>
+                                        <asp:ListItem Value="shipped">Shipped</asp:ListItem>
+                                        <asp:ListItem Value="delivered">Delivered</asp:ListItem>
+                                        <asp:ListItem Value="cancelled">Cancelled</asp:ListItem>
+                                        <asp:ListItem Value="completed">Completed</asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <asp:Button ID="btnSaveStatus" runat="server" Text="Update Status" CssClass="btn btn-primary" OnClick="btnSaveStatus_Click" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -493,72 +499,50 @@
                 <!-- Order Information -->
                 <div class="order-info-card">
                     <div class="order-header">
-                        <div class="order-id" id="orderId">
-                            #ORD-001
-                        </div>
-                        <span class="order-status status-pending" id="orderStatus">Pending</span>
+                        <asp:Label ID="lblOrderId" runat="server" CssClass="order-id" Text="#ORD-000"></asp:Label>
+                        <asp:Label ID="lblOrderStatus" runat="server" CssClass="order-status" Text="Status"></asp:Label>
                     </div>
                     <div class="info-grid">
                         <div class="info-item">
-                            <div class="info-label">
-                                Order Date
-                            </div>
-                            <div class="info-value" id="orderDate">
-                                Dec 15, 2024 at 2:30 PM
-                            </div>
+                            <div class="info-label">Order Date</div>
+                            <asp:Label ID="lblOrderDate" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                Payment Method
-                            </div>
-                            <div class="info-value" id="paymentMethod">
-                                Credit Card
-                            </div>
+                            <div class="info-label">Payment Method</div>
+                            <asp:Label ID="lblPaymentMethod" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                Payment Status
-                            </div>
-                            <div class="info-value" id="paymentStatus">
-                                Paid
-                            </div>
+                            <div class="info-label">Payment Status</div>
+                            <asp:Label ID="lblPaymentStatus" runat="server" CssClass="info-value">Paid</asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                Payment
-                            </div>
-                            <div class="info-value" id="paymentAmount">
-                                120
-                            </div>
+                            <div class="info-label">Payment Amount</div>
+                            <asp:Label ID="lblPaymentAmount" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                     </div>
                 </div>
 
+
                 <!-- Products Ordered -->
                 <div class="products-section">
                     <h3 class="section-title"><i class="fas fa-box"></i>Products Ordered</h3>
-                    <div id="productsList">
-                        <div class="product-item">
-                            <img src="../img/340x420(buqet rose).jpg" alt="Rose Bouquet" class="product-image">
-                            <div class="product-details">
-                                <div class="product-name">
-                                    Rose Bouquet
+                    <asp:DataList ID="dlProducts" runat="server" Width="100%" RepeatLayout="Flow">
+                        <ItemTemplate>
+                            <div class="product-item">
+                                <img src='<%# "../" + Eval("image_url") %>' alt='<%# Eval("product_name") %>' class="product-image" />
+                                <div class="product-details">
+                                    <div class="product-name"><%# Eval("product_name") %></div>
+                                    <div class="product-price"><%# Eval("price_at_purchase", "{0:C}") %></div>
                                 </div>
-                                <div class="product-category">
-                                    Category: Bouquets, Roses
+                                <div class="product-quantity">
+                                    <span class="quantity-badge"><%# Eval("quantity") %></span>
                                 </div>
-                                <div class="product-price">
-                                    $89.99
+                                <div class="product-total">
+                                    <%# (Convert.ToDecimal(Eval("price_at_purchase")) * Convert.ToInt32(Eval("quantity"))).ToString("C") %>
                                 </div>
                             </div>
-                            <div class="product-quantity">
-                                <span class="quantity-badge">1</span>
-                            </div>
-                            <div class="product-total">
-                                $89.99
-                            </div>
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                    </asp:DataList>
                 </div>
 
                 <!-- Customer Information -->
@@ -566,70 +550,35 @@
                     <h3 class="section-title"><i class="fas fa-user"></i>Customer Information</h3>
                     <div class="customer-info">
                         <div class="info-item">
-                            <div class="info-label">
-                                Customer Name
-                            </div>
-                            <div class="info-value" id="customerName">
-                                John Doe
-                            </div>
+                            <div class="info-label">Customer Name</div>
+                            <asp:Label ID="lblCustomerName" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                Email
-                            </div>
-                            <div class="info-value" id="customerEmail">
-                                john.doe@email.com
-                            </div>
+                            <div class="info-label">Email</div>
+                            <asp:Label ID="lblCustomerEmail" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                Gender
-                            </div>
-                            <div class="info-value" id="customerGender">
-                                Male
-                            </div>
+                            <div class="info-label">Gender</div>
+                            <asp:Label ID="lblCustomerGender" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                User ID
-                            </div>
-                            <div class="info-value" id="customerId">
-                                12345
-                            </div>
+                            <div class="info-label">User ID</div>
+                            <asp:Label ID="lblCustomerId" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                     </div>
                 </div>
 
                 <!-- Billing Information -->
                 <div class="shipping-section">
-                    <h3 class="section-title"><i class="fas fa-file-invoice"></i>Billing Information</h3>
+                    <h3 class="section-title"><i class="fas fa-file-invoice"></i>Shipping & Billing</h3>
                     <div class="customer-info">
                         <div class="info-item">
-                            <div class="info-label">
-                                Billing Address
-                            </div>
-                            <div class="info-value" id="billingAddress">
-                                123 Main Street<br>
-                                Apt 4B<br>
-                                New York, NY 10001<br>
-                                United States
-                            </div>
+                            <div class="info-label">Shipping Address</div>
+                            <asp:Label ID="lblBillingAddress" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">
-                                Mobile Number
-                            </div>
-                            <div class="info-value" id="mobileNumber">
-                                +1 (555) 123-4567
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">
-                                Tracking Number
-                            </div>
-                            <div class="info-value" id="trackingNumber">
-                                TRK123456789
-                            </div>
+                            <div class="info-label">Mobile Number</div>
+                            <asp:Label ID="lblMobileNumber" runat="server" CssClass="info-value" Text="n/a"></asp:Label>
                         </div>
                     </div>
                 </div>
@@ -638,13 +587,16 @@
                 <div class="order-summary">
                     <h3 class="section-title"><i class="fas fa-calculator"></i>Order Summary</h3>
                     <div class="summary-row">
-                        <span>Subtotal</span> <span id="subtotal">$89.99</span>
+                        <span>Subtotal</span>
+                        <asp:Label ID="lblSubtotal" runat="server"></asp:Label>
                     </div>
                     <div class="summary-row">
-                        <span>Shipping</span> <span id="shipping">$5.99</span>
+                        <span>Shipping</span>
+                        <asp:Label ID="lblShipping" runat="server"></asp:Label>
                     </div>
                     <div class="summary-row">
-                        <span>Total</span> <span id="total">$103.18</span>
+                        <span>Total</span>
+                        <asp:Label ID="lblTotal" runat="server"></asp:Label>
                     </div>
                 </div>
 
@@ -652,19 +604,10 @@
                 <div class="action-buttons">
                     <h3 class="section-title"><i class="fas fa-cogs"></i>Actions</h3>
                     <div class="btn-group">
-                        <button class="btn btn-primary" onclick="openUpdateStatusModal()">
-                            <i class="fas fa-edit"></i>Update Status
-                        </button>
-                        <button class="btn btn-success" onclick="markAsShipped()">
-                            <i class="fas fa-shipping-fast"></i>Mark as Shipped
-                        </button>
-                        <button class="btn btn-danger" onclick="cancelOrder()">
-                            <i class="fas fa-times"></i>Cancel Order
-                        </button>
-                        <a class="btn btn-info" href="orders.aspx"><i class="fas fa-list"></i>All Orders </a>
-                        <button class="btn btn-dark" onclick="viewCustomerHistory()">
-                            <i class="fas fa-history"></i>Customer History
-                        </button>
+                        <asp:Button ID="btnUpdateStatus" runat="server" Text="Update Status" CssClass="btn btn-primary" OnClick="btnUpdateStatus_Click" />
+                        <asp:Button ID="btnMarkShipped" runat="server" Text="Mark as Shipped" CssClass="btn btn-success" CommandName="Shipped" OnClick="btnQuickStatus_Click" />
+                        <asp:Button ID="btnCancelOrder" runat="server" Text="Cancel Order" CssClass="btn btn-danger" CommandName="Cancelled" OnClick="btnQuickStatus_Click" OnClientClick="return confirm('are you sure you want to cancel this order?');" />
+                        <a class="btn btn-info" href="orders.aspx"><i class="fas fa-list"></i>All Orders</a>
                     </div>
                 </div>
             </div>
