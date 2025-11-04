@@ -59,42 +59,68 @@ namespace JenStore.admin_panel
         void fillOrderDetails(string orderId)
         {
             // get main order and customer info
-            string query = "select * from orders o inner join users u on o.user_id = u.id where o.order_id = " + orderId;
+            string query = "select o.order_id, o.order_status, o.order_date, o.payment_method, o.total_amount, u.uname, " +
+                "u.email, u.gender, o.user_id, o.shipping_address from orders o inner join users u on o.user_id = u.id where o.order_id = " + orderId;
+
             da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                DataRow row = ds.Tables[0].Rows[0];
-
                 // Order Info Card
-                lblOrderId.Text = "#ord-" + row["order_id"].ToString();
-                string status = row["order_status"].ToString();
+                lblOrderId.Text = "#ord-" + ds.Tables[0].Rows[0][0].ToString();
+                string status = ds.Tables[0].Rows[0][1].ToString();
                 lblOrderStatus.Text = status;
                 lblOrderStatus.CssClass = "order-status " + GetStatusClass(status);
-                lblOrderDate.Text = Convert.ToDateTime(row["order_date"]).ToString("MMM dd, yyyy 'at' h:mm tt");
-                lblPaymentMethod.Text = row["payment_method"].ToString();
-                lblPaymentAmount.Text = Convert.ToDecimal(row["total_amount"]).ToString("c");
+                lblOrderDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0][2]).ToString("MMM dd, yyyy 'at' h:mm tt");
+                lblPaymentMethod.Text = ds.Tables[0].Rows[0][3].ToString();
+                lblPaymentAmount.Text = Convert.ToDecimal(ds.Tables[0].Rows[0][4]).ToString("c");
 
                 // Customer Info 
-                lblCustomerName.Text = row["uname"].ToString();
-                lblCustomerEmail.Text = row["email"].ToString();
-                lblCustomerGender.Text = row["gender"].ToString();
-                lblCustomerId.Text = row["user_id"].ToString();
+                lblCustomerName.Text = ds.Tables[0].Rows[0][5].ToString();
+                lblCustomerEmail.Text = ds.Tables[0].Rows[0][6].ToString();
+                lblCustomerGender.Text = ds.Tables[0].Rows[0][7].ToString();
+                lblCustomerId.Text = ds.Tables[0].Rows[0][8].ToString();
 
-                // --- Populate Shipping Info ---
-                lblBillingAddress.Text = row["shipping_address"].ToString();
-               
+                // Billing Info
+                string fullAddress = ds.Tables[0].Rows[0][9].ToString();
+
+                if (fullAddress.Contains("Phone:"))
+                {
+                    string[] addressParts = fullAddress.Split(new[] { "Phone:" }, StringSplitOptions.None);
+
+                    lblBillingAddress.Text = addressParts[0].Trim().TrimEnd(',');
+                    lblMobileNumber.Text = addressParts[1].Trim();
+                }
+                else
+                {
+                    lblBillingAddress.Text = fullAddress;
+                    lblMobileNumber.Text = "n/a";
+                }
+
 
                 // Order Summary 
-                decimal total = Convert.ToDecimal(row["total_amount"]);
-                
-                lblSubtotal.Text = total.ToString("c");
-                lblShipping.Text = "$0.00";
+                decimal total = Convert.ToDecimal(ds.Tables[0].Rows[0][4]);
+                decimal shipping = 0;
+                decimal subtotal = 0;
+
+                if (total < 1000)
+                {
+                    shipping = 40;
+                    subtotal = total - shipping;
+                }
+                else
+                {
+                    shipping = 0;
+                    subtotal = total;
+                }
+
+                lblSubtotal.Text = subtotal.ToString("c");
+                lblShipping.Text = shipping.ToString("c");
                 lblTotal.Text = total.ToString("c");
 
-                // list of products for this order
+                // list of products
                 string productQuery = "select * from orderdetails od inner join products p on od.product_id = p.product_id where od.order_id = " + orderId;
                 da = new SqlDataAdapter(productQuery, con);
                 ds = new DataSet();

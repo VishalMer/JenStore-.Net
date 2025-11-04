@@ -570,10 +570,10 @@
 
                 <!-- Billing Information -->
                 <div class="shipping-section">
-                    <h3 class="section-title"><i class="fas fa-file-invoice"></i>Shipping & Billing</h3>
+                    <h3 class="section-title"><i class="fas fa-file-invoice"></i>Billing Information</h3>
                     <div class="customer-info">
                         <div class="info-item">
-                            <div class="info-label">Shipping Address</div>
+                            <div class="info-label">Billing Address</div>
                             <asp:Label ID="lblBillingAddress" runat="server" CssClass="info-value"></asp:Label>
                         </div>
                         <div class="info-item">
