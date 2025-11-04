@@ -22,39 +22,39 @@ namespace JenStore
         {
             getcon();
 
-            if (Session["userid"] == null)
-            {
-                Response.Redirect("login_register.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsolutePath));
-            }
-            else
-            {
+           
                 if (!IsPostBack)
                 {
-                    LoadUserData();
+                    fillUserData();
                 }
-            }
+            
         }
 
         void getcon()
         {
-            if (con == null || con.State == ConnectionState.Closed)
-            {
-                con = new SqlConnection(con_str);
-                con.Open();
-            }
+            con = new SqlConnection(con_str);
+            con.Open();
         }
 
-        void LoadUserData()
+        void fillUserData()
         {
-            string userId = Session["userid"].ToString();
-            da = new SqlDataAdapter("select uname, email from users where id = " + userId, con);
-            ds = new DataSet();
-            da.Fill(ds);
-
-            if (ds.Tables[0].Rows.Count > 0)
+            if (Session["userid"] != null)
             {
-                txtName.Text = ds.Tables[0].Rows[0]["uname"].ToString();
-                txtEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
+                loginWarning.Visible = false;
+                string userId = Session["userid"].ToString();
+                da = new SqlDataAdapter("select uname, email from users where id = " + userId, con);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    txtName.Text = ds.Tables[0].Rows[0][0].ToString();
+                    txtEmail.Text = ds.Tables[0].Rows[0][1].ToString();
+                }
+            }
+            else
+            {
+                loginWarning.Visible = true;
             }
         }
 
@@ -67,7 +67,7 @@ namespace JenStore
             }
 
             string userId = Session["userid"].ToString();
-            string message = txtMessage.Text.Replace("'", "''"); 
+            string message = txtMessage.Text.Replace("'", "''");
 
             string query = "insert into feedback (user_id, message) values (" + userId + ", '" + message + "')";
             cmd = new SqlCommand(query, con);
@@ -75,16 +75,14 @@ namespace JenStore
             try
             {
                 cmd.ExecuteNonQuery();
-                lblMessage.Text = "your message has been sent successfully!";
-                lblMessage.ForeColor = System.Drawing.Color.Green; 
-                lblMessage.Visible = true;
+                lblSuc.Text = "your message has been sent successfully!";
+                lblSuc.Visible = true;
                 txtMessage.Text = "";
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "an error occurred. please try again.";
-                lblMessage.ForeColor = System.Drawing.Color.Red;
-                lblMessage.Visible = true;
+                lblError.Text = "an error occurred. please try again.";
+                lblError.Visible = true;
             }
         }
     }

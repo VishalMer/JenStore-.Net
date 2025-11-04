@@ -213,7 +213,16 @@
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 message-contact">
                             <h1>Send us a message</h1>
-                            <asp:Label ID="lblMessage" runat="server" Visible="false" Style="display: block; margin:0 0 -10px 15px;"></asp:Label>
+                            
+                            <asp:Panel ID="loginWarning" Visible="false" runat="server" style="margin-left: 15px; font-family:'poppins'">
+                                <asp:Label ID="lblLoginText" runat="server" Text="LOGIN required to send us a message. "/>
+                                <asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="~/login_register.aspx" style="font-weight:600;">
+                                    LOGIN NOW
+                                </asp:HyperLink>
+                           </asp:Panel>
+
+                            <asp:Label ID="lblSuc" runat="server" Visible="false" Style="display: block; margin:0 0 -10px 15px; color:green;"></asp:Label>
+                            <asp:Label ID="lblError" runat="server" Visible="false" Style="display: block; margin:0 0 -10px 15px; color:red;"></asp:Label>
 
                             <div class="form-group">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
