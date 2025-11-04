@@ -347,17 +347,18 @@
                                     Your saved favorite items
                                 </div>
                             </div>
-                            <%--  <div class="shortcut-card" onclick="window.location.href='tracking.aspx'">
+                            <div class="shortcut-card" onclick="window.location.href='notifications.aspx'">
                                 <div class="shortcut-icon">
-                                    <i class="fas fa-truck"></i>
+                                    <i class="fas fa-bell"></i>
                                 </div>
                                 <div class="shortcut-title">
-                                    Track Orders
+                                    Notifications
                                 </div>
                                 <div class="shortcut-desc">
-                                    Track your current orders
+                                    View alerts and updates
                                 </div>
-                            </div>--%>
+                            </div>
+
                             <div class="shortcut-card" onclick="window.location.href='Shopping.aspx'">
                                 <div class="shortcut-icon">
                                     <i class="fas fa-store"></i>
@@ -371,7 +372,7 @@
                             </div>
                             <div class="shortcut-card" onclick="window.location.href='contact.aspx'">
                                 <div class="shortcut-icon">
-                                    <i class="fas fa-headset"></i>
+                                    <i class="fas fa-comments"></i>
                                 </div>
                                 <div class="shortcut-title">
                                     Support

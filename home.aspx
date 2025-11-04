@@ -32,6 +32,13 @@
                 padding-right: 5px !important;
             }
 
+            .icon-menu li .fa-bell {
+                font-size: 22px;
+                top: 1px;
+                color: black !important;
+                padding-right: 5px !important;
+            }
+
             .icon-menu li img#img-cart {
                 padding-right: 5px;
             }
@@ -43,7 +50,7 @@
             .product-title-collec h5 a:hover, .product-title-wedding h5 a:hover, .product-title-holiday h5 a:hover {
                 text-decoration: none;
                 color: #e74c3c !important;
-               /*text-shadow: 0px 0px 10px black;*/
+                /*text-shadow: 0px 0px 10px black;*/
             }
         </style>
     </head>
@@ -105,11 +112,15 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right icon-menu col-lg-4 col-md-4 col-sm-5 col-xs-5">
+                        <li class="icon-notification hidden-sm hidden-xs">
+                            <a href="notifications.aspx"><i class="far fa-bell"></i></a>
+                        </li>
                         <li class="icon-wishlist hidden-sm hidden-xs"><a href="wishlist.aspx"><i class="far fa-heart"></i></a></li>
                         <li class="cart-menu">
                             <a href="shopping-cart.aspx">
                                 <img src="img/icons/cart.png" id="img-cart" alt="img-holiwood"></a>
                         </li>
+
                         <li class="icon-user hidden-sm hidden-xs"><a href="user-dashboard.aspx"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
@@ -478,7 +489,7 @@
             </div>
             <div class="BG-menu">
             </div>
-            
+
             <!-- --------------------------- -->
         </footer>
 
