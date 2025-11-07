@@ -299,6 +299,7 @@
     <Content Include="js\jquery-ui_c2.js" />
     <Content Include="js\jquery.min_af.js" />
     <Content Include="login_register.aspx" />
+    <Content Include="notifications.aspx" />
     <Content Include="order-history.aspx" />
     <Content Include="order.aspx" />
     <Content Include="scrolling\jquery.superscrollorama.js" />
@@ -519,6 +520,20 @@
     <Compile Include="login_register.aspx.designer.cs">
       <DependentUpon>login_register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="notifications.aspx.cs">
+      <DependentUpon>notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notifications.aspx.designer.cs">
+      <DependentUpon>notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notifications.Master.cs">
+      <DependentUpon>notifications.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notifications.Master.designer.cs">
+      <DependentUpon>notifications.Master</DependentUpon>
+    </Compile>
     <Compile Include="order-history.aspx.cs">
       <DependentUpon>order-history.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -684,6 +699,7 @@
     <Content Include="admin-panel\order-details.Master" />
     <Content Include="admin-panel\add-edit-product.Master" />
     <Content Include="admin-panel\feedback.Master" />
+    <Content Include="notifications.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />

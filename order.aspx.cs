@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CrystalDecisions.Shared;
@@ -13,7 +14,11 @@ namespace JenStore
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         SqlConnection con;
         SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
 
+        //private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new ReportDocument();
+        static string path = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
@@ -88,7 +93,21 @@ namespace JenStore
 
         protected void btnDownloadInvoice_Click(object sender, EventArgs e)
         {
-           
+            getcon();
+            da = new SqlDataAdapter("select * from orders", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string xml = "D:/WorkSpaces/DotNet/JenStore/orders.xml";
+
+            ds.WriteXmlSchema(xml);
+
+            //path = Server.MapPath("notice_rpt.rpt");
+            //cr.Load(path);
+            //cr.SetDataSource(ds);
+            //cr.Database.Tables[0].SetDataSource(ds);
+            //cr.Refresh();
+            //CrystalReportViewer1.ReportSource = cr;
+            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Notices");
         }
 
         void getcon()

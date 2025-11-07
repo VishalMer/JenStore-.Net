@@ -44,7 +44,7 @@
             }
 
             .icon-menu {
-                margin-right: -11em;
+                margin-right: -8em;
             }
 
             .product-title-collec h5 a:hover, .product-title-wedding h5 a:hover, .product-title-holiday h5 a:hover {

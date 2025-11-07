@@ -251,6 +251,7 @@
                         <div class="col-md-12">
                             <div class="order-actions">
                                 <asp:Button ID="btnDownloadInvoice" runat="server" Text="Download Invoice" CssClass="btn btn-primary" OnClick="btnDownloadInvoice_Click" />
+
                                 <a href="#" class="btn btn-secondary">Track Order</a>
                                 <a href="#" class="btn btn-outline">Reorder Items</a>
                             </div>
