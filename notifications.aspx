@@ -27,9 +27,10 @@
                 background: #f8f9fa;
             }
 
-            .banner{
+            .banner {
                 padding-bottom: 15px;
             }
+
             .notification-container {
                 padding: 20px 0;
                 min-height: 70vh;
@@ -516,9 +517,9 @@
                                 <option value="month">This Month</option>
                             </select>
                             <div class="read-all-btn">
-                                <button class="mark-all-read" onclick="markAllAsRead()">
-                                    <i class="fas fa-check-double"></i>Mark All as Read
-                                </button>
+                                <asp:LinkButton ID="btnMarkAllRead" runat="server" CssClass="mark-all-read" OnClick="btnMarkAllRead_Click">
+                                    <i class="fas fa-check-double"></i> Mark All as Read
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -526,275 +527,91 @@
                     <!-- Notification Tabs -->
                     <div class="notification-tabs">
                         <div class="tab-buttons">
-                            <button class="tab-button active" onclick="switchTab('orders')">
-                                <i class="fas fa-shopping-cart"></i>Order Updates <span class="notification-badge" id="orderBadge">3</span>
-                            </button>
-                            <button class="tab-button" onclick="switchTab('general')">
-                                <i class="fas fa-bell"></i>General Notifications <span class="notification-badge" id="generalBadge">5</span>
-                            </button>
+                            <asp:LinkButton ID="tabOrders" runat="server" CssClass="tab-button active" OnClick="tab_Click" CommandName="Orders">
+                                <i class="fas fa-shopping-cart"></i>Order Updates 
+                       
+                                <asp:Label ID="lblOrderBadge" runat="server" CssClass="notification-badge" Visible="false"></asp:Label>
+                            </asp:LinkButton>
+                            <asp:LinkButton ID="tabGeneral" runat="server" CssClass="tab-button" OnClick="tab_Click" CommandName="General">
+                                <i class="fas fa-bell"></i>General Notifications 
+                       
+                                <asp:Label ID="lblGeneralBadge" runat="server" CssClass="notification-badge" Visible="false"></asp:Label>
+                            </asp:LinkButton>
                         </div>
 
-                        <!-- Order Notifications Tab -->
-                        <div class="tab-content active" id="ordersTab">
-                            <!-- Order Notification 1 -->
-                            <div class="notification-item unread order-update">
-                                <div class="notification-meta">
-                                    <div class="notification-icon order">
-                                        <i class="fas fa-truck"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Order #ORD-001 Shipped
+                        <asp:Panel ID="pnlOrders" runat="server" CssClass="tab-content active">
+                            <asp:DataList ID="dlOrderUpdates" runat="server" Width="100%" RepeatLayout="Flow" OnItemCommand="dlNotifications_ItemCommand">
+                                <ItemTemplate>
+                                    <div class='notification-item <%# GetUnreadClass(Eval("is_read")) %> order-update'>
+                                        <div class="notification-meta">
+                                            <div class="notification-icon order">
+                                                <i class='<%# GetIconForType(Eval("message")) %>'></i>
+                                            </div>
+                                            <div class="notification-content">
+                                                <div class="notification-header-content">
+                                                    <div>
+                                                        <div class="notification-title"><%# GetTitleForOrder(Eval("message")) %></div>
+                                                        <div class="notification-time"><%# Eval("created_date", "{0:MMM dd, yyyy h:mm tt}") %></div>
+                                                    </div>
                                                 </div>
-                                                <div class="notification-time">
-                                                    2 hours ago
+                                                <div class="notification-message"><%# Eval("message") %></div>
+                                                <div class="notification-actions">
+                                                    <asp:HyperLink ID="hlViewOrder" runat="server" CssClass="btn-notification btn-view-order"
+                                                        Visible='<%# Eval("link_url") != DBNull.Value %>'
+                                                        NavigateUrl='<%# Eval("link_url") %>'>
+                                                <i class="fas fa-eye"></i> View Order
+                                            </asp:HyperLink>
+                                                    <asp:Button ID="btnMarkRead" runat="server" Text="Mark as Read" CssClass="btn-notification btn-mark-read"
+                                                        CommandName="MarkRead" CommandArgument='<%# Eval("notification_id") %>'
+                                                        Visible='<%# !(bool)Eval("is_read") %>' />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="notification-message">
-                                            Your order #ORD-001 has been shipped and is on its way! Track your package with tracking number: TRK123456789. Expected delivery: Tomorrow by 6 PM.
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-view-order" onclick="viewOrder('ORD-001')">
-                                                <i class="fas fa-eye"></i>View Order
-                                            </button>
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                            <asp:Panel ID="pnlNoOrders" runat="server" CssClass="empty-state" Visible="false">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h3>No Order Updates</h3>
+                                <p>All your order notifications will appear here.</p>
+                            </asp:Panel>
+                        </asp:Panel>
 
-                            <!-- Order Notification 2 -->
-                            <div class="notification-item order-update">
-                                <div class="notification-meta">
-                                    <div class="notification-icon order">
-                                        <i class="fas fa-check-circle"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Order #ORD-002 Delivered
+                        <asp:Panel ID="pnlGeneral" runat="server" CssClass="tab-content">
+                            <asp:DataList ID="dlGeneralNotifications" runat="server" Width="100%" RepeatLayout="Flow" OnItemCommand="dlNotifications_ItemCommand">
+                                <ItemTemplate>
+                                    <div class='notification-item <%# GetUnreadClass(Eval("is_read")) %> <%# GetTypeClass(Eval("notification_type")) %>'>
+                                        <div class="notification-meta">
+                                            <div class='notification-icon <%# GetTypeClass(Eval("notification_type")) %>'>
+                                                <i class='<%# GetIconForType(Eval("notification_type")) %>'></i>
+                                            </div>
+                                            <div class="notification-content">
+                                                <div class="notification-header-content">
+                                                    <div>
+                                                        <div class="notification-title"><%# GetTitleForType(Eval("notification_type")) %></div>
+                                                        <div class="notification-time"><%# Eval("created_date", "{0:MMM dd, yyyy h:mm tt}") %></div>
+                                                    </div>
                                                 </div>
-                                                <div class="notification-time">
-                                                    1 day ago
+                                                <div class="notification-message"><%# Eval("message") %></div>
+                                                <div class="notification-actions">
+                                                    <asp:Button ID="btnMarkRead" runat="server" Text="Mark as Read" CssClass="btn-notification btn-mark-read"
+                                                        CommandName="MarkRead" CommandArgument='<%# Eval("notification_id") %>'
+                                                        Visible='<%# !(bool)Eval("is_read") %>' />
+                                                    <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn-notification btn-delete"
+                                                        CommandName="Delete" CommandArgument='<%# Eval("notification_id") %>'
+                                                        OnClientClick="return confirm('are you sure you want to delete this notification?');" />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="notification-message">
-                                            Great news! Your order #ORD-002 has been successfully delivered. We hope you love your purchase! Please rate your experience.
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-view-order" onclick="viewOrder('ORD-002')">
-                                                <i class="fas fa-eye"></i>View Order
-                                            </button>
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <!-- Order Notification 3 -->
-                            <div class="notification-item unread order-update">
-                                <div class="notification-meta">
-                                    <div class="notification-icon order">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Order #ORD-003 Processing
-                                                </div>
-                                                <div class="notification-time">
-                                                    3 days ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="notification-message">
-                                            Your order #ORD-003 is being prepared for shipment. We'll notify you once it's on its way!
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-view-order" onclick="viewOrder('ORD-003')">
-                                                <i class="fas fa-eye"></i>View Order
-                                            </button>
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- General Notifications Tab -->
-                        <div class="tab-content" id="generalTab">
-                            <!-- Feedback Reply Notification -->
-                            <div class="notification-item unread feedback-reply">
-                                <div class="notification-meta">
-                                    <div class="notification-icon feedback">
-                                        <i class="fas fa-reply"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Reply to Your Feedback
-                                                </div>
-                                                <div class="notification-time">
-                                                    4 hours ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="notification-message">
-                                            Thank you for your feedback about our delivery service. We've taken your suggestions seriously and are working on improving our delivery time estimates. We appreciate your patience and continued support!
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                            <button class="btn-notification btn-delete" onclick="deleteNotification(this)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Admin Message Notification -->
-                            <div class="notification-item unread admin-message">
-                                <div class="notification-meta">
-                                    <div class="notification-icon admin">
-                                        <i class="fas fa-bullhorn"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    New Spring Collection Available!
-                                                </div>
-                                                <div class="notification-time">
-                                                    1 day ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="notification-message">
-                                            🌸 Spring is here! Check out our beautiful new spring flower collection with fresh seasonal blooms. Get 15% off your first order with code SPRING15. Valid until March 31st.
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                            <button class="btn-notification btn-delete" onclick="deleteNotification(this)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- General Notification -->
-                            <div class="notification-item general">
-                                <div class="notification-meta">
-                                    <div class="notification-icon general">
-                                        <i class="fas fa-info-circle"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Website Maintenance Scheduled
-                                                </div>
-                                                <div class="notification-time">
-                                                    2 days ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="notification-message">
-                                            We'll be performing scheduled maintenance on our website on Sunday, March 15th from 2:00 AM to 4:00 AM EST. During this time, some features may be temporarily unavailable.
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                            <button class="btn-notification btn-delete" onclick="deleteNotification(this)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Feedback Reply Notification 2 -->
-                            <div class="notification-item unread feedback-reply">
-                                <div class="notification-meta">
-                                    <div class="notification-icon feedback">
-                                        <i class="fas fa-reply"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Wedding Package Inquiry Response
-                                                </div>
-                                                <div class="notification-time">
-                                                    3 days ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="notification-message">
-                                            Thank you for your interest in our wedding flower packages! I've sent you a detailed proposal with pricing and options. Please let me know if you have any questions or would like to schedule a consultation.
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                            <button class="btn-notification btn-delete" onclick="deleteNotification(this)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Admin Message Notification 2 -->
-                            <div class="notification-item admin-message">
-                                <div class="notification-meta">
-                                    <div class="notification-icon admin">
-                                        <i class="fas fa-gift"></i>
-                                    </div>
-                                    <div class="notification-content">
-                                        <div class="notification-header-content">
-                                            <div>
-                                                <div class="notification-title">
-                                                    Special Offer for You!
-                                                </div>
-                                                <div class="notification-time">
-                                                    1 week ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="notification-message">
-                                            As a valued customer, we're offering you an exclusive 20% discount on your next order. Use code VIP20 at checkout. This offer expires in 7 days!
-                                        </div>
-                                        <div class="notification-actions">
-                                            <button class="btn-notification btn-mark-read" onclick="markAsRead(this)">
-                                                <i class="fas fa-check"></i>Mark as Read
-                                            </button>
-                                            <button class="btn-notification btn-delete" onclick="deleteNotification(this)">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                            <asp:Panel ID="pnlNoGeneral" runat="server" CssClass="empty-state" Visible="false">
+                                <i class="fas fa-bell"></i>
+                                <h3>No General Notifications</h3>
+                                <p>Replies from our team and other messages will appear here.</p>
+                            </asp:Panel>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>
@@ -820,144 +637,7 @@
             </div>
         </footer>
 
-        <!-- boostrap & jquery -->
-        <script src="js/jquery.min_af.js"></script>
-        <script src="js/bootstrap.min_0028.js"></script>
-
-        <!-- js file -->
-        <script src="js/function-back-top.js"></script>
-        <script src="js/function-sidebar.js"></script>
-        <script src="js/funtion-header-v3.js"></script>
-        <script src="js/function-search-v2.js"></script>
-
-        <script>
-            // Tab switching functionality
-            function switchTab(tabName) {
-                // Remove active class from all tabs and buttons
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-                // Add active class to selected tab
-                document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
-                document.getElementById(tabName + 'Tab').classList.add('active');
-            }
-
-            // Mark notification as read
-            function markAsRead(button) {
-                const notification = button.closest('.notification-item');
-                notification.classList.remove('unread');
-                button.style.display = 'none';
-                updateBadgeCount();
-            }
-
-            // Go back function
-            function goBack() {
-                // Go back to the previous page or home page
-                if (document.referrer && document.referrer !== window.location.href) {
-                    window.history.back();
-                } else {
-                    window.location.href = 'home.html';
-                }
-            }
-
-            // Mark all notifications as read
-            function markAllAsRead() {
-                document.querySelectorAll('.notification-item.unread').forEach(item => {
-                    item.classList.remove('unread');
-                });
-                document.querySelectorAll('.btn-mark-read').forEach(btn => {
-                    btn.style.display = 'none';
-                });
-                updateBadgeCount();
-            }
-
-            // Delete notification
-            function deleteNotification(button) {
-                if (confirm('Are you sure you want to delete this notification?')) {
-                    const notification = button.closest('.notification-item');
-                    notification.style.transition = 'all 0.3s ease';
-                    notification.style.transform = 'translateX(-100%)';
-                    notification.style.opacity = '0';
-                    setTimeout(() => {
-                        notification.remove();
-                        updateBadgeCount();
-                    }, 300);
-                }
-            }
-
-            // View order details
-            function viewOrder(orderId) {
-                alert(`Redirecting to order details for ${orderId}`);
-                // In a real application, this would redirect to the order details page
-                // window.location.href = `order-details.html?id=${orderId}`;
-            }
-
-            // Update badge counts
-            function updateBadgeCount() {
-                const orderUnread = document.querySelectorAll('#ordersTab .notification-item.unread').length;
-                const generalUnread = document.querySelectorAll('#generalTab .notification-item.unread').length;
-
-                document.getElementById('orderBadge').textContent = orderUnread;
-                document.getElementById('generalBadge').textContent = generalUnread;
-
-                // Hide badges if count is 0
-                document.getElementById('orderBadge').style.display = orderUnread > 0 ? 'inline' : 'none';
-                document.getElementById('generalBadge').style.display = generalUnread > 0 ? 'inline' : 'none';
-            }
-
-            // Filter functionality
-            document.getElementById('statusFilter').addEventListener('change', filterNotifications);
-            document.getElementById('typeFilter').addEventListener('change', filterNotifications);
-            document.getElementById('timeFilter').addEventListener('change', filterNotifications);
-
-            function filterNotifications() {
-                const statusFilter = document.getElementById('statusFilter').value;
-                const typeFilter = document.getElementById('typeFilter').value;
-                const timeFilter = document.getElementById('timeFilter').value;
-
-                const notifications = document.querySelectorAll('.notification-item');
-
-                notifications.forEach(notification => {
-                    let show = true;
-
-                    // Status filter
-                    if (statusFilter === 'unread' && !notification.classList.contains('unread')) {
-                        show = false;
-                    } else if (statusFilter === 'read' && notification.classList.contains('unread')) {
-                        show = false;
-                    }
-
-                    // Type filter
-                    if (typeFilter !== 'all') {
-                        if (typeFilter === 'order' && !notification.classList.contains('order-update')) {
-                            show = false;
-                        } else if (typeFilter === 'feedback' && !notification.classList.contains('feedback-reply')) {
-                            show = false;
-                        } else if (typeFilter === 'admin' && !notification.classList.contains('admin-message')) {
-                            show = false;
-                        } else if (typeFilter === 'general' && !notification.classList.contains('general')) {
-                            show = false;
-                        }
-                    }
-
-                    // Time filter (simplified - in real app would check actual dates)
-                    if (timeFilter === 'today') {
-                        // Show only today's notifications
-                        const timeText = notification.querySelector('.notification-time').textContent;
-                        if (!timeText.includes('hour') && !timeText.includes('minute')) {
-                            show = false;
-                        }
-                    }
-
-                    notification.style.display = show ? 'block' : 'none';
-                });
-            }
-
-            // Initialize badge counts on page load
-            document.addEventListener('DOMContentLoaded', function () {
-                updateBadgeCount();
-            });
-        </script>
+        
     </body>
     </html>
 </asp:Content>
