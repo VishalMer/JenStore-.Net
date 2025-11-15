@@ -1,11 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Script.Serialization;
+using System.Web.Services;
 using System.Web.UI;
 
 namespace JenStore.admin_panel
 {
+    public class ChartData
+    {
+        public string ChartDate { get; set; }
+        public decimal DailyTotal { get; set; }
+    }
     public partial class index1 : System.Web.UI.Page
     {
         string connect = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
@@ -136,6 +144,37 @@ namespace JenStore.admin_panel
         {
             Session.Clear();
             Response.Redirect("../login_register.aspx");
+        }
+
+        [WebMethod]
+        public static string GetSalesChartData()
+        {
+            List<ChartData> data = new List<ChartData>();
+
+            string con_str = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+
+            string query = "select convert(varchar, cast(order_date as date), 106) as chartdate, sum(total_amount) as dailytotal from orders group by cast(order_date as date) order by cast(order_date as date)";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        data.Add(new ChartData()
+                        {
+                            ChartDate = reader["chartdate"].ToString(),
+                            DailyTotal = Convert.ToDecimal(reader["dailytotal"])
+                        });
+                    }
+                }
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(data);
         }
     }
 }

@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+        <%--<link rel="icon" href="../img/favicon.png" type="image/x-icon" />--%>
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/admin.css">
@@ -338,12 +338,11 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="chart-container">
-                            <h4><i class="fas fa-chart-bar"></i>Sales Overview (Last 7 Days)</h4>
+                            <h4><i class="fas fa-chart-bar"></i>Sales Overview </h4>
+
+                            <%-- 1. THIS IS THE NEW CANVAS FOR THE CHART --%>
                             <div class="chart-placeholder">
-                                <i class="fas fa-chart-bar fa-3x mb-3"></i>
-                                <br>
-                                Sales Chart - Last 7 Days<br>
-                                <small>Chart visualization would be implemented here</small>
+                                <canvas id="salesChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -432,6 +431,60 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Use jQuery's AJAX to call our C# WebMethod
+                $.ajax({
+                    type: "POST",
+                    url: "index.aspx/GetSalesChartData",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        // response.d is an ASP.NET quirk. It holds our data.
+                        var chartData = JSON.parse(response.d);
+
+                        // Separate the data into labels (dates) and data points (totals)
+                        var chartLabels = [];
+                        var chartTotals = [];
+                        for (var i = 0; i < chartData.length; i++) {
+                            chartLabels.push(chartData[i].ChartDate);
+                            chartTotals.push(chartData[i].DailyTotal);
+                        }
+
+                        // Create the chart
+                        drawSalesChart(chartLabels, chartTotals);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("Error fetching chart data: " + error);
+                        $(".chart-placeholder").text("Failed to load chart data.");
+                    }
+                });
+            });
+
+            function drawSalesChart(labels, data) {
+                var ctx = document.getElementById('salesChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line', // Type of chart
+                    data: {
+                        labels: labels, // X-axis (Dates)
+                        datasets: [{
+                            label: 'Sales ($)',
+                            data: data, // Y-axis (Totals)
+                            backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+    </script>
     </body>
     </html>
 </asp:Content>

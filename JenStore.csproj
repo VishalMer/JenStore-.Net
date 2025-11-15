@@ -407,7 +407,6 @@
     </Compile>
     <Compile Include="admin-panel\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin-panel\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>

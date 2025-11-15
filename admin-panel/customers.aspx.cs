@@ -177,11 +177,8 @@ namespace JenStore.admin_panel
             string userName = txtEditUserName.Text.Replace("'", "''");
             string userEmail = txtEditUserEmail.Text.Replace("'", "''");
             string userRole = ddlEditUserRole.SelectedValue;
-
-            // 1. GET THE STATUS VALUE (This line was missing)
             string userStatus = ddlEditUserStatus.SelectedValue;
 
-            // 2. UPDATE THE SQL QUERY (Added 'is_active' column)
             string query = "update users set uname = '" + userName + "', email = '" + userEmail + "', role = '" + userRole + "', is_active = " + userStatus + " where id = " + userId;
 
             cmd = new SqlCommand(query, con);
@@ -190,7 +187,6 @@ namespace JenStore.admin_panel
             // hide the modal
             ScriptManager.RegisterStartupScript(this, this.GetType(), "HideEditModal", "$('#editUserModal').modal('hide');", true);
 
-            // refresh the grid
             BindCustomers();
         }
 

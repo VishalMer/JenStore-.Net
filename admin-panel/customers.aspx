@@ -184,9 +184,22 @@
                 color: #4338ca;
             }
 
-            .alert{
-                background:none !important;
-                border:none;
+            .alert {
+                background: none !important;
+                border: none;
+            }
+
+            .btn-edit:hover {
+                color: #667eea;
+                background-color: white;
+                text-decoration: none;
+            }
+
+            .btn-delete:hover {
+                color: #dc3545;
+                background-color: white;
+                text-decoration: none;
+                transition: ease-in;
             }
         </style>
         <link rel="stylesheet" href="../css/admin.css">
@@ -262,7 +275,7 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="user">
                                     <ItemTemplate>
-                                        <%-- Add an avatar image if you have one, e.g: <img src='...' class='user-avatar' /> --%>
+                                        <%-- Add an avatar image : <img src='...' class='user-avatar' /> --%>
                                         <strong><%# Eval("uname") %></strong><br />
                                         <small class="text-muted">user id: <%# Eval("id") %></small>
                                     </ItemTemplate>
@@ -365,7 +378,6 @@
                             </asp:DropDownList>
                         </div>
 
-                        <%-- NEW: Added Status DropDown --%>
                         <div class="form-group">
                             <label>status</label>
                             <asp:DropDownList ID="ddlEditUserStatus" runat="server" CssClass="form-control">
