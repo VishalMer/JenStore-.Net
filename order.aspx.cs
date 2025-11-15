@@ -6,6 +6,10 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CrystalDecisions.Shared;
+using CrystalDecisions.CrystalReports.Engine;
+//using CrystalDecisions.Shared;
+using CrystalDecisions.Web;
+
 
 namespace JenStore
 {
@@ -17,7 +21,7 @@ namespace JenStore
         SqlDataAdapter da;
         DataSet ds;
 
-        //private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new ReportDocument();
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new ReportDocument();
         static string path = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -101,13 +105,13 @@ namespace JenStore
 
             ds.WriteXmlSchema(xml);
 
-            //path = Server.MapPath("notice_rpt.rpt");
-            //cr.Load(path);
-            //cr.SetDataSource(ds);
-            //cr.Database.Tables[0].SetDataSource(ds);
-            //cr.Refresh();
-            //CrystalReportViewer1.ReportSource = cr;
-            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Notices");
+            path = Server.MapPath("orders_rpt.rpt");
+            cr.Load(path);
+            cr.SetDataSource(ds);
+            cr.Database.Tables[0].SetDataSource(ds);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Orders");
         }
 
         void getcon()

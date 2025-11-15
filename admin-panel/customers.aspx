@@ -183,6 +183,11 @@
                 background: #e2e3f3;
                 color: #4338ca;
             }
+
+            .alert{
+                background:none !important;
+                border:none;
+            }
         </style>
         <link rel="stylesheet" href="../css/admin.css">
     </head>
@@ -235,116 +240,75 @@
                             </p>
                         </div>
                         <div class="col-md-6 text-right">
-                            <input type="text" class="search-box" placeholder="Search customers by name, email...">
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="search-box" placeholder="search customers..." AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                         </div>
                     </div>
                 </div>
 
+                <asp:Label ID="lblError" runat="server" Visible="false" CssClass="alert alert-danger" />
+
                 <!-- Users Table -->
                 <div class="users-table">
                     <div class="table-header">
-                        <h4 class="mb-0">Customer List</h4>
+                        <h4 class="mb-0">customer list</h4>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th>User</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Joined</th>
-                                    <th>Orders</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="../img/115x115.jpg" alt="Avatar" class="user-avatar">
-                                        <strong>John Doe</strong><br>
-                                        <small class="text-muted">User ID: U-1001</small> </td>
-                                    <td>john.doe@email.com</td>
-                                    <td><span class="role-badge">Customer</span></td>
-                                    <td>Dec 01, 2024</td>
-                                    <td>5</td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>
+                        <asp:GridView ID="gvCustomers" runat="server"
+                            AutoGenerateColumns="False"
+                            CssClass="table table-hover mb-0"
+                            GridLines="None"
+                            OnRowCommand="gvCustomers_RowCommand">
+                            <HeaderStyle ForeColor="#6b7280" />
+                            <Columns>
+                                <asp:TemplateField HeaderText="user">
+                                    <ItemTemplate>
+                                        <%-- Add an avatar image if you have one, e.g: <img src='...' class='user-avatar' /> --%>
+                                        <strong><%# Eval("uname") %></strong><br />
+                                        <small class="text-muted">user id: <%# Eval("id") %></small>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:BoundField DataField="email" HeaderText="email" />
+
+                                <asp:TemplateField HeaderText="role">
+                                    <ItemTemplate>
+                                        <span class="role-badge"><%# Eval("role") %></span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="joined">
+                                    <ItemTemplate>
+                                        <%# Eval("created_at", "{0:MMM dd, yyyy}") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:BoundField DataField="OrderCount" HeaderText="orders" />
+
+                                <asp:TemplateField HeaderText="status">
+                                    <ItemTemplate>
+                                        <span class='status-badge <%# (Eval("is_active") != DBNull.Value && Convert.ToBoolean(Eval("is_active"))) ? "status-active" : "status-banned" %>'>
+                                            <%# (Eval("is_active") != DBNull.Value && Convert.ToBoolean(Eval("is_active"))) ? "Active" : "Inactive" %>
+                                        </span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="actions">
+                                    <ItemTemplate>
                                         <div class="action-buttons">
-                                            <button class="btn-edit" onclick="editUser('U-1001')">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteUser('U-1001')">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
+                                            <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn-edit"
+                                                CommandName="EditUser" CommandArgument='<%# Eval("id") %>'>
+                                            <i class="fas fa-edit"></i> edit
+                                        </asp:LinkButton>
+                                            <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn-delete"
+                                                CommandName="DeleteUser" CommandArgument='<%# Eval("id") %>'
+                                                OnClientClick="return confirm('are you sure you want to delete this user?');">
+                                            <i class="fas fa-trash"></i> delete
+                                        </asp:LinkButton>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/115x115.png" alt="Avatar" class="user-avatar">
-                                        <strong>Jane Smith</strong><br>
-                                        <small class="text-muted">User ID: U-1002</small> </td>
-                                    <td>jane.smith@email.com</td>
-                                    <td><span class="role-badge">Customer</span></td>
-                                    <td>Nov 20, 2024</td>
-                                    <td>3</td>
-                                    <td><span class="status-badge status-pending">Pending</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="editUser('U-1002')">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteUser('U-1002')">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/115x115.png" alt="Avatar" class="user-avatar">
-                                        <strong>Mike Johnson</strong><br>
-                                        <small class="text-muted">User ID: U-1003</small> </td>
-                                    <td>mike.j@email.com</td>
-                                    <td><span class="role-badge">Customer</span></td>
-                                    <td>Nov 12, 2024</td>
-                                    <td>7</td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="editUser('U-1003')">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteUser('U-1003')">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../img/115x115.png" alt="Avatar" class="user-avatar">
-                                        <strong>Sarah Wilson</strong><br>
-                                        <small class="text-muted">User ID: U-1004</small> </td>
-                                    <td>sarah.w@email.com</td>
-                                    <td><span class="role-badge">Customer</span></td>
-                                    <td>Oct 30, 2024</td>
-                                    <td>2</td>
-                                    <td><span class="status-badge status-banned">Banned</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-edit" onclick="editUser('U-1004')">
-                                                <i class="fas fa-edit"></i>Edit
-                                            </button>
-                                            <button class="btn-delete" onclick="deleteUser('U-1004')">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
 
@@ -352,11 +316,21 @@
                 <div class="text-center mt-4" style="margin-top: 20px;">
                     <nav>
                         <ul class="pagination">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a> </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a> </li>
+                            <li class='<%# !lnkPrev.Enabled ? "page-item disabled" : "page-item" %>'>
+                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="page-link" OnClick="lnkPrev_Click">&laquo;</asp:LinkButton>
+                            </li>
+
+                            <asp:Repeater ID="rptPager" runat="server" OnItemCommand="rptPager_ItemCommand">
+                                <ItemTemplate>
+                                    <li class='<%# Convert.ToBoolean(Eval("Enabled")) ? "page-item active" : "page-item" %>'>
+                                        <asp:LinkButton ID="lnkPage" runat="server" CssClass="page-link" CommandName="Page" CommandArgument='<%# Eval("Value") %>'><%# Eval("Text") %></asp:LinkButton>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+
+                            <li class='<%# !lnkNext.Enabled ? "page-item disabled" : "page-item" %>'>
+                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="page-link" OnClick="lnkNext_Click">&raquo;</asp:LinkButton>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -364,7 +338,7 @@
         </div>
 
         <!-- Edit User Modal -->
-        <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog">
+        <<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -373,82 +347,43 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="editUserForm">
-                        <input type="hidden" id="editUserId" name="id">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="editUserName">
-                                    Full Name *</label>
-                                <input type="text" class="form-control" id="editUserName" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editUserEmail">
-                                    Email *</label>
-                                <input type="email" class="form-control" id="editUserEmail" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editUserRole">
-                                    Role</label>
-                                <select class="form-control" id="editUserRole" name="role">
-                                    <option>Customer</option>
-                                    <option>Admin</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="editUserStatus">
-                                    Status</label>
-                                <select class="form-control" id="editUserStatus" name="status">
-                                    <option>Active</option>
-                                    <option>Pending</option>
-                                    <option>Banned</option>
-                                </select>
-                            </div>
+                    <div class="modal-body">
+                        <asp:HiddenField ID="hdnEditUserId" runat="server" />
+                        <div class="form-group">
+                            <label>full name *</label>
+                            <asp:TextBox ID="txtEditUserName" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                Cancel
-                            </button>
-                            <button type="submit" class="btn btn-primary">
-                                Save Changes
-                            </button>
+                        <div class="form-group">
+                            <label>email *</label>
+                            <asp:TextBox ID="txtEditUserEmail" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                         </div>
-                    </form>
+                        <div class="form-group">
+                            <label>role</label>
+                            <asp:DropDownList ID="ddlEditUserRole" runat="server" CssClass="form-control">
+                                <asp:ListItem Value="customer">Customer</asp:ListItem>
+                                <asp:ListItem Value="admin">Admin</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+
+                        <%-- NEW: Added Status DropDown --%>
+                        <div class="form-group">
+                            <label>status</label>
+                            <asp:DropDownList ID="ddlEditUserStatus" runat="server" CssClass="form-control">
+                                <asp:ListItem Value="1">Active</asp:ListItem>
+                                <asp:ListItem Value="0">Inactive</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                        <asp:Button ID="btnSaveChanges" runat="server" Text="save changes" CssClass="btn btn-primary" OnClick="btnSaveChanges_Click" />
+                    </div>
                 </div>
             </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script>
-            function editUser(userId) {
-                // Simulate fetching user data; populate modal fields
-                document.getElementById('editUserId').value = userId;
-                document.getElementById('editUserName').value = 'Sample Name';
-                document.getElementById('editUserEmail').value = 'sample@email.com';
-                document.getElementById('editUserRole').value = 'Customer';
-                const statusEl = document.getElementById('editUserStatus');
-                if (statusEl) statusEl.value = 'Active';
-                $('#editUserModal').modal('show');
-            }
-
-            function deleteUser(userId) {
-                if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
-                    console.log('Deleting user with ID:', userId);
-                    alert('User deleted successfully!');
-                    // Remove row or refresh
-                }
-            }
-
-            document.getElementById('editUserForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                const userData = Object.fromEntries(formData);
-                console.log('Updating user:', userData);
-                alert('User updated successfully!');
-                $('#editUserModal').modal('hide');
-                location.reload();
-            });
-        </script>
     </body>
     </html>
 </asp:Content>

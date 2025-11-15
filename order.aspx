@@ -1,5 +1,7 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/order.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="JenStore.order1" %>
 
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -251,7 +253,7 @@
                         <div class="col-md-12">
                             <div class="order-actions">
                                 <asp:Button ID="btnDownloadInvoice" runat="server" Text="Download Invoice" CssClass="btn btn-primary" OnClick="btnDownloadInvoice_Click" />
-
+                                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
                                 <a href="#" class="btn btn-secondary">Track Order</a>
                                 <a href="#" class="btn btn-outline">Reorder Items</a>
                             </div>

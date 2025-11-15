@@ -121,7 +121,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="img/user_img/admin1.PNG" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
+                                        <img src="img/user_img/admin1.JPG" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <h1>WELCOME</h1>
@@ -157,10 +157,10 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="../img/user_img/admin2.PNG" class="img-responsive team-img" alt="img-holiwood"></a>
+                                <img src="../img/user_img/admin1.JPG" class="img-responsive team-img" alt="img-holiwood"></a>
                             <div class="title-acc">
-                                <h2>Rahul Kumar</h2>
-                                <p>Products Designer</p>
+                                <h2>Admin 1</h2>
+                                <p>Frontend Developer</p>
                                 <div class="social-acc">
                                     <a href="#" class="link-gmail-acc"></a>
                                     <a href="#" class="link-fb-acc"></a>
@@ -172,9 +172,9 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="../img/user_img/admin1.PNG" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="../img/user_img/admin2.JPG" class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
-                                <h2>Vishal Mer</h2>
+                                <h2>Admin 2</h2>
                                 <p>Backend Developer</p>
                                 <div class="social-acc">
                                     <a href="#" class="link-gmail-acc"></a>
@@ -187,10 +187,10 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 team-account">
                             <a href="#">
-                                <img src="../img/user_img/admin3.PNG" class="img-responsive" alt="img-holiwood"></a>
+                                <img src="../img/user_img/admin3.JPG" class="img-responsive" alt="img-holiwood"></a>
                             <div class="title-acc">
-                                <h2>Dhruv Bhau</h2>
-                                <p>Template Finder</p>
+                                <h2>Admin 3</h2>
+                                <p>Designer</p>
                                 <div class="social-acc">
                                     <a href="#" class="link-gmail-acc"></a>
                                     <a href="#" class="link-fb-acc"></a>
