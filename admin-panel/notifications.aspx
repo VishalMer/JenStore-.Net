@@ -398,6 +398,22 @@
             .delivery-rate {
                 border-left: 4px solid #dc3545;
             }
+
+            .alert {
+                background: none !important;
+                border: none !important;
+            }
+
+            .DDlist {
+                padding: 1px 15px !important;
+            }
+
+            .recipient-list label {
+                display: inline-block; /* Overrides 'display: block' */
+                font-weight: 500; /* Makes the text match your screenshot */
+                margin-left: 8px; /* Adds a little space after the checkbox */
+                vertical-align: middle;
+            }
         </style>
     </head>
     <body>
@@ -441,350 +457,129 @@
         <!-- Main Content -->
         <div class="notification-container">
             <div class="container">
-                <!-- Statistics -->
                 <div class="stats-cards">
                     <div class="stat-card total-sent">
                         <div class="stat-number">
-                            1,247
+                            <asp:Label ID="lblTotalSent" runat="server">0</asp:Label>
                         </div>
-                        <div class="stat-label">
-                            Total Sent
-                        </div>
+                        <div class="stat-label">Total Sent</div>
                     </div>
                     <div class="stat-card today-sent">
                         <div class="stat-number">
-                            23
+                            <asp:Label ID="lblTodaySent" runat="server">0</asp:Label>
                         </div>
-                        <div class="stat-label">
-                            Today
-                        </div>
+                        <div class="stat-label">Today</div>
                     </div>
                     <div class="stat-card pending-sent">
                         <div class="stat-number">
-                            5
+                            <asp:Label ID="lblPending" runat="server">0</asp:Label>
                         </div>
-                        <div class="stat-label">
-                            Pending
-                        </div>
+                        <div class="stat-label">Pending</div>
                     </div>
                     <div class="stat-card delivery-rate">
                         <div class="stat-number">
-                            98.5%
+                            <asp:Label ID="lblDeliveryRate" runat="server">0%</asp:Label>
                         </div>
-                        <div class="stat-label">
-                            Delivery Rate
-                        </div>
+                        <div class="stat-label">Delivery Rate</div>
                     </div>
                 </div>
 
-                <!-- Notification Tabs -->
                 <div class="notification-tabs">
                     <div class="tab-buttons">
-                        <button class="tab-button active" onclick="switchTab('send')">
-                            <i class="fas fa-paper-plane"></i>Send Notification
-                        </button>
-                        <button class="tab-button" onclick="switchTab('templates')">
-                            <i class="fas fa-file-alt"></i>Templates
-                        </button>
-                        <button class="tab-button" onclick="switchTab('history')">
-                            <i class="fas fa-history"></i>History
-                        </button>
+                        <asp:LinkButton ID="tabSend" runat="server" CssClass="tab-button active" OnClick="tab_Click" CommandName="Send">
+                        <i class="fas fa-paper-plane"></i> Send Notification
+                    </asp:LinkButton>
+                        <asp:LinkButton ID="tabTemplates" runat="server" CssClass="tab-button" OnClick="tab_Click" CommandName="Templates">
+                        <i class="fas fa-file-alt"></i> Templates
+                    </asp:LinkButton>
+                        <asp:LinkButton ID="tabHistory" runat="server" CssClass="tab-button" OnClick="tab_Click" CommandName="History">
+                        <i class="fas fa-history"></i> History
+                    </asp:LinkButton>
                     </div>
 
-                    <!-- Send Notification Tab -->
-                    <div class="tab-content active" id="sendTab">
+                    <asp:Panel ID="pnlSend" runat="server" CssClass="tab-content active">
                         <div class="form-section">
                             <h3><i class="fas fa-paper-plane"></i>Send New Notification</h3>
-                            <form id="notificationForm">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="notificationType">
-                                                Notification Type</label>
-                                            <select class="form-control" id="notificationType" required>
-                                                <option value="">Select Type</option>
-                                                <option value="general">General Message</option>
-                                                <option value="promotion">Promotion/Offer</option>
-                                                <option value="maintenance">Maintenance Notice</option>
-                                                <option value="order_update">Order Update</option>
-                                                <option value="feedback_reply">Feedback Reply</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="priority">
-                                                Priority</label>
-                                            <select class="form-control" id="priority" required>
-                                                <option value="normal">Normal</option>
-                                                <option value="high">High</option>
-                                                <option value="urgent">Urgent</option>
-                                            </select>
-                                        </div>
+                            <asp:Label ID="lblStatus" runat="server" Visible="false" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Notification Type</label>
+                                        <asp:DropDownList ID="ddlNotificationType" runat="server" CssClass="form-control DDlist">
+                                            <asp:ListItem Value="announcement">General Message</asp:ListItem>
+                                            <asp:ListItem Value="offer">Promotion/Offer</asp:ListItem>
+                                            <asp:ListItem Value="system">Maintenance Notice</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="recipients">
-                                        Recipients</label>
-                                    <select class="form-control" id="recipientType" onchange="updateRecipients()">
-                                        <option value="all">All Users</option>
-                                        <option value="customers">Customers Only</option>
-                                        <option value="vip">VIP Customers</option>
-                                        <option value="recent">Recent Customers (30 days)</option>
-                                        <option value="custom">Custom Selection</option>
-                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Recipients</label>
+                                <asp:DropDownList ID="ddlRecipientType" runat="server" CssClass="form-control DDlist" AutoPostBack="true" OnSelectedIndexChanged="ddlRecipientType_SelectedIndexChanged">
+                                    <asp:ListItem Value="all">All Customers</asp:ListItem>
+                                    <asp:ListItem Value="custom">Custom Selection</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <asp:Panel ID="pnlCustomRecipients" runat="server" CssClass="form-group" Visible="false">
+                                <label>Select Recipients</label>
+                                <div class="recipient-list">
+                                    <asp:CheckBoxList ID="cblRecipients" runat="server">
+                                        <%-- This will be filled from C# --%>
+                                    </asp:CheckBoxList>
                                 </div>
-                                <div class="form-group" id="customRecipients" style="display: none;">
-                                    <label>
-                                        Select Recipients</label>
-                                    <div class="recipient-list">
-                                        <div class="recipient-item">
-                                            <input type="checkbox" class="recipient-checkbox" value="user1">
-                                            <div class="recipient-info">
-                                                <div class="recipient-name">
-                                                    John Doe
-                                                </div>
-                                                <div class="recipient-email">
-                                                    john.doe@email.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="recipient-item">
-                                            <input type="checkbox" class="recipient-checkbox" value="user2">
-                                            <div class="recipient-info">
-                                                <div class="recipient-name">
-                                                    Jane Smith
-                                                </div>
-                                                <div class="recipient-email">
-                                                    jane.smith@email.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="recipient-item">
-                                            <input type="checkbox" class="recipient-checkbox" value="user3">
-                                            <div class="recipient-info">
-                                                <div class="recipient-name">
-                                                    Mike Johnson
-                                                </div>
-                                                <div class="recipient-email">
-                                                    mike.johnson@email.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="recipient-item">
-                                            <input type="checkbox" class="recipient-checkbox" value="user4">
-                                            <div class="recipient-info">
-                                                <div class="recipient-name">
-                                                    Sarah Wilson
-                                                </div>
-                                                <div class="recipient-email">
-                                                    sarah.wilson@email.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="recipient-item">
-                                            <input type="checkbox" class="recipient-checkbox" value="user5">
-                                            <div class="recipient-info">
-                                                <div class="recipient-name">
-                                                    David Brown
-                                                </div>
-                                                <div class="recipient-email">
-                                                    david.brown@email.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="subject">
-                                        Subject</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="Enter notification subject" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">
-                                        Message</label>
-                                    <textarea class="form-control" id="message" rows="6" placeholder="Enter your notification message" required></textarea>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="sendTime">
-                                                Send Time</label>
-                                            <select class="form-control" id="sendTime">
-                                                <option value="now">Send Now</option>
-                                                <option value="scheduled">Schedule</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group" id="scheduleTime" style="display: none;">
-                                            <label for="scheduledTime">
-                                                Scheduled Time</label>
-                                            <input type="datetime-local" class="form-control" id="scheduledTime">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn-preview" onclick="previewNotification()">
-                                        <i class="fas fa-eye"></i>Preview
-                                    </button>
-                                    <button type="submit" class="btn-send">
-                                        <i class="fas fa-paper-plane"></i>Send Notification
-                                    </button>
-                                </div>
-                            </form>
+                            </asp:Panel>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="6" placeholder="enter your notification message" required="true"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Button ID="btnSend" runat="server" CssClass="btn-send" Text="Send Notification" OnClick="btnSend_Click" />
+                            </div>
                         </div>
-                    </div>
+                    </asp:Panel>
 
-                    <!-- Templates Tab -->
-                    <div class="tab-content" id="templatesTab">
+                    <asp:Panel ID="pnlTemplates" runat="server" CssClass="tab-content">
                         <div class="template-section">
                             <h3><i class="fas fa-file-alt"></i>Notification Templates</h3>
-                            <p>
-                                Select a template to quickly create notifications
-                            </p>
+                            <p>Select a template to quickly create notifications</p>
                             <div class="template-grid">
-                                <div class="template-card" onclick="selectTemplate('welcome')">
-                                    <div class="template-title">
-                                        Welcome Message
-                                    </div>
-                                    <div class="template-preview">
-                                        Welcome to JenStore! Thank you for joining us. Explore our beautiful collection of fresh flowers...
-                                    </div>
-                                </div>
-                                <div class="template-card" onclick="selectTemplate('promotion')">
-                                    <div class="template-title">
-                                        Promotion Offer
-                                    </div>
-                                    <div class="template-preview">
-                                        Special offer just for you! Get 20% off your next order with code SAVE20. Valid until...
-                                    </div>
-                                </div>
-                                <div class="template-card" onclick="selectTemplate('maintenance')">
-                                    <div class="template-title">
-                                        Maintenance Notice
-                                    </div>
-                                    <div class="template-preview">
-                                        We'll be performing scheduled maintenance on our website. Some features may be temporarily unavailable...
-                                    </div>
-                                </div>
-                                <div class="template-card" onclick="selectTemplate('order_shipped')">
-                                    <div class="template-title">
-                                        Order Shipped
-                                    </div>
-                                    <div class="template-preview">
-                                        Great news! Your order has been shipped and is on its way. Track your package with tracking number...
-                                    </div>
-                                </div>
-                                <div class="template-card" onclick="selectTemplate('feedback_reply')">
-                                    <div class="template-title">
-                                        Feedback Reply
-                                    </div>
-                                    <div class="template-preview">
-                                        Thank you for your feedback! We appreciate your input and have taken your suggestions seriously...
-                                    </div>
-                                </div>
-                                <div class="template-card" onclick="selectTemplate('seasonal')">
-                                    <div class="template-title">
-                                        Seasonal Collection
-                                    </div>
-                                    <div class="template-preview">
-                                        Spring is here! Check out our beautiful new spring flower collection with fresh seasonal blooms...
-                                    </div>
-                                </div>
+                                <%-- This Repeater will load your templates --%>
+                                <asp:Repeater ID="rptTemplates" runat="server" OnItemCommand="rptTemplates_ItemCommand">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="btnTemplate" runat="server" CssClass="template-card"
+                                            CommandName="LoadTemplate" CommandArgument='<%# Eval("TemplateName") %>'>
+                                        <div class="template-title"><%# Eval("TemplateName") %></div>
+                                        <div class="template-preview"><%# Eval("PreviewText") %></div>
+                                    </asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </div>
                         </div>
-                    </div>
+                    </asp:Panel>
 
-                    <!-- History Tab -->
-                    <div class="tab-content" id="historyTab">
+                    <asp:Panel ID="pnlHistory" runat="server" CssClass="tab-content">
                         <div class="notification-history">
                             <h3><i class="fas fa-history"></i>Notification History</h3>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <div class="history-title">
-                                        Spring Collection Launch
+                            <asp:Repeater ID="rptHistory" runat="server">
+                                <ItemTemplate>
+                                    <div class="history-item">
+                                        <div class="history-header">
+                                            <div class="history-title"><%# GetHistoryTitle(Eval("message")) %></div>
+                                            <div class="history-time"><%# Eval("created_date", "{0:MMM dd, yyyy h:mm tt}") %></div>
+                                        </div>
+                                        <div class="history-message"><%# Eval("message") %></div>
+                                        <div class="history-meta">
+                                            <span class="notification-type"><%# Eval("notification_type") %></span>
+                                        </div>
                                     </div>
-                                    <div class="history-time">
-                                        2 hours ago
-                                    </div>
-                                </div>
-                                <div class="history-message">
-                                    Announcing our beautiful new spring flower collection with fresh seasonal blooms. Get 15% off your first order with code SPRING15.
-                                </div>
-                                <div class="history-meta">
-                                    <span class="recipient-count">1,247 recipients</span> <span class="notification-type">Promotion</span> <span>Status: Delivered</span>
-                                </div>
-                            </div>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <div class="history-title">
-                                        Website Maintenance Notice
-                                    </div>
-                                    <div class="history-time">
-                                        1 day ago
-                                    </div>
-                                </div>
-                                <div class="history-message">
-                                    Scheduled maintenance on our website on Sunday, March 15th from 2:00 AM to 4:00 AM EST. Some features may be temporarily unavailable.
-                                </div>
-                                <div class="history-meta">
-                                    <span class="recipient-count">1,247 recipients</span> <span class="notification-type">Maintenance</span> <span>Status: Delivered</span>
-                                </div>
-                            </div>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <div class="history-title">
-                                        VIP Customer Special Offer
-                                    </div>
-                                    <div class="history-time">
-                                        3 days ago
-                                    </div>
-                                </div>
-                                <div class="history-message">
-                                    Exclusive 20% discount for our VIP customers. Use code VIP20 at checkout. This offer expires in 7 days!
-                                </div>
-                                <div class="history-meta">
-                                    <span class="recipient-count">89 recipients</span> <span class="notification-type">VIP Promotion</span> <span>Status: Delivered</span>
-                                </div>
-                            </div>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <div class="history-title">
-                                        Order Update Notification
-                                    </div>
-                                    <div class="history-time">
-                                        5 days ago
-                                    </div>
-                                </div>
-                                <div class="history-message">
-                                    Your order #ORD-001 has been shipped and is on its way! Track your package with tracking number: TRK123456789.
-                                </div>
-                                <div class="history-meta">
-                                    <span class="recipient-count">1 recipient</span> <span class="notification-type">Order Update</span> <span>Status: Delivered</span>
-                                </div>
-                            </div>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <div class="history-title">
-                                        Feedback Response
-                                    </div>
-                                    <div class="history-time">
-                                        1 week ago
-                                    </div>
-                                </div>
-                                <div class="history-message">
-                                    Thank you for your feedback about our delivery service. We've taken your suggestions seriously and are working on improving our delivery time estimates.
-                                </div>
-                                <div class="history-meta">
-                                    <span class="recipient-count">1 recipient</span> <span class="notification-type">Feedback Reply</span> <span>Status: Delivered</span>
-                                </div>
-                            </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
-                    </div>
+                    </asp:Panel>
                 </div>
             </div>
         </div>
+
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -421,7 +421,6 @@
     </Compile>
     <Compile Include="admin-panel\notifications.aspx.cs">
       <DependentUpon>notifications.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin-panel\notifications.aspx.designer.cs">
       <DependentUpon>notifications.aspx</DependentUpon>
