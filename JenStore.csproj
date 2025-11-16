@@ -133,6 +133,7 @@
     <Content Include="admin-panel\categories.aspx" />
     <Content Include="admin-panel\customers.aspx" />
     <Content Include="admin-panel\feedback.aspx" />
+    <Content Include="admin-panel\notifications.aspx" />
     <Content Include="admin-panel\order-details.aspx" />
     <Content Include="admin-panel\orders.aspx" />
     <Content Include="admin-panel\products.aspx" />
@@ -417,6 +418,20 @@
     </Compile>
     <Compile Include="admin-panel\index.Master.designer.cs">
       <DependentUpon>index.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\notifications.aspx.cs">
+      <DependentUpon>notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\notifications.aspx.designer.cs">
+      <DependentUpon>notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\notifications.Master.cs">
+      <DependentUpon>notifications.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\notifications.Master.designer.cs">
+      <DependentUpon>notifications.Master</DependentUpon>
     </Compile>
     <Compile Include="admin-panel\order-details.aspx.cs">
       <DependentUpon>order-details.aspx</DependentUpon>
@@ -709,6 +724,7 @@
     <Content Include="admin-panel\add-edit-product.Master" />
     <Content Include="admin-panel\feedback.Master" />
     <Content Include="notifications.Master" />
+    <Content Include="admin-panel\notifications.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />

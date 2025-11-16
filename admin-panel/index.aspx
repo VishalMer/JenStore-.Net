@@ -340,7 +340,6 @@
                         <div class="chart-container">
                             <h4><i class="fas fa-chart-bar"></i>Sales Overview </h4>
 
-                            <%-- 1. THIS IS THE NEW CANVAS FOR THE CHART --%>
                             <div class="chart-placeholder">
                                 <canvas id="salesChart"></canvas>
                             </div>
