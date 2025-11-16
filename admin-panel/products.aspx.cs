@@ -44,14 +44,26 @@ namespace JenStore.admin_panel
 
         void getcon()
         {
-                con = new SqlConnection(con_str);
-                con.Open();
-            
+            con = new SqlConnection(con_str);
+            con.Open();
+
         }
 
-         void fillGVProducts()
+        void fillGVProducts()
         {
-            string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.image_url, p.stock_quantity, stuff((select top 2 ', ' + c.category_name from categories c inner join product_categories pc on c.category_id = pc.category_id where pc.product_id = p.product_id order by c.category_name for xml path('')), 1, 2, '') as category_names from products p order by p.product_id desc";
+            // 1. read search term from the textbox
+            string searchTerm = txtSearch.Text.Replace("'", "''");
+
+            string query = "select p.product_id, p.product_name, p.description, p.price, p.old_price, p.image_url, p.stock_quantity, stuff((select top 2 ', ' + c.category_name from categories c inner join product_categories pc on c.category_id = pc.category_id where pc.product_id = p.product_id order by c.category_name for xml path('')), 1, 2, '') as category_names from products p where p.is_active = 1"; // using 'is_active' for soft delete
+
+            // 2. add search filter to the query
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query += " and (p.product_name like '%" + searchTerm + "%' or p.description like '%" + searchTerm + "%')";
+            }
+
+            query += " order by p.product_id desc";
+
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -59,7 +71,9 @@ namespace JenStore.admin_panel
             PagedDataSource pg = new PagedDataSource();
             pg.DataSource = ds.Tables[0].DefaultView;
             pg.AllowPaging = true;
-            pg.PageSize = 5;
+            pg.PageSize = 5; 
+
+            
             pg.CurrentPageIndex = Convert.ToInt32(ViewState["Id"]);
 
             lnkPrev.Enabled = !pg.IsFirstPage;
@@ -73,8 +87,15 @@ namespace JenStore.admin_panel
             rptPager.DataSource = pages;
             rptPager.DataBind();
 
-            gvProducts.DataSource = pg;
+            gvProducts.DataSource = pg; 
             gvProducts.DataBind();
+        }
+
+        // 4. new method to handle search
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            ViewState["Id"] = 0;
+            fillGVProducts();
         }
 
         protected void lnkPrev_Click(object sender, EventArgs e)
@@ -115,7 +136,7 @@ namespace JenStore.admin_panel
             }
             else if (e.CommandName == "DeleteProduct")
             {
-                SqlCommand cmd = new SqlCommand("delete from Products where product_id = " + productId, con);
+                SqlCommand cmd = new SqlCommand("update products set is_active = 0 where product_id = " + productId, con);
                 cmd.ExecuteNonQuery();
                 fillGVProducts();
             }
@@ -130,7 +151,7 @@ namespace JenStore.admin_panel
             {
                 return "stock-out-of-stock";
             }
-            if (stock <= 10) 
+            if (stock <= 10)
             {
                 return "stock-low";
             }

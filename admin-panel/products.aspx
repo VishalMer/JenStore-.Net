@@ -258,7 +258,9 @@
                 <!-- Search and Filters -->
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <input type="text" class="search-box" placeholder="Search products...">
+                        <asp:TextBox ID="txtSearch" runat="server" CssClass="search-box" 
+                        placeholder="search products..." AutoPostBack="true" 
+                        OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                     </div>
                     <div class="col-md-6 text-right">
                         <select class="form-control" style="width: auto; display: inline-block;">
