@@ -129,7 +129,6 @@
   <ItemGroup>
     <Content Include="aboutus.aspx" />
     <Content Include="admin-panel\add-edit-product.aspx" />
-    <Content Include="admin-panel\analytics.aspx" />
     <Content Include="admin-panel\categories.aspx" />
     <Content Include="admin-panel\customers.aspx" />
     <Content Include="admin-panel\feedback.aspx" />
@@ -354,20 +353,6 @@
     <Compile Include="admin-panel\add-edit-product.Master.designer.cs">
       <DependentUpon>add-edit-product.Master</DependentUpon>
     </Compile>
-    <Compile Include="admin-panel\analytics.aspx.cs">
-      <DependentUpon>analytics.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin-panel\analytics.aspx.designer.cs">
-      <DependentUpon>analytics.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin-panel\analytics.Master.cs">
-      <DependentUpon>analytics.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin-panel\analytics.Master.designer.cs">
-      <DependentUpon>analytics.Master</DependentUpon>
-    </Compile>
     <Compile Include="admin-panel\categories.aspx.cs">
       <DependentUpon>categories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -382,6 +367,7 @@
     <Compile Include="admin-panel\categories.Master.designer.cs">
       <DependentUpon>categories.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin-panel\ChartModels.cs" />
     <Compile Include="admin-panel\customers.aspx.cs">
       <DependentUpon>customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -722,7 +708,6 @@
     <Content Include="admin-panel\categories.Master" />
     <Content Include="admin-panel\orders.Master" />
     <Content Include="admin-panel\customers.Master" />
-    <Content Include="admin-panel\analytics.Master" />
     <Content Include="admin-panel\order-details.Master" />
     <Content Include="admin-panel\add-edit-product.Master" />
     <Content Include="admin-panel\feedback.Master" />
