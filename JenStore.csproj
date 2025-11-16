@@ -129,6 +129,7 @@
   <ItemGroup>
     <Content Include="aboutus.aspx" />
     <Content Include="admin-panel\add-edit-product.aspx" />
+    <Content Include="admin-panel\analytics.aspx" />
     <Content Include="admin-panel\categories.aspx" />
     <Content Include="admin-panel\customers.aspx" />
     <Content Include="admin-panel\feedback.aspx" />
@@ -353,6 +354,12 @@
     <Compile Include="admin-panel\add-edit-product.Master.designer.cs">
       <DependentUpon>add-edit-product.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin-panel\analytics.aspx.cs">
+      <DependentUpon>analytics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\analytics.aspx.designer.cs">
+      <DependentUpon>analytics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin-panel\categories.aspx.cs">
       <DependentUpon>categories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -463,6 +470,13 @@
     </Compile>
     <Compile Include="admin-panel\products.Master.designer.cs">
       <DependentUpon>products.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin-panel\analytics.Master.cs">
+      <DependentUpon>analytics.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-panel\analytics.Master.designer.cs">
+      <DependentUpon>analytics.Master</DependentUpon>
     </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
@@ -713,6 +727,7 @@
     <Content Include="admin-panel\feedback.Master" />
     <Content Include="notifications.Master" />
     <Content Include="admin-panel\notifications.Master" />
+    <Content Include="admin-panel\analytics.Master" />
     <None Include="packages.config" />
     <Content Include="login_register.Master" />
     <Content Include="sass\bootstrap\mixin-active-bg-menu.scss" />
