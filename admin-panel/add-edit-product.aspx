@@ -236,13 +236,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1><i class="fas fa-edit"></i>Add/Edit Product</h1>
+                        <h1><i class="fas fa-edit"></i> Add/Edit Product</h1>
                         <p class="mb-0" id="page-subtitle">
                             Create a new product for your store
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="products.aspx" class="btn btn-back btn-sm ml-2"><i class="fas fa-arrow-left"></i>Go Back</a><a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="products.aspx" class="btn btn-back btn-sm ml-2"><i class="fas fa-arrow-left"></i> Go Back</a> <a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i> Back to Store </a> <a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i> Logout </a>
                     </div>
                 </div>
             </div>
@@ -253,14 +253,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
-                        <a href="products.aspx" class="nav-link active"><i class="fas fa-box"></i>Products </a>
-                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
-                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
-                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
-                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i>Feedback</a>
-                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i>Notifications</a>
-                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+                        <a href="products.aspx" class="nav-link active"><i class="fas fa-box"></i> Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i> Categories </a>
+                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i> Customers </a>
+                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i> Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i> Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics </a>
                     </div>
                 </div>
             </div>
@@ -313,7 +313,7 @@
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title"><i class="fas fa-dollar-sign"></i>Pricing</h3>
+                            <h3 class="section-title"><i class="fas fa-dollar-sign"></i> Pricing</h3>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -343,14 +343,14 @@
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title"><i class="fas fa-image"></i>Product Image</h3>
+                            <h3 class="section-title"><i class="fas fa-image"></i> Product Image</h3>
                             <asp:FileUpload ID="fileUploadImage" runat="server" CssClass="form-control" />
                             <asp:Image ID="imgPreview" runat="server" CssClass="preview-image" Style="margin-top: 15px;" Visible="false" />
                         </div>
 
                         <div class="form-section">
                             <div class="form-section">
-                                <h3 class="section-title"><i class="fas fa-tags"></i>Categories *</h3>
+                                <h3 class="section-title"><i class="fas fa-tags"></i> Categories *</h3>
                                 <div class="category-checkboxes">
                                     <asp:CheckBoxList ID="cblCategories" runat="server"></asp:CheckBoxList>
                                 </div>

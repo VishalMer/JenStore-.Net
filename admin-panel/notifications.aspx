@@ -427,13 +427,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1><i class="fas fa-bullhorn"></i>Notification </h1>
+                        <h1><i class="fas fa-bullhorn"></i> Notification </h1>
                         <p class="mb-0">
                             Send notifications and manage user communications
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.aspx" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="../home.aspx" class="btn btn-store btn-sm"><i class="fas fa-home"></i> Back to Store </a> <a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i> Logout </a>
                     </div>
                 </div>
             </div>
@@ -445,14 +445,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="col-12">
-                            <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
-                            <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a>
-                            <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
-                            <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
-                            <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
-                            <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i>Feedback</a>
-                            <a href="notifications.aspx" class="nav-link active"><i class="fas fa-bullhorn"></i>Notifications</a>
-                            <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                            <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+                            <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i> Products </a>
+                            <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i> Categories </a>
+                            <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders </a>
+                            <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i> Customers </a>
+                            <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i> Feedback</a>
+                            <a href="notifications.aspx" class="nav-link active"><i class="fas fa-bullhorn"></i> Notifications</a>
+                            <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics </a>
                         </div>
                     </div>
                 </div>
@@ -504,7 +504,7 @@
 
                     <asp:Panel ID="pnlSend" runat="server" CssClass="tab-content active">
                         <div class="form-section">
-                            <h3><i class="fas fa-paper-plane"></i>Send New Notification</h3>
+                            <h3><i class="fas fa-paper-plane"></i> Send New Notification</h3>
                             <asp:Label ID="lblStatus" runat="server" Visible="false" />
                             <div class="row">
                                 <div class="col-md-12">
@@ -545,7 +545,7 @@
 
                     <asp:Panel ID="pnlTemplates" runat="server" CssClass="tab-content">
                         <div class="template-section">
-                            <h3><i class="fas fa-file-alt"></i>Notification Templates</h3>
+                            <h3><i class="fas fa-file-alt"></i> Notification Templates</h3>
                             <p>Select a template to quickly create notifications</p>
                             <div class="template-grid">
                                 <%-- This Repeater will load your templates --%>
@@ -564,7 +564,7 @@
 
                     <asp:Panel ID="pnlHistory" runat="server" CssClass="tab-content">
                         <div class="notification-history">
-                            <h3><i class="fas fa-history"></i>Notification History</h3>
+                            <h3><i class="fas fa-history"></i> Notification History</h3>
                             <asp:Repeater ID="rptHistory" runat="server">
                                 <ItemTemplate>
                                     <div class="history-item">

@@ -414,13 +414,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1><i class="fas fa-file-alt"></i>Order Details</h1>
+                        <h1><i class="fas fa-file-alt"></i> Order Details</h1>
                         <p class="mb-0" id="orderIdDisplay">
                             Viewing order details
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="orders.aspx" class="btn btn-back btn-sm ml-2"><i class="fas fa-arrow-left"></i>Back to Orders</a> <a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="orders.aspx" class="btn btn-back btn-sm ml-2"><i class="fas fa-arrow-left"></i> Back to Orders</a> <a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i> Back to Store </a> <a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i> Logout </a>
                     </div>
                 </div>
             </div>
@@ -431,7 +431,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a><a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a><a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a><a href="orders.aspx" class="nav-link active"><i class="fas fa-shopping-cart"></i>Orders </a><a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a><a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+                        <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i> Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i> Categories </a>
+                        <a href="orders.aspx" class="nav-link active"><i class="fas fa-shopping-cart"></i> Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i> Customers </a>
+                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i> Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i> Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics </a>
                     </div>
                 </div>
             </div>
@@ -445,17 +452,17 @@
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col-md-6">
-                            <h2><i class="fas fa-file-alt"></i>Order Details</h2>
+                            <h2><i class="fas fa-file-alt"></i> Order Details</h2>
                             <p class="mb-0">
                                 Complete information about this order
                             </p>
                         </div>
                         <div class="col-md-6 text-right">
                             <button class="btn btn-outline-primary btn-sm">
-                                <i class="fas fa-print"></i>Print Order
+                                <i class="fas fa-print"></i> Print Order
                             </button>
                             <button class="btn btn-outline-success btn-sm ml-2">
-                                <i class="fas fa-envelope"></i>Email Customer
+                                <i class="fas fa-envelope"></i> Email Customer
                             </button>
                         </div>
                     </div>
@@ -466,7 +473,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title"><i class="fas fa-edit"></i>Update Order Status</h5>
+                                <h5 class="modal-title"><i class="fas fa-edit"></i> Update Order Status</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -525,7 +532,7 @@
 
                 <!-- Products Ordered -->
                 <div class="products-section">
-                    <h3 class="section-title"><i class="fas fa-box"></i>Products Ordered</h3>
+                    <h3 class="section-title"><i class="fas fa-box"></i> Products Ordered</h3>
                     <asp:DataList ID="dlProducts" runat="server" Width="100%" RepeatLayout="Flow">
                         <ItemTemplate>
                             <div class="product-item">
@@ -547,7 +554,7 @@
 
                 <!-- Customer Information -->
                 <div class="customer-section">
-                    <h3 class="section-title"><i class="fas fa-user"></i>Customer Information</h3>
+                    <h3 class="section-title"><i class="fas fa-user"></i> Customer Information</h3>
                     <div class="customer-info">
                         <div class="info-item">
                             <div class="info-label">Customer Name</div>
@@ -570,7 +577,7 @@
 
                 <!-- Billing Information -->
                 <div class="shipping-section">
-                    <h3 class="section-title"><i class="fas fa-file-invoice"></i>Billing Information</h3>
+                    <h3 class="section-title"><i class="fas fa-file-invoice"></i> Billing Information</h3>
                     <div class="customer-info">
                         <div class="info-item">
                             <div class="info-label">Billing Address</div>
@@ -585,7 +592,7 @@
 
                 <!-- Order Summary -->
                 <div class="order-summary">
-                    <h3 class="section-title"><i class="fas fa-calculator"></i>Order Summary</h3>
+                    <h3 class="section-title"><i class="fas fa-calculator"></i> Order Summary</h3>
                     <div class="summary-row">
                         <span>Subtotal</span>
                         <asp:Label ID="lblSubtotal" runat="server"></asp:Label>
@@ -602,12 +609,12 @@
 
                 <!-- Action Buttons -->
                 <div class="action-buttons">
-                    <h3 class="section-title"><i class="fas fa-cogs"></i>Actions</h3>
+                    <h3 class="section-title"><i class="fas fa-cogs"></i> Actions</h3>
                     <div class="btn-group">
                         <asp:Button ID="btnUpdateStatus" runat="server" Text="Update Status" CssClass="btn btn-primary" OnClick="btnUpdateStatus_Click" />
                         <asp:Button ID="btnMarkShipped" runat="server" Text="Mark as Shipped" CssClass="btn btn-success" CommandName="Shipped" OnClick="btnQuickStatus_Click" />
                         <asp:Button ID="btnCancelOrder" runat="server" Text="Cancel Order" CssClass="btn btn-danger" CommandName="Cancelled" OnClick="btnQuickStatus_Click" OnClientClick="return confirm('are you sure you want to cancel this order?');" />
-                        <a class="btn btn-info" href="orders.aspx"><i class="fas fa-list"></i>All Orders</a>
+                        <a class="btn btn-info" href="orders.aspx"><i class="fas fa-list"></i> All Orders</a>
                     </div>
                 </div>
             </div>

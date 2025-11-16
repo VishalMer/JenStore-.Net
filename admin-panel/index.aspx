@@ -245,13 +245,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1><i class="fas fa-tachometer-alt"></i>JenStore Admin Panel</h1>
+                        <h1><i class="fas fa-tachometer-alt"></i> JenStore Admin Panel</h1>
                         <p class="mb-0">
                             <asp:Label ID="lblWelcomeMessage" runat="server" Text="Label"></asp:Label>
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.aspx" target="_blank" class="btn btn-store btn-sm"><i class="fas fa-home"></i>Back to Store </a><%--class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>--%><asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
+                        <a href="../home.aspx" target="_blank" class="btn btn-store btn-sm"><i class="fas fa-home"></i> Back to Store </a> <asp:LinkButton ID="LinkButton1" CssClass="btn btn-logout btn-sm ml-2" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-sign-out-alt"></i> Logout</asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -262,14 +262,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link active"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
-                        <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i>Products </a>
-                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
-                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
-                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
-                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i>Feedback</a>
-                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i>Notifications</a>
-                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+                        <a href="products.aspx" class="nav-link"><i class="fas fa-box"></i> Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i> Categories </a>
+                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i> Customers </a>
+                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i> Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i> Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics </a>
                     </div>
                 </div>
             </div>
@@ -338,7 +338,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="chart-container">
-                            <h4><i class="fas fa-chart-bar"></i>Sales Overview </h4>
+                            <h4><i class="fas fa-chart-bar"></i> Sales Overview </h4>
 
                             <div class="chart-placeholder">
                                 <canvas id="salesChart"></canvas>
@@ -347,7 +347,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="recent-orders">
-                            <h4><i class="fas fa-clock"></i>Recent Orders</h4>
+                            <h4><i class="fas fa-clock"></i> Recent Orders</h4>
 
                             <asp:GridView ID="gvRecentOrders" runat="server"
                                 AutoGenerateColumns="False"
@@ -399,7 +399,7 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="chart-container">
-                            <h4><i class="fas fa-bolt"></i>Quick Actions</h4>
+                            <h4><i class="fas fa-bolt"></i> Quick Actions</h4>
                             <div class="row">
                                 <div class="col-md-3 col-sm-6 text-center mb-3">
                                     <a href="add-edit-product.aspx" class="btn btn-success btn-lg btn-block"><i class="fas fa-plus"></i>

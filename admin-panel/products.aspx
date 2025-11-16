@@ -207,13 +207,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1><i class="fas fa-box"></i>Product Management</h1>
+                        <h1><i class="fas fa-box"></i> Product Management</h1>
                         <p class="mb-0">
                             Manage your store's product inventory
                         </p>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i>Back to Store </a><a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i>Logout </a>
+                        <a href="../home.aspx" class="btn btn-store btn-sm ml-2"><i class="fas fa-home"></i> Back to Store </a> <a href="../login_register.aspx" class="btn btn-logout btn-sm ml-2"><i class="fas fa-sign-out-alt"></i> Logout </a>
                     </div>
                 </div>
             </div>
@@ -224,14 +224,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
-                        <a href="products.aspx" class="nav-link active"><i class="fas fa-box"></i>Products </a>
-                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i>Categories </a>
-                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i>Orders </a>
-                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i>Customers </a>
-                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i>Feedback</a>
-                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i>Notifications</a>
-                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i>Analytics </a>
+                        <a href="index.aspx" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+                        <a href="products.aspx" class="nav-link active"><i class="fas fa-box"></i> Products </a>
+                        <a href="categories.aspx" class="nav-link"><i class="fas fa-tags"></i> Categories </a>
+                        <a href="orders.aspx" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders </a>
+                        <a href="customers.aspx" class="nav-link"><i class="fas fa-users"></i> Customers </a>
+                        <a href="feedback.aspx" class="nav-link"><i class="fas fa-comments"></i> Feedback</a>
+                        <a href="notifications.aspx" class="nav-link"><i class="fas fa-bullhorn"></i> Notifications</a>
+                        <a href="analytics.aspx" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics </a>
                     </div>
                 </div>
             </div>
@@ -244,13 +244,13 @@
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col-md-6">
-                            <h2><i class="fas fa-box"></i>Products</h2>
+                            <h2><i class="fas fa-box"></i> Products</h2>
                             <p class="mb-0">
                                 Manage your product catalog
                             </p>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="add-edit-product.aspx" class="btn btn-success btn-lg"><i class="fas fa-plus"></i>Add New Product </a>
+                            <a href="add-edit-product.aspx" class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Add New Product </a>
                         </div>
                     </div>
                 </div>
