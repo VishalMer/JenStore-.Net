@@ -276,9 +276,13 @@
     <Content Include="img\user_img\115x115.jpg" />
     <Content Include="img\user_img\admin1.jpg" />
     <Content Include="img\user_img\admin2.jpg" />
+    <Content Include="img\user_img\admin2pr.jpg" />
     <Content Include="img\user_img\admin3.jpg" />
     <Content Include="img\user_img\Rahul.jpg" />
     <Content Include="img\user_img\reference.jpg" />
+    <Content Include="img\user_img\User PP 1.jpeg" />
+    <Content Include="img\user_img\User PP 2.jpeg" />
+    <Content Include="img\user_img\User PP 3.jpeg" />
     <Content Include="js\bootstrap.min_0028.js" />
     <Content Include="js\edit-profile.js" />
     <Content Include="js\function-back-top.js" />

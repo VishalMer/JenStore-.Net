@@ -331,6 +331,7 @@
                 .template-card:hover {
                     border-color: #667eea;
                     box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+                    text-decoration:none;
                 }
 
                 .template-card.selected {
@@ -413,6 +414,10 @@
                 font-weight: 500; /* Makes the text match your screenshot */
                 margin-left: 8px; /* Adds a little space after the checkbox */
                 vertical-align: middle;
+            }
+            .tab-button:hover{
+                text-decoration: none;
+                color:#667eea;
             }
         </style>
     </head>

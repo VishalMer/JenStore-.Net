@@ -220,10 +220,10 @@
                         </p>
                         <div class="media">
                             <div class="media-left">
-                                <img src="img/user_img/admin2.PNG" id="avatar" class="media-object" alt="img-holiwood" height="110px">
+                                <img src="img/user_img/admin2pr.JPG" id="avatar" class="media-object" alt="img-holiwood" height="110px">
                             </div>
                             <div class="media-body">
-                                <h3>Rahul Zapadiya</h3>
+                                <h3>Vishal Mer</h3>
                                 <span>Founder</span>
                             </div>
                         </div>

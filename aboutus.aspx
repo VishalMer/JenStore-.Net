@@ -121,7 +121,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="img/user_img/admin1.JPG" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
+                                        <img src="img/user_img/admin2pr.JPG" alt="img-holiwood" style="height: 115px; width: 115px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <h1>WELCOME</h1>
@@ -269,7 +269,7 @@
                                     into electronic typesetting, remaining essentially unchanged
                                 </p>
                                 <div class="img-customer">
-                                    <img src="../img/115x115.png" alt="img-holiwood">
+                                    <img src="img/user_img/User PP 1.jpeg" alt="img-holiwood" height="100px">
                                     <h1>JUDY BEAUTY - <span>Customers</span></h1>
                                 </div>
                             </div>
@@ -282,7 +282,7 @@
                                     into electronic typesetting, remaining essentially unchanged
                                 </p>
                                 <div class="img-customer">
-                                    <img src="../img/115x115.png" alt="img-holiwood">
+                                    <img src="img/user_img/User PP 2.jpeg" alt="img-holiwood" height="100px">
                                     <h1>JUDY BEAUTY - <span>Customers</span></h1>
                                 </div>
                             </div>
@@ -295,7 +295,7 @@
                                     into electronic typesetting, remaining essentially unchanged
                                 </p>
                                 <div class="img-customer">
-                                    <img src="../img/115x115.png" alt="img-holiwood">
+                                    <img src="img/user_img/User PP 3.jpeg" alt="img-holiwood" height="100px">
                                     <h1>JUDY BEAUTY - <span>Customers</span></h1>
                                 </div>
                             </div>
